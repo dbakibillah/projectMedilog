@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1300.0" stylesheets="@../../../Style/Home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.pHomeController">
+   <children>
+      <Pane fx:id="homePane" prefHeight="800.0" prefWidth="250.0">
+         <children>
+            <VBox layoutX="1.0" layoutY="267.0" prefHeight="517.0" prefWidth="249.0">
+               <children>
+                  <Button fx:id="Dashboard_btn" mnemonicParsing="false" onAction="#onDashboard_btnClick" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Dashboard">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/dashboard.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Appointment_btn" mnemonicParsing="false" onAction="#onClickAppointment_btn" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Appointments">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/schedule.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Prescriptions">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/prescription.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Medical Records">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/medical-report.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Chat">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/chat.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Forum">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/discussion.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Blogs">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/blogging.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Blood Request">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/blood-donation.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Settings">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/settings.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="10.0" />
+               </opaqueInsets>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="237.0" prefWidth="250.0">
+               <children>
+                  <Circle fill="DODGERBLUE" radius="79.0" stroke="BLACK" strokeType="INSIDE">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Circle>
+                  <Label text="UserName">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets top="50.0" />
+               </opaqueInsets>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane fx:id="HomePane2" layoutX="250.0" prefHeight="800.0" prefWidth="1050.0">
+         <children>
+            <Label layoutY="8.0" text="Dashboard">
+               <padding>
+                  <Insets left="20.0" top="20.0" />
+               </padding>
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <HBox layoutX="14.0" layoutY="72.0" prefHeight="100.0" prefWidth="1016.0">
+               <children>
+                  <ImageView fitHeight="218.0" fitWidth="294.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/DoctorsDash.gif" />
+                     </image>
+                  </ImageView>
+                  <Pane prefHeight="218.0" prefWidth="432.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Welcome back">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="userLabel" layoutX="12.0" layoutY="49.0" text="Username" textFill="#0766e1">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="92.0" prefHeight="35.0" prefWidth="420.0" text="We look forward to providing you with personalized,">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="121.0" text="comprehensive health care focusing on wellness and prevention.">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <HBox layoutX="14.0" layoutY="290.0" prefHeight="115.0" prefWidth="1037.0" style="-fx-background-color: #1260cc;">
+               <children>
+                  <Pane prefHeight="115.0" prefWidth="345.0" style="-fx-background-color: white;">
+                     <children>
+                        <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/blood-donation.png" />
+                           </image>
+                        </ImageView>
+                        <Text layoutX="154.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blood Pressure" wrappingWidth="169.744140625">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Label alignment="TOP_RIGHT" layoutX="154.0" layoutY="58.0" prefHeight="27.0" prefWidth="170.0" text="120/80">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="4.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane prefHeight="115.0" prefWidth="345.0" style="-fx-background-color: white;">
+                     <children>
+                        <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/heart.png" />
+                           </image>
+                        </ImageView>
+                        <Text layoutX="197.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heart Beat" wrappingWidth="126.744140625">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Label alignment="TOP_RIGHT" layoutX="189.0" layoutY="58.0" prefWidth="127.0" text="75">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <padding>
+                              <Insets right="2.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets right="4.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane prefHeight="115.0" prefWidth="338.0" style="-fx-background-color: white;">
+                     <children>
+                        <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/glucometer.png" />
+                           </image>
+                        </ImageView>
+                        <Text layoutX="169.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Glucose Level" wrappingWidth="159.8730468750001">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Label alignment="TOP_RIGHT" layoutX="185.0" layoutY="58.0" prefWidth="127.0" text="85-110">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+            <HBox layoutX="14.0" layoutY="404.0" prefHeight="395.0" prefWidth="1016.0">
+               <children>
+                  <Pane prefHeight="313.0" prefWidth="537.0">
+                     <children>
+                        <LineChart layoutX="-25.0" layoutY="32.0" prefHeight="363.0" prefWidth="566.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </LineChart>
+                        <Label alignment="CENTER" layoutX="3.0" layoutY="-1.0" prefHeight="40.0" prefWidth="537.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="367.0" prefWidth="479.0">
+                     <children>
+                        <Label alignment="CENTER" layoutX="7.0" layoutY="7.0" prefHeight="35.0" prefWidth="465.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <TableView layoutX="14.0" layoutY="42.0" prefHeight="331.0" prefWidth="479.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="C1" />
+                              <TableColumn prefWidth="75.0" text="C2" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+         <opaqueInsets>
+            <Insets top="50.0" />
+         </opaqueInsets>
+      </Pane>
+   </children>
+</AnchorPane>
