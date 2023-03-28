@@ -53,7 +53,7 @@ public class signUpController {
         pst.setString(5,phone);
         pst.executeUpdate();
     } catch (SQLException e) {
-            // print SQL exception information
+            // print SQL exception information.
             System.out.println(e);
         }
     }
