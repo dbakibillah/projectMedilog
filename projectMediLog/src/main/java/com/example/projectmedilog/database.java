@@ -12,7 +12,7 @@ public class database {
 
     public static Connection dbconnect() throws ClassNotFoundException, SQLException {
 
-        Class.forName("com.mysql.jdbc.Driver");
+        //Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectmedilog","root","");
         return conn;
     }
