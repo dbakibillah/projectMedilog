@@ -18,7 +18,7 @@
    <left>
       <AnchorPane prefHeight="720.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="621.0" fitWidth="699.0" layoutX="41.0" layoutY="140.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="621.0" fitWidth="699.0" layoutX="51.0" layoutY="90.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/Sign%20up.gif" />
                </image>
@@ -29,18 +29,21 @@
    <center>
       <AnchorPane prefHeight="900.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <children>
-            <TextField layoutX="375.0" layoutY="306.0" promptText="Sur Name*" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <PasswordField layoutX="160.0" layoutY="465.0" promptText="Password*" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField layoutX="158.0" layoutY="381.0" promptText="Email*" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="TF_FirstName" layoutX="158.0" layoutY="306.0" promptText="First Name*" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField fx:id="TF_pass" layoutX="160.0" layoutY="465.0" promptText="Password*" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="TF_email" layoutX="158.0" layoutY="381.0" promptText="Email*" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
             <Text fill="#0598ff" layoutX="161.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign Up" wrappingWidth="116.27703857421875">
                <font>
                   <Font name="System Bold" size="21.0" />
                </font>
             </Text>
-            <TextField layoutX="159.0" layoutY="306.0" promptText="First Name*" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="TF_LastName" layoutX="372.0" layoutY="306.0" promptText="Last Name*" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
             <DatePicker layoutX="367.0" layoutY="471.0" promptText="Date Of Birth" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
-            <Button layoutX="299.0" layoutY="636.0" mnemonicParsing="false" text="Sign Up" textFill="#0598ff" />
-            <TextField layoutX="375.0" layoutY="382.0" promptText="Contact No.*" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+            <Button fx:id="BTN_signup" layoutX="265.0" layoutY="624.0" mnemonicParsing="false" onAction="#onBTNsignupClicked" prefHeight="39.0" prefWidth="119.0" style="-fx-background-color: #1260cc;" text="Sign Up" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font></Button>
+            <TextField fx:id="TF_phone" layoutX="375.0" layoutY="382.0" promptText="Contact No.*" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
             <RadioButton layoutX="241.0" layoutY="558.0" mnemonicParsing="false" text="Male" />
             <RadioButton layoutX="312.0" layoutY="558.0" mnemonicParsing="false" text="Female" />
             <Text fill="#0598ff" layoutX="166.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender">

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.dHomeController">
+   <children>
+      <Pane fx:id="homePane" layoutY="5.0" prefHeight="800.0" prefWidth="250.0">
+         <children>
+            <VBox layoutX="1.0" layoutY="267.0" prefHeight="534.0" prefWidth="249.0" stylesheets="@../../../Style/Home.css">
+               <children>
+                  <Button fx:id="Dashboard_btn" mnemonicParsing="false" onAction="#onDashboard_btnClick" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" stylesheets="@../../../Style/Home.css" text="  Dashboard">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/dashboard.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Appointment_btn" mnemonicParsing="false" onAction="#onClickAppointment_btn" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Appointments">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/schedule.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Prescriptions">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/prescription.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Chat">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/chat.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Forum">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/discussion.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Blogs">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/blogging.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Blood Request">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/blood-donation.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Settings">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/settings.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <opaqueInsets>
+                  <Insets bottom="10.0" />
+               </opaqueInsets>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="237.0" prefWidth="250.0">
+               <children>
+                  <Circle fill="DODGERBLUE" radius="79.0" stroke="BLACK" strokeType="INSIDE">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Circle>
+                  <Label text="UserName">
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets top="50.0" />
+               </opaqueInsets>
+            </VBox>
+         </children>
+      </Pane>
+      <AnchorPane layoutX="250.0" layoutY="3.0" prefHeight="800.0" prefWidth="1050.0">
+         <children>
+            <HBox alignment="TOP_CENTER" layoutY="86.0" prefHeight="200.0" prefWidth="1050.0" spacing="5.0" style="-fx-background-color: #1260cc;">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
+                     <children>
+                        <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Label alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="65.0" fitWidth="62.0" layoutX="14.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/calendar.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
+                     <children>
+                        <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Today's Operation">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Label alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="70.0" fitWidth="62.0" layoutX="14.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/surgeon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </Pane>
+                  <Pane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
+                     <children>
+                        <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Text>
+                        <Label alignment="CENTER_RIGHT" layoutX="121.0" layoutY="80.0" prefHeight="35.0" prefWidth="208.0" text="Label">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="82.0" fitWidth="71.0" layoutX="14.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/prioritize.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+            <TableView layoutX="14.0" layoutY="337.0" prefHeight="461.0" prefWidth="679.0">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="C1" />
+                  <TableColumn prefWidth="75.0" text="C2" />
+               </columns>
+            </TableView>
+            <Text layoutX="277.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments" wrappingWidth="152.37890625">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
