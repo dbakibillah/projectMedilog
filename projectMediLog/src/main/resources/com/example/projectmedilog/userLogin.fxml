@@ -9,13 +9,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <AnchorPane prefHeight="800.0" prefWidth="640.0" style="-fx-background-color: #ffffff;">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.userLoginController">
+   <left>
+      <AnchorPane prefHeight="800.0" prefWidth="640.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="541.0" fitWidth="515.0" layoutX="63.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -24,23 +24,22 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="659.0" prefHeight="800.0" prefWidth="641.0" style="-fx-background-color: #FFFFFF;">
+   </left>
+   <right>
+      <AnchorPane prefHeight="800.0" prefWidth="641.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <children>
             <TextField layoutX="238.0" layoutY="373.0" prefHeight="33.0" prefWidth="255.0" promptText="User Name" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="238.0" AnchorPane.rightAnchor="147.0" AnchorPane.topAnchor="373.0">
                <font>
                   <Font size="15.0" />
-               </font>
-            </TextField>
+               </font></TextField>
             <PasswordField layoutX="237.0" layoutY="433.0" prefHeight="33.0" prefWidth="257.0" promptText="Password" style="-fx-background-color: transpare; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="146.0" AnchorPane.topAnchor="433.0">
                <font>
                   <Font size="15.0" />
-               </font>
-            </PasswordField>
+               </font></PasswordField>
             <Hyperlink layoutX="252.0" layoutY="701.0" text="Forgot Your Password?">
                <font>
                   <Font name="Arial" size="15.0" />
-               </font>
-            </Hyperlink>
+               </font></Hyperlink>
             <Text fill="#0598ff" layoutX="250.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login" wrappingWidth="160.513671875">
                <font>
                   <Font size="30.0" />
@@ -49,28 +48,23 @@
             <Label layoutX="237.0" layoutY="583.0" prefHeight="38.0" prefWidth="118.0" text="need an account?">
                <font>
                   <Font size="15.0" />
-               </font>
-            </Label>
+               </font></Label>
             <RadioButton layoutX="161.0" layoutY="275.0" mnemonicParsing="false" text="Admin">
                <font>
                   <Font size="15.0" />
-               </font>
-            </RadioButton>
+               </font></RadioButton>
             <RadioButton layoutX="300.0" layoutY="275.0" mnemonicParsing="false" text="Doctor">
                <font>
                   <Font size="15.0" />
-               </font>
-            </RadioButton>
+               </font></RadioButton>
             <RadioButton layoutX="445.0" layoutY="275.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="66.0" text="User">
                <font>
                   <Font size="15.0" />
-               </font>
-            </RadioButton>
+               </font></RadioButton>
             <Button layoutX="284.0" layoutY="513.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="93.0" style="-fx-background-color: #0598ff;" text="Login">
                <font>
                   <Font size="15.0" />
-               </font>
-            </Button>
+               </font></Button>
             <ImageView fitHeight="129.0" fitWidth="142.0" layoutX="256.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../../images/connections.png" />
@@ -93,5 +87,5 @@
             </Hyperlink>
          </children>
       </AnchorPane>
-   </children>
-</AnchorPane>
+   </right>
+</BorderPane>
