@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1050.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.SettingsController">
+   <children>
+      <Text layoutX="59.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Settings" wrappingWidth="196.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TF_firstname" layoutX="80.0" layoutY="84.0" prefHeight="45.0" prefWidth="350.0" promptText="First Name" style="-fx-background-color: transpare; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="TF_lastname" layoutX="553.0" layoutY="84.0" prefHeight="45.0" prefWidth="350.0" promptText="Last Name" style="-fx-background-color: transpare; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="TF_username" layoutX="80.0" layoutY="162.0" prefHeight="45.0" prefWidth="350.0" promptText="User Name" style="-fx-background-color: Transpose; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="TF_currentpass" layoutX="80.0" layoutY="240.0" prefHeight="45.0" prefWidth="350.0" promptText="Current Password" style="-fx-background-color: transpose; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="TF_newpass" layoutX="553.0" layoutY="240.0" prefHeight="45.0" prefWidth="350.0" promptText="New Password" style="-fx-background-color: transpose; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="TF_email" layoutX="80.0" layoutY="317.0" prefHeight="45.0" prefWidth="350.0" promptText="Email" style="-fx-background-color: transpose; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="TF_address" layoutX="80.0" layoutY="523.0" prefHeight="55.0" prefWidth="822.0" promptText="Address" style="-fx-background-color: transpose; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="TF_mobile" layoutX="553.0" layoutY="317.0" prefHeight="45.0" prefWidth="350.0" promptText="Moblle" style="-fx-background-color: transpose; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
+      <Button fx:id="BTN_save" layoutX="449.0" layoutY="655.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="103.0" style="-fx-background-color: #0598ff;" text="Save Change" textFill="WHITE" />
+      <DatePicker fx:id="DP_birth" layoutX="80.0" layoutY="428.0" prefHeight="45.0" prefWidth="350.0" promptText="Date of Birth" style="-fx-background-color: tranpose; -fx-border-color: #0598ff;" />
+      <ChoiceBox fx:id="CB_bloodgrp" layoutX="697.0" layoutY="427.0" prefHeight="46.0" prefWidth="196.0" style="-fx-background-color: transpose; -fx-border-color: #0598ff;" />
+      <Label layoutX="570.0" layoutY="427.0" prefHeight="46.0" prefWidth="126.0" style="-fx-background-color: transpose;" text="Blood group">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
