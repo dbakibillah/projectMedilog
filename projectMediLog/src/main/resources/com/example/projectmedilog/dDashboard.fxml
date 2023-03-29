@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.dDashboardController">
+   <children>
+      <HBox alignment="TOP_CENTER" layoutY="86.0" prefHeight="200.0" prefWidth="1050.0" spacing="5.0" style="-fx-background-color: #1260cc;">
+         <children>
+            <Pane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
+               <children>
+                  <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Label alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="65.0" fitWidth="62.0" layoutX="14.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/calendar.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
+               <children>
+                  <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Today's Operation">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Label alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="70.0" fitWidth="62.0" layoutX="14.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/surgeon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <padding>
+                  <Insets right="10.0" />
+               </padding>
+            </Pane>
+            <Pane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
+               <children>
+                  <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Label alignment="CENTER_RIGHT" layoutX="121.0" layoutY="80.0" prefHeight="35.0" prefWidth="208.0" text="Label">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="82.0" fitWidth="71.0" layoutX="14.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/prioritize.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+      <TableView layoutX="14.0" layoutY="337.0" prefHeight="461.0" prefWidth="679.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+      <Text layoutX="277.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments" wrappingWidth="152.37890625">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
