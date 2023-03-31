@@ -7,12 +7,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class signUpApp extends Application{
-    @Override
+public class okayApp extends Application {
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(signUpApp.class.getResource("SignUp.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(signUpApp.class.getResource("okay.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Signup");
+        stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
     }

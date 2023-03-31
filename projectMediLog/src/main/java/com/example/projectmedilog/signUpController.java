@@ -2,59 +2,129 @@ package com.example.projectmedilog;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import java.sql.Connection;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.*;
 
 public class signUpController {
     @FXML
     private Button BTN_signup;
-
+    @FXML
+    private RadioButton RB_female;
+    @FXML
+    private RadioButton RB_male;
+    @FXML
+    private RadioButton RB_others;
     @FXML
     private TextField TF_FirstName;
-
     @FXML
     private TextField TF_LastName;
-
+    @FXML
+    private TextField TF_age;
     @FXML
     private TextField TF_email;
-
     @FXML
     private PasswordField TF_pass;
-
     @FXML
     private TextField TF_phone;
+    @FXML
+    private ToggleGroup gender;
+    @FXML
+    private Hyperlink login;
+    @FXML
+    private AnchorPane signUpPage;
 
+    @FXML
+    void gotoLogin(ActionEvent event) throws IOException {
+        AnchorPane loginPage = FXMLLoader.load(getClass().getResource("userLogin.fxml"));
+        signUpPage.getChildren().setAll(loginPage);
+    }
+
+    private String Gender;
+    private int count = 0;
+
+    @FXML
+    void selectGender(ActionEvent event) {
+        //Collecting gender information
+        if (RB_male.isSelected())
+            this.Gender = "Male";
+        else if (RB_female.isSelected())
+            this.Gender = "Female";
+        else if (RB_others.isSelected())
+            this.Gender = "Others";
+    }
 
     @FXML
     void onBTNsignupClicked(ActionEvent event) throws SQLException, ClassNotFoundException {
         String FirstName = TF_FirstName.getText();
         String LastName = TF_LastName.getText();
+        String Gender = this.Gender;
+        String Age = TF_age.getText();
+        String Phone = TF_phone.getText();
         String Email = TF_email.getText();
-        String pass = TF_pass.getText();
-        String phone = TF_phone.getText();
+        String Pass = TF_pass.getText();
 
-        Patient p =new Patient(FirstName,LastName,Email,pass,phone);
+        //Checking already signed up or not
+        Connection connection = database.dbconnect();
+        Statement statement = connection.createStatement();
 
-        // Statement statement = connection.createStatement();
-        // statement.executeUpdate(p.toString());
+        ResultSet resultSet = statement.executeQuery("select * from signup");
+        while (resultSet.next()) {
+            if (resultSet.getString("Email").equals(Email)) {
+                System.out.println("Already signed up");
+                count++;
+                break;
+            }
+        }
 
-        try (
-                Connection connection = database.dbconnect();
-                PreparedStatement pst = connection.prepareStatement("insert into signup(firstname,lastname,email,pass,phone) values(?,?,?,?,?)")
-        ){
-        pst.setString(1,FirstName);
-        pst.setString(2,LastName);
-        pst.setString(3,Email);
-        pst.setString(4,pass);
-        pst.setString(5,phone);
-        pst.executeUpdate();
-    } catch (SQLException e) {
-            // print SQL exception information.
-            System.out.println(e);
+
+        //Writing data to mysql: "projectmedilog -> signup"
+        if (count == 0) {
+            try (
+                    PreparedStatement pst = connection.prepareStatement("insert into signup(FirstName, LastName, Gender, Age, Phone, Email, Pass) values(?, ?, ?, ?, ?, ?, ?)")
+            ) {
+                pst.setString(1, FirstName);
+                pst.setString(2, LastName);
+                pst.setString(3, Gender);
+                pst.setString(4, Age);
+                pst.setString(5, Phone);
+                pst.setString(6, Email);
+                pst.setString(7, Pass);
+                pst.executeUpdate();
+
+                // go to okay.fxml
+
+//                FXMLLoader loader = new FXMLLoader(getClass().getResource("okay.fxml"));
+//                Parent root = loader.load();
+//                okayController okay = loader.getController();
+//                okay.okaySignup("Signup Successful...");
+//                Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
+//                secondStage.setScene(new Scene(root));
+
+
+
+            } catch (SQLException e) {
+                System.out.println(e);
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+            }
+
         }
     }
+
+
 }

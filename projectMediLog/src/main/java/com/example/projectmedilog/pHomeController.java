@@ -45,6 +45,4 @@ public class pHomeController {
     void onClickLogout(ActionEvent event) {
 
     }
-
-
 }
