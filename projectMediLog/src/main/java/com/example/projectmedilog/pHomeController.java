@@ -23,4 +23,23 @@ public class pHomeController {
         Pane DashboardPane = FXMLLoader.load(getClass().getResource("pDashboard.fxml"));
         HomePane2.getChildren().setAll(DashboardPane);
     }
+
+    @FXML
+    void onClickPrescription(ActionEvent event) {
+
+    }
+    @FXML
+    void onCLickMedicalRecords(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickSettings(ActionEvent event) throws IOException{
+        Pane SettingPane = FXMLLoader.load(getClass().getResource("Settings.fxml"));
+        HomePane2.getChildren().setAll(SettingPane);
+    }
+    @FXML
+    void onClickLogout(ActionEvent event) {
+
+    }
 }

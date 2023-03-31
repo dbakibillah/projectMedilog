@@ -3,7 +3,6 @@ package com.example.projectmedilog;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 public class SettingsController {
@@ -15,10 +14,10 @@ public class SettingsController {
     private ChoiceBox<?> CB_bloodgrp;
 
     @FXML
-    private DatePicker DP_birth;
+    private TextField TF_address;
 
     @FXML
-    private TextField TF_address;
+    private TextField TF_age;
 
     @FXML
     private TextField TF_currentpass;
