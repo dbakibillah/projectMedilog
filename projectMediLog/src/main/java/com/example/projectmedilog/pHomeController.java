@@ -79,7 +79,6 @@ public class pHomeController {
         Pane_HB.setBackground(Background.fill(Color.web("95BDFF")));
 
     }
-<<<<<<< HEAD
 
     @FXML
     void onMouseExited_HB(MouseEvent event) {
@@ -112,5 +111,4 @@ public class pHomeController {
         pHomeAnchor.getChildren().setAll(loginPage);
     }
 }
-=======
->>>>>>> 3b170d7bd4a026736f62271dfda84be5a1d628da
+
