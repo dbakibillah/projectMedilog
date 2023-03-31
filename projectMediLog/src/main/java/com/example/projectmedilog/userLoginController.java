@@ -10,7 +10,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
