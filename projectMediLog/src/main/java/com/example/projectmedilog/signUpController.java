@@ -67,7 +67,7 @@ public class signUpController {
     }
 
     @FXML
-    void onBTNsignupClicked(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void onBTNsignupClicked(ActionEvent event) throws SQLException, ClassNotFoundException, IOException, InterruptedException {
         String FirstName = TF_FirstName.getText();
         String LastName = TF_LastName.getText();
         String Gender = this.Gender;
@@ -80,18 +80,20 @@ public class signUpController {
         Connection connection = database.dbconnect();
         Statement statement = connection.createStatement();
 
-        ResultSet resultSet = statement.executeQuery("select * from signup");
-        while (resultSet.next()) {
-            if (resultSet.getString("Email").equals(Email)) {
-                System.out.println("Already signed up");
-                count++;
-                break;
-            }
+        String sql = "select * from signup where email = '" + Email + "'";
+        ResultSet resultSet = statement.executeQuery(sql);
+
+        if (resultSet.next()) {
+            System.out.println("Already signed up");
+            this.changeScene(event, "okay.fxml", "Already signed up with this email");
         }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 3b170d7bd4a026736f62271dfda84be5a1d628da
         //Writing data to mysql: "projectmedilog -> signup"
-        if (count == 0) {
+        else {
             try (
                     PreparedStatement pst = connection.prepareStatement("insert into signup(FirstName, LastName, Gender, Age, Phone, Email, Pass) values(?, ?, ?, ?, ?, ?, ?)")
             ) {
@@ -106,24 +108,26 @@ public class signUpController {
 
                 // go to okay.fxml
 
-//                FXMLLoader loader = new FXMLLoader(getClass().getResource("okay.fxml"));
-//                Parent root = loader.load();
-//                okayController okay = loader.getController();
-//                okay.okaySignup("Signup Successful...");
-//                Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
-//                secondStage.setScene(new Scene(root));
+                this.changeScene(event, "okay.fxml", "Signup Successful...");
 
-
-
-            } catch (SQLException e) {
+            } catch (SQLException | IOException | InterruptedException e) {
                 System.out.println(e);
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3b170d7bd4a026736f62271dfda84be5a1d628da
         }
+    }
+
+    void changeScene(ActionEvent event, String fxml, String text) throws IOException, InterruptedException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+        Parent root = loader.load();
+
+        okayController okay = loader.getController();
+        okay.okaySignup(text);
+        Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
+        secondStage.setScene(new Scene(root));
     }
 
 

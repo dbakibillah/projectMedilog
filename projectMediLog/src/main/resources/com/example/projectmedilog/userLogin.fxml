@@ -26,12 +26,12 @@
       </AnchorPane>
       <AnchorPane layoutX="650.0" prefHeight="800.0" prefWidth="641.0" style="-fx-background-color: #FFFFFF;">
          <children>
-            <TextField fx:id="TF_email" layoutX="234.0" layoutY="395.0" prefHeight="33.0" prefWidth="255.0" promptText="Email*" style="-fx-background-color: trasparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="234.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="395.0">
+            <TextField fx:id="TF_email" layoutX="234.0" layoutY="395.0" prefHeight="33.0" prefWidth="255.0" promptText="Email*" style="-fx-background-color: transparent; -fx-border-color: #0080ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="234.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="395.0">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="TF_password" layoutX="233.0" layoutY="455.0" prefHeight="33.0" prefWidth="257.0" promptText="Password*" style="-fx-background-color: transpare; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="455.0">
+            <PasswordField fx:id="TF_password" layoutX="233.0" layoutY="455.0" prefHeight="33.0" prefWidth="257.0" promptText="Password*" style="-fx-background-color: transparent; -fx-border-color: #0080ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="455.0">
                <font>
                   <Font size="18.0" />
                </font>
