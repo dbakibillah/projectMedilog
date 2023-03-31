@@ -23,4 +23,22 @@ public class pHomeController {
         Pane DashboardPane = FXMLLoader.load(getClass().getResource("pDashboard.fxml"));
         HomePane2.getChildren().setAll(DashboardPane);
     }
+
+    @FXML
+    void onClickPrescription(ActionEvent event) {
+
+    }
+    @FXML
+    void onCLickMedicalRecords(ActionEvent event) {
+
+    }
+
+    @FXML
+    void onClickSettings(ActionEvent event) {
+
+    }
+    @FXML
+    void onClickLogout(ActionEvent event) {
+
+    }
 }
