@@ -83,7 +83,19 @@ public class userLoginController {
         }
 
         //login code for doctor
-
+        if (userType.equals("Doctor")) {
+            ResultSet resultSet = statement.executeQuery("select * from signup");
+            while (resultSet.next()) {
+                if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
+                    AnchorPane homePage = FXMLLoader.load(getClass().getResource("dHome.fxml"));
+                    page.getChildren().setAll(homePage);
+                    count++;
+                }
+            }
+            if (count == 0) {
+                System.out.println("wrong email or password");
+            }
+        }
         //login code for admin
     }
 
