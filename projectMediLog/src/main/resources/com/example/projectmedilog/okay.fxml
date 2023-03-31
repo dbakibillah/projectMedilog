@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="okayPage" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.okayController">
+   <children>
+      <ImageView fitHeight="493.0" fitWidth="554.0" layoutX="404.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/Ok.gif" />
+         </image>
+      </ImageView>
+      <Label fx:id="LB_okay" alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="548.0" prefHeight="70.0" prefWidth="1294.0" text="Label" textFill="#0080ff">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
