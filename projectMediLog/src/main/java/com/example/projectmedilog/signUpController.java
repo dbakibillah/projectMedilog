@@ -80,16 +80,17 @@ public class signUpController {
         Connection connection = database.dbconnect();
         Statement statement = connection.createStatement();
 
-        String sql = "select * from signup where email = '" + Email + "'";
-        ResultSet resultSet = statement.executeQuery(sql);
-
-        if (resultSet.next()) {
-            System.out.println("Already signed up");
-            this.changeScene(event, "okay.fxml", "Already signed up with this email");
+        ResultSet resultSet = statement.executeQuery("select * from signup");
+        while (resultSet.next()) {
+            if (resultSet.getString("Email").equals(Email)) {
+                //System.out.println("Already signed up");
+                count++;
+                this.changeScene(event, "okay.fxml", "Already Signed Up...");
+                break;
+            }
         }
-
         //Writing data to mysql: "projectmedilog -> signup"
-        else {
+        if (count == 0) {
             try (
                     PreparedStatement pst = connection.prepareStatement("insert into signup(FirstName, LastName, Gender, Age, Phone, Email, Pass) values(?, ?, ?, ?, ?, ?, ?)")
             ) {
@@ -109,9 +110,9 @@ public class signUpController {
             } catch (SQLException | IOException | InterruptedException e) {
                 System.out.println(e);
             }
-
         }
     }
+
 
     void changeScene(ActionEvent event, String fxml, String text) throws IOException, InterruptedException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
