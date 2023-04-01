@@ -87,6 +87,7 @@ public class signUpController {
             System.out.println("Already signed up");
             this.changeScene(event, "okay.fxml", "Already signed up with this email");
         }
+
         //Writing data to mysql: "projectmedilog -> signup"
         else {
             try (
@@ -108,6 +109,7 @@ public class signUpController {
             } catch (SQLException | IOException | InterruptedException e) {
                 System.out.println(e);
             }
+
         }
     }
 
