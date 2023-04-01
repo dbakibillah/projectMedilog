@@ -13,13 +13,13 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <TableView layoutX="95.0" layoutY="149.0" prefHeight="651.0" prefWidth="864.0">
+      <TableView fx:id="pTable" layoutX="95.0" layoutY="149.0" prefHeight="651.0" prefWidth="864.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="No." />
-          <TableColumn prefWidth="121.60005187988281" text="Title" />
-            <TableColumn prefWidth="220.79998779296875" text="Created By" />
-            <TableColumn prefWidth="192.0" text="Date" />
-            <TableColumn prefWidth="208.80010986328125" text="Diseases" />
+          <TableColumn fx:id="noTablecolumn" prefWidth="75.0" text="No." />
+          <TableColumn fx:id="titleTablecolumn" prefWidth="121.60005187988281" text="Title" />
+            <TableColumn fx:id="createdTablecolumn" prefWidth="220.79998779296875" text="Created By" />
+            <TableColumn fx:id="dateTablecolumn" prefWidth="192.0" text="Date" />
+            <TableColumn fx:id="diseaseTablecolumn" prefWidth="208.80010986328125" text="Diseases" />
         </columns>
       </TableView>
    </children>
