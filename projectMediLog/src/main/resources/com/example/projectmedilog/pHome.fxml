@@ -157,7 +157,6 @@
                   <Insets top="50.0" />
                </opaqueInsets>
             </VBox>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="BTN_Logout" layoutX="-1.0" layoutY="745.0" mnemonicParsing="false" onAction="#onClickLogout" prefHeight="42.0" prefWidth="249.0" styleClass="menu-btn" stylesheets="@../../../Style/Home.css" text="Log out">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
@@ -213,7 +212,7 @@
             </HBox>
             <HBox layoutX="14.0" layoutY="290.0" prefHeight="115.0" prefWidth="1037.0" style="-fx-background-color: #1260cc;">
                <children>
-                  <Pane fx:id="Pane_BP" onMouseEntered="#onMouseEntered_BP" onMouseExited="#onMouseExited_BP" onMousePressed="#onClickedBP" prefHeight="115.0" prefWidth="345.0" style="-fx-background-color: white;">
+                  <Pane fx:id="Pane_BP" onMouseClicked="#onMouseClicked_BP" onMouseEntered="#onMouseEntered_BP" onMouseExited="#onMouseExited_BP" onMousePressed="#onClickedBP" prefHeight="115.0" prefWidth="345.0" style="-fx-background-color: white;">
                      <children>
                         <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                            <image>
