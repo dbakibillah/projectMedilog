@@ -10,6 +10,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -72,6 +73,7 @@ public class userLoginController {
             while (resultSet.next()) {
                 if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
                     AnchorPane homePage = FXMLLoader.load(getClass().getResource("pHome.fxml"));
+                    userLogin.mainstage.setTitle("Home");
                     page.getChildren().setAll(homePage);
                     count++;
                 }
@@ -102,6 +104,7 @@ public class userLoginController {
     void onClickSignUp(ActionEvent event) throws IOException {
         AnchorPane signUpPage = FXMLLoader.load(getClass().getResource("signUp.fxml"));
         page.getChildren().setAll(signUpPage);
+        userLogin.mainstage.setTitle("Sign up");
     }
 
 

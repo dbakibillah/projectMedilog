@@ -81,6 +81,7 @@ public class signUpController {
         Statement statement = connection.createStatement();
 
         ResultSet resultSet = statement.executeQuery("select * from signup");
+
         while (resultSet.next()) {
             if (resultSet.getString("Email").equals(Email)) {
                 //System.out.println("Already signed up");
@@ -89,6 +90,7 @@ public class signUpController {
                 break;
             }
         }
+        
         //Writing data to mysql: "projectmedilog -> signup"
         if (count == 0) {
             try (

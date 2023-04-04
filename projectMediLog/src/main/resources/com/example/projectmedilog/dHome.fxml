@@ -148,7 +148,7 @@
          <children>
             <HBox alignment="TOP_CENTER" layoutY="86.0" prefHeight="200.0" prefWidth="1050.0" spacing="5.0" style="-fx-background-color: #1260cc;">
                <children>
-                  <Pane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
+                  <Pane fx:id="Pane_Appointments" onMouseClicked="#onMouseClicked_App" onMouseEntered="#onMouseEntered_App" onMouseExited="#onMouseExited_App" prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
                      <children>
                         <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
                            <font>
@@ -170,7 +170,7 @@
                         <Insets right="10.0" />
                      </padding>
                   </Pane>
-                  <Pane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
+                  <Pane fx:id="Pane_Operation" onMouseClicked="#onMouseClicked_Operation" onMouseEntered="#onMouseEntered_Operation" onMouseExited="#onMouseExited_Operation" prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
                      <children>
                         <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Today's Operation">
                            <font>
@@ -192,7 +192,7 @@
                         <Insets right="10.0" />
                      </padding>
                   </Pane>
-                  <Pane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
+                  <Pane fx:id="Pane_Tasks" onMouseClicked="#onMouseClicked_Tasks" onMouseEntered="#onMouseEntered_Tasks" onMouseExited="#onMouseExited_Tasks" prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
                      <children>
                         <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks">
                            <font>
