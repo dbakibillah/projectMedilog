@@ -90,7 +90,7 @@ public class signUpController {
                 break;
             }
         }
-        
+
         //Writing data to mysql: "projectmedilog -> signup"
         if (count == 0) {
             try (
