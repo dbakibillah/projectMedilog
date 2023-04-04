@@ -3,69 +3,95 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1050.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.SettingsController">
    <children>
-      <Text layoutX="59.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Settings" wrappingWidth="196.0">
+      <Text layoutX="73.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Settings" wrappingWidth="196.0">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <TextField fx:id="TF_firstname" layoutX="80.0" layoutY="84.0" prefHeight="45.0" prefWidth="350.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField fx:id="TF_firstname" layoutX="124.0" layoutY="371.0" prefHeight="45.0" prefWidth="350.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
          <font>
-            <Font size="17.0" />
+            <Font size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="TF_lastname" layoutX="553.0" layoutY="84.0" prefHeight="45.0" prefWidth="350.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField fx:id="TF_lastname" layoutX="580.0" layoutY="371.0" prefHeight="45.0" prefWidth="350.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
          <font>
-            <Font size="17.0" />
+            <Font size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="TF_username" layoutX="80.0" layoutY="162.0" prefHeight="45.0" prefWidth="350.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField fx:id="TF_username" layoutX="607.0" layoutY="90.0" prefHeight="45.0" prefWidth="350.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
          <font>
-            <Font size="17.0" />
+            <Font size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="TF_currentpass" layoutX="80.0" layoutY="240.0" prefHeight="45.0" prefWidth="350.0" promptText="Current Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField fx:id="TF_email" layoutX="124.0" layoutY="451.0" prefHeight="45.0" prefWidth="350.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
          <font>
-            <Font size="17.0" />
+            <Font size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="TF_newpass" layoutX="553.0" layoutY="240.0" prefHeight="45.0" prefWidth="350.0" promptText="New Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField fx:id="TF_address" layoutX="123.0" layoutY="606.0" prefHeight="55.0" prefWidth="813.0" promptText="Address" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
          <font>
-            <Font size="17.0" />
+            <Font size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="TF_email" layoutX="80.0" layoutY="317.0" prefHeight="45.0" prefWidth="350.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField fx:id="TF_mobile" layoutX="580.0" layoutY="451.0" prefHeight="45.0" prefWidth="350.0" promptText="Moblle" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
          <font>
-            <Font size="17.0" />
+            <Font size="18.0" />
          </font>
       </TextField>
-      <TextField fx:id="TF_address" layoutX="80.0" layoutY="523.0" prefHeight="55.0" prefWidth="822.0" promptText="Address" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+      <Button fx:id="BTN_SaveChange" layoutX="474.0" layoutY="705.0" mnemonicParsing="false" onAction="#onClickBTN_SaveChange" prefHeight="35.0" prefWidth="103.0" style="-fx-background-color: #0598ff;" text="Save Change" textFill="WHITE">
          <font>
-            <Font size="20.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="TF_mobile" layoutX="553.0" layoutY="317.0" prefHeight="45.0" prefWidth="350.0" promptText="Moblle" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </TextField>
-      <Button fx:id="BTN_save" layoutX="449.0" layoutY="655.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="103.0" style="-fx-background-color: #0598ff;" text="Save Change" textFill="WHITE" />
-      <ChoiceBox fx:id="CB_bloodgrp" layoutX="697.0" layoutY="427.0" prefHeight="46.0" prefWidth="196.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
-      <Label layoutX="570.0" layoutY="427.0" prefHeight="46.0" prefWidth="126.0" style="-fx-background-color: transparent;" text="Blood group">
+            <Font size="14.0" />
+         </font></Button>
+      <ChoiceBox fx:id="CB_bloodgrp" layoutX="734.0" layoutY="536.0" prefHeight="46.0" prefWidth="196.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+      <Label layoutX="607.0" layoutY="534.0" prefHeight="46.0" prefWidth="126.0" style="-fx-background-color: transparent;" text="Blood group">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="TF_age" layoutX="80.0" layoutY="427.0" prefHeight="46.0" prefWidth="350.0" promptText="Age" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField fx:id="TF_age" layoutX="124.0" layoutY="527.0" prefHeight="46.0" prefWidth="350.0" promptText="Age" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
          <font>
-            <Font size="17.0" />
+            <Font size="18.0" />
          </font>
       </TextField>
+      <Circle fx:id="ImageCIrcle" fill="#0598ff" layoutX="163.0" layoutY="141.0" radius="71.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text fill="#909090" layoutX="92.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Upload/Change Image" wrappingWidth="142.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Button fx:id="BTN_ChooseFile" layoutX="65.0" layoutY="260.0" mnemonicParsing="false" onAction="#onCLickBTN_ChooseFile" style="-fx-background-color: #0598ff;" text="Choose File" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="BTN_Upload" layoutX="171.0" layoutY="260.0" mnemonicParsing="false" onAction="#onCLickBTN_Upload" prefWidth="90.0" style="-fx-background-color: #0598ff;" text="Upload" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="BTN_Save" layoutX="867.0" layoutY="290.0" mnemonicParsing="false" onAction="#onClickBTN_Save" prefWidth="90.0" style="-fx-background-color: #0598ff;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <PasswordField fx:id="TF_currentpass" layoutX="607.0" layoutY="153.0" prefHeight="41.0" prefWidth="350.0" promptText="Current Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <PasswordField fx:id="TF_newpass" layoutX="607.0" layoutY="214.0" prefHeight="41.0" prefWidth="350.0" promptText="New Password" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
    </children>
 </AnchorPane>

@@ -80,16 +80,19 @@ public class signUpController {
         Connection connection = database.dbconnect();
         Statement statement = connection.createStatement();
 
-        String sql = "select * from signup where email = '" + Email + "'";
-        ResultSet resultSet = statement.executeQuery(sql);
+        ResultSet resultSet = statement.executeQuery("select * from signup");
 
-        if (resultSet.next()) {
-            System.out.println("Already signed up");
-            this.changeScene(event, "okay.fxml", "Already signed up with this email");
+        while (resultSet.next()) {
+            if (resultSet.getString("Email").equals(Email)) {
+                count++;
+                this.changeScene(event, "okay.fxml", "Signup Successful...");
+                break;
+            }
         }
 
+
         //Writing data to mysql: "projectmedilog -> signup"
-        else {
+        if (count == 0) {
             try (
                     PreparedStatement pst = connection.prepareStatement("insert into signup(FirstName, LastName, Gender, Age, Phone, Email, Pass) values(?, ?, ?, ?, ?, ?, ?)")
             ) {
