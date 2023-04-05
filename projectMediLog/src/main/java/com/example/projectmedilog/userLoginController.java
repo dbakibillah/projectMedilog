@@ -3,7 +3,6 @@ package com.example.projectmedilog;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -45,7 +44,7 @@ public class userLoginController {
     private Hyperlink hyperSignup;
 
     @FXML
-    private AnchorPane page;
+    private AnchorPane anchorPane;
 
     @FXML
     private ToggleGroup usertype;
@@ -76,36 +75,97 @@ public class userLoginController {
             ResultSet resultSet = statement.executeQuery("select * from signup");
             while (resultSet.next()) {
                 if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
-                    String userName = resultSet.getString("FirstName")+ " " + resultSet.getString("LastName");
-                    this.changeScene(event, "pHome.fxml", userName, Email);
+                    String userName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
+                    //this.changeScene(event, "pHome.fxml", userName, Email);
+                    gotoSuccessDialog("pHome.fxml", "Login Successfull");
                     count++;
                 }
             }
             if (count == 0) {
-                System.out.println("wrong email or password");
+                gotoErrorDialog("userLogin.fxml", "Wrong username or password!");
             }
         }
 
         //login code for doctor
+        if (userType.equals("Doctor")) {
+            ResultSet resultSet = statement.executeQuery("select * from doctors");
+            while (resultSet.next()) {
+                if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
+                    String userName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
+                    //this.changeScene(event, "pHome.fxml", userName, Email);
+                    gotoSuccessDialog("dHome.fxml", "Login Successfull");
+                    count++;
+                }
+            }
+            if (count == 0) {
+                //System.out.println("wrong email or password");
+                gotoErrorDialog("userLogin.fxml", "Wrong username or password!");
+            }
+        }
 
         //login code for admin
+        if (userType.equals("Admin")) {
+            ResultSet resultSet = statement.executeQuery("select * from admins");
+            while (resultSet.next()) {
+                if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
+                    String userName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
+                    //this.changeScene(event, "pHome.fxml", userName, Email);
+                    gotoSuccessDialog("aHome.fxml", "Login Successfull");
+                    count++;
+                }
+            }
+            if (count == 0) {
+                //System.out.println("wrong email or password");
+                gotoErrorDialog("userLogin.fxml", "Wrong username or password!");
+            }
+        }
     }
 
-    void changeScene(ActionEvent event, String fxml, String userName, String Email) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+    void gotoSuccessDialog(String fxml, String message) throws IOException {
+        Stage dialogStage = new Stage();
+        dialogStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("successDialog.fxml"));
         Parent root = loader.load();
+        DialogController controller = loader.getController();
+        controller.successDialog(dialogStage, message);
+        Scene scene = new Scene(root);
+        dialogStage.setScene(scene);
+        dialogStage.show();
 
-        pHomeController phomecontroller = loader.getController();
-        phomecontroller.userLabel.setText(userName);
-        phomecontroller.userEmail.setText(Email);
-        Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
-        secondStage.setScene(new Scene(root));
+        AnchorPane loginPage = FXMLLoader.load(getClass().getResource(fxml));
+        anchorPane.getChildren().setAll(loginPage);
     }
+
+    void gotoErrorDialog(String fxml, String message) throws IOException {
+        Stage dialogStage = new Stage();
+        dialogStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("errorDialog.fxml"));
+        Parent root = loader.load();
+        DialogController controller = loader.getController();
+        controller.errorDialog(dialogStage, message);
+        Scene scene = new Scene(root);
+        dialogStage.setScene(scene);
+        dialogStage.show();
+
+        AnchorPane loginPage = FXMLLoader.load(getClass().getResource(fxml));
+        anchorPane.getChildren().setAll(loginPage);
+    }
+
+//    void changeScene(ActionEvent event, String fxml, String userName, String Email) throws IOException {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+//        Parent root = loader.load();
+//
+//        pHomeController phomecontroller = loader.getController();
+//        phomecontroller.userLabel.setText(userName);
+//        phomecontroller.userEmail.setText(Email);
+//        Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
+//        secondStage.setScene(new Scene(root));
+//    }
 
     @FXML
     void onClickSignUp(ActionEvent event) throws IOException {
         AnchorPane signUpPage = FXMLLoader.load(getClass().getResource("signUp.fxml"));
-        page.getChildren().setAll(signUpPage);
+        anchorPane.getChildren().setAll(signUpPage);
         userLogin.mainstage.setTitle("Sign up");
     }
 
