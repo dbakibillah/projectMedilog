@@ -13,7 +13,7 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.aHomeController">
    <children>
-      <Pane fx:id="homePane" prefHeight="815.0" prefWidth="250.0">
+      <Pane fx:id="homePane" prefHeight="800.0" prefWidth="250.0">
          <children>
             <VBox layoutX="1.0" layoutY="267.0" prefHeight="534.0" prefWidth="249.0" stylesheets="@../../../Style/Home.css">
                <children>
@@ -138,7 +138,7 @@
                   <Insets top="50.0" />
                </opaqueInsets>
             </VBox>
-            <Button fx:id="BTN_Logout" layoutX="2.0" layoutY="757.0" mnemonicParsing="false" onAction="#onClickLogout" prefHeight="42.0" prefWidth="249.0" styleClass="menu-btn" stylesheets="@../../../Style/Home.css" text="Log out">
+            <Button fx:id="BTN_Logout" layoutX="2.0" layoutY="754.0" mnemonicParsing="false" onAction="#onClickLogout" prefHeight="42.0" prefWidth="249.0" styleClass="menu-btn" stylesheets="@../../../Style/Home.css" text="Log out">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -149,5 +149,6 @@
             </Button>
          </children>
       </Pane>
+      <AnchorPane fx:id="anchorpaneHome" layoutX="250.0" prefHeight="800.0" prefWidth="1050.0" style="-fx-background-color: #1260cc;" />
    </children>
 </AnchorPane>

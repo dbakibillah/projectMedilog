@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.DialogController">
+   <children>
+      <ImageView fitHeight="295.0" fitWidth="391.0" layoutX="155.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/error.gif" />
+         </image>
+      </ImageView>
+      <Label fx:id="errorLabel" alignment="CENTER" layoutX="14.0" layoutY="366.0" prefHeight="17.0" prefWidth="683.0" text="Label" textFill="#ff3232">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
