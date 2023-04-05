@@ -3,7 +3,6 @@ package com.example.projectmedilog;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -44,12 +43,12 @@ public class signUpController {
     @FXML
     private Hyperlink login;
     @FXML
-    private AnchorPane signUpPage;
+    private AnchorPane anchorPane;
 
     @FXML
     void gotoLogin(ActionEvent event) throws IOException {
         AnchorPane loginPage = FXMLLoader.load(getClass().getResource("userLogin.fxml"));
-        signUpPage.getChildren().setAll(loginPage);
+        anchorPane.getChildren().setAll(loginPage);
     }
 
     private String Gender;
@@ -84,12 +83,14 @@ public class signUpController {
 
         while (resultSet.next()) {
             if (resultSet.getString("Email").equals(Email)) {
+                //System.out.println("Already signed up");
                 count++;
-                this.changeScene(event, "okay.fxml", "Signup Successful...");
+
+                //this.changeScene(event, "okay.fxml", "Signup Successful...");
+                gotoErrorDialog("Signup.fxml", "Already Signed Up!");
                 break;
             }
         }
-
 
         //Writing data to mysql: "projectmedilog -> signup"
         if (count == 0) {
@@ -106,25 +107,56 @@ public class signUpController {
                 pst.executeUpdate();
 
                 // go to okay.fxml
+                gotoSuccessDialog("userLogin.fxml", "Signup Successfull...");
+                //this.changeScene(event, "okay.fxml", "Signup Successful...");
 
-                this.changeScene(event, "okay.fxml", "Signup Successful...");
-
-            } catch (SQLException | IOException | InterruptedException e) {
+            } catch (SQLException e) {
                 System.out.println(e);
             }
-
         }
     }
 
-    void changeScene(ActionEvent event, String fxml, String text) throws IOException, InterruptedException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
-        Parent root = loader.load();
 
-        okayController okay = loader.getController();
-        okay.okaySignup(text);
-        Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
-        secondStage.setScene(new Scene(root));
+    void gotoSuccessDialog(String fxml,String message) throws IOException {
+
+        Stage dialogStage = new Stage();
+        dialogStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("successDialog.fxml"));
+        Parent root = loader.load();
+        DialogController controller = loader.getController();
+        controller.successDialog(dialogStage, message);
+        Scene scene = new Scene(root);
+        dialogStage.setScene(scene);
+        dialogStage.show();
+
+        AnchorPane loginPage = FXMLLoader.load(getClass().getResource(fxml));
+        anchorPane.getChildren().setAll(loginPage);
     }
+
+    void gotoErrorDialog(String fxml, String message) throws IOException {
+        Stage dialogStage = new Stage();
+        dialogStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("errorDialog.fxml"));
+        Parent root = loader.load();
+        DialogController controller = loader.getController();
+        controller.errorDialog(dialogStage, message);
+        Scene scene = new Scene(root);
+        dialogStage.setScene(scene);
+        dialogStage.show();
+
+        AnchorPane loginPage = FXMLLoader.load(getClass().getResource(fxml));
+        anchorPane.getChildren().setAll(loginPage);
+    }
+
+//    void changeScene(ActionEvent event, String fxml, String text) throws IOException, InterruptedException {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+//        Parent root = loader.load();
+//
+//        okayController okay = loader.getController();
+//        okay.okaySignup(text);
+//        Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
+//        secondStage.setScene(new Scene(root));
+//    }
 
 
 }

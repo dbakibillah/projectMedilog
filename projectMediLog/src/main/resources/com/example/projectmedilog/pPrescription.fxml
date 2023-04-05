@@ -1,26 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.pPrescriptionController">
    <children>
-      <Text fill="#0598ff" layoutX="95.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescriptions">
+      <Text fill="#0598ff" layoutX="17.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescriptions">
          <font>
             <Font size="26.0" />
          </font>
       </Text>
-      <TableView layoutX="95.0" layoutY="149.0" prefHeight="651.0" prefWidth="864.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="No." />
-          <TableColumn prefWidth="121.60005187988281" text="Title" />
-            <TableColumn prefWidth="220.79998779296875" text="Created By" />
-            <TableColumn prefWidth="192.0" text="Date" />
-            <TableColumn prefWidth="208.80010986328125" text="Diseases" />
-        </columns>
-      </TableView>
+      <AnchorPane layoutX="17.0" layoutY="104.0" prefHeight="666.0" prefWidth="375.0" style="-fx-border-color: #334db3; -fx-border-width: 2;">
+         <children>
+            <Text layoutX="57.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+            <TextField fx:id="txtName" layoutX="103.0" layoutY="60.0" />
+            <Separator layoutX="6.0" layoutY="129.0" prefHeight="4.0" prefWidth="369.0" />
+            <Text layoutX="73.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created By" wrappingWidth="60.8414306640625" />
+            <TextField fx:id="txtCreatedby" layoutX="72.0" layoutY="200.0" />
+            <Text layoutX="73.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="60.8414306640625" />
+            <TextField fx:id="txtdate" layoutX="72.0" layoutY="278.0" />
+            <Text layoutX="73.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Disease" wrappingWidth="60.8414306640625" />
+            <TextField fx:id="txtDisease" layoutX="72.0" layoutY="374.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="408.0" layoutY="104.0" prefHeight="666.0" prefWidth="635.0" style="-fx-border-width: 2; -fx-border-color: #334db3;">
+         <children>
+            <TableView fx:id="pTable" layoutX="16.0" layoutY="25.0" onMouseClicked="#getitem" prefHeight="622.0" prefWidth="606.0">
+              <columns>
+                <TableColumn fx:id="nameTablecolumn" prefWidth="142.4000244140625" text="Name" />
+                  <TableColumn fx:id="createdTablecolumn" prefWidth="164.79998779296875" text="Created By" />
+                  <TableColumn fx:id="dateTablecolumn" prefWidth="144.00006103515625" text="Date" />
+                  <TableColumn fx:id="diseaseTablecolumn" prefWidth="183.99993896484375" text="Diseases" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
