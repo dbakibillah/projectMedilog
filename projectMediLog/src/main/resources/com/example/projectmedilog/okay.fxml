@@ -11,7 +11,7 @@
    <children>
       <ImageView fitHeight="493.0" fitWidth="554.0" layoutX="404.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/Ok.gif" />
+            <Image url="@../../../images/preview.gif" />
          </image>
       </ImageView>
       <Label fx:id="LB_okay" alignment="CENTER" contentDisplay="CENTER" layoutX="3.0" layoutY="547.0" prefHeight="70.0" prefWidth="1294.0" text="Label" textFill="#0080ff">

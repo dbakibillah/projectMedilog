@@ -3,6 +3,9 @@ package com.example.projectmedilog;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
@@ -10,6 +13,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -72,9 +76,8 @@ public class userLoginController {
             ResultSet resultSet = statement.executeQuery("select * from signup");
             while (resultSet.next()) {
                 if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
-                    AnchorPane homePage = FXMLLoader.load(getClass().getResource("pHome.fxml"));
-                    userLogin.mainstage.setTitle("Home");
-                    page.getChildren().setAll(homePage);
+                    String userName = resultSet.getString("FirstName")+ " " + resultSet.getString("LastName");
+                    this.changeScene(event, "pHome.fxml", userName, Email);
                     count++;
                 }
             }
@@ -86,6 +89,17 @@ public class userLoginController {
         //login code for doctor
 
         //login code for admin
+    }
+
+    void changeScene(ActionEvent event, String fxml, String userName, String Email) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+        Parent root = loader.load();
+
+        pHomeController phomecontroller = loader.getController();
+        phomecontroller.userLabel.setText(userName);
+        phomecontroller.userEmail.setText(Email);
+        Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
+        secondStage.setScene(new Scene(root));
     }
 
     @FXML

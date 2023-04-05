@@ -85,11 +85,11 @@ public class signUpController {
         while (resultSet.next()) {
             if (resultSet.getString("Email").equals(Email)) {
                 count++;
-                this.changeScene(event, "okay.fxml", "Signup Successful...");
+                //this.changeScene(event, "okay.fxml", "Signup Successful...");
+
                 break;
             }
         }
-
 
         //Writing data to mysql: "projectmedilog -> signup"
         if (count == 0) {
@@ -106,25 +106,40 @@ public class signUpController {
                 pst.executeUpdate();
 
                 // go to okay.fxml
+                gotoSuccessDialog("Signup Successfull...");
+                //this.changeScene(event, "okay.fxml", "Signup Successful...");
 
-                this.changeScene(event, "okay.fxml", "Signup Successful...");
-
-            } catch (SQLException | IOException | InterruptedException e) {
+            } catch (SQLException e) {
                 System.out.println(e);
             }
 
         }
     }
-
-    void changeScene(ActionEvent event, String fxml, String text) throws IOException, InterruptedException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+    void gotoSuccessDialog(String message) throws IOException {
+        Stage dialogStage = new Stage();
+        dialogStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("successDialog.fxml"));
         Parent root = loader.load();
+        DialogController controller = loader.getController();
+        controller.successDialog(dialogStage,message);
+        Scene scene = new Scene(root);
+        dialogStage.setScene(scene);
+//        dialogStage.showAndWait();
+        dialogStage.show();
 
-        okayController okay = loader.getController();
-        okay.okaySignup(text);
-        Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
-        secondStage.setScene(new Scene(root));
+        AnchorPane loginPage = FXMLLoader.load(getClass().getResource("userLogin.fxml"));
+        signUpPage.getChildren().setAll(loginPage);
     }
+
+//    void changeScene(ActionEvent event, String fxml, String text) throws IOException, InterruptedException {
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+//        Parent root = loader.load();
+//
+//        okayController okay = loader.getController();
+//        okay.okaySignup(text);
+//        Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
+//        secondStage.setScene(new Scene(root));
+//    }
 
 
 }

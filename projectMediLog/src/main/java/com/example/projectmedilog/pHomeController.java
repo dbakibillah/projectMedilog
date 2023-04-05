@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -17,7 +18,10 @@ import java.io.IOException;
 public class pHomeController {
     @FXML
     private Button BTN_prescription;
-
+    @FXML
+    Label userLabel;
+    @FXML
+    Label userEmail;
     @FXML
     Pane homePane;
     @FXML
