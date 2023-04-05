@@ -84,7 +84,9 @@ public class signUpController {
 
         while (resultSet.next()) {
             if (resultSet.getString("Email").equals(Email)) {
+                //System.out.println("Already signed up");
                 count++;
+
                 //this.changeScene(event, "okay.fxml", "Signup Successful...");
 
                 break;
@@ -112,9 +114,9 @@ public class signUpController {
             } catch (SQLException e) {
                 System.out.println(e);
             }
-
         }
     }
+
     void gotoSuccessDialog(String message) throws IOException {
         Stage dialogStage = new Stage();
         dialogStage.setResizable(false);
