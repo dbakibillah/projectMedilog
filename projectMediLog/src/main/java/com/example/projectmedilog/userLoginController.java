@@ -88,7 +88,6 @@ public class userLoginController {
 
         //login code for doctor
         if (userType.equals("Doctor")) {
-
             ResultSet resultSet = statement.executeQuery("select * from doctors");
             while (resultSet.next()) {
                 if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
@@ -103,7 +102,7 @@ public class userLoginController {
                 gotoErrorDialog("userLogin.fxml", "Wrong username or password!");
             }
         }
-
+        
         //login code for admin
         if (userType.equals("Admin")) {
             ResultSet resultSet = statement.executeQuery("select * from admins");

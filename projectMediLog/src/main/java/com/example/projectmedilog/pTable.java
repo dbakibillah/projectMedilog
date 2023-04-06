@@ -1,13 +1,17 @@
 package com.example.projectmedilog;
 
 public class pTable {
-    String name, createdby, date, disease;
+    String name, createdby, date, disease, test, medicine;
 
-    public pTable(String name, String createdby, String date, String disease) {
+
+    public pTable(String name, String createdby, String date, String disease, String test, String medicine) {
         this.name = name;
         this.createdby = createdby;
         this.date = date;
         this.disease = disease;
+        this.test = test;
+        this.medicine = medicine;
+
     }
 
     public String getName() {
@@ -41,4 +45,20 @@ public class pTable {
     public void setDisease(String disease) {
         this.disease = disease;
     }
+    public String getTest() {
+        return test;
+    }
+
+    public void setTest(String test) {
+        this.test = test;
+    }
+
+    public String getMedicine() {
+        return medicine;
+    }
+
+    public void setMedicine(String medicine) {
+        this.medicine = medicine;
+    }
+
 }
