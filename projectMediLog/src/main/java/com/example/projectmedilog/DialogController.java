@@ -18,7 +18,7 @@ public class DialogController {
     @FXML
     private Label errorLabel;
 
-    void successDialog(Stage dialogStage, String message) throws IOException {
+    void successDialog(Stage dialogStage, String message, int time) throws IOException {
         successLabel.setText(message);
         FXMLLoader fxmlLoader = new FXMLLoader(DialogController.class.getResource("successDialog.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -26,7 +26,7 @@ public class DialogController {
         dialogStage.setScene(scene);
         dialogStage.show();
         // create a new Timeline object
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), event -> {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(time), event -> {
             // close the dialog box
             dialogStage.close();
         }));
@@ -35,7 +35,7 @@ public class DialogController {
 
     }
 
-    void errorDialog(Stage dialogStage, String message) throws IOException {
+    void errorDialog(Stage dialogStage, String message, int time) throws IOException {
         errorLabel.setText(message);
         FXMLLoader fxmlLoader = new FXMLLoader(DialogController.class.getResource("errorDialog.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
@@ -44,7 +44,7 @@ public class DialogController {
         dialogStage.show();
 
         // create a new Timeline object
-        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(5), event -> {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(time), event -> {
             // close the dialog box
             dialogStage.close();
         }));
