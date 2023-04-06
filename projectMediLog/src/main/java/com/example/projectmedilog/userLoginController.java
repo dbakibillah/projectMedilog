@@ -102,7 +102,7 @@ public class userLoginController {
                 gotoErrorDialog("userLogin.fxml", "Wrong username or password!");
             }
         }
-        
+
         //login code for admin
         if (userType.equals("Admin")) {
             ResultSet resultSet = statement.executeQuery("select * from admins");
