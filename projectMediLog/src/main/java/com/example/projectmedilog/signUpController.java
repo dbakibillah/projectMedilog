@@ -121,7 +121,7 @@ public class signUpController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("successDialog.fxml"));
         Parent root = loader.load();
         DialogController controller = loader.getController();
-        controller.successDialog(dialogStage, message);
+        controller.successDialog(dialogStage, message, 3);
         Scene scene = new Scene(root);
         dialogStage.setScene(scene);
         dialogStage.show();
@@ -136,7 +136,7 @@ public class signUpController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("errorDialog.fxml"));
         Parent root = loader.load();
         DialogController controller = loader.getController();
-        controller.errorDialog(dialogStage, message);
+        controller.errorDialog(dialogStage, message, 5);
         Scene scene = new Scene(root);
         dialogStage.setScene(scene);
         dialogStage.show();

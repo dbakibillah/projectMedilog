@@ -5,18 +5,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class aDashboardApp extends Application {
+public class aAppointmentsApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(signUpApp.class.getResource("aDashboard.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(signUpApp.class.getResource("aAppointments.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Dashboard");
+        stage.setTitle("Appointments");
         stage.setScene(scene);
         stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }
