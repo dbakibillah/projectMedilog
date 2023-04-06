@@ -80,8 +80,8 @@ public class pPrescriptionController implements Initializable {
         txtCreatedby.setText(createdTablecolumn.getCellData(index).toString());
         txtdate.setText(dateTablecolumn.getCellData(index).toString());
         txtDisease.setText(diseaseTablecolumn.getCellData(index).toString());
-        txtTest.setText(diseaseTablecolumn.getCellData(index).toString());
-        txtMedicine.setText(diseaseTablecolumn.getCellData(index).toString());
+        txtTest.setText(testTablecolumn.getCellData(index).toString());
+        txtMedicine.setText(medicineTablecolumn.getCellData(index).toString());
 
     }
 
