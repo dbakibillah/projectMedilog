@@ -14,8 +14,8 @@ public class SettingsApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Settings.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
-        stage.setTitle("Settings");
         stage.setScene(scene);
+        stage.setTitle("Settings");
         stage.show();
     }
 
