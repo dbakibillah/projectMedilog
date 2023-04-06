@@ -31,6 +31,9 @@ public class pPrescriptionController implements Initializable {
 
     @FXML
     private TableColumn<pTable,String> nameTablecolumn;
+    @FXML
+    private TableColumn<pTable,String> medicineTablecolumn;
+
 
     @FXML
     private TableView<pTable> pTable;
@@ -40,12 +43,19 @@ public class pPrescriptionController implements Initializable {
 
     @FXML
     private TextField txtDisease;
+    @FXML
+    private TableColumn<pTable,String> testTablecolumn;
+
 
     @FXML
     private TextField txtName;
 
     @FXML
     private TextField txtdate;
+    @FXML
+    private TextField txtMedicine;
+    @FXML
+    private TextField txtTest;
 
 
 
@@ -55,6 +65,10 @@ public class pPrescriptionController implements Initializable {
     PreparedStatement pst;
 
     Integer index;
+
+    public pPrescriptionController() {
+    }
+
     @FXML
     void getitem(MouseEvent event) {
         index = pTable.getSelectionModel().getSelectedIndex();
@@ -66,6 +80,8 @@ public class pPrescriptionController implements Initializable {
         txtCreatedby.setText(createdTablecolumn.getCellData(index).toString());
         txtdate.setText(dateTablecolumn.getCellData(index).toString());
         txtDisease.setText(diseaseTablecolumn.getCellData(index).toString());
+        txtTest.setText(diseaseTablecolumn.getCellData(index).toString());
+        txtMedicine.setText(diseaseTablecolumn.getCellData(index).toString());
 
     }
 
@@ -77,12 +93,14 @@ public class pPrescriptionController implements Initializable {
             rs =  conn.createStatement().executeQuery("select * from pprescription");
 
             while (rs.next()){
-                listI.add(new pTable(rs.getString("name"), rs.getString("createdby"), rs.getString("date"), rs.getString("disease") ));
+                listI.add(new pTable(rs.getString("name"), rs.getString("createdby"), rs.getString("date"), rs.getString("disease"), rs.getString("test"), rs.getNString("medicine") ));
             }
             nameTablecolumn.setCellValueFactory(new PropertyValueFactory<>("name"));
             createdTablecolumn.setCellValueFactory(new PropertyValueFactory<>("createdby"));
             dateTablecolumn.setCellValueFactory(new PropertyValueFactory<>("date"));
             diseaseTablecolumn.setCellValueFactory(new PropertyValueFactory<>("disease"));
+            testTablecolumn.setCellValueFactory(new PropertyValueFactory<>("test"));
+            medicineTablecolumn.setCellValueFactory(new PropertyValueFactory<>("medicine"));
 
             pTable.setItems(listI);
 

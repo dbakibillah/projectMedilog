@@ -88,35 +88,24 @@ public class userLoginController {
 
         //login code for doctor
         if (userType.equals("Doctor")) {
-<<<<<<< HEAD
-            ResultSet resultSet = statement.executeQuery("select * from signup");
-            while (resultSet.next()) {
-                if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
-                    AnchorPane homePage = FXMLLoader.load(getClass().getResource("dHome.fxml"));
-                    page.getChildren().setAll(homePage);
-=======
-            ResultSet resultSet = statement.executeQuery("select * from doctors");
+           ResultSet resultSet = statement.executeQuery("select * from doctors");
             while (resultSet.next()) {
                 if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
                     String userName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
                     //this.changeScene(event, "pHome.fxml", userName, Email);
                     gotoSuccessDialog("dHome.fxml", "Login Successfull");
->>>>>>> baki
+
                     count++;
                 }
             }
             if (count == 0) {
-<<<<<<< HEAD
-                System.out.println("wrong email or password");
-            }
-        }
-=======
+
                 //System.out.println("wrong email or password");
                 gotoErrorDialog("userLogin.fxml", "Wrong username or password!");
             }
         }
 
->>>>>>> baki
+
         //login code for admin
         if (userType.equals("Admin")) {
             ResultSet resultSet = statement.executeQuery("select * from admins");
