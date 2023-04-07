@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,24 +10,32 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1050.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.aAppointmentsController">
    <children>
-      <Button fx:id="BTN_NewAppointment" layoutX="14.0" layoutY="685.0" mnemonicParsing="false" onAction="#onCLickedBTN_NewAppointment" onMouseEntered="#onMouseEnteredBTN_NewAppointment" onMouseExited="#onMouseExitedBTN_NewAppointment" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #0080ff;" text="New Appoinment" textFill="WHITE">
+      <Button fx:id="BTN_NewAppointment" layoutX="850.0" layoutY="88.0" mnemonicParsing="false" onAction="#onCLickedBTN_NewAppointment" onMouseEntered="#onMouseEnteredBTN_NewAppointment" onMouseExited="#onMouseExitedBTN_NewAppointment" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #0080ff;" text="New Appoinment" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <TableView layoutX="24.0" layoutY="154.0" prefHeight="492.0" prefWidth="1025.0">
-         <columns>
-            <TableColumn fx:id="TC_name" prefWidth="120.80001831054688" text="Name" />
-            <TableColumn fx:id="TC_email" minWidth="0.0" prefWidth="164.00003051757812" text="Email" />
-            <TableColumn fx:id="TC_gender" minWidth="0.0" prefWidth="75.99996948242188" text="Gender" />
-            <TableColumn fx:id="TC_date" prefWidth="114.4000244140625" text="Date" />
-            <TableColumn fx:id="TC_time" minWidth="0.0" prefWidth="58.399993896484375" text="Time" />
-            <TableColumn fx:id="TC_mobile" prefWidth="144.0" text="Mobile" />
-            <TableColumn fx:id="TC_doctor" minWidth="8.00006103515625" prefWidth="136.0" text="Doctor" />
-            <TableColumn fx:id="TC_injury_or_condition" minWidth="0.0" prefWidth="212.80010986328125" text="Injury/Condition" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-         </columns>
-      </TableView>
+      <ScrollPane hbarPolicy="ALWAYS" layoutX="8.0" layoutY="167.0" prefHeight="616.0" prefWidth="1038.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="597.0" prefWidth="1135.0">
+               <children>
+                  <TableView prefHeight="600.0" prefWidth="1134.0">
+                     <columns>
+                        <TableColumn fx:id="TC_name" prefWidth="163.73340970277786" text="Name" />
+                        <TableColumn fx:id="TC_email" minWidth="0.0" prefWidth="181.60009765625" text="Email" />
+                        <TableColumn fx:id="TC_gender" minWidth="0.0" prefWidth="70.39996337890625" text="Gender" />
+                        <TableColumn fx:id="TC_gender1" minWidth="0.0" prefWidth="59.7333984375" text="Age" />
+                        <TableColumn fx:id="TC_date" prefWidth="117.60003662109375" text="Date" />
+                        <TableColumn fx:id="TC_time" minWidth="0.0" prefWidth="110.13330078125" text="Time" />
+                        <TableColumn fx:id="TC_mobile" prefWidth="182.933349609375" text="Mobile" />
+                        <TableColumn fx:id="TC_doctor" minWidth="8.00006103515625" prefWidth="106.39990234375" text="Doctor" />
+                        <TableColumn fx:id="TC_injury_or_condition" minWidth="0.0" prefWidth="147.466552734375" text="Injury/Condition" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
       <Text fill="#0080ff" layoutX="438.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
          <font>
             <Font size="36.0" />

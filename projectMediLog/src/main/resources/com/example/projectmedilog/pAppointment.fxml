@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="AppointmentPane" prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.pAppointmentController">
    <children>
-      <Pane layoutY="7.0" prefHeight="354.0" prefWidth="1032.0" style="-fx-background-color: #ffffff;">
+      <Pane layoutY="-1.0" prefHeight="362.0" prefWidth="1050.0" style="-fx-background-color: #ffffff;">
          <children>
             <Label layoutX="35.0" layoutY="14.0" text="New Appointment">
                <font>
@@ -25,7 +25,22 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="TF_mobile" layoutX="35.0" layoutY="133.0" prefHeight="35.0" prefWidth="281.0" promptText="Mobile" style="-fx-background-color: Transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+            <TextField fx:id="TF_date" layoutX="393.0" layoutY="63.0" prefHeight="35.0" prefWidth="281.0" promptText="Date of Appointment" style="-fx-background-color: Transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="TF_phone" layoutX="35.0" layoutY="133.0" prefHeight="35.0" prefWidth="281.0" promptText="Mobile" style="-fx-background-color: Transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="798.0" layoutY="66.0" prefHeight="35.0" prefWidth="88.0" text="Gender">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="TF_injury_or_condition" layoutX="393.0" layoutY="133.0" prefHeight="35.0" prefWidth="281.0" promptText="Injury/Condition" style="-fx-background-color: Transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
                <font>
                   <Font size="18.0" />
                </font>
@@ -35,11 +50,6 @@
                   <Font size="18.0" />
                </font>
             </RadioButton>
-            <Label layoutX="798.0" layoutY="66.0" prefHeight="35.0" prefWidth="88.0" text="Gender">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
             <RadioButton fx:id="RB_female" layoutX="798.0" layoutY="147.0" mnemonicParsing="false" onAction="#selectGender" text="Female">
                <font>
                   <Font size="18.0" />
@@ -50,33 +60,28 @@
                   <Font size="18.0" />
                </font>
             </RadioButton>
-            <TextField fx:id="TF_date" layoutX="393.0" layoutY="63.0" prefHeight="35.0" prefWidth="281.0" promptText="Date of Appointment" style="-fx-background-color: Transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="TF_injury_or_condition" layoutX="393.0" layoutY="133.0" prefHeight="35.0" prefWidth="281.0" promptText="Injury/Condition" style="-fx-background-color: Transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextField>
-            <Label layoutX="35.0" layoutY="217.0" text="Preffered Time:">
+            <Label layoutX="35.0" layoutY="288.0" text="Preffered Time:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="BTN_confirm" layoutX="798.0" layoutY="301.0" mnemonicParsing="false" onAction="#onClickBTN_confirm" style="-fx-background-color: #0080FF;" text="Confirm" textFill="WHITE">
+            <TextField fx:id="TF_age" layoutX="35.0" layoutY="210.0" prefHeight="35.0" prefWidth="281.0" promptText="Age" style="-fx-background-color: Transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
                <font>
                   <Font size="18.0" />
                </font>
-            </Button>
+            </TextField>
+            <ChoiceBox fx:id="CB_doctor" layoutX="506.0" layoutY="217.0" prefHeight="27.0" prefWidth="168.0" style="-fx-background-color: Transparent; -fx-border-color: #0598ff;" />
+            <ChoiceBox fx:id="CB_time" layoutX="166.0" layoutY="288.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: Transparent; -fx-border-color: #0598ff;" />
             <Button fx:id="BTN_cancel" layoutX="909.0" layoutY="301.0" mnemonicParsing="false" onAction="#onClickBTN_cancel" style="-fx-background-color: #0080FF;" text="Cancel" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <ChoiceBox fx:id="CB_time" layoutX="166.0" layoutY="217.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: Transparent; -fx-border-color: #0598ff;" />
-            <ChoiceBox fx:id="CB_doctor" layoutX="506.0" layoutY="217.0" prefHeight="27.0" prefWidth="168.0" style="-fx-background-color: Transparent; -fx-border-color: #0598ff;" />
+            <Button fx:id="BTN_confirm" layoutX="798.0" layoutY="301.0" mnemonicParsing="false" onAction="#onClickBTN_confirm" style="-fx-background-color: #0080FF;" text="Confirm" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
             <Label layoutX="386.0" layoutY="217.0" prefHeight="27.0" prefWidth="120.0" text="Select Doctor :">
                <font>
                   <Font size="18.0" />
