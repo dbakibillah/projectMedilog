@@ -30,7 +30,7 @@
                   <Font size="18.0" />
                </font>
             </TextField>
-            <RadioButton fx:id="RB_male" layoutX="798.0" layoutY="112.0" mnemonicParsing="false" text="Male">
+            <RadioButton fx:id="RB_male" layoutX="798.0" layoutY="112.0" mnemonicParsing="false" onAction="#selectGender" text="Male">
                <font>
                   <Font size="18.0" />
                </font>
@@ -40,12 +40,12 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <RadioButton fx:id="RB_others" layoutX="798.0" layoutY="147.0" mnemonicParsing="false" text="Female">
+            <RadioButton fx:id="RB_female" layoutX="798.0" layoutY="147.0" mnemonicParsing="false" onAction="#selectGender" text="Female">
                <font>
                   <Font size="18.0" />
                </font>
             </RadioButton>
-            <RadioButton layoutX="799.0" layoutY="184.0" mnemonicParsing="false" text="Others">
+            <RadioButton fx:id="RB_others" layoutX="799.0" layoutY="184.0" mnemonicParsing="false" onAction="#selectGender" text="Others">
                <font>
                   <Font size="18.0" />
                </font>
@@ -70,7 +70,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="BTN_cancel" layoutX="909.0" layoutY="301.0" mnemonicParsing="false" style="-fx-background-color: #0080FF;" text="Cancel" textFill="WHITE">
+            <Button fx:id="BTN_cancel" layoutX="909.0" layoutY="301.0" mnemonicParsing="false" onAction="#onClickBTN_cancel" style="-fx-background-color: #0080FF;" text="Cancel" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>

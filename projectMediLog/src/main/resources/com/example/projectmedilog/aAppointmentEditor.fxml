@@ -68,17 +68,17 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <RadioButton fx:id="RB_male" layoutX="260.0" layoutY="172.0" mnemonicParsing="false" text="Male">
+      <RadioButton fx:id="RB_male" layoutX="260.0" layoutY="172.0" mnemonicParsing="false" onAction="#selectGender" text="Male">
          <font>
             <Font size="18.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="RB_female" layoutX="378.0" layoutY="172.0" mnemonicParsing="false" text="Female">
+      <RadioButton fx:id="RB_female" layoutX="378.0" layoutY="172.0" mnemonicParsing="false" onAction="#selectGender" text="Female">
          <font>
             <Font size="18.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="RB_others" layoutX="508.0" layoutY="172.0" mnemonicParsing="false" text="Others">
+      <RadioButton fx:id="RB_others" layoutX="508.0" layoutY="172.0" mnemonicParsing="false" onAction="#selectGender" text="Others">
          <font>
             <Font size="18.0" />
          </font>
