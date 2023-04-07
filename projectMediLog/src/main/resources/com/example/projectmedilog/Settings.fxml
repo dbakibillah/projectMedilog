@@ -27,12 +27,7 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="TF_username" layoutX="553.0" layoutY="78.0" prefHeight="45.0" prefWidth="350.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="TF_email" layoutX="80.0" layoutY="427.0" prefHeight="45.0" prefWidth="350.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField fx:id="TF_email" editable="false" layoutX="80.0" layoutY="427.0" prefHeight="45.0" prefWidth="350.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
          <font>
             <Font size="17.0" />
          </font>
@@ -78,5 +73,10 @@
             <Font size="18.0" />
          </font>
       </PasswordField>
+      <Text layoutX="553.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Password" wrappingWidth="196.0">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

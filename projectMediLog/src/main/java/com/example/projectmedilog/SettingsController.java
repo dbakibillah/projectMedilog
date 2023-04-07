@@ -12,7 +12,7 @@ import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class SettingsController implements  Initializable {
@@ -61,9 +61,6 @@ public class SettingsController implements  Initializable {
     private PasswordField TF_newpass;
 
     @FXML
-    private TextField TF_username;
-
-    @FXML
     void onCLickBTN_ChooseFile(ActionEvent event) throws SQLException {
         ImageUpload imageUpload = new ImageUpload();
         imageUpload.selectImage();
@@ -77,9 +74,30 @@ public class SettingsController implements  Initializable {
 
     @FXML
     void onClickBTN_Save(ActionEvent event)throws SQLException, ClassNotFoundException, IOException, InterruptedException {
-        String UserName = TF_username.getText();
+        String Email = TF_email.getText();
         String CurrentPass = TF_currentpass.getText();
         String NewPass = TF_newpass.getText();
+
+        //check if current password is correct
+        Connection connection = database.dbconnect();
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM signup WHERE Email = '" + Email + "' AND Pass = '" + CurrentPass + "'");
+        if (resultSet.next()) {
+            //update password
+            try (
+                    PreparedStatement pst = connection.prepareStatement("UPDATE signup SET Pass = ? WHERE Email = ?")
+            ) {
+                pst.setString(1, NewPass);
+                pst.setString(2, Email);
+
+                pst.execute();
+
+                //clear password fields
+                TF_currentpass.clear();
+                TF_newpass.clear();
+                System.out.println("Password Updated");
+            }
+        }
     }
 
     @FXML
@@ -92,6 +110,45 @@ public class SettingsController implements  Initializable {
 
         String Address = TF_address.getText();
         String BloodGroup = CB_bloodgrp.getValue().toString();
+
+        //update data using database
+        Connection connection = database.dbconnect();
+        Statement statement = connection.createStatement();
+
+
+        try (
+                PreparedStatement pst = connection.prepareStatement("UPDATE signup SET FirstName = ?, LastName = ?, Age = ?, Phone = ?, Address = ?, Blood_Group = ? WHERE Email = ?")
+        ) {
+            pst.setString(1, FirstName);
+            pst.setString(2, LastName);
+            pst.setString(3, Age);
+            pst.setString(4, Phone);
+            pst.setString(5, Address);
+            pst.setString(6, BloodGroup);
+            pst.setString(7, Email);
+
+            pst.executeUpdate();
+
+            //update user
+            user.setFirstName(FirstName);
+            user.setLastName(LastName);
+            user.setEmail(Email);
+            user.setAge(Age);
+            user.setPhone(Phone);
+            user.setAddress(Address);
+            user.setBloodGroup(BloodGroup);
+
+            //System.out.println("Data Updated");
+
+
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+
+
+
 
     }
 
@@ -111,5 +168,12 @@ public class SettingsController implements  Initializable {
              return null;
          }
      });
+        TF_firstname.setText(user.getFirstName());
+        TF_lastname.setText(user.getLastName());
+        TF_email.setText(user.getEmail());
+        TF_age.setText(user.getAge());
+        TF_mobile.setText(user.getPhone());
+        TF_address.setText(user.getAddress());
+        CB_bloodgrp.setValue(user.getBloodGroup());
     }
 }

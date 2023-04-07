@@ -76,6 +76,7 @@ public class userLoginController {
             ResultSet resultSet = statement.executeQuery("select * from signup");
             while (resultSet.next()) {
                 if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
+                    new user(resultSet.getString("FirstName"), resultSet.getString("LastName"), resultSet.getString("Gender"), resultSet.getString("Age"), resultSet.getString("Phone"), resultSet.getString("Email"),resultSet.getString("Address"), resultSet.getString("Blood_Group"), resultSet.getString("Image"));
                     String userName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
                     changeScene(event, "pHome.fxml", userName, Email);
                     gotoSuccessDialog("Login Successfull");

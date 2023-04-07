@@ -57,6 +57,9 @@ public class pHomeController implements Initializable {
     @FXML
     void onClickSettings(ActionEvent event) throws IOException {
         Pane SettingPane = FXMLLoader.load(getClass().getResource("Settings.fxml"));
+
+        //SettingsController settingsController = new SettingsController();
+        //settingsController.getUserData(userEmail.getText());
         anchorpaneHome.getChildren().setAll(SettingPane);
     }
 
@@ -123,7 +126,6 @@ public class pHomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resource) {
-        System.out.println("User: " + userEmail.getText());
         Pane DashboardPane = null;
         try {
             DashboardPane = FXMLLoader.load(getClass().getResource("pDashboard.fxml"));
@@ -131,8 +133,6 @@ public class pHomeController implements Initializable {
             //set userLabel in Dashboard
             pDashboardController pDashboardController = new pDashboardController();
 //            pDashboardController.userLabel.setText(userLabel);
-
-
 
         } catch (IOException e) {
             throw new RuntimeException(e);
