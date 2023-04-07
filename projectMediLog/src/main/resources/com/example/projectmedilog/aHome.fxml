@@ -101,7 +101,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Settings">
+                  <Button fx:id="BTN_Settings" mnemonicParsing="false" onAction="#onClickSettings" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Settings">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -149,6 +149,6 @@
             </Button>
          </children>
       </Pane>
-      <AnchorPane fx:id="anchorpaneHome" layoutX="250.0" prefHeight="800.0" prefWidth="1050.0" style="-fx-background-color: #1260cc;" />
+      <AnchorPane fx:id="anchorpaneHome" layoutX="250.0" prefHeight="800.0" prefWidth="1050.0" style="-fx-background-color: #ffffff;" />
    </children>
 </AnchorPane>

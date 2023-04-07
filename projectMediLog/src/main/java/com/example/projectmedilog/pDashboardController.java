@@ -23,7 +23,7 @@ public class pDashboardController {
     private Pane Pnae_GL;
 
     @FXML
-    private Label userLabel;
+    public Label userLabel;
 
     @FXML
     void onClickedBP(MouseEvent event) {
@@ -69,6 +69,10 @@ public class pDashboardController {
     @FXML
     void onMouseExited_HB(MouseEvent event) {
 
+    }
+
+    public void setUser(String user) {
+        userLabel.setText(user);
     }
 
 }

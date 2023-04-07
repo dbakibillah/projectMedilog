@@ -14,10 +14,17 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <TableView layoutX="13.0" layoutY="154.0" prefHeight="492.0" prefWidth="1025.0">
+      <TableView layoutX="24.0" layoutY="154.0" prefHeight="492.0" prefWidth="1025.0">
          <columns>
-            <TableColumn prefWidth="75.0" text="C1" />
-            <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn fx:id="TC_name" prefWidth="120.80001831054688" text="Name" />
+            <TableColumn fx:id="TC_email" minWidth="0.0" prefWidth="164.00003051757812" text="Email" />
+            <TableColumn fx:id="TC_gender" minWidth="0.0" prefWidth="75.99996948242188" text="Gender" />
+            <TableColumn fx:id="TC_date" prefWidth="114.4000244140625" text="Date" />
+            <TableColumn fx:id="TC_time" minWidth="0.0" prefWidth="58.399993896484375" text="Time" />
+            <TableColumn fx:id="TC_mobile" prefWidth="144.0" text="Mobile" />
+            <TableColumn fx:id="TC_doctor" minWidth="8.00006103515625" prefWidth="136.0" text="Doctor" />
+            <TableColumn fx:id="TC_injury_or_condition" minWidth="0.0" prefWidth="212.80010986328125" text="Injury/Condition" />
+            <TableColumn prefWidth="75.0" text="Column X" />
          </columns>
       </TableView>
       <Text fill="#0080ff" layoutX="438.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">

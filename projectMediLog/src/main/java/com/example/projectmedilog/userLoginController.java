@@ -155,7 +155,6 @@ public class userLoginController {
         Parent root = loader.load();
 
         pHomeController phomecontroller = loader.getController();
-        phomecontroller.userLabel.setText(userName);
         phomecontroller.userEmail.setText(Email);
         Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
         secondStage.setScene(new Scene(root));
