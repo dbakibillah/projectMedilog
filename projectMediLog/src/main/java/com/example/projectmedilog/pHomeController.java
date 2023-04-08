@@ -14,6 +14,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 
 import java.io.ByteArrayInputStream;
@@ -36,7 +37,7 @@ public class pHomeController implements Initializable {
     Pane anchorpaneHome;
 
     @FXML
-    Circle ImageCIrcle;
+    Circle ImageCIrcle = new Circle();
 
     @FXML
     private AnchorPane pHomeAnchor;
@@ -128,6 +129,22 @@ public class pHomeController implements Initializable {
 
     }
 
+    public void setImageCIrcle() {
+        try {
+            //check if image is not null then not display default image
+            if (user.getImage() != null) {
+                InputStream inputStream = user.getImage().getBinaryStream();
+                Image image = new Image(new ByteArrayInputStream(inputStream.readAllBytes()));
+                // check if image is not null then not display default image
+                    ImageCIrcle.setFill(new ImagePattern(image));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     @FXML
     void onClickLogout(ActionEvent event) throws IOException {
         AnchorPane loginPage = FXMLLoader.load(getClass().getResource("userLogin.fxml"));
@@ -148,19 +165,8 @@ public class pHomeController implements Initializable {
             throw new RuntimeException(e);
         }
         anchorpaneHome.getChildren().setAll(DashboardPane);
+        setImageCIrcle();
 
-        try {
-            //check if image is not null then not display default image
-            if (user.getImage() != null) {
-                InputStream inputStream = user.getImage().getBinaryStream();
-                Image image = new Image(new ByteArrayInputStream(inputStream.readAllBytes()));
-                ImageCIrcle.setFill(new ImagePattern(image));
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 }
 

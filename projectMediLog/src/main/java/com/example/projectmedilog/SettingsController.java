@@ -105,6 +105,7 @@ public class SettingsController implements  Initializable {
                 user.setImage(blob);
                 //change pHomeController image
                 pHomeController pHomeController = new pHomeController();
+                pHomeController.setImageCIrcle();
 //                pHomeController.ImageCIrcle.setFill(new ImagePattern(imageUpload.getImage()));
 
             }
