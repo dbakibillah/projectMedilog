@@ -27,10 +27,6 @@ public class pAppointmentController implements Initializable {
     private Button BTN_confirm;
 
     @FXML
-    private Button BTN_refresh;
-
-
-    @FXML
     private ChoiceBox<String> CB_doctor;
 
     @FXML
@@ -112,14 +108,17 @@ public class pAppointmentController implements Initializable {
     }
 
     @FXML
-    void onClickBTN_refresh(ActionEvent event) {
-        //Refresh Table Data
-        pAppointmentList.clear();
-        setAppointmentTableData();
-    }
-
-    @FXML
     void onClickBTN_confirm(ActionEvent event) throws SQLException, ClassNotFoundException {
+
+        //check if any field is empty
+        if (TF_name.getText().isEmpty() || this.Gender == null || TF_date.getText().isEmpty() || TF_phone.getText().isEmpty() || TF_injury_or_condition.getText().isEmpty() || TF_age.getText().isEmpty() || CB_doctor.getValue().isEmpty() || CB_time.getValue().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Please fill all the fields");
+            alert.showAndWait();
+            return;
+        }
 
         String Name = TF_name.getText();
         String Gender = this.Gender;
@@ -129,6 +128,8 @@ public class pAppointmentController implements Initializable {
         String Doctor = CB_doctor.getValue().toString();
         String InjuryOrCondition = TF_injury_or_condition.getText();
         String Age = TF_age.getText();
+
+
 
         //add to database
 
@@ -150,6 +151,25 @@ public class pAppointmentController implements Initializable {
             pst.executeUpdate();
 
             System.out.println("Appointment added");
+
+            //clear fields
+            TF_name.clear();
+            TF_date.clear();
+            TF_phone.clear();
+            TF_injury_or_condition.clear();
+            TF_age.clear();
+            CB_doctor.setValue(null);
+            CB_time.setValue(null);
+            TF_age.clear();
+            this.Gender = null;
+            RB_male.setSelected(false);
+            RB_female.setSelected(false);
+            RB_others.setSelected(false);
+
+            //clear table
+            pAppointmentList.clear();
+            //refresh table
+            setAppointmentTableData();
 
 
         } catch (SQLException e) {
