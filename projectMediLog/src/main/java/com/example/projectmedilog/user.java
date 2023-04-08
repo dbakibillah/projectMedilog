@@ -1,5 +1,7 @@
 package com.example.projectmedilog;
 
+import java.sql.Blob;
+
 public class user {
     static String firstName;
     static String lastName;
@@ -11,9 +13,9 @@ public class user {
     static  String address;
 
     static  String bloodGroup;
-    static String image;
+    static Blob image;
 
-    public user(String firstName, String lastName, String gender, String age, String phone, String email, String address, String bloodGroup, String image) {
+    public user(String firstName, String lastName, String gender, String age, String phone, String email, String address, String bloodGroup, Blob image) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
@@ -89,11 +91,11 @@ public class user {
         user.bloodGroup = bloodGroup;
     }
 
-    public String getImage() {
+    public static Blob getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public static void setImage(Blob image) {
         user.image = image;
     }
 

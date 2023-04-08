@@ -6,11 +6,17 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.fxml.Initializable;
 import javafx.util.StringConverter;
+import javafx.scene.image.ImageView;
 
-import java.io.IOException;
+import java.io.*;
+
+
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -59,17 +65,54 @@ public class SettingsController implements  Initializable {
 
     @FXML
     private PasswordField TF_newpass;
-
+    @FXML
+    private ImageView imageView;
+    ImageUpload imageUpload = new ImageUpload();
     @FXML
     void onCLickBTN_ChooseFile(ActionEvent event) throws SQLException {
-        ImageUpload imageUpload = new ImageUpload();
+
         imageUpload.selectImage();
+
+        ImageCIrcle.setFill(new ImagePattern(imageUpload.getImage()));
+        //imageView.setImage(imageUpload.getImage());
         //imageUpload.displayImage();
     }
 
     @FXML
-    void onCLickBTN_Upload(ActionEvent event) {
+    void onCLickBTN_Upload(ActionEvent event) throws FileNotFoundException {
+//        try {
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+        //update image in database
+        FileInputStream fileInputStream = new FileInputStream(imageUpload.getSelectedFile());
+        try (
+                Connection connection = database.dbconnect();
+                PreparedStatement pst = connection.prepareStatement("UPDATE signup SET Image = ? WHERE Email = ?")
+        ) {
+            pst.setBinaryStream(1, fileInputStream, fileInputStream.available());
+            pst.setString(2, TF_email.getText());
 
+            pst.execute();
+
+            System.out.println("Image Updated");
+
+            // get image from database
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM signup WHERE Email = '" + TF_email.getText() + "'");
+            if (resultSet.next()) {
+                Blob blob = resultSet.getBlob("Image");
+                user.setImage(blob);
+                //change pHomeController image
+                pHomeController pHomeController = new pHomeController();
+//                pHomeController.ImageCIrcle.setFill(new ImagePattern(imageUpload.getImage()));
+
+            }
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
@@ -175,5 +218,19 @@ public class SettingsController implements  Initializable {
         TF_mobile.setText(user.getPhone());
         TF_address.setText(user.getAddress());
         CB_bloodgrp.setValue(user.getBloodGroup());
+
+        //Image set
+        try {
+            //check if image is not null then not display default image
+            if (user.getImage() != null) {
+                InputStream inputStream = user.getImage().getBinaryStream();
+                Image image = new Image(new ByteArrayInputStream(inputStream.readAllBytes()));
+                ImageCIrcle.setFill(new ImagePattern(image));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

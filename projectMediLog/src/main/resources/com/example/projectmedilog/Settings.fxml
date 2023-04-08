@@ -54,7 +54,7 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <Circle fill="DODGERBLUE" layoutX="157.0" layoutY="163.0" radius="79.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="ImageCIrcle" accessibleRole="IMAGE_VIEW" fill="DODGERBLUE" layoutX="157.0" layoutY="163.0" radius="79.0" stroke="BLACK" strokeType="INSIDE" />
       <Button fx:id="BTN_ChooseFile" layoutX="65.0" layoutY="286.0" mnemonicParsing="false" onAction="#onCLickBTN_ChooseFile" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #0080FF;" text="Choose File" textFill="WHITE" />
       <Text fill="#908a8a" layoutX="88.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change/Upload photo">
          <font>

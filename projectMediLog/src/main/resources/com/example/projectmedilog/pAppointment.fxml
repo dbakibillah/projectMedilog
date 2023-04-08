@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
@@ -76,11 +77,17 @@
                <font>
                   <Font size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="BTN_confirm" layoutX="798.0" layoutY="301.0" mnemonicParsing="false" onAction="#onClickBTN_confirm" style="-fx-background-color: #0080FF;" text="Confirm" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Label layoutX="386.0" layoutY="217.0" prefHeight="27.0" prefWidth="120.0" text="Select Doctor :">
                <font>
@@ -96,18 +103,27 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TableView layoutX="6.0" layoutY="52.0" prefHeight="391.0" prefWidth="1041.0" style="-fx-background-color: #ffffff;">
+            <TableView fx:id="pAppointmentTable" layoutX="6.0" layoutY="52.0" prefHeight="391.0" prefWidth="1041.0" style="-fx-background-color: #ffffff;">
               <columns>
                 <TableColumn fx:id="TC_name" prefWidth="118.0" text="Name" />
                 <TableColumn fx:id="TC_email" minWidth="0.0" prefWidth="190.0" text="Email" />
-                  <TableColumn fx:id="TC_gender" minWidth="0.0" prefWidth="99.0" text="Gender" />
-                  <TableColumn fx:id="TC_date" minWidth="0.0" prefWidth="110.0" text="Date" />
-                  <TableColumn fx:id="TC_time" prefWidth="91.0" text="Time" />
-                  <TableColumn fx:id="TC_mobile" prefWidth="129.0" text="Mobile" />
-                  <TableColumn fx:id="TC_doctor" prefWidth="112.0" text="Doctor" />
-                  <TableColumn fx:id="TC_injury_or_condition" prefWidth="191.0" text="Injury/Condition" />
+                  <TableColumn fx:id="TC_gender" minWidth="0.0" prefWidth="59.0" text="Gender" />
+                  <TableColumn fx:id="TC_age" minWidth="0.0" prefWidth="54.0" text="Age" />
+                  <TableColumn fx:id="TC_date" minWidth="0.0" prefWidth="144.0" text="Date" />
+                  <TableColumn fx:id="TC_time" prefWidth="82.0" text="Time" />
+                  <TableColumn fx:id="TC_mobile" prefWidth="150.0" text="Mobile" />
+                  <TableColumn fx:id="TC_doctor" prefWidth="91.0" text="Doctor" />
+                  <TableColumn fx:id="TC_injury_or_condition" prefWidth="251.0" text="Injury/Condition" />
               </columns>
             </TableView>
+            <Button fx:id="BTN_refresh" layoutX="300.0" layoutY="21.0" mnemonicParsing="false" onAction="#onClickBTN_refresh" style="-fx-background-color: transparent;" text="Refresh" textFill="#0080ff" underline="true">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </Pane>
    </children>

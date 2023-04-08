@@ -7,14 +7,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 
@@ -28,6 +34,10 @@ public class pHomeController implements Initializable {
     Pane homePane;
     @FXML
     Pane anchorpaneHome;
+
+    @FXML
+    Circle ImageCIrcle;
+
     @FXML
     private AnchorPane pHomeAnchor;
 
@@ -138,6 +148,19 @@ public class pHomeController implements Initializable {
             throw new RuntimeException(e);
         }
         anchorpaneHome.getChildren().setAll(DashboardPane);
+
+        try {
+            //check if image is not null then not display default image
+            if (user.getImage() != null) {
+                InputStream inputStream = user.getImage().getBinaryStream();
+                Image image = new Image(new ByteArrayInputStream(inputStream.readAllBytes()));
+                ImageCIrcle.setFill(new ImagePattern(image));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

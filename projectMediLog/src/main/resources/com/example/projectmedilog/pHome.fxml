@@ -132,7 +132,7 @@
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="237.0" prefWidth="250.0">
                <children>
-                  <Circle fill="DODGERBLUE" radius="79.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="ImageCIrcle" fill="DODGERBLUE" radius="79.0" stroke="BLACK" strokeType="INSIDE">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>
@@ -150,7 +150,6 @@
                   <Insets top="50.0" />
                </opaqueInsets>
             </VBox>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="BTN_Logout" layoutX="-1.0" layoutY="745.0" mnemonicParsing="false" onAction="#onClickLogout" prefHeight="42.0" prefWidth="249.0" styleClass="menu-btn" stylesheets="@../../../Style/Home.css" text="Log out">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
