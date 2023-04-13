@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.aPrescriptionController">
+    <children>
+        <Text fill="#0598ff" layoutX="17.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescriptions">
+            <font>
+                <Font size="26.0" />
+            </font>
+        </Text>
+        <AnchorPane layoutX="21.0" layoutY="136.0" prefHeight="607.0" prefWidth="985.0" style="-fx-border-width: 2; -fx-border-color: #334db3;">
+            <children>
+                <TableView fx:id="Table_user" layoutX="32.0" layoutY="49.0" onMouseClicked="#getItem" prefHeight="524.0" prefWidth="917.0">
+                    <columns>
+                        <TableColumn fx:id="nameTablecolumn" prefWidth="112.80001449584961" text="Name" />
+                  <TableColumn fx:id="emailTablecolumn" prefWidth="177.59999084472656" text="Email" />
+                        <TableColumn fx:id="createdTablecolumn" prefWidth="121.5999755859375" text="Created By" />
+                        <TableColumn fx:id="dateTablecolumn" prefWidth="104.79998779296875" text="Date" />
+                        <TableColumn fx:id="diseaseTablecolumn" prefWidth="155.20001220703125" text="Diseases" />
+                        <TableColumn fx:id="testTablecolumn" minWidth="0.0" prefWidth="94.39990234375" text="Test" />
+                        <TableColumn fx:id="medicineTablecolumn" prefWidth="150.39996337890625" text="Medicine" />
+                    </columns>
+                </TableView>
+            </children>
+        </AnchorPane>
+      <Button fx:id="BTN_Add" layoutX="857.0" layoutY="98.0" mnemonicParsing="false" onAction="#onClickedBTN_Add" text="Add" />
+      <Text layoutX="711.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For  Inserting Data Click">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>
