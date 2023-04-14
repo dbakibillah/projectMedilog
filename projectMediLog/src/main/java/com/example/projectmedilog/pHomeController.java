@@ -40,8 +40,9 @@ public class pHomeController {
     }
 
     @FXML
-    void onClickPrescription(ActionEvent event) {
-
+    void onClickPrescription(ActionEvent event) throws IOException {
+        AnchorPane pPrescriptionAnchorPane = FXMLLoader.load(getClass().getResource("pPrescription.fxml"));
+        HomePane2.getChildren().setAll(pPrescriptionAnchorPane);
     }
 
     @FXML

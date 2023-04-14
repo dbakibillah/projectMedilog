@@ -1,36 +1,74 @@
 package com.example.projectmedilog;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Circle;
+import javafx.scene.paint.Color;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
+public class pDashboardController {
 
-public class pDashboardController implements Initializable {
     @FXML
-    private Circle userProfilePic;
-    @FXML
-    Pane DashboardPane;
+    private Pane HomePane2;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Image image = new Image("F:\\java\\intellij\\practice\\projectMediLog\\src\\main\\resources\\images\\mypic.jpg");
-        //userProfilePic.setFill(new ImagePattern(image));
+    @FXML
+    private Pane Pane_BP;
+
+    @FXML
+    private Pane Pane_HB;
+
+    @FXML
+    private Pane Pnae_GL;
+
+    @FXML
+    private Label userLabel;
+
+    @FXML
+    void onClickedBP(MouseEvent event) {
+
     }
 
-    public void onClickAppointment_btn(ActionEvent event) throws IOException {
-        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("Appointment.fxml"));
-        Parent root = loader.load();
-        AppointmentController second = loader.getController();
-        Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
-        secondStage.setScene(new Scene(root));*/
-
-
-
+    @FXML
+    void onMouseClicked_GL(MouseEvent event) {
 
     }
+
+    @FXML
+    void onMouseClicked_HB(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onMouseEntered_BP(MouseEvent event) {
+        Pane_BP.setCursor(Cursor.HAND);
+        Pane_BP.setBackground(Background.fill(Color.web("95BDFF")));
+    }
+
+    @FXML
+    void onMouseEntered_GL(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onMouseEntered_HB(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onMouseExited_BP(MouseEvent event) {
+        Pane_BP.setBackground(Background.fill(Color.web("#FFFFFF")));
+    }
+
+    @FXML
+    void onMouseExited_GL(MouseEvent event) {
+
+    }
+
+    @FXML
+    void onMouseExited_HB(MouseEvent event) {
+
+    }
+
 }
