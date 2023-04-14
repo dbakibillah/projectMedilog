@@ -132,7 +132,7 @@
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="237.0" prefWidth="250.0">
                <children>
-                  <Circle fx:id="ImageCIrcle" fill="DODGERBLUE" radius="79.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="ImageCIrcle" accessibleRole="IMAGE_VIEW" fill="DODGERBLUE" radius="79.0" stroke="BLACK" strokeType="INSIDE">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>

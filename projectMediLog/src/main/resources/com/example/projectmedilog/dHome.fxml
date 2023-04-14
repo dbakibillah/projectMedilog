@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.dHomeController">
+<AnchorPane fx:id="dHomeAnchor" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.dHomeController">
    <children>
       <Pane fx:id="homePane" layoutY="5.0" prefHeight="800.0" prefWidth="250.0">
          <children>
@@ -125,12 +125,12 @@
                         <Insets top="30.0" />
                      </VBox.margin>
                   </Circle>
-                  <Label text="UserName">
+                  <Label fx:id="userEmail" alignment="CENTER" contentDisplay="CENTER" prefHeight="23.0" prefWidth="239.0" text="UserEmail">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="System Bold" size="30.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                </children>

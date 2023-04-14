@@ -2,15 +2,16 @@ package com.example.projectmedilog;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.fxml.Initializable;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javafx.scene.image.ImageView;
 
@@ -80,10 +81,7 @@ public class SettingsController implements  Initializable {
 
     @FXML
     void onCLickBTN_Upload(ActionEvent event) throws FileNotFoundException {
-//        try {
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+
         //update image in database
         FileInputStream fileInputStream = new FileInputStream(imageUpload.getSelectedFile());
         try (
@@ -103,11 +101,15 @@ public class SettingsController implements  Initializable {
             if (resultSet.next()) {
                 Blob blob = resultSet.getBlob("Image");
                 user.setImage(blob);
-                //change pHomeController image
-                pHomeController pHomeController = new pHomeController();
-                pHomeController.setImageCIrcle();
-//                pHomeController.ImageCIrcle.setFill(new ImagePattern(imageUpload.getImage()));
+                InputStream inputStream = user.getImage().getBinaryStream();
+                Image image = new Image(new ByteArrayInputStream(inputStream.readAllBytes()));
 
+                // goto pHome screen
+                Stage stage = (Stage) BTN_Upload.getScene().getWindow();
+                Parent root = FXMLLoader.load(getClass().getResource("pHome.fxml"));
+                stage.setScene(new Scene(root));
+                stage.show();
+                gotoSuccessDialog("Image Updated");
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
@@ -118,6 +120,26 @@ public class SettingsController implements  Initializable {
 
     @FXML
     void onClickBTN_Save(ActionEvent event)throws SQLException, ClassNotFoundException, IOException, InterruptedException {
+
+
+        if (TF_currentpass.getText().isEmpty() || TF_newpass.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Please fill all the fields");
+            alert.showAndWait();
+            return;
+        }
+
+
+
+
+
+
+
+
+
+
         String Email = TF_email.getText();
         String CurrentPass = TF_currentpass.getText();
         String NewPass = TF_newpass.getText();
@@ -140,12 +162,22 @@ public class SettingsController implements  Initializable {
                 TF_currentpass.clear();
                 TF_newpass.clear();
                 System.out.println("Password Updated");
+                gotoSuccessDialog("Password Updated");
             }
         }
     }
 
     @FXML
     void onClickBTN_SaveChange(ActionEvent event) throws SQLException, ClassNotFoundException, IOException, InterruptedException {
+        // if any field is empty
+        if (TF_firstname.getText().isEmpty() || TF_lastname.getText().isEmpty() || TF_age.getText().isEmpty() || TF_mobile.getText().isEmpty() || TF_address.getText().isEmpty() || CB_bloodgrp.getValue().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+           alert.setHeaderText("Error");
+            alert.setContentText("Please fill all the fields");
+            alert.showAndWait();
+            return;
+        }
         String FirstName = TF_firstname.getText();
         String LastName = TF_lastname.getText();
         String Email = TF_email.getText();
@@ -190,9 +222,34 @@ public class SettingsController implements  Initializable {
             System.out.println(e);
         }
 
+        gotoSuccessDialog("Data Updated");
 
 
 
+    }
+//success dialog screen
+    void gotoSuccessDialog(String message) throws IOException {
+        Stage dialogStage = new Stage();
+        dialogStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("successDialog.fxml"));
+        Parent root = loader.load();
+        DialogController controller = loader.getController();
+        controller.successDialog(dialogStage, message, 2);
+        Scene scene = new Scene(root);
+        dialogStage.setScene(scene);
+        dialogStage.show();
+
+    }
+    void gotoErrorDialog(String fxml, String message) throws IOException {
+        Stage dialogStage = new Stage();
+        dialogStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("errorDialog.fxml"));
+        Parent root = loader.load();
+        DialogController controller = loader.getController();
+        controller.errorDialog(dialogStage, message, 3);
+        Scene scene = new Scene(root);
+        dialogStage.setScene(scene);
+        dialogStage.show();
 
     }
 

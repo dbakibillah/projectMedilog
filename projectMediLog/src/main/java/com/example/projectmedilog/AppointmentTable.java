@@ -1,9 +1,15 @@
 package com.example.projectmedilog;
 
-public class pAppointmentTable {
+import javafx.scene.control.SelectionModel;
+
+public class AppointmentTable {
+    private static SelectionModel<Object> selectionModel;
+
+    Integer id;
     String name, email, gender, date, time, phone, injuryOrCondition, doctor, age;
 
-    public  pAppointmentTable(String name, String email, String gender, String age, String date, String time, String phone, String doctor, String injuryOrCondition){
+    public AppointmentTable(Integer id, String name, String email, String gender, String age, String date, String time, String phone, String doctor, String injuryOrCondition){
+        this.id = id;
         this.name = name;
         this.email = email;
         this.gender = gender;
@@ -15,6 +21,14 @@ public class pAppointmentTable {
         this.injuryOrCondition = injuryOrCondition;
     }
 
+
+
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }

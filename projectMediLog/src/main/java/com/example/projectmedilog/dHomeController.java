@@ -5,9 +5,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -15,6 +17,10 @@ import java.util.ResourceBundle;
 
 public class dHomeController implements Initializable {
 
+
+
+    @FXML
+    Label userEmail;
     @FXML
     private Button Appointment_btn;
 
@@ -38,7 +44,13 @@ public class dHomeController implements Initializable {
 
     @FXML
     private AnchorPane anchorpaneHome;
+@FXML
+    private AnchorPane dHomeAnchor;
 
+
+
+    //public String userLabel = "";
+     //code for login
 
     public void onDashboard_btnClick(ActionEvent event) throws IOException {
         Pane DashboardPane = FXMLLoader.load(getClass().getResource("dDashboard.fxml"));
@@ -54,8 +66,11 @@ public class dHomeController implements Initializable {
         anchorpaneHome.getChildren().setAll(SettingPane);
     }
 
-    public void onClickLogout(ActionEvent event) {
+    @FXML
+    void onClickLogout(ActionEvent event) throws IOException {
+        AnchorPane loginPage = FXMLLoader.load(getClass().getResource("userLogin.fxml"));
 
+        dHomeAnchor.getChildren().setAll(loginPage);
     }
 
     public void onMouseClicked_App(MouseEvent event) {
@@ -101,10 +116,18 @@ public class dHomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resource) {
         Pane DashboardPane = null;
         try {
-            DashboardPane = FXMLLoader.load(getClass().getResource("pDashboard.fxml"));
+            DashboardPane = FXMLLoader.load(getClass().getResource("dDashboard.fxml"));
+            // set label text
+          //  userEmail.setText(LoginController.userLabel);
+            dDashboardController pDashboardController = new dDashboardController();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         anchorpaneHome.getChildren().setAll(DashboardPane);
+
+
+      //  setImage CIrcle();
+
+
     }
 }

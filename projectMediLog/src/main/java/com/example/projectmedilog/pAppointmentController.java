@@ -4,10 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.io.IOException;
@@ -42,7 +46,7 @@ public class pAppointmentController implements Initializable {
     private RadioButton RB_others;
 
     @FXML
-    private TableView<pAppointmentTable> pAppointmentTable;
+    private TableView<AppointmentTable> pAppointmentTable;
     @FXML
     private TableColumn<?, ?> TC_date;
 
@@ -85,7 +89,7 @@ public class pAppointmentController implements Initializable {
     @FXML
     private TextField TF_name;
 
-    ObservableList<pAppointmentTable> pAppointmentList = FXCollections.observableArrayList();
+    ObservableList<AppointmentTable> pAppointmentList = FXCollections.observableArrayList();
     private String Gender;
     private int count = 0;
 
@@ -104,13 +108,27 @@ public class pAppointmentController implements Initializable {
     }
     @FXML
     void onClickBTN_cancel(ActionEvent event) {
+       // clear all the fields
+        TF_name.clear();
+        TF_date.clear();
+        TF_phone.clear();
+        TF_injury_or_condition.clear();
+        TF_age.clear();
+        CB_doctor.setValue(null);
+        this.Gender = null;
+        RB_male.setSelected(false);
+        RB_female.setSelected(false);
+        RB_others.setSelected(false);
+        CB_time.setValue(null);
+
+
 
     }
 
     @FXML
-    void onClickBTN_confirm(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void onClickBTN_confirm(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
 
-        //check if any field is empty
+      // Error handling
         if (TF_name.getText().isEmpty() || this.Gender == null || TF_date.getText().isEmpty() || TF_phone.getText().isEmpty() || TF_injury_or_condition.getText().isEmpty() || TF_age.getText().isEmpty() || CB_doctor.getValue().isEmpty() || CB_time.getValue().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
@@ -119,6 +137,7 @@ public class pAppointmentController implements Initializable {
             alert.showAndWait();
             return;
         }
+
 
         String Name = TF_name.getText();
         String Gender = this.Gender;
@@ -152,6 +171,7 @@ public class pAppointmentController implements Initializable {
 
             System.out.println("Appointment added");
 
+
             //clear fields
             TF_name.clear();
             TF_date.clear();
@@ -166,6 +186,7 @@ public class pAppointmentController implements Initializable {
             RB_female.setSelected(false);
             RB_others.setSelected(false);
 
+gotoSuccessDialog("Appointment added successfully");
             //clear table
             pAppointmentList.clear();
             //refresh table
@@ -173,17 +194,31 @@ public class pAppointmentController implements Initializable {
 
 
         } catch (SQLException e) {
+
             System.out.println(e);
         }
     }
+    void gotoSuccessDialog(String message) throws IOException {
+        Stage dialogStage = new Stage();
+        dialogStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("successDialog.fxml"));
+        Parent root = loader.load();
+        DialogController controller = loader.getController();
+        controller.successDialog(dialogStage, message, 2);
+        Scene scene = new Scene(root);
+        dialogStage.setScene(scene);
+        dialogStage.show();
+
+    }
+
 
     public void setAppointmentTableData() {
         try {
             conn = database.dbconnect();
             //get all appointments from database
-            rs = conn.createStatement().executeQuery("select * from appointment");
+            rs = conn.createStatement().executeQuery("select * from appointment where Email = '" + user.getEmail() + "'");
             while (rs.next()) {
-                pAppointmentList.add(new pAppointmentTable(rs.getString("Name"), rs.getString("Email"), rs.getString("Gender"), rs.getString("Age"), rs.getString("Date"), rs.getString("Time"), rs.getString("Phone"), rs.getString("Doctor"), rs.getString("Injury_or_Condition")));
+                pAppointmentList.add(new AppointmentTable(rs.getInt("id"), rs.getString("Name"), rs.getString("Email"), rs.getString("Gender"), rs.getString("Age"), rs.getString("Date"), rs.getString("Time"), rs.getString("Phone"), rs.getString("Doctor"), rs.getString("Injury_or_Condition")));
             }
             //add to table
             TC_name.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -204,6 +239,7 @@ public class pAppointmentController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //Set Table Data

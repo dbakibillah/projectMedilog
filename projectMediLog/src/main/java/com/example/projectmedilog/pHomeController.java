@@ -8,6 +8,7 @@ import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
@@ -135,8 +136,7 @@ public class pHomeController implements Initializable {
             if (user.getImage() != null) {
                 InputStream inputStream = user.getImage().getBinaryStream();
                 Image image = new Image(new ByteArrayInputStream(inputStream.readAllBytes()));
-                // check if image is not null then not display default image
-                    ImageCIrcle.setFill(new ImagePattern(image));
+                ImageCIrcle.setFill(new ImagePattern(image));
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -159,7 +159,7 @@ public class pHomeController implements Initializable {
 
             //set userLabel in Dashboard
             pDashboardController pDashboardController = new pDashboardController();
-//            pDashboardController.userLabel.setText(userLabel);
+//           pDashboardController.userLabel.setText(userLabel);
 
         } catch (IOException e) {
             throw new RuntimeException(e);

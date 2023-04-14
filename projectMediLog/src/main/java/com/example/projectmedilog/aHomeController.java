@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -36,6 +37,8 @@ public class aHomeController implements Initializable {
 
     @FXML
     private Pane homePane;
+
+   public Label userEmail;
 
     @FXML
     void onClickAppointment_btn(ActionEvent event) throws IOException {
