@@ -89,6 +89,7 @@ public class aPrescriptionDialogController {
             pst.setString(7,Medicine);
             pst.executeUpdate();
             this.stage.close();
+            
 
         }
 
@@ -97,10 +98,26 @@ public class aPrescriptionDialogController {
     @FXML
     void onClickBTN_Clear(ActionEvent event) {
 
+        TF_Name.setText("");
+        TF_Email.setText("");
+        TF_Medicine.setText("");
+        TF_Date.setText("");
+        TF_Createdby.setText("");
+        TF_Test.setText("");
+        TF_Disease.setText("");
     }
 
     @FXML
-    void onClickBTN_Delete(ActionEvent event) {
+    void onClickBTN_Delete(ActionEvent event) throws SQLException, ClassNotFoundException {
+    String sql = "DELETE from pprescription WHERE `email` = '" + TF_Email.getText() + "'";
+        Connection connection = database.dbconnect();
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
