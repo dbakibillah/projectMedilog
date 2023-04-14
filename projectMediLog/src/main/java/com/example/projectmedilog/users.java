@@ -1,10 +1,11 @@
 package com.example.projectmedilog;
 
-public class pTable {
-    String name,email, createdby, date, disease, test, medicine;
+public class users {
 
 
-    public pTable(String name, String email, String createdby, String date, String disease, String test,String medicine) {
+    String name, email, createdby, date, disease, test, medicine;
+
+    public users(String name, String email, String createdby, String date, String disease, String test, String medicine, String string) {
         this.name = name;
         this.email = email;
         this.createdby = createdby;

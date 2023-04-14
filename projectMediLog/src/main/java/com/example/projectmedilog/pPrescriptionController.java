@@ -17,7 +17,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.sql.*;
@@ -39,30 +38,33 @@ public class pPrescriptionController implements Initializable {
     @FXML
     private TableColumn<pTable, String> nameTablecolumn;
     @FXML
+    private TableColumn<?, ?> emailTablecolumn;
+
+    @FXML
     private TableColumn<pTable, String> medicineTablecolumn;
 
 
     @FXML
     private TableView<pTable> pTable;
 
-    @FXML
-    private TextField txtCreatedby;
-
-    @FXML
-    private TextField txtDisease;
+    //    @FXML
+//    private TextField txtCreatedby;
+//
+//    @FXML
+//    private TextField txtDisease;
     @FXML
     private TableColumn<pTable, String> testTablecolumn;
 
 
-    @FXML
-    private TextField txtName;
-
-    @FXML
-    private TextField txtdate;
-    @FXML
-    private TextField txtMedicine;
-    @FXML
-    private TextField txtTest;
+//    @FXML
+//    private TextField txtName;
+//
+//    @FXML
+//    private TextField txtdate;
+//    @FXML
+//    private TextField txtMedicine;
+//    @FXML
+//    private TextField txtTest;
 
 
     ObservableList<pTable> listI = FXCollections.observableArrayList();
@@ -72,8 +74,8 @@ public class pPrescriptionController implements Initializable {
 
     Integer index;
 
-    public pPrescriptionController() {
-    }
+//    public pPrescriptionController() {
+//    }
 
     @FXML
     void getitem(MouseEvent event) throws IOException {
@@ -82,22 +84,30 @@ public class pPrescriptionController implements Initializable {
         if (index <= -1) {
             return;
         }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 898cb234a6adece586d9ee69942e132f2d6d7b35
+
+        //getting table data
         String Name = nameTablecolumn.getCellData(index).toString();
+        String Email = emailTablecolumn.getCellData(index).toString();
         String CreatedBy = createdTablecolumn.getCellData(index).toString();
         String Date = dateTablecolumn.getCellData(index).toString();
         String Disease = diseaseTablecolumn.getCellData(index).toString();
         String Test = testTablecolumn.getCellData(index).toString();
         String Medicine = medicineTablecolumn.getCellData(index).toString();
-        gotoPrescriptionDialog(Name, CreatedBy, Date, Disease, Test, Medicine);
-    }
-    void gotoPrescriptionDialog(String Name, String Createdby, String Date, String Disease, String Test, String Medicine) throws IOException {
+        gotoPrescriptionDialog(Name,Email, CreatedBy, Date, Disease, Test, Medicine);
+}
+
+    void gotoPrescriptionDialog(String Name,String Email, String Createdby, String Date, String Disease, String Test, String Medicine) throws IOException {
+        //passing to dialog box
         Stage pdialogStage = new Stage();
         pdialogStage.setResizable(false);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pPrescriptionDialog.fxml"));
         Parent root = loader.load();
         pPrescriptionDialogController controller = loader.getController();
-        controller.showDialog(pdialogStage, Name, Createdby, Date, Disease, Test, Medicine);
+        controller.showDialog(pdialogStage, Name,Email, Createdby, Date, Disease, Test, Medicine);
         Scene scene = new Scene(root);
         pdialogStage.setScene(scene);
         pdialogStage.show();
@@ -107,13 +117,15 @@ public class pPrescriptionController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         try {
+            //bringin data from database
             conn = database.dbconnect();
             rs = conn.createStatement().executeQuery("select * from pprescription");
 
             while (rs.next()) {
-                listI.add(new pTable(rs.getString("name"), rs.getString("createdby"), rs.getString("date"), rs.getString("disease"), rs.getString("test"), rs.getNString("medicine")));
+                listI.add(new pTable(rs.getString("name"),rs.getString("email"), rs.getString("createdby"), rs.getString("date"), rs.getString("disease"), rs.getString("test"), rs.getNString("medicine")));
             }
             nameTablecolumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+            emailTablecolumn.setCellValueFactory(new PropertyValueFactory<>("email"));
             createdTablecolumn.setCellValueFactory(new PropertyValueFactory<>("createdby"));
             dateTablecolumn.setCellValueFactory(new PropertyValueFactory<>("date"));
             diseaseTablecolumn.setCellValueFactory(new PropertyValueFactory<>("disease"));

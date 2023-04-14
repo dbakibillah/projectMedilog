@@ -8,32 +8,32 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.pPrescriptionDialogController">
    <children>
-      <Text layoutX="53.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+      <Text layoutX="53.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="53.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created by:">
+      <Text layoutX="53.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created by:">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="53.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
+      <Text layoutX="53.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="54.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Disease:">
+      <Text layoutX="54.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Disease:">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="56.0" layoutY="344.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test:">
+      <Text layoutX="56.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test:">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="56.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine:">
+      <Text layoutX="56.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine:">
          <font>
             <Font size="24.0" />
          </font>
@@ -43,32 +43,42 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Label fx:id="Label_Name" layoutX="187.0" layoutY="84.0" prefHeight="35.0" prefWidth="318.0" text="Label">
+      <Label fx:id="Label_Name" layoutX="187.0" layoutY="68.0" prefHeight="35.0" prefWidth="318.0" text="Label">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="Label_Disease" layoutX="187.0" layoutY="259.0" prefHeight="35.0" prefWidth="318.0" text="Label">
+      <Label fx:id="Label_Disease" layoutX="187.0" layoutY="276.0" prefHeight="35.0" prefWidth="318.0" text="Label">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="Label_Test" layoutX="187.0" layoutY="317.0" prefHeight="35.0" prefWidth="318.0" text="Label">
+      <Label fx:id="Label_Test" layoutX="187.0" layoutY="334.0" prefHeight="35.0" prefWidth="318.0" text="Label">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="Label_Medicine" layoutX="187.0" layoutY="371.0" prefHeight="35.0" prefWidth="318.0" text="Label">
+      <Label fx:id="Label_Medicine" layoutX="187.0" layoutY="388.0" prefHeight="35.0" prefWidth="318.0" text="Label">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="Label_Date" layoutX="187.0" layoutY="201.0" prefHeight="35.0" prefWidth="318.0" text="Label">
+      <Label fx:id="Label_Date" layoutX="187.0" layoutY="218.0" prefHeight="35.0" prefWidth="318.0" text="Label">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="Label_Createdby" layoutX="187.0" layoutY="142.0" prefHeight="35.0" prefWidth="318.0" text="Label">
+      <Label fx:id="Label_Createdby" layoutX="187.0" layoutY="159.0" prefHeight="35.0" prefWidth="318.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Text layoutX="53.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Label fx:id="Label_Email" layoutX="187.0" layoutY="112.0" prefHeight="35.0" prefWidth="318.0" text="Label">
          <font>
             <Font size="24.0" />
          </font>

@@ -88,10 +88,7 @@ public class signUpController {
 
         while (resultSet.next()) {
             if (resultSet.getString("Email").equals(Email)) {
-                //System.out.println("Already signed up");
                 count++;
-
-                //this.changeScene(event, "okay.fxml", "Signup Successful...");
                 gotoErrorDialog("Signup.fxml", "Already Signed Up!");
                 break;
             }
