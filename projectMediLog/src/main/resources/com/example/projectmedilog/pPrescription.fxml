@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -14,25 +13,9 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="17.0" layoutY="104.0" prefHeight="666.0" prefWidth="246.0" style="-fx-border-color: #334db3; -fx-border-width: 2;">
+      <AnchorPane layoutX="17.0" layoutY="100.0" prefHeight="666.0" prefWidth="1027.0" style="-fx-border-width: 2; -fx-border-color: #334db3;">
          <children>
-            <Text layoutX="73.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
-            <TextField fx:id="txtName" layoutX="72.0" layoutY="134.0" />
-            <Text layoutX="73.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created By" wrappingWidth="60.8414306640625" />
-            <TextField fx:id="txtCreatedby" layoutX="72.0" layoutY="200.0" />
-            <Text layoutX="73.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="60.8414306640625" />
-            <TextField fx:id="txtdate" layoutX="72.0" layoutY="278.0" />
-            <Text layoutX="73.0" layoutY="362.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Disease" wrappingWidth="60.8414306640625" />
-            <TextField fx:id="txtDisease" layoutX="72.0" layoutY="374.0" />
-            <Text layoutX="73.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test" />
-            <TextField fx:id="txtTest" layoutX="72.0" layoutY="458.0" />
-            <Text layoutX="73.0" layoutY="510.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Medicine" />
-            <TextField fx:id="txtMedicine" layoutX="72.0" layoutY="536.0" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="273.0" layoutY="104.0" prefHeight="666.0" prefWidth="770.0" style="-fx-border-width: 2; -fx-border-color: #334db3;">
-         <children>
-            <TableView fx:id="pTable" layoutX="16.0" layoutY="25.0" onMouseClicked="#getitem" prefHeight="622.0" prefWidth="746.0">
+            <TableView fx:id="pTable" layoutX="108.0" layoutY="52.0" onMouseClicked="#getitem" prefHeight="524.0" prefWidth="780.0">
               <columns>
                 <TableColumn fx:id="nameTablecolumn" prefWidth="128.79998779296875" text="Name" />
                   <TableColumn fx:id="createdTablecolumn" prefWidth="134.4000244140625" text="Created By" />

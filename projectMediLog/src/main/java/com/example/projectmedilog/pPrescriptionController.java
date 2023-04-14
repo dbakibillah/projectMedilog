@@ -83,6 +83,7 @@ public class pPrescriptionController implements Initializable {
             return;
         }
 
+
         String Name = nameTablecolumn.getCellData(index).toString();
         String CreatedBy = createdTablecolumn.getCellData(index).toString();
         String Date = dateTablecolumn.getCellData(index).toString();
