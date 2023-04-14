@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.aDocEditorController">
+   <children>
+      <Text layoutX="65.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Name:" wrappingWidth="70.13678741455078" AnchorPane.leftAnchor="64.13678741455078" AnchorPane.rightAnchor="564.8632125854492">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="66.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Email:" wrappingWidth="62.2484130859375" AnchorPane.leftAnchor="64.13678741455078" AnchorPane.rightAnchor="564.8632125854492">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="63.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Gender:" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="554.171875">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="63.0" layoutY="492.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Joining Date:" wrappingWidth="160.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="477.0">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="61.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Degree :" AnchorPane.leftAnchor="61.0" AnchorPane.rightAnchor="550.265625">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="65.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Mobile:" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="555.8984375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="66.0" layoutY="437.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Department :" wrappingWidth="153.8281250000001" AnchorPane.leftAnchor="66.0" AnchorPane.rightAnchor="480.1718749999999">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TF_name" layoutX="260.0" layoutY="45.0" prefHeight="32.0" prefWidth="339.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="260.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="TF_email" layoutX="260.0" layoutY="92.0" prefHeight="32.0" prefWidth="339.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="260.0" />
+      <TextField fx:id="TF_date" layoutX="253.0" layoutY="458.0" prefHeight="32.0" prefWidth="339.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="253.0" />
+      <TextField fx:id="TF_phone" layoutX="260.0" layoutY="291.0" prefHeight="32.0" prefWidth="339.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" AnchorPane.leftAnchor="260.0" />
+      <Button fx:id="BTN_cancel" layoutX="591.0" layoutY="537.0" mnemonicParsing="false" onAction="#onClickBTN_cancel" style="-fx-background-color: #0080FF;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="BTN_save" layoutX="388.0" layoutY="537.0" mnemonicParsing="false" onAction="#onClickBTN_save" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #0080FF;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <RadioButton fx:id="RB_male" layoutX="260.0" layoutY="197.0" mnemonicParsing="false" onAction="#selectGender" text="Male">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="RB_female" layoutX="385.0" layoutY="197.0" mnemonicParsing="false" onAction="#selectGender" text="Female">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="RB_others" layoutX="513.0" layoutY="197.0" mnemonicParsing="false" onAction="#selectGender" text="Others">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </RadioButton>
+      <ChoiceBox fx:id="CB_degree" layoutX="258.0" layoutY="350.0" prefHeight="33.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+      <Button fx:id="BTN_delete" layoutX="488.0" layoutY="537.0" mnemonicParsing="false" onAction="#onClickBTN_delete" prefHeight="40.0" prefWidth="83.0" style="-fx-background-color: #df1717;" text="Delete" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="CB_department" layoutX="258.0" layoutY="411.0" prefHeight="33.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+      <Text layoutX="67.0" layoutY="269.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Age :" wrappingWidth="56.8125" AnchorPane.leftAnchor="67.0" AnchorPane.rightAnchor="576.1875">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TF_age" layoutX="260.0" layoutY="243.0" prefHeight="32.0" prefWidth="339.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+      <Text layoutX="56.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Password :" wrappingWidth="135.2484130859375">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TF_password" layoutX="260.0" layoutY="138.0" prefHeight="32.0" prefWidth="339.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" />
+   </children>
+</AnchorPane>
