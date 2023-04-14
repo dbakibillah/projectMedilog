@@ -59,7 +59,7 @@
       </HBox>
       <HBox layoutX="14.0" layoutY="290.0" prefHeight="115.0" prefWidth="1037.0" style="-fx-background-color: #1260cc;">
          <children>
-            <Pane prefHeight="115.0" prefWidth="345.0" style="-fx-background-color: white;">
+            <Pane fx:id="Pane_BP" onMouseEntered="#onMouseEntered_BP" onMouseExited="#onMouseExited_BP" onMousePressed="#onClickedBP" prefHeight="115.0" prefWidth="345.0" style="-fx-background-color: white;">
                <children>
                   <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -81,7 +81,7 @@
                   <Insets right="4.0" />
                </HBox.margin>
             </Pane>
-            <Pane prefHeight="115.0" prefWidth="345.0" style="-fx-background-color: white;">
+            <Pane fx:id="Pane_HB" onMouseClicked="#onMouseClicked_HB" onMouseEntered="#onMouseEntered_HB" onMouseExited="#onMouseExited_HB" prefHeight="115.0" prefWidth="345.0" style="-fx-background-color: white;">
                <children>
                   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -106,7 +106,7 @@
                   <Insets right="4.0" />
                </HBox.margin>
             </Pane>
-            <Pane prefHeight="115.0" prefWidth="338.0" style="-fx-background-color: white;">
+            <Pane fx:id="Pnae_GL" onMouseClicked="#onMouseClicked_GL" onMouseEntered="#onMouseEntered_GL" onMouseExited="#onMouseExited_GL" prefHeight="115.0" prefWidth="338.0" style="-fx-background-color: white;">
                <children>
                   <ImageView fitHeight="75.0" fitWidth="75.0" layoutX="14.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
                      <image>

@@ -37,7 +37,7 @@ public class SettingsController {
     private TextField TF_age;
 
     @FXML
-    private PasswordField TF_currentpass;
+    PasswordField TF_currentpass;
 
     @FXML
     private TextField TF_email;
