@@ -3,19 +3,15 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.dHomeController">
+<AnchorPane fx:id="dHomeAnchor" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.dHomeController">
    <children>
       <Pane fx:id="homePane" layoutY="5.0" prefHeight="800.0" prefWidth="250.0">
          <children>
@@ -105,7 +101,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Settings">
+                  <Button fx:id="BTN_Settings" mnemonicParsing="false" onAction="#onClickSettings" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Settings">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -129,12 +125,12 @@
                         <Insets top="30.0" />
                      </VBox.margin>
                   </Circle>
-                  <Label text="UserName">
+                  <Label fx:id="userEmail" alignment="CENTER" contentDisplay="CENTER" prefHeight="23.0" prefWidth="239.0" text="UserEmail">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="System Bold" size="30.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                </children>
@@ -144,92 +140,7 @@
             </VBox>
          </children>
       </Pane>
-      <AnchorPane layoutX="250.0" layoutY="3.0" prefHeight="800.0" prefWidth="1050.0">
-         <children>
-            <HBox alignment="TOP_CENTER" layoutY="86.0" prefHeight="200.0" prefWidth="1050.0" spacing="5.0" style="-fx-background-color: #1260cc;">
-               <children>
-                  <Pane fx:id="Pane_Appointments" onMouseClicked="#onMouseClicked_App" onMouseEntered="#onMouseEntered_App" onMouseExited="#onMouseExited_App" prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
-                     <children>
-                        <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                        </Text>
-                        <Label alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="65.0" fitWidth="62.0" layoutX="14.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/calendar.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <padding>
-                        <Insets right="10.0" />
-                     </padding>
-                  </Pane>
-                  <Pane fx:id="Pane_Operation" onMouseClicked="#onMouseClicked_Operation" onMouseEntered="#onMouseEntered_Operation" onMouseExited="#onMouseExited_Operation" prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
-                     <children>
-                        <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Today's Operation">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                        </Text>
-                        <Label alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="70.0" fitWidth="62.0" layoutX="14.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/surgeon.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                     <padding>
-                        <Insets right="10.0" />
-                     </padding>
-                  </Pane>
-                  <Pane fx:id="Pane_Tasks" onMouseClicked="#onMouseClicked_Tasks" onMouseEntered="#onMouseEntered_Tasks" onMouseExited="#onMouseExited_Tasks" prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
-                     <children>
-                        <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks">
-                           <font>
-                              <Font name="System Bold" size="24.0" />
-                           </font>
-                        </Text>
-                        <Label alignment="CENTER_RIGHT" layoutX="121.0" layoutY="80.0" prefHeight="35.0" prefWidth="208.0" text="Label">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="82.0" fitWidth="71.0" layoutX="14.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/prioritize.png" />
-                           </image>
-                        </ImageView>
-                     </children>
-                  </Pane>
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </HBox>
-            <TableView layoutX="14.0" layoutY="337.0" prefHeight="461.0" prefWidth="679.0">
-               <columns>
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-               </columns>
-            </TableView>
-            <Text layoutX="277.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments" wrappingWidth="152.37890625">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
-      <Button fx:id="BTN_Logout" layoutY="747.0" mnemonicParsing="false" onAction="#onClickLogout" prefHeight="42.0" prefWidth="249.0" styleClass="menu-btn" stylesheets="@../../../Style/Home.css" text="Log out">
+      <Button fx:id="BTN_Logout" layoutY="751.0" mnemonicParsing="false" onAction="#onClickLogout" prefHeight="42.0" prefWidth="249.0" styleClass="menu-btn" stylesheets="@../../../Style/Home.css" text="Log out">
          <graphic>
             <ImageView fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -238,5 +149,6 @@
             </ImageView>
          </graphic>
       </Button>
+      <AnchorPane fx:id="anchorpaneHome" layoutX="250.0" layoutY="3.0" prefHeight="800.0" prefWidth="1050.0" style="-fx-background-color: #ffffff;" />
    </children>
 </AnchorPane>

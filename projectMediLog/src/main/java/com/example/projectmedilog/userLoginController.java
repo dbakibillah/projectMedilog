@@ -64,6 +64,10 @@ public class userLoginController {
 
     @FXML
     void onClickLogin(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
+        //error field
+        if (TF_email.getText().isEmpty() || TF_password.getText().isEmpty()) {
+            gotoErrorDialog("userLogin.fxml", "Please fill all the fields!");
+        }
         String Email = TF_email.getText();
         String Password = TF_password.getText();
 
@@ -76,6 +80,7 @@ public class userLoginController {
             ResultSet resultSet = statement.executeQuery("select * from signup");
             while (resultSet.next()) {
                 if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
+                    new user(resultSet.getString("FirstName"), resultSet.getString("LastName"), resultSet.getString("Gender"), resultSet.getString("Age"), resultSet.getString("Phone"), resultSet.getString("Email"),resultSet.getString("Address"), resultSet.getString("Blood_Group"), resultSet.getBlob("Image"));
                     String userName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
                     changeScene(event, "pHome.fxml", userName, Email);
                     gotoSuccessDialog("Login Successfull");
@@ -86,14 +91,13 @@ public class userLoginController {
                 gotoErrorDialog("userLogin.fxml", "Wrong username or password!");
             }
         }
-
-        //login code for doctor
+      //login code for doctor
         if (userType.equals("Doctor")) {
             ResultSet resultSet = statement.executeQuery("select * from doctors");
             while (resultSet.next()) {
                 if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
-                    String userName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
-                    changeScene(event, "dHome.fxml", userName, Email);
+                  //  String userName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
+                    changeScenedHome(event, "dHome.fxml",  Email);
                     gotoSuccessDialog("Login Successfull");
                     count++;
                 }
@@ -105,11 +109,12 @@ public class userLoginController {
 
         //login code for admin
         if (userType.equals("Admin")) {
-            ResultSet resultSet = statement.executeQuery("select * from admins");
+
+           ResultSet resultSet = statement.executeQuery("select * from admins");
             while (resultSet.next()) {
                 if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
-                    String userName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
-                    changeScene(event, "aHome.fxml", userName, Email);
+                    //String userName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
+                    changeSceneaHome(event, "aHome.fxml", Email);
                     gotoSuccessDialog("Login Successfull");
                     count++;
                 }
@@ -155,11 +160,37 @@ public class userLoginController {
         Parent root = loader.load();
 
         pHomeController phomecontroller = loader.getController();
-        phomecontroller.userLabel.setText(userName);
         phomecontroller.userEmail.setText(Email);
         Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
         secondStage.setScene(new Scene(root));
     }
+
+// login to dHome
+
+    void changeScenedHome(ActionEvent event, String fxml, String Email) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+        Parent root = loader.load();
+
+        dHomeController dhomecontroller = loader.getController();
+
+        dhomecontroller.userEmail.setText(Email);
+        Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
+        secondStage.setScene(new Scene(root));
+    }
+
+// change scene to aHome
+void changeSceneaHome(ActionEvent event, String fxml, String Email) throws IOException {
+    FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+    Parent root = loader.load();
+
+    aHomeController ahomecontroller = loader.getController();
+
+
+    ahomecontroller.userEmail.setText(Email);
+    Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
+    secondStage.setScene(new Scene(root));
+}
+
 
     @FXML
     void onClickSignUp(ActionEvent event) throws IOException {

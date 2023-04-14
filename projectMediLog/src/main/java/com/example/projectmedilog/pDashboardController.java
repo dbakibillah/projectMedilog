@@ -7,8 +7,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.fxml.Initializable;
 
-public class pDashboardController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class pDashboardController implements Initializable{
 
     @FXML
     private Pane HomePane2;
@@ -23,7 +27,7 @@ public class pDashboardController {
     private Pane Pnae_GL;
 
     @FXML
-    private Label userLabel;
+    public Label userLabel;
 
     @FXML
     void onClickedBP(MouseEvent event) {
@@ -69,6 +73,10 @@ public class pDashboardController {
     @FXML
     void onMouseExited_HB(MouseEvent event) {
 
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resource) {
+        userLabel.setText(user.getFirstName());
     }
 
 }

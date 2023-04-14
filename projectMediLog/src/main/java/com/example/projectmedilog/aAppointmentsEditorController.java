@@ -1,7 +1,5 @@
 package com.example.projectmedilog;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,22 +14,21 @@ import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
-
-import java.util.ResourceBundle;
 import java.sql.*;
-public class pAppointmentController implements Initializable {
+import java.util.ResourceBundle;
 
-    @FXML
-    private AnchorPane AppointmentPane;
+import static com.example.projectmedilog.user.gender;
+
+public class aAppointmentsEditorController implements Initializable {
 
     @FXML
     private Button BTN_cancel;
 
     @FXML
-    private Button BTN_confirm;
+    private Button BTN_delete;
 
     @FXML
-    private ChoiceBox<String> CB_doctor;
+    private Button BTN_save;
 
     @FXML
     private ChoiceBox<String> CB_time;
@@ -44,57 +41,32 @@ public class pAppointmentController implements Initializable {
 
     @FXML
     private RadioButton RB_others;
-
-    @FXML
-    private TableView<AppointmentTable> pAppointmentTable;
-    @FXML
-    private TableColumn<?, ?> TC_date;
-
-    @FXML
-    private TableColumn<?, ?> TC_doctor;
-
-    @FXML
-    private TableColumn<?, ?> TC_email;
-
-    @FXML
-    private TableColumn<?, ?> TC_gender;
-
-    @FXML
-    private TableColumn<?, ?> TC_injury_or_condition;
-
-    @FXML
-    private TableColumn<?, ?> TC_mobile;
-
-    @FXML
-    private TableColumn<?, ?> TC_name;
-
-    @FXML
-    private TableColumn<?, ?> TC_time;
-
-    @FXML
-    private TableColumn<?, ?> TC_age;
-
-    @FXML
-    private TextField TF_date;
-
     @FXML
     private TextField TF_age;
+    @FXML
+    private TextField TF_date;
+    @FXML
+    private ChoiceBox<String> CB_doctor;
+
+    @FXML
+    private TextField TF_email;
 
     @FXML
     private TextField TF_injury_or_condition;
 
     @FXML
     private TextField TF_phone;
-
     @FXML
     private TextField TF_name;
+    @FXML
+    private AnchorPane anchorPane;
 
-    ObservableList<AppointmentTable> pAppointmentList = FXCollections.observableArrayList();
+    Stage stage;
+
+    Integer id;
+
     private String Gender;
     private int count = 0;
-
-    Connection conn;
-    ResultSet rs;
 
     @FXML
     void selectGender(ActionEvent event) {
@@ -106,30 +78,12 @@ public class pAppointmentController implements Initializable {
         else if (RB_others.isSelected())
             this.Gender = "Others";
     }
-    @FXML
-    void onClickBTN_cancel(ActionEvent event) {
-       // clear all the fields
-        TF_name.clear();
-        TF_date.clear();
-        TF_phone.clear();
-        TF_injury_or_condition.clear();
-        TF_age.clear();
-        CB_doctor.setValue(null);
-        this.Gender = null;
-        RB_male.setSelected(false);
-        RB_female.setSelected(false);
-        RB_others.setSelected(false);
-        CB_time.setValue(null);
-
-
-
-    }
 
     @FXML
-    void onClickBTN_confirm(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
+    void onClickBTN_save(ActionEvent event) throws SQLException, ClassNotFoundException, IOException, InterruptedException {
 
-      // Error handling
-        if (TF_name.getText().isEmpty() || this.Gender == null || TF_date.getText().isEmpty() || TF_phone.getText().isEmpty() || TF_injury_or_condition.getText().isEmpty() || TF_age.getText().isEmpty() || CB_doctor.getValue().isEmpty() || CB_time.getValue().isEmpty()){
+
+        if (TF_name.getText().isEmpty() || TF_email.getText().isEmpty() ||  this.Gender == null || TF_date.getText().isEmpty() || TF_phone.getText().isEmpty() || TF_injury_or_condition.getText().isEmpty() || TF_age.getText().isEmpty() || CB_doctor.getValue().isEmpty() || CB_time.getValue().isEmpty()){
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Error");
@@ -137,9 +91,8 @@ public class pAppointmentController implements Initializable {
             alert.showAndWait();
             return;
         }
-
-
         String Name = TF_name.getText();
+        String Email = TF_email.getText();
         String Gender = this.Gender;
         String Date = TF_date.getText();
         String Time = CB_time.getValue().toString();
@@ -150,16 +103,16 @@ public class pAppointmentController implements Initializable {
 
 
 
-        //add to database
+        // add to database
 
         Connection connection = database.dbconnect();
         Statement statement = connection.createStatement();
-
         try (
                 PreparedStatement pst = connection.prepareStatement("insert into appointment(Name, Email, Gender, Date, Time, Phone, Injury_or_Condition, Doctor, Age) values(?, ?, ?, ?, ?, ?, ?, ?, ?)")
         ) {
+
             pst.setString(1, Name);
-            pst.setString(2, user.getEmail());
+            pst.setString(2, Email);
             pst.setString(3, Gender);
             pst.setString(4, Date);
             pst.setString(5, Time);
@@ -171,9 +124,9 @@ public class pAppointmentController implements Initializable {
 
             System.out.println("Appointment added");
 
-
             //clear fields
             TF_name.clear();
+            TF_email.clear();
             TF_date.clear();
             TF_phone.clear();
             TF_injury_or_condition.clear();
@@ -186,18 +139,47 @@ public class pAppointmentController implements Initializable {
             RB_female.setSelected(false);
             RB_others.setSelected(false);
 
-gotoSuccessDialog("Appointment added successfully");
-            //clear table
-            pAppointmentList.clear();
-            //refresh table
-            setAppointmentTableData();
+            gotoSuccessDialog("Appointment added successfully");
+            Stage stage = (Stage) BTN_save.getScene().getWindow();
+            stage.close();
 
 
         } catch (SQLException e) {
-
             System.out.println(e);
         }
     }
+
+    void showAppointment(Stage aAppointmentEditorStage, Integer id, String Name, String Email, String Gender, String Date, String Time,String Phone, String InjuryOrCondition, String Doctor,String Age) throws IOException {
+        this.stage = aAppointmentEditorStage;
+        this.id = id;
+        TF_name.setText(Name);
+        TF_email.setText(Email);
+  if (Gender.equals("Male"))RB_male.setSelected(true);else if (Gender.equals("Female"))RB_female.setSelected(true);else RB_others.setSelected(true);
+
+
+
+        CB_time.setValue(Time);
+        TF_age.setText(Age);
+        TF_date.setText(Date);
+        TF_phone.setText(Phone);
+        TF_injury_or_condition.setText(InjuryOrCondition);
+        CB_doctor.setValue(Doctor);
+
+
+
+       FXMLLoader fxmlLoader = new FXMLLoader(DialogController.class.getResource("aAppointmentEditor.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        aAppointmentEditorStage.setTitle("AppointmentEditor");
+        aAppointmentEditorStage.setScene(scene);
+        aAppointmentEditorStage.show();
+    }
+
+
+
+
+
+
+
     void gotoSuccessDialog(String message) throws IOException {
         Stage dialogStage = new Stage();
         dialogStage.setResizable(false);
@@ -212,39 +194,41 @@ gotoSuccessDialog("Appointment added successfully");
     }
 
 
-    public void setAppointmentTableData() {
+
+    @FXML
+    void onClickBTN_delete(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String sql = "DELETE from appointment WHERE `id` = " + id;
+        Connection connection = database.dbconnect();
         try {
-            conn = database.dbconnect();
-            //get all appointments from database
-            rs = conn.createStatement().executeQuery("select * from appointment where Email = '" + user.getEmail() + "'");
-            while (rs.next()) {
-                pAppointmentList.add(new AppointmentTable(rs.getInt("id"), rs.getString("Name"), rs.getString("Email"), rs.getString("Gender"), rs.getString("Age"), rs.getString("Date"), rs.getString("Time"), rs.getString("Phone"), rs.getString("Doctor"), rs.getString("Injury_or_Condition")));
-            }
-            //add to table
-            TC_name.setCellValueFactory(new PropertyValueFactory<>("name"));
-            TC_email.setCellValueFactory(new PropertyValueFactory<>("email"));
-            TC_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-            TC_age.setCellValueFactory(new PropertyValueFactory<>("age"));
-            TC_date.setCellValueFactory(new PropertyValueFactory<>("date"));
-            TC_time.setCellValueFactory(new PropertyValueFactory<>("time"));
-            TC_mobile.setCellValueFactory(new PropertyValueFactory<>("phone"));
-            TC_doctor.setCellValueFactory(new PropertyValueFactory<>("doctor"));
-            TC_injury_or_condition.setCellValueFactory(new PropertyValueFactory<>("injuryOrCondition"));
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            gotoSuccessDialog("Appointment deleted successfully");
 
-            pAppointmentTable.setItems(pAppointmentList);
+            //close the window
+            Stage stage = (Stage) BTN_delete.getScene().getWindow();
+            stage.close();
 
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+
+
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
+
+    }
+
+    @FXML
+    void onClickBTN_cancel(ActionEvent event) throws IOException {
+        //close the window
+        Stage stage = (Stage) BTN_cancel.getScene().getWindow();
+        stage.close();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //Set Table Data
-        setAppointmentTableData();
-
         CB_time.getItems().addAll("09:00 - 11:00", "11:00 - 13:00", "17:00 - 19:00", "19:00 - 21:00", "21:00 - 23:00");
         CB_time.setConverter(new StringConverter<String>() {
             @Override
@@ -268,7 +252,7 @@ gotoSuccessDialog("Appointment added successfully");
                 return null;
             }
         });
-    }
 
+    }
 
 }

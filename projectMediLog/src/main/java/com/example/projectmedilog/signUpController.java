@@ -5,12 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -67,6 +62,16 @@ public class signUpController {
 
     @FXML
     void onBTNsignupClicked(ActionEvent event) throws SQLException, ClassNotFoundException, IOException, InterruptedException {
+// error handling
+
+        if (TF_FirstName.getText().isEmpty() || TF_LastName.getText().isEmpty() ||  this.Gender == null || TF_age.getText().isEmpty() || TF_phone.getText().isEmpty() || TF_pass.getText().isEmpty() || TF_email.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Error");
+            alert.setContentText("Please fill all the fields");
+            alert.showAndWait();
+            return;
+        }
         String FirstName = TF_FirstName.getText();
         String LastName = TF_LastName.getText();
         String Gender = this.Gender;
@@ -130,19 +135,20 @@ public class signUpController {
         anchorPane.getChildren().setAll(loginPage);
     }
 
-    void gotoErrorDialog(String fxml, String message) throws IOException {
+     void gotoErrorDialog(String fxml, String message) throws IOException {
         Stage dialogStage = new Stage();
         dialogStage.setResizable(false);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("errorDialog.fxml"));
         Parent root = loader.load();
         DialogController controller = loader.getController();
-        controller.errorDialog(dialogStage, message, 5);
+        controller.errorDialog(dialogStage, message, 3);
         Scene scene = new Scene(root);
         dialogStage.setScene(scene);
         dialogStage.show();
 
-        AnchorPane loginPage = FXMLLoader.load(getClass().getResource(fxml));
-        anchorPane.getChildren().setAll(loginPage);
+      //  AnchorPane loginPage = FXMLLoader.load(getClass().getResource(fxml));
+      //  anchorPane.getChildren().setAll(loginPage);
+
     }
 
 //    void changeScene(ActionEvent event, String fxml, String text) throws IOException, InterruptedException {

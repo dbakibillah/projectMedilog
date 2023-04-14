@@ -3,13 +3,17 @@ package com.example.projectmedilog;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class aHomeController {
+public class aHomeController implements Initializable {
 
     @FXML
     private Button Appointment_btn;
@@ -33,6 +37,8 @@ public class aHomeController {
 
     @FXML
     private Pane homePane;
+
+   public Label userEmail;
 
     @FXML
     void onClickAppointment_btn(ActionEvent event) throws IOException {
@@ -64,4 +70,19 @@ public class aHomeController {
         anchorpaneHome.getChildren().setAll(nextPage);
     }
 
+    @FXML
+    void onClickSettings(ActionEvent event) throws IOException {
+        Pane SettingPane = FXMLLoader.load(getClass().getResource("Settings.fxml"));
+        anchorpaneHome.getChildren().setAll(SettingPane);
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle resource) {
+        Pane DashboardPane = null;
+        try {
+            DashboardPane = FXMLLoader.load(getClass().getResource("aDashboard.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        anchorpaneHome.getChildren().setAll(DashboardPane);
+    }
 }
