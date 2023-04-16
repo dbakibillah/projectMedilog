@@ -14,7 +14,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <TableView layoutX="13.0" layoutY="154.0" prefHeight="492.0" prefWidth="1025.0">
+      <TableView layoutX="13.0" layoutY="154.0" prefHeight="492.0" prefWidth="1025.0" stylesheets="@../../../Style/table.css">
          <columns>
             <TableColumn prefWidth="75.0" text="Name" />
             <TableColumn prefWidth="75.0" text="Email" />
