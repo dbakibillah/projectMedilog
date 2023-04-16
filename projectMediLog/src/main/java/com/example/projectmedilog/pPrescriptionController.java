@@ -84,10 +84,6 @@ public class pPrescriptionController implements Initializable {
         if (index <= -1) {
             return;
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> 898cb234a6adece586d9ee69942e132f2d6d7b35
 
         //getting table data
         String Name = nameTablecolumn.getCellData(index).toString();
@@ -97,17 +93,17 @@ public class pPrescriptionController implements Initializable {
         String Disease = diseaseTablecolumn.getCellData(index).toString();
         String Test = testTablecolumn.getCellData(index).toString();
         String Medicine = medicineTablecolumn.getCellData(index).toString();
-        gotoPrescriptionDialog(Name,Email, CreatedBy, Date, Disease, Test, Medicine);
-}
+        gotoPrescriptionDialog(Name, Email, CreatedBy, Date, Disease, Test, Medicine);
+    }
 
-    void gotoPrescriptionDialog(String Name,String Email, String Createdby, String Date, String Disease, String Test, String Medicine) throws IOException {
+    void gotoPrescriptionDialog(String Name, String Email, String Createdby, String Date, String Disease, String Test, String Medicine) throws IOException {
         //passing to dialog box
         Stage pdialogStage = new Stage();
         pdialogStage.setResizable(false);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("pPrescriptionDialog.fxml"));
         Parent root = loader.load();
         pPrescriptionDialogController controller = loader.getController();
-        controller.showDialog(pdialogStage, Name,Email, Createdby, Date, Disease, Test, Medicine);
+        controller.showDialog(pdialogStage, Name, Email, Createdby, Date, Disease, Test, Medicine);
         Scene scene = new Scene(root);
         pdialogStage.setScene(scene);
         pdialogStage.show();
@@ -122,7 +118,7 @@ public class pPrescriptionController implements Initializable {
             rs = conn.createStatement().executeQuery("select * from pprescription");
 
             while (rs.next()) {
-                listI.add(new pTable(rs.getString("name"),rs.getString("email"), rs.getString("createdby"), rs.getString("date"), rs.getString("disease"), rs.getString("test"), rs.getNString("medicine")));
+                listI.add(new pTable(rs.getString("name"), rs.getString("email"), rs.getString("createdby"), rs.getString("date"), rs.getString("disease"), rs.getString("test"), rs.getNString("medicine")));
             }
             nameTablecolumn.setCellValueFactory(new PropertyValueFactory<>("name"));
             emailTablecolumn.setCellValueFactory(new PropertyValueFactory<>("email"));
