@@ -3,16 +3,15 @@ package com.example.projectmedilog;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -36,7 +35,7 @@ public class userLoginController {
     private RadioButton RB_User;
 
     @FXML
-    private TextField TF_email;
+    private TextField TF_UserName;
 
     @FXML
     private PasswordField TF_password;
@@ -49,8 +48,23 @@ public class userLoginController {
 
     @FXML
     private ToggleGroup usertype;
-    private String userType;
+    private String userType = "";
     private int count = 0;
+
+    @FXML
+    void onMouseEnteredRB_Admin(MouseEvent event) {
+        RB_Admin.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    void onMouseEnteredRB_Doctor(MouseEvent event) {
+        RB_Doctor.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    void onMouseEnteredRB_User(MouseEvent event) {
+        RB_User.setCursor(Cursor.HAND);
+    }
 
     @FXML
     void userType(ActionEvent event) {
@@ -63,64 +77,75 @@ public class userLoginController {
     }
 
     @FXML
+    void onMouseEnteredBTN_Login(MouseEvent event) {
+        BTN_login.setCursor(Cursor.HAND);
+    }
+
+    @FXML
     void onClickLogin(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
-        //error field
-        if (TF_email.getText().isEmpty() || TF_password.getText().isEmpty()) {
-            gotoErrorDialog("userLogin.fxml", "Please fill all the fields!");
-        }
-        String Email = TF_email.getText();
+        //checking if email and password are empty
+        emptyFieldsCheck();
+
+        String UserName = TF_UserName.getText();
         String Password = TF_password.getText();
 
         //connecting database
         Connection connection = database.dbconnect();
         Statement statement = connection.createStatement();
 
-        //login code for user
-        if (userType.equals("User")) {
-            ResultSet resultSet = statement.executeQuery("select * from signup");
-            while (resultSet.next()) {
-                if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
-                    new user(resultSet.getString("FirstName"), resultSet.getString("LastName"), resultSet.getString("Gender"), resultSet.getString("Age"), resultSet.getString("Phone"), resultSet.getString("Email"),resultSet.getString("Address"), resultSet.getString("Blood_Group"), resultSet.getBlob("Image"));
-                    String userName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
-                    changeScene(event, "pHome.fxml", userName, Email);
-                    gotoSuccessDialog("Login Successfull");
-                    count++;
+        if (!userType.equals("")) {
+            //login code for user
+            if (userType.equals("User")) {
+                if (!TF_UserName.getText().isEmpty() && !TF_password.getText().isEmpty()) {
+                    ResultSet resultSet = statement.executeQuery("select * from signup");
+                    while (resultSet.next()) {
+                        if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
+                            new user(resultSet.getString("FullName"), resultSet.getString("UserName"), resultSet.getString("Gender"), resultSet.getString("Age"), resultSet.getString("Phone"), resultSet.getString("Email"), resultSet.getString("Address"), resultSet.getString("Blood_Group"), resultSet.getBlob("Image"));
+                            String FullName = resultSet.getString("FullName");
+                            changeScene(event, "pHome.fxml", FullName, UserName);
+                            gotoSuccessDialog("Login Successfull");
+                            count++;
+                        }
+                    }
+                    if (count == 0) {
+                        gotoErrorDialog("userLogin.fxml", "Wrong username or password!");
+                    }
                 }
             }
-            if (count == 0) {
-                gotoErrorDialog("userLogin.fxml", "Wrong username or password!");
-            }
-        }
-      //login code for doctor
-        if (userType.equals("Doctor")) {
-            ResultSet resultSet = statement.executeQuery("select * from doctors");
-            while (resultSet.next()) {
-                if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
-                  //  String userName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
-                    changeScenedHome(event, "dHome.fxml",  Email);
-                    gotoSuccessDialog("Login Successfull");
-                    count++;
-                }
-            }
-            if (count == 0) {
-                gotoErrorDialog("userLogin.fxml", "Wrong username or password!");
-            }
-        }
 
-        //login code for admin
-        if (userType.equals("Admin")) {
-
-           ResultSet resultSet = statement.executeQuery("select * from admins");
-            while (resultSet.next()) {
-                if (Email.equals(resultSet.getString("Email")) && Password.equals(resultSet.getString("Pass"))) {
-                    //String userName = resultSet.getString("FirstName") + " " + resultSet.getString("LastName");
-                    changeSceneaHome(event, "aHome.fxml", Email);
-                    gotoSuccessDialog("Login Successfull");
-                    count++;
+            //login code for doctor
+            if (userType.equals("Doctor")) {
+                if (!TF_UserName.getText().isEmpty() && !TF_password.getText().isEmpty()) {
+                    ResultSet resultSet = statement.executeQuery("select * from doctors");
+                    while (resultSet.next()) {
+                        if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
+                            //String FullName = resultSet.getString("FullName");
+                            changeScenedHome(event, "dHome.fxml", UserName);
+                            gotoSuccessDialog("Login Successfull");
+                            count++;
+                        }
+                    }
+                    if (count == 0) {
+                        gotoErrorDialog("userLogin.fxml", "Wrong username or password!");
+                    }
                 }
             }
-            if (count == 0) {
-                gotoErrorDialog("userLogin.fxml", "Wrong username or password!");
+
+            //login code for admin
+            if (userType.equals("Admin")) {
+                if (!TF_UserName.getText().isEmpty() && !TF_password.getText().isEmpty()) {
+                    ResultSet resultSet = statement.executeQuery("select * from admins");
+                    while (resultSet.next()) {
+                        if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
+                            changeSceneaHome(event, "aHome.fxml", UserName);
+                            gotoSuccessDialog("Login Successfull");
+                            count++;
+                        }
+                    }
+                    if (count == 0) {
+                        gotoErrorDialog("userLogin.fxml", "Wrong username or password!");
+                    }
+                }
             }
         }
     }
@@ -131,7 +156,7 @@ public class userLoginController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("successDialog.fxml"));
         Parent root = loader.load();
         DialogController controller = loader.getController();
-        controller.successDialog(dialogStage, message, 3);
+        controller.successDialog(dialogStage, message, 2);
         Scene scene = new Scene(root);
         dialogStage.setScene(scene);
         dialogStage.show();
@@ -146,7 +171,7 @@ public class userLoginController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("errorDialog.fxml"));
         Parent root = loader.load();
         DialogController controller = loader.getController();
-        controller.errorDialog(dialogStage, message, 5);
+        controller.errorDialog(dialogStage, message, 3);
         Scene scene = new Scene(root);
         dialogStage.setScene(scene);
         dialogStage.show();
@@ -155,41 +180,37 @@ public class userLoginController {
         anchorPane.getChildren().setAll(loginPage);
     }
 
-    void changeScene(ActionEvent event, String fxml, String userName, String Email) throws IOException {
+    void changeScene(ActionEvent event, String fxml, String FullName, String UserName) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         Parent root = loader.load();
 
         pHomeController phomecontroller = loader.getController();
-        phomecontroller.userEmail.setText(Email);
+        phomecontroller.UserName.setText(UserName);
         Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
         secondStage.setScene(new Scene(root));
     }
 
-// login to dHome
-
+    //login to dHome
     void changeScenedHome(ActionEvent event, String fxml, String Email) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         Parent root = loader.load();
 
         dHomeController dhomecontroller = loader.getController();
-
         dhomecontroller.userEmail.setText(Email);
         Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
         secondStage.setScene(new Scene(root));
     }
 
-// change scene to aHome
-void changeSceneaHome(ActionEvent event, String fxml, String Email) throws IOException {
-    FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
-    Parent root = loader.load();
+    // change scene to aHome
+    void changeSceneaHome(ActionEvent event, String fxml, String Email) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+        Parent root = loader.load();
 
-    aHomeController ahomecontroller = loader.getController();
-
-
-    ahomecontroller.userEmail.setText(Email);
-    Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
-    secondStage.setScene(new Scene(root));
-}
+        aHomeController ahomecontroller = loader.getController();
+        ahomecontroller.userEmail.setText(Email);
+        Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
+        secondStage.setScene(new Scene(root));
+    }
 
 
     @FXML
@@ -198,4 +219,53 @@ void changeSceneaHome(ActionEvent event, String fxml, String Email) throws IOExc
         anchorPane.getChildren().setAll(signUpPage);
         userLogin.mainstage.setTitle("Sign up");
     }
+
+    void emptyFieldsCheck() {
+        if (TF_UserName.getText().isEmpty()) {
+            TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+            TF_UserName.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
+            TF_UserName.setPromptText("User Name is Empty*");
+        } else {
+            TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+            TF_UserName.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+        }
+        if (TF_password.getText().isEmpty()) {
+            TF_password.setBackground(Background.fill(Color.TRANSPARENT));
+            TF_password.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
+            TF_password.setPromptText("Password Field is Empty*");
+        } else {
+            TF_password.setBackground(Background.fill(Color.TRANSPARENT));
+            TF_password.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+        }
+        if (!RB_Admin.isSelected() && !RB_User.isSelected() && !RB_Doctor.isSelected()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Please Select User Type");
+            alert.setContentText("You must select a user type!");
+            alert.showAndWait();
+        }
+    }
+
+    public void initialize() {
+        TF_UserName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            } else {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color:  #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: grey;");
+            }
+        });
+        TF_password.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_password.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_password.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            } else {
+                TF_password.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_password.setStyle("-fx-border-color:  #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: grey;");
+            }
+        });
+
+    }
+    //End of the userLoginCOntroller class
 }

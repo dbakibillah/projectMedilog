@@ -3,8 +3,8 @@ package com.example.projectmedilog;
 import java.sql.Blob;
 
 public class user {
-    static String firstName;
-    static String lastName;
+    static String FullName;
+    static String UserName;
     static String gender;
     static String age;
     static String phone;
@@ -15,9 +15,9 @@ public class user {
     static  String bloodGroup;
     static Blob image;
 
-    public user(String firstName, String lastName, String gender, String age, String phone, String email, String address, String bloodGroup, Blob image) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public user(String FUllName, String UserName, String gender, String age, String phone, String email, String address, String bloodGroup, Blob image) {
+        this.FullName = FUllName;
+        this.UserName = UserName;
         this.gender = gender;
         this.age = age;
         this.phone = phone;
@@ -27,20 +27,20 @@ public class user {
         this.bloodGroup = bloodGroup;
     }
 
-    public static String getFirstName() {
-        return firstName;
+    public static String getFullName() {
+        return FullName;
     }
 
-    public static void setFirstName(String firstName) {
-        user.firstName = firstName;
+    public static void setFullName(String fullName) {
+        user.FullName = fullName;
     }
 
-    public static String getLastName() {
-        return lastName;
+    public static String getUserName() {
+        return UserName;
     }
 
-    public static void setLastName(String lastName) {
-        user.lastName = lastName;
+    public static void setUserName(String userName) {
+        user.UserName = userName;
     }
 
     public String getGender(){

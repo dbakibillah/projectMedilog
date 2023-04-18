@@ -12,7 +12,7 @@ import javafx.fxml.Initializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class pDashboardController implements Initializable{
+public class pDashboardController implements Initializable {
 
     @FXML
     private Pane HomePane2;
@@ -31,7 +31,7 @@ public class pDashboardController implements Initializable{
 
     @FXML
     void onClickedBP(MouseEvent event) {
-
+        System.out.println("BP Clicked");
     }
 
     @FXML
@@ -52,12 +52,14 @@ public class pDashboardController implements Initializable{
 
     @FXML
     void onMouseEntered_GL(MouseEvent event) {
-
+        Pnae_GL.setCursor(Cursor.HAND);
+        Pnae_GL.setBackground(Background.fill(Color.web("95BDFF")));
     }
 
     @FXML
     void onMouseEntered_HB(MouseEvent event) {
-
+        Pane_HB.setCursor(Cursor.HAND);
+        Pane_HB.setBackground(Background.fill(Color.web("95BDFF")));
     }
 
     @FXML
@@ -67,16 +69,17 @@ public class pDashboardController implements Initializable{
 
     @FXML
     void onMouseExited_GL(MouseEvent event) {
-
+        Pnae_GL.setBackground(Background.fill(Color.web("#FFFFFF")));
     }
 
     @FXML
     void onMouseExited_HB(MouseEvent event) {
-
+        Pane_HB.setBackground(Background.fill(Color.web("#FFFFFF")));
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resource) {
-        userLabel.setText(user.getFirstName());
+        userLabel.setText(user.getFullName());
     }
 
 }

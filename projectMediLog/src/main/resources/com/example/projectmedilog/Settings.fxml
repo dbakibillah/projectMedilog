@@ -17,17 +17,12 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <TextField fx:id="TF_firstname" layoutX="80.0" layoutY="355.0" prefHeight="45.0" prefWidth="350.0" promptText="First Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField fx:id="TF_FullName" layoutX="80.0" layoutY="355.0" prefHeight="45.0" prefWidth="350.0" promptText="Full Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
          <font>
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="TF_lastname" layoutX="553.0" layoutY="355.0" prefHeight="45.0" prefWidth="350.0" promptText="Last Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </TextField>
-      <TextField fx:id="TF_email" editable="false" layoutX="80.0" layoutY="427.0" prefHeight="45.0" prefWidth="350.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+      <TextField fx:id="TF_UserName" layoutX="553.0" layoutY="355.0" prefHeight="45.0" prefWidth="350.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
          <font>
             <Font size="17.0" />
          </font>
@@ -78,5 +73,10 @@
             <Font size="22.0" />
          </font>
       </Text>
+      <TextField fx:id="TF_email" layoutX="78.0" layoutY="427.0" prefHeight="45.0" prefWidth="350.0" promptText="Email" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>

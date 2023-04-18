@@ -103,17 +103,17 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <TableView fx:id="pAppointmentTable" layoutX="6.0" layoutY="52.0" prefHeight="391.0" prefWidth="1041.0" style="-fx-background-color: #ffffff;">
+            <TableView fx:id="pAppointmentTable" layoutX="6.0" layoutY="56.0" prefHeight="387.0" prefWidth="1042.0" style="-fx-background-color: #ffffff;" stylesheets="@../../../Style/table.css">
               <columns>
-                <TableColumn fx:id="TC_name" prefWidth="118.0" text="Name" />
-                <TableColumn fx:id="TC_email" minWidth="0.0" prefWidth="190.0" text="Email" />
-                  <TableColumn fx:id="TC_gender" minWidth="0.0" prefWidth="59.0" text="Gender" />
-                  <TableColumn fx:id="TC_age" minWidth="0.0" prefWidth="54.0" text="Age" />
-                  <TableColumn fx:id="TC_date" minWidth="0.0" prefWidth="144.0" text="Date" />
-                  <TableColumn fx:id="TC_time" prefWidth="82.0" text="Time" />
-                  <TableColumn fx:id="TC_mobile" prefWidth="150.0" text="Mobile" />
-                  <TableColumn fx:id="TC_doctor" prefWidth="91.0" text="Doctor" />
-                  <TableColumn fx:id="TC_injury_or_condition" prefWidth="251.0" text="Injury/Condition" />
+                <TableColumn fx:id="TC_name" prefWidth="105.0" text="Name" />
+                <TableColumn fx:id="TC_email" minWidth="0.0" prefWidth="111.0" text="Email" />
+                  <TableColumn fx:id="TC_gender" minWidth="0.0" prefWidth="106.0" text="Gender" />
+                  <TableColumn fx:id="TC_age" minWidth="0.0" prefWidth="88.0" text="Age" />
+                  <TableColumn fx:id="TC_date" minWidth="0.0" prefWidth="81.0" text="Date" />
+                  <TableColumn fx:id="TC_time" prefWidth="92.0" text="Time" />
+                  <TableColumn fx:id="TC_mobile" prefWidth="119.0" text="Mobile" />
+                  <TableColumn fx:id="TC_doctor" prefWidth="141.0" text="Doctor" />
+                  <TableColumn fx:id="TC_injury_or_condition" prefWidth="174.0" text="Injury/Condition" />
               </columns>
             </TableView>
          </children>

@@ -19,6 +19,7 @@ import java.net.URL;
 
 import java.util.ResourceBundle;
 import java.sql.*;
+
 public class pAppointmentController implements Initializable {
 
     @FXML
@@ -106,9 +107,10 @@ public class pAppointmentController implements Initializable {
         else if (RB_others.isSelected())
             this.Gender = "Others";
     }
+
     @FXML
     void onClickBTN_cancel(ActionEvent event) {
-       // clear all the fields
+        // clear all the fields
         TF_name.clear();
         TF_date.clear();
         TF_phone.clear();
@@ -120,16 +122,13 @@ public class pAppointmentController implements Initializable {
         RB_female.setSelected(false);
         RB_others.setSelected(false);
         CB_time.setValue(null);
-
-
-
     }
 
     @FXML
     void onClickBTN_confirm(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
 
-      // Error handling
-        if (TF_name.getText().isEmpty() || this.Gender == null || TF_date.getText().isEmpty() || TF_phone.getText().isEmpty() || TF_injury_or_condition.getText().isEmpty() || TF_age.getText().isEmpty() || CB_doctor.getValue().isEmpty() || CB_time.getValue().isEmpty()){
+        // Error handling
+        if (TF_name.getText().isEmpty() || this.Gender == null || TF_date.getText().isEmpty() || TF_phone.getText().isEmpty() || TF_injury_or_condition.getText().isEmpty() || TF_age.getText().isEmpty() || CB_doctor.getValue().isEmpty() || CB_time.getValue().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Error");
@@ -147,7 +146,6 @@ public class pAppointmentController implements Initializable {
         String Doctor = CB_doctor.getValue().toString();
         String InjuryOrCondition = TF_injury_or_condition.getText();
         String Age = TF_age.getText();
-
 
 
         //add to database
@@ -171,7 +169,6 @@ public class pAppointmentController implements Initializable {
 
             System.out.println("Appointment added");
 
-
             //clear fields
             TF_name.clear();
             TF_date.clear();
@@ -186,7 +183,7 @@ public class pAppointmentController implements Initializable {
             RB_female.setSelected(false);
             RB_others.setSelected(false);
 
-gotoSuccessDialog("Appointment added successfully");
+            gotoSuccessDialog("Appointment added successfully");
             //clear table
             pAppointmentList.clear();
             //refresh table
@@ -198,6 +195,7 @@ gotoSuccessDialog("Appointment added successfully");
             System.out.println(e);
         }
     }
+
     void gotoSuccessDialog(String message) throws IOException {
         Stage dialogStage = new Stage();
         dialogStage.setResizable(false);
@@ -210,7 +208,6 @@ gotoSuccessDialog("Appointment added successfully");
         dialogStage.show();
 
     }
-
 
     public void setAppointmentTableData() {
         try {
@@ -251,6 +248,7 @@ gotoSuccessDialog("Appointment added successfully");
             public String toString(String s) {
                 return (s == null) ? "Nothing selected" : s;
             }
+
             @Override
             public String fromString(String s) {
                 return null;
@@ -263,12 +261,11 @@ gotoSuccessDialog("Appointment added successfully");
             public String toString(String s) {
                 return (s == null) ? "Nothing selected" : s;
             }
+
             @Override
             public String fromString(String s) {
                 return null;
             }
         });
     }
-
-
 }

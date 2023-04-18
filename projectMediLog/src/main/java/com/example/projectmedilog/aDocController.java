@@ -76,18 +76,17 @@ public class aDocController implements Initializable {
             //get all appointments from database
             rs = conn.createStatement().executeQuery("select * from doctors");
             while (rs.next()) {
-                DoctorList.add(new DoctorTable(rs.getString("Name"), rs.getString("Email"), rs.getString("Gender"), rs.getString("Age"), rs.getString("Phone"), rs.getString("Degree"), rs.getString("Department"), rs.getString("Date")));
+                DoctorList.add(new DoctorTable(rs.getString("UserName"), rs.getString("FullName"), rs.getString("Gender"), rs.getString("Age"), rs.getString("Phone"), rs.getString("Degree"), rs.getString("Department")));
             }
             //add to table
             TC_name.setCellValueFactory(new PropertyValueFactory<>("name"));
-            TC_email.setCellValueFactory(new PropertyValueFactory<>("email"));
+            TC_email.setCellValueFactory(new PropertyValueFactory<>("UserName"));
            //TC_password.setCellValueFactory(new PropertyValueFactory<>("pass"));
             TC_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
             TC_age.setCellValueFactory(new PropertyValueFactory<>("age"));
             TC_phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
             TC_degree.setCellValueFactory(new PropertyValueFactory<>("degree"));
             TC_department.setCellValueFactory(new PropertyValueFactory<>("department"));
-            TC_date.setCellValueFactory(new PropertyValueFactory<>("date"));
 
 //refresh table
             DoctorTable.refresh();

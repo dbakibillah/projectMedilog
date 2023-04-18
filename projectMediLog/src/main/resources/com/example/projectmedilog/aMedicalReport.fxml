@@ -1,37 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="800.0" prefWidth="1050.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.aMedicalReportController">
    <children>
-      <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Basic Informations">
+      <Text layoutX="21.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Basic Informations">
          <font>
-            <Font size="24.0" />
+            <Font size="36.0" />
          </font>
       </Text>
-      <Text layoutX="143.0" layoutY="336.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blood Pressure">
+      <Text layoutX="17.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blood Pressure">
          <font>
-            <Font size="18.0" />
+            <Font size="20.0" />
          </font>
       </Text>
-      <TextField fx:id="TF_firstname" layoutX="471.0" layoutY="256.0" prefHeight="41.0" prefWidth="216.0" promptText="Ex. 120/80" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px;">
+      <TextField fx:id="TF_BP" layoutX="155.0" layoutY="174.0" prefHeight="43.0" prefWidth="154.0" promptText="Ex. 120/80" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;">
          <font>
             <Font size="18.0" />
          </font>
       </TextField>
-      <Text layoutX="143.0" layoutY="286.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heart Beat">
+      <Text layoutX="654.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Heart Beat">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="341.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Glucose Level">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="21.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TF_UserName" layoutX="131.0" layoutY="104.0" prefHeight="43.0" prefWidth="246.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;">
          <font>
             <Font size="18.0" />
          </font>
-      </Text>
-      <Text layoutX="352.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Glucose Level">
+      </TextField>
+      <TextField fx:id="TF_GL" layoutX="469.0" layoutY="175.0" prefHeight="43.0" prefWidth="154.0" promptText="Ex. 100" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;">
          <font>
             <Font size="18.0" />
          </font>
+      </TextField>
+      <TextField fx:id="TF_HB" layoutX="756.0" layoutY="176.0" prefHeight="43.0" prefWidth="154.0" promptText="Ex. 72" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Button fx:id="BTN_Search" layoutX="399.0" layoutY="106.0" mnemonicParsing="false" onAction="#onCLickBTN_Search" onMouseEntered="#onMouserEnteredBTN_Search" prefHeight="39.0" prefWidth="98.0" style="-fx-border-radius: 100; -fx-background-radius: 100; -fx-background-color: #0080ff;" text="Search" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="BTN_Update" layoutX="937.0" layoutY="176.0" mnemonicParsing="false" onAction="#onClickBTN_Update" onMouseEntered="#onMouseEnteredBTN_Update" prefHeight="39.0" prefWidth="98.0" style="-fx-border-radius: 100; -fx-background-radius: 100; -fx-background-color: #0080ff;" text="Update" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Text layoutX="62.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Additional Tests">
+         <font>
+            <Font size="36.0" />
+         </font>
       </Text>
+      <Text layoutX="62.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test Name:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TF_TestName" layoutX="179.0" layoutY="319.0" prefHeight="43.0" prefWidth="246.0" promptText="Test Name" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Text layoutX="58.0" layoutY="488.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comment">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="470.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reference">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="62.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test Result">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TF_TestResult" layoutX="181.0" layoutY="385.0" prefHeight="43.0" prefWidth="246.0" promptText="Test Result" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="TF_Reference" layoutX="576.0" layoutY="387.0" prefHeight="43.0" prefWidth="246.0" promptText="Reference" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Text layoutX="61.0" layoutY="591.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Conclusion">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="TA_Comment" layoutX="190.0" layoutY="466.0" prefHeight="86.0" prefWidth="644.0" promptText="Write your comment here..." style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 5; -fx-background-radius: 100;" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="TA_Conclusion" layoutX="192.0" layoutY="569.0" prefHeight="86.0" prefWidth="644.0" promptText="Write conclusion here..." style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 5; -fx-background-radius: 100;" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+      <DatePicker fx:id="DTpicker" layoutX="192.0" layoutY="665.0" onAction="#onActionDTpicker" prefHeight="39.0" prefWidth="273.0" promptText="Select Date" style="-fx-background-color: transparent; -fx-border-width: 0px 0px 2px 0px; -fx-border-color: #0598ff; -fx-cursor: hand;" stylesheets="@../../../Style/date.css" />
+      <Text layoutX="62.0" layoutY="692.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Button fx:id="BTN_Save" layoutX="741.0" layoutY="727.0" mnemonicParsing="false" onAction="#onClickBTN_Save" onMouseEntered="#onMouseEnteredBTN_Save" prefHeight="39.0" prefWidth="98.0" style="-fx-border-radius: 100; -fx-background-radius: 100; -fx-background-color: #0080ff;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
