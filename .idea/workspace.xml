@@ -5,104 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34e95027-395c-4d14-b1f1-4058c8eddee5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson2_fastjson2_2_0_14_android.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_bumptech_glide_annotations_4_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_bumptech_glide_disklrucache_4_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_bumptech_glide_gifdecoder_4_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_bumptech_glide_glide_4_13_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_9_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_zxing_core_3_5_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vladsch_boxed_json_boxed_json_0_5_32.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_vladsch_javafx_webview_debugger_javafx_webview_debugger_0_8_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_qtjambi_qtjambi_5_15_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_qtjambi_qtjambi_webengine_5_15_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_javax_json_1_1_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_java_websocket_Java_WebSocket_1_3_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_15_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jdk_19.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_j_8_0_32.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_base.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_web1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_web2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/vladsch_javafx_webview_debugger.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-11.0.1-ea+1-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-11.0.1-ea+1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-18-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-base-18.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-controls-11.0.1-ea+1-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-controls-11.0.1-ea+1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-controls-18-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-controls-18.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-graphics-11.0.1-ea+1-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-graphics-11.0.1-ea+1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-graphics-18-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-graphics-18.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-media-11.0.1-ea+1-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-media-11.0.1-ea+1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-media-18-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-media-18.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-web-11.0.1-ea+1-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-web-11.0.1-ea+1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-web-18-win.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/javafx-web-18.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/chatApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/chatController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/othersApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/othersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/webViewApp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/webViewController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/Style/date.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/chat.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/others.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/webView.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/images/tick.gif" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_19_0_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_19_0_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_19_0_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_19_0_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_19_0_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_19_0_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_19_0_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_19.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_19_0_2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson2_fastjson2_2_0_14_android.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_bumptech_glide_annotations_4_13_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_bumptech_glide_disklrucache_4_13_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_bumptech_glide_gifdecoder_4_13_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_bumptech_glide_glide_4_13_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_9_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_zxing_core_3_5_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vladsch_boxed_json_boxed_json_0_5_32.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vladsch_javafx_webview_debugger_javafx_webview_debugger_0_8_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_qtjambi_qtjambi_5_15_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_qtjambi_qtjambi_webengine_5_15_13.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_javax_json_1_1_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_java_websocket_Java_WebSocket_1_3_7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_15_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/projectMedilog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projectMedilog.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/DoctorTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/DoctorTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/SettingsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDocController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDocController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDocEditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDocEditorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aMedicalReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aMedicalReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aPatientsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aPatientsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pAppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pAppointmentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/signUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/signUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/user.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/user.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/userLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/userLogin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/userLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/userLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/Style/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/Style/table.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/Settings.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/Settings.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/Signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/Signup.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aDoc.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aDoc.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aDocEditor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aDocEditor.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aHome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aMedicalReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aMedicalReport.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/dHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/dHome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/errorDialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/errorDialog.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pAppointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pAppointment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pHome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pPrescription.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pPrescription.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/successDialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/successDialog.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/userLogin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/userLogin.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,13 +67,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "F:/git/projectMedilog",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.35632184",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.aHomeApp">
+  <component name="RunManager" selected="Application.chatApp">
     <configuration name="aHomeApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.aHomeApp" />
       <module name="projectMediLog" />
@@ -168,8 +87,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="dHomeApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.dHomeApp" />
+    <configuration name="chatApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.chatApp" />
       <module name="projectMediLog" />
       <extension name="coverage">
         <pattern>
@@ -221,19 +140,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.chatApp" />
       <item itemvalue="Application.webViewApp" />
       <item itemvalue="Application.aHomeApp" />
-      <item itemvalue="Application.dHomeApp" />
       <item itemvalue="Application.othersApp" />
       <item itemvalue="Application.pHomeApp" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.chatApp" />
         <item itemvalue="Application.aHomeApp" />
         <item itemvalue="Application.webViewApp" />
         <item itemvalue="Application.pHomeApp" />
         <item itemvalue="Application.othersApp" />
-        <item itemvalue="Application.dHomeApp" />
       </list>
     </recent_temporary>
   </component>

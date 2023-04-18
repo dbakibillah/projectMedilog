@@ -6,6 +6,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+
+import static javafx.scene.layout.Background.*;
+
 public class aDashboardController {
 
     @FXML
