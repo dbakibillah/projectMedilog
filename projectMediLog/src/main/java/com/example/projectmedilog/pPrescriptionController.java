@@ -3,14 +3,6 @@ package com.example.projectmedilog;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-
-import java.io.IOException;
-import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ResourceBundle;
-
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -18,11 +10,16 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-import java.sql.*;
-
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
 public class pPrescriptionController implements Initializable {
 
@@ -42,30 +39,10 @@ public class pPrescriptionController implements Initializable {
 
     @FXML
     private TableColumn<pTable, String> medicineTablecolumn;
-
-
     @FXML
     private TableView<pTable> pTable;
-
-    //    @FXML
-//    private TextField txtCreatedby;
-//
-//    @FXML
-//    private TextField txtDisease;
     @FXML
     private TableColumn<pTable, String> testTablecolumn;
-
-
-//    @FXML
-//    private TextField txtName;
-//
-//    @FXML
-//    private TextField txtdate;
-//    @FXML
-//    private TextField txtMedicine;
-//    @FXML
-//    private TextField txtTest;
-
 
     ObservableList<pTable> listI = FXCollections.observableArrayList();
     Connection conn;
@@ -73,9 +50,6 @@ public class pPrescriptionController implements Initializable {
     PreparedStatement pst;
 
     Integer index;
-
-//    public pPrescriptionController() {
-//    }
 
     @FXML
     void getitem(MouseEvent event) throws IOException {

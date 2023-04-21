@@ -17,6 +17,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -59,36 +60,39 @@ public class aDocController implements Initializable {
     ObservableList<DoctorTable> DoctorList = FXCollections.observableArrayList();
     Connection conn;
     ResultSet rs;
+    Integer index;
+
     @FXML
     void onCLickedBTN_AddDoc(ActionEvent event) throws IOException {
 
         FXMLLoader EditorPage = new FXMLLoader(getClass().getResource("aDocEditor.fxml"));
         Parent root = EditorPage.load();
-     //   aDocEditorController aDocEditorController = EditorPage.getController();
+        //   aDocEditorController aDocEditorController = EditorPage.getController();
         //   aAppointmentsEditorController.setAppointmentTableData();
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
     }
-    public void setDoctorTableData(){
+
+    public void setDoctorTableData() {
         try {
             conn = database.dbconnect();
             //get all appointments from database
             rs = conn.createStatement().executeQuery("select * from doctors");
             while (rs.next()) {
-                DoctorList.add(new DoctorTable(rs.getString("UserName"), rs.getString("FullName"), rs.getString("Gender"), rs.getString("Age"), rs.getString("Phone"), rs.getString("Degree"), rs.getString("Department")));
+                DoctorList.add(new DoctorTable(rs.getInt("id"),rs.getString("UserName"), rs.getString("FullName"), rs.getString("Gender"), rs.getString("Age"), rs.getString("Phone"), rs.getString("Degree"), rs.getString("Department")));
             }
             //add to table
             TC_name.setCellValueFactory(new PropertyValueFactory<>("name"));
             TC_email.setCellValueFactory(new PropertyValueFactory<>("UserName"));
-           //TC_password.setCellValueFactory(new PropertyValueFactory<>("pass"));
+            //TC_password.setCellValueFactory(new PropertyValueFactory<>("pass"));
             TC_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
             TC_age.setCellValueFactory(new PropertyValueFactory<>("age"));
             TC_phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
             TC_degree.setCellValueFactory(new PropertyValueFactory<>("degree"));
             TC_department.setCellValueFactory(new PropertyValueFactory<>("department"));
 
-//refresh table
+            //refresh table
             DoctorTable.refresh();
             //new use in pAppointmenttable
             DoctorTable.setItems(DoctorList);
@@ -105,10 +109,14 @@ public class aDocController implements Initializable {
         BTN_AddDoc.setCursor(Cursor.HAND);
         BTN_AddDoc.setBackground(Background.fill(Color.WHITE));
     }
-
     @FXML
-    void onMouseExitedBTN_AddDoc(MouseEvent event) {
-        BTN_AddDoc.setBackground(Background.fill(Color.web("#0080FF")));
+    void getItem(MouseEvent event) {
+        index = DoctorTable.getSelectionModel().getSelectedIndex();
+        if (index <= -1) {
+            return;
+        }
+
+
     }
 
     @Override

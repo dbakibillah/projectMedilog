@@ -65,37 +65,39 @@ public class signUpController {
     @FXML
     void onBTNsignupClicked(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
         //checking if all fields are filled or not
-        emptyFieldsCheck();
+        if (TF_FullName.getText().isEmpty() || TF_UserName.getText().isEmpty() || TF_age.getText().isEmpty() || TF_phone.getText().isEmpty() || TF_email.getText().isEmpty() || TF_pass.getText().isEmpty()) {
+            emptyFieldsCheck();
+        } else {
+            String FullName = TF_FullName.getText();
+            String UserName = TF_UserName.getText();
+            String Gender = this.Gender;
+            String Age = TF_age.getText();
+            String Phone = TF_phone.getText();
+            String Email = TF_email.getText();
+            String Pass = TF_pass.getText();
 
-        String FullName = TF_FullName.getText();
-        String UserName = TF_UserName.getText();
-        String Gender = this.Gender;
-        String Age = TF_age.getText();
-        String Phone = TF_phone.getText();
-        String Email = TF_email.getText();
-        String Pass = TF_pass.getText();
+            //Checking already signed up or not
+            Connection connection = database.dbconnect();
+            Statement statement = connection.createStatement();
 
-        //Checking already signed up or not
-        Connection connection = database.dbconnect();
-        Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select * from signup");
 
-        ResultSet resultSet = statement.executeQuery("select * from signup");
-
-        while (resultSet.next()) {
-            //UserName check
-            if (resultSet.getString("UserName").equals(UserName)) {
-                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
-                TF_UserName.clear();
-                TF_UserName.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
-                TF_UserName.setPromptText("UserName Already Taken!");
-                break;
-            }
-            if (resultSet.getString("Email").equals(Email)) {
-                count++;
-                gotoErrorDialog("Signup.fxml", "Already Signed Up!");
-                break;
-            } else {
-                createAccount(FullName, UserName, Gender, Age, Phone, Email, Pass);
+            while (resultSet.next()) {
+                //UserName check
+                if (resultSet.getString("UserName").equals(UserName)) {
+                    TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                    TF_UserName.clear();
+                    TF_UserName.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
+                    TF_UserName.setPromptText("UserName Already Taken!");
+                    break;
+                }
+                if (resultSet.getString("Email").equals(Email)) {
+                    count++;
+                    gotoErrorDialog("Signup.fxml", "Already Signed Up!");
+                    break;
+                } else {
+                    createAccount(FullName, UserName, Gender, Age, Phone, Email, Pass);
+                }
             }
         }
     }
@@ -116,14 +118,23 @@ public class signUpController {
                 pst.setString(6, Email);
                 pst.setString(7, Pass);
                 pst.executeUpdate();
-
+                pst.close();
                 gotoSuccessDialog("userLogin.fxml", "Signup Successfull...");
                 //this.changeScene(event, "okay.fxml", "Signup Successful...");
+
 
             } catch (SQLException e) {
                 System.out.println(e);
             } catch (IOException e) {
                 throw new RuntimeException(e);
+            }
+
+            // Writing into medical_records table: "projectmedilog -> medical_records"
+            try (PreparedStatement preparedStatement = connection.prepareStatement("insert into medical_records(UserName) values(?)")) {
+                preparedStatement.setString(1, UserName);
+                preparedStatement.executeUpdate();
+            } catch (SQLException e) {
+                System.out.println(e);
             }
         }
     }
@@ -170,6 +181,68 @@ public class signUpController {
 //        secondStage.setScene(new Scene(root));
 //    }
 
+    public void initialize() {
+        TF_FullName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_FullName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_FullName.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            } else {
+                TF_FullName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_FullName.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+                TF_FullName.setPromptText("Full Name Required!");
+            }
+        });
+        TF_UserName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            } else {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+                TF_UserName.setPromptText("UserName Required!");
+            }
+        });
+        TF_age.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_age.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_age.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            } else {
+                TF_age.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_age.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+                TF_age.setPromptText("Age Required!");
+            }
+        });
+        TF_phone.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_phone.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_phone.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            } else {
+                TF_phone.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_phone.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+                TF_phone.setPromptText("Phone Required!");
+            }
+        });
+        TF_email.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_email.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_email.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            } else {
+                TF_email.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_email.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+                TF_email.setPromptText("Email Required!");
+            }
+        });
+        TF_pass.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_pass.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_pass.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            } else {
+                TF_pass.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_pass.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+                TF_pass.setPromptText("Password Required!");
+            }
+        });
+    }
 
     void emptyFieldsCheck() {
         if (TF_FullName.getText().isEmpty()) {

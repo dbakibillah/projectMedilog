@@ -2,7 +2,7 @@ package com.example.projectmedilog;
 
 public class DoctorTable {
     String name, email, password,gender, age, phone, degree, department, date;
-    public DoctorTable(String name, String email,String gender,String age,String phone , String degree, String department){
+    public DoctorTable(int id, String name, String email, String gender, String age, String phone , String degree, String department){
         this.name = name;
         this.email = email;
         //this.password = password;

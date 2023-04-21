@@ -56,8 +56,9 @@ public class pHomeController implements Initializable {
     }
 
     @FXML
-    void onCLickMedicalRecords(ActionEvent event) {
-
+    void onCLickMedicalRecords(ActionEvent event) throws IOException {
+        AnchorPane pMedicalRecordsAnchorPane = FXMLLoader.load(getClass().getResource("pMedicalRecords.fxml"));
+        anchorpaneHome.getChildren().setAll(pMedicalRecordsAnchorPane);
     }
 
     @FXML

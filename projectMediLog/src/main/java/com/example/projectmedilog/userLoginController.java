@@ -217,7 +217,7 @@ public class userLoginController {
     void onClickSignUp(ActionEvent event) throws IOException {
         AnchorPane signUpPage = FXMLLoader.load(getClass().getResource("signUp.fxml"));
         anchorPane.getChildren().setAll(signUpPage);
-        userLogin.mainstage.setTitle("Sign up");
+//        userLogin.mainstage.setTitle("Sign up");
     }
 
     void emptyFieldsCheck() {

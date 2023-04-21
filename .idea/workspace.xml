@@ -5,23 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="34e95027-395c-4d14-b1f1-4058c8eddee5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson2_fastjson2_2_0_14_android.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_bumptech_glide_annotations_4_13_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_bumptech_glide_disklrucache_4_13_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_bumptech_glide_gifdecoder_4_13_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_bumptech_glide_glide_4_13_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_9_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_zxing_core_3_5_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vladsch_boxed_json_boxed_json_0_5_32.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vladsch_javafx_webview_debugger_javafx_webview_debugger_0_8_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_qtjambi_qtjambi_5_15_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_qtjambi_qtjambi_webengine_5_15_13.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_javax_json_1_1_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_java_websocket_Java_WebSocket_1_3_7.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jetbrains_annotations_15_0.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/MedicalRecordsTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pMedicalRecordsApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pMedicalRecordsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pMedicalRecords.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_web2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/vladsch_javafx_webview_debugger.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/projectMedilog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projectMedilog.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/AppointmentTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/AppointmentTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/DoctorTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/DoctorTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aAppointmentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aAppointmentsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aAppointmentsEditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aAppointmentsEditorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDocController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDocController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDocEditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDocEditorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aMedicalReportApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aMedicalReportApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aMedicalReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aMedicalReportController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/dHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/dHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pAppointmentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pAppointmentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pHomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pPrescriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pPrescriptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/signUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/signUpController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/userLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/userLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/webViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/webViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aAppointmentEditor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aAppointmentEditor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aAppointments.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aAppointments.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aDoc.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aDoc.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aDocEditor.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aDocEditor.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aMedicalReport.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aMedicalReport.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pAppointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pAppointment.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,23 +75,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "F:/git/projectMedilog",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.35632184",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/git/projectMedilog/projectMediLog/openjfx-20_windows-x64_bin-sdk&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.35632184&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.chatApp">
+}</component>
+  <component name="RunManager" selected="Application.dHomeApp">
     <configuration name="aHomeApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.aHomeApp" />
       <module name="projectMediLog" />
@@ -87,21 +105,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="chatApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.chatApp" />
-      <module name="projectMediLog" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.projectmedilog.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="othersApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.othersApp" />
+    <configuration name="dHomeApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.dHomeApp" />
       <module name="projectMediLog" />
       <extension name="coverage">
         <pattern>
@@ -126,8 +131,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="webViewApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.webViewApp" />
+    <configuration name="pMedicalRecordsApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.pMedicalRecordsApp" />
+      <module name="projectMediLog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.projectmedilog.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="userLogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.userLogin" />
       <module name="projectMediLog" />
       <extension name="coverage">
         <pattern>
@@ -140,19 +158,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.chatApp" />
-      <item itemvalue="Application.webViewApp" />
-      <item itemvalue="Application.aHomeApp" />
-      <item itemvalue="Application.othersApp" />
+      <item itemvalue="Application.dHomeApp" />
       <item itemvalue="Application.pHomeApp" />
+      <item itemvalue="Application.pMedicalRecordsApp" />
+      <item itemvalue="Application.userLogin" />
+      <item itemvalue="Application.aHomeApp" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.chatApp" />
-        <item itemvalue="Application.aHomeApp" />
-        <item itemvalue="Application.webViewApp" />
+        <item itemvalue="Application.dHomeApp" />
         <item itemvalue="Application.pHomeApp" />
-        <item itemvalue="Application.othersApp" />
+        <item itemvalue="Application.pMedicalRecordsApp" />
+        <item itemvalue="Application.userLogin" />
+        <item itemvalue="Application.aHomeApp" />
       </list>
     </recent_temporary>
   </component>

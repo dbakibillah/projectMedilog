@@ -6,21 +6,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
-import static com.example.projectmedilog.user.gender;
-
 public class aAppointmentsEditorController implements Initializable {
-
     @FXML
     private Button BTN_cancel;
 
@@ -31,154 +36,111 @@ public class aAppointmentsEditorController implements Initializable {
     private Button BTN_save;
 
     @FXML
-    private ChoiceBox<String> CB_time;
-
-    @FXML
-    private RadioButton RB_female;
-
-    @FXML
-    private RadioButton RB_male;
-
-    @FXML
-    private RadioButton RB_others;
-    @FXML
-    private TextField TF_age;
-    @FXML
-    private TextField TF_date;
-    @FXML
     private ChoiceBox<String> CB_doctor;
 
     @FXML
-    private TextField TF_email;
+    private ChoiceBox<String> CB_time;
+
+    @FXML
+    private DatePicker DT_Date;
+
+    @FXML
+    private AnchorPane DialogPane;
+
+    @FXML
+    private TextField TF_UserName;
 
     @FXML
     private TextField TF_injury_or_condition;
 
     @FXML
-    private TextField TF_phone;
-    @FXML
     private TextField TF_name;
+
     @FXML
-    private AnchorPane anchorPane;
-
-    Stage stage;
-
+    private TextField TF_phone;
     Integer id;
 
-    private String Gender;
-    private int count = 0;
-
     @FXML
-    void selectGender(ActionEvent event) {
-        //Collecting gender information
-        if (RB_male.isSelected())
-            this.Gender = "Male";
-        else if (RB_female.isSelected())
-            this.Gender = "Female";
-        else if (RB_others.isSelected())
-            this.Gender = "Others";
+    void onClickBTN_cancel(ActionEvent event) {
+        //close the window
+        Stage stage = (Stage) BTN_cancel.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
-    void onClickBTN_save(ActionEvent event) throws SQLException, ClassNotFoundException, IOException, InterruptedException {
-
-
-        if (TF_name.getText().isEmpty() || TF_email.getText().isEmpty() ||  this.Gender == null || TF_date.getText().isEmpty() || TF_phone.getText().isEmpty() || TF_injury_or_condition.getText().isEmpty() || TF_age.getText().isEmpty() || CB_doctor.getValue().isEmpty() || CB_time.getValue().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Error");
-            alert.setContentText("Please fill all the fields");
-            alert.showAndWait();
-            return;
-        }
-        String Name = TF_name.getText();
-        String Email = TF_email.getText();
-        String Gender = this.Gender;
-        String Date = TF_date.getText();
-        String Time = CB_time.getValue().toString();
-        String Phone = TF_phone.getText();
-        String Doctor = CB_doctor.getValue().toString();
-        String InjuryOrCondition = TF_injury_or_condition.getText();
-        String Age = TF_age.getText();
-
-
-
-        // add to database
-
+    void onClickBTN_delete(ActionEvent event) throws SQLException, ClassNotFoundException {
+        String sql = "DELETE from appointment WHERE `id` = " + id;
         Connection connection = database.dbconnect();
-        Statement statement = connection.createStatement();
-        try (
-                PreparedStatement pst = connection.prepareStatement("insert into appointment(Name, Email, Gender, Date, Time, Phone, Injury_or_Condition, Doctor, Age) values(?, ?, ?, ?, ?, ?, ?, ?, ?)")
-        ) {
-
-            pst.setString(1, Name);
-            pst.setString(2, Email);
-            pst.setString(3, Gender);
-            pst.setString(4, Date);
-            pst.setString(5, Time);
-            pst.setString(6, Phone);
-            pst.setString(7, InjuryOrCondition);
-            pst.setString(8, Doctor);
-            pst.setString(9, Age);
-            pst.executeUpdate();
-
-            System.out.println("Appointment added");
-
-            //clear fields
-            TF_name.clear();
-            TF_email.clear();
-            TF_date.clear();
-            TF_phone.clear();
-            TF_injury_or_condition.clear();
-            TF_age.clear();
-            CB_doctor.setValue(null);
-            CB_time.setValue(null);
-            TF_age.clear();
-            this.Gender = null;
-            RB_male.setSelected(false);
-            RB_female.setSelected(false);
-            RB_others.setSelected(false);
-
-            gotoSuccessDialog("Appointment added successfully");
-            Stage stage = (Stage) BTN_save.getScene().getWindow();
+        try {
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(sql);
+            gotoSuccessDialog("Appointment deleted successfully");
+            //close the window
+            Stage stage = (Stage) BTN_delete.getScene().getWindow();
             stage.close();
-
-
         } catch (SQLException e) {
-            System.out.println(e);
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
-    void showAppointment(Stage aAppointmentEditorStage, Integer id, String Name, String Email, String Gender, String Date, String Time,String Phone, String InjuryOrCondition, String Doctor,String Age) throws IOException {
-        this.stage = aAppointmentEditorStage;
-        this.id = id;
-        TF_name.setText(Name);
-        TF_email.setText(Email);
-  if (Gender.equals("Male"))RB_male.setSelected(true);else if (Gender.equals("Female"))RB_female.setSelected(true);else RB_others.setSelected(true);
+    @FXML
+    void onClickBTN_save(ActionEvent event) throws SQLException, ClassNotFoundException {
+        if (TF_name.getText().isEmpty() || TF_UserName.getText().isEmpty() || TF_phone.getText().isEmpty() || TF_injury_or_condition.getText().isEmpty()) {
+            if (TF_name.getText().isEmpty()) {
+                TF_name.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_name.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: red;");
+                TF_name.setPromptText("Field cannot be empty");
+            }
+            if (TF_UserName.getText().isEmpty()) {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: red;");
+                TF_UserName.setPromptText("Field cannot be empty");
+            }
+            if (TF_phone.getText().isEmpty()) {
+                TF_phone.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_phone.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: red;");
+                TF_phone.setPromptText("Field cannot be empty");
+            }
+            if (TF_injury_or_condition.getText().isEmpty()) {
+                TF_injury_or_condition.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_injury_or_condition.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: red;");
+                TF_injury_or_condition.setPromptText("Field cannot be empty");
+            }
+        } else {
+            String Name = TF_name.getText();
+            String UserName = TF_UserName.getText();
+            LocalDate getDate = DT_Date.getValue();
+            String Date = getDate.toString();
+            String Time = CB_time.getValue();
+            String Phone = TF_phone.getText();
+            String Doctor = CB_doctor.getValue();
+            String Injury_or_Condition = TF_injury_or_condition.getText();
 
+            // Add to database
+            Connection connection = database.dbconnect();
+            Statement statement = connection.createStatement();
 
+            try (PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO appointment (Name, UserName, Date, Time, Phone, Doctor, Injury_or_Condition) VALUES (?, ?, ?, ?, ?, ?, ?)");) {
+                preparedStatement.setString(1, Name);
+                preparedStatement.setString(2, UserName);
+                preparedStatement.setString(3, Date);
+                preparedStatement.setString(4, Time);
+                preparedStatement.setString(5, Phone);
+                preparedStatement.setString(6, Doctor);
+                preparedStatement.setString(7, Injury_or_Condition);
+                preparedStatement.executeUpdate();
+                gotoSuccessDialog("Appointment added successfully");
 
-        CB_time.setValue(Time);
-        TF_age.setText(Age);
-        TF_date.setText(Date);
-        TF_phone.setText(Phone);
-        TF_injury_or_condition.setText(InjuryOrCondition);
-        CB_doctor.setValue(Doctor);
-
-
-
-       FXMLLoader fxmlLoader = new FXMLLoader(DialogController.class.getResource("aAppointmentEditor.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        aAppointmentEditorStage.setTitle("AppointmentEditor");
-        aAppointmentEditorStage.setScene(scene);
-        aAppointmentEditorStage.show();
+                //close the window
+                Stage stage = (Stage) BTN_save.getScene().getWindow();
+                stage.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
-
-
-
-
-
-
 
     void gotoSuccessDialog(String message) throws IOException {
         Stage dialogStage = new Stage();
@@ -190,41 +152,23 @@ public class aAppointmentsEditorController implements Initializable {
         Scene scene = new Scene(root);
         dialogStage.setScene(scene);
         dialogStage.show();
-
     }
 
+    void showAppointment(Stage aAppointmentEditorStage, Integer id, String Name, String UserName, String Date, String Time, String Phone, String Doctor, String InjuryOrCondition) throws SQLException, ClassNotFoundException, IOException {
+        this.id = id;
+        TF_name.setText(Name);
+        TF_UserName.setText(UserName);
+        DT_Date.setValue(LocalDate.parse(Date));
+        CB_time.setValue(Time);
+        TF_phone.setText(Phone);
+        CB_doctor.setValue(Doctor);
+        TF_injury_or_condition.setText(InjuryOrCondition);
 
-
-    @FXML
-    void onClickBTN_delete(ActionEvent event) throws SQLException, ClassNotFoundException {
-        String sql = "DELETE from appointment WHERE `id` = " + id;
-        Connection connection = database.dbconnect();
-        try {
-            Statement statement = connection.createStatement();
-            statement.executeUpdate(sql);
-            gotoSuccessDialog("Appointment deleted successfully");
-
-            //close the window
-            Stage stage = (Stage) BTN_delete.getScene().getWindow();
-            stage.close();
-
-
-
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-
-    }
-
-    @FXML
-    void onClickBTN_cancel(ActionEvent event) throws IOException {
-        //close the window
-        Stage stage = (Stage) BTN_cancel.getScene().getWindow();
-        stage.close();
+        FXMLLoader fxmlLoader = new FXMLLoader(DialogController.class.getResource("aAppointmentEditor.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        aAppointmentEditorStage.setTitle("AppointmentEditor");
+        aAppointmentEditorStage.setScene(scene);
+        aAppointmentEditorStage.show();
     }
 
     @Override
@@ -235,6 +179,7 @@ public class aAppointmentsEditorController implements Initializable {
             public String toString(String s) {
                 return (s == null) ? "Nothing selected" : s;
             }
+
             @Override
             public String fromString(String s) {
                 return null;
@@ -247,12 +192,49 @@ public class aAppointmentsEditorController implements Initializable {
             public String toString(String s) {
                 return (s == null) ? "Nothing selected" : s;
             }
+
             @Override
             public String fromString(String s) {
                 return null;
             }
         });
 
-    }
 
+        TF_name.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_name.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_name.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #008000;");
+            } else {
+                TF_name.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_name.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #0080ff;");
+            }
+        });
+        TF_UserName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #008000;");
+            } else {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #0080ff;");
+            }
+        });
+        TF_phone.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_phone.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_phone.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #008000;");
+            } else {
+                TF_phone.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_phone.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #0080ff;");
+            }
+        });
+        TF_injury_or_condition.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_injury_or_condition.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_injury_or_condition.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #008000;");
+            } else {
+                TF_injury_or_condition.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_injury_or_condition.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #0080ff;");
+            }
+        });
+    }
 }
