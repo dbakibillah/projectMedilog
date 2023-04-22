@@ -47,24 +47,11 @@ public class pPrescriptionController implements Initializable {
     @FXML
     private TableView<pTable> pTable;
 
-    //    @FXML
-//    private TextField txtCreatedby;
-//
-//    @FXML
-//    private TextField txtDisease;
+
     @FXML
     private TableColumn<pTable, String> testTablecolumn;
 
 
-//    @FXML
-//    private TextField txtName;
-//
-//    @FXML
-//    private TextField txtdate;
-//    @FXML
-//    private TextField txtMedicine;
-//    @FXML
-//    private TextField txtTest;
 
 
     ObservableList<pTable> listI = FXCollections.observableArrayList();
@@ -74,8 +61,7 @@ public class pPrescriptionController implements Initializable {
 
     Integer index;
 
-//    public pPrescriptionController() {
-//    }
+
 
     @FXML
     void getitem(MouseEvent event) throws IOException {
@@ -84,10 +70,7 @@ public class pPrescriptionController implements Initializable {
         if (index <= -1) {
             return;
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> 898cb234a6adece586d9ee69942e132f2d6d7b35
 
         //getting table data
         String Name = nameTablecolumn.getCellData(index).toString();
