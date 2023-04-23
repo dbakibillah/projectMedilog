@@ -6,19 +6,24 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
-
-import java.util.ResourceBundle;
 import java.sql.*;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
+
 public class pAppointmentController implements Initializable {
 
     @FXML
@@ -26,6 +31,8 @@ public class pAppointmentController implements Initializable {
 
     @FXML
     private Button BTN_cancel;
+    @FXML
+    private Button BTN_Search;
 
     @FXML
     private Button BTN_confirm;
@@ -37,48 +44,34 @@ public class pAppointmentController implements Initializable {
     private ChoiceBox<String> CB_time;
 
     @FXML
-    private RadioButton RB_female;
-
-    @FXML
-    private RadioButton RB_male;
-
-    @FXML
-    private RadioButton RB_others;
-
-    @FXML
     private TableView<AppointmentTable> pAppointmentTable;
     @FXML
-    private TableColumn<?, ?> TC_date;
+    private TableColumn<AppointmentTable, String> TC_date;
 
     @FXML
-    private TableColumn<?, ?> TC_doctor;
+    private TableColumn<AppointmentTable, String> TC_doctor;
 
     @FXML
-    private TableColumn<?, ?> TC_email;
+    private TableColumn<AppointmentTable, String> TC_injury_or_condition;
 
     @FXML
-    private TableColumn<?, ?> TC_gender;
+    private TableColumn<AppointmentTable, String> TC_mobile;
 
     @FXML
-    private TableColumn<?, ?> TC_injury_or_condition;
+    private TextField TF_Name;
 
     @FXML
-    private TableColumn<?, ?> TC_mobile;
+    private TextField TF_UserName;
+    @FXML
+    private TableColumn<AppointmentTable, String> TC_time;
+    @FXML
+    private TableColumn<AppointmentTable, String> TC_UserName;
+    @FXML
+    private TableColumn<AppointmentTable, String> TC_Name;
 
     @FXML
-    private TableColumn<?, ?> TC_name;
+    private DatePicker DT_date;
 
-    @FXML
-    private TableColumn<?, ?> TC_time;
-
-    @FXML
-    private TableColumn<?, ?> TC_age;
-
-    @FXML
-    private TextField TF_date;
-
-    @FXML
-    private TextField TF_age;
 
     @FXML
     private TextField TF_injury_or_condition;
@@ -86,118 +79,141 @@ public class pAppointmentController implements Initializable {
     @FXML
     private TextField TF_phone;
 
-    @FXML
-    private TextField TF_name;
 
     ObservableList<AppointmentTable> pAppointmentList = FXCollections.observableArrayList();
-    private String Gender;
     private int count = 0;
 
     Connection conn;
     ResultSet rs;
 
     @FXML
-    void selectGender(ActionEvent event) {
-        //Collecting gender information
-        if (RB_male.isSelected())
-            this.Gender = "Male";
-        else if (RB_female.isSelected())
-            this.Gender = "Female";
-        else if (RB_others.isSelected())
-            this.Gender = "Others";
+    void onMouseENteredBTN_Search(MouseEvent event) {
+        BTN_Search.setCursor(Cursor.HAND);
     }
+
+    @FXML
+    void onMouseEnteredBTN_cancel(MouseEvent event) {
+        BTN_cancel.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    void onMouseEnteredBTN_confirm(MouseEvent event) {
+        BTN_confirm.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    void onClickBTN_Search(ActionEvent event) throws SQLException, ClassNotFoundException {
+        if (TF_UserName.getText().isEmpty()) {
+            TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+            TF_UserName.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #ff0000;");
+        } else {
+            Connection connection = database.dbconnect();
+            Statement statement = connection.createStatement();
+            String query = "SELECT * FROM signup WHERE UserName = '" + TF_UserName.getText() + "'";
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                if (resultSet.getString("UserName").equals(TF_UserName.getText())) {
+                    TF_Name.setText(resultSet.getString("Name"));
+                    TF_phone.setText(resultSet.getString("Phone"));
+                }
+            }
+        }
+    }
+
     @FXML
     void onClickBTN_cancel(ActionEvent event) {
-       // clear all the fields
-        TF_name.clear();
-        TF_date.clear();
+        // clear all the fields
+        TF_Name.clear();
+        TF_UserName.clear();
         TF_phone.clear();
         TF_injury_or_condition.clear();
-        TF_age.clear();
+        DT_date.setValue(null);
         CB_doctor.setValue(null);
-        this.Gender = null;
-        RB_male.setSelected(false);
-        RB_female.setSelected(false);
-        RB_others.setSelected(false);
         CB_time.setValue(null);
-
-
-
     }
 
     @FXML
     void onClickBTN_confirm(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
 
-      // Error handling
-        if (TF_name.getText().isEmpty() || this.Gender == null || TF_date.getText().isEmpty() || TF_phone.getText().isEmpty() || TF_injury_or_condition.getText().isEmpty() || TF_age.getText().isEmpty() || CB_doctor.getValue().isEmpty() || CB_time.getValue().isEmpty()){
+        // Error handling
+        if (TF_Name.getText().isEmpty() || TF_UserName.getText().isEmpty() || TF_phone.getText().isEmpty() || TF_injury_or_condition.getText().isEmpty() || CB_doctor.getValue().isEmpty() || CB_time.getValue().isEmpty()) {
+
+            if (TF_Name.getText().isEmpty()) {
+                TF_Name.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_Name.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #ff0000;");
+            }
+            if (TF_UserName.getText().isEmpty()) {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #ff0000;");
+            }
+            if (TF_phone.getText().isEmpty()) {
+                TF_phone.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_phone.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #ff0000;");
+            }
+            if (TF_injury_or_condition.getText().isEmpty()) {
+                TF_injury_or_condition.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_injury_or_condition.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #ff0000;");
+            }
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Error");
             alert.setContentText("Please fill all the fields");
             alert.showAndWait();
-            return;
-        }
+
+        } else {
+
+            String Name = TF_Name.getText();
+            String UserName = TF_UserName.getText();
+            String Time = CB_time.getValue().toString();
+            String Phone = TF_phone.getText();
+            String Doctor = CB_doctor.getValue().toString();
+            String InjuryOrCondition = TF_injury_or_condition.getText();
+            LocalDate date = DT_date.getValue();
+            String Date = date.toString();
+
+            //add to database
+            Connection connection = database.dbconnect();
+            Statement statement = connection.createStatement();
+
+            try (
+                    PreparedStatement pst = connection.prepareStatement("insert into appointment(Name, UserName, Date, Time, Phone, Injury_or_Condition, Doctor) values(?, ?, ?, ?, ?, ?, ?)")
+            ) {
+                pst.setString(1, Name);
+                pst.setString(2, user.getEmail());
+                pst.setString(3, Date);
+                pst.setString(4, Time);
+                pst.setString(5, Phone);
+                pst.setString(6, InjuryOrCondition);
+                pst.setString(7, Doctor);
+
+                pst.executeUpdate();
+
+//                System.out.println("Appointment added");
+
+                //clear fields
+                TF_Name.clear();
+                TF_UserName.clear();
+                TF_phone.clear();
+                TF_injury_or_condition.clear();
+                DT_date.setValue(null);
+                CB_doctor.setValue(null);
+                CB_time.setValue(null);
+
+                gotoSuccessDialog("Appointment added successfully");
+                //clear table
+                pAppointmentList.clear();
+                //refresh table
+                setAppointmentTableData();
 
 
-        String Name = TF_name.getText();
-        String Gender = this.Gender;
-        String Date = TF_date.getText();
-        String Time = CB_time.getValue().toString();
-        String Phone = TF_phone.getText();
-        String Doctor = CB_doctor.getValue().toString();
-        String InjuryOrCondition = TF_injury_or_condition.getText();
-        String Age = TF_age.getText();
+            } catch (SQLException e) {
 
-
-
-        //add to database
-
-        Connection connection = database.dbconnect();
-        Statement statement = connection.createStatement();
-
-        try (
-                PreparedStatement pst = connection.prepareStatement("insert into appointment(Name, Email, Gender, Date, Time, Phone, Injury_or_Condition, Doctor, Age) values(?, ?, ?, ?, ?, ?, ?, ?, ?)")
-        ) {
-            pst.setString(1, Name);
-            pst.setString(2, user.getEmail());
-            pst.setString(3, Gender);
-            pst.setString(4, Date);
-            pst.setString(5, Time);
-            pst.setString(6, Phone);
-            pst.setString(7, InjuryOrCondition);
-            pst.setString(8, Doctor);
-            pst.setString(9, Age);
-            pst.executeUpdate();
-
-            System.out.println("Appointment added");
-
-
-            //clear fields
-            TF_name.clear();
-            TF_date.clear();
-            TF_phone.clear();
-            TF_injury_or_condition.clear();
-            TF_age.clear();
-            CB_doctor.setValue(null);
-            CB_time.setValue(null);
-            TF_age.clear();
-            this.Gender = null;
-            RB_male.setSelected(false);
-            RB_female.setSelected(false);
-            RB_others.setSelected(false);
-
-gotoSuccessDialog("Appointment added successfully");
-            //clear table
-            pAppointmentList.clear();
-            //refresh table
-            setAppointmentTableData();
-
-
-        } catch (SQLException e) {
-
-            System.out.println(e);
+                System.out.println(e);
+            }
         }
     }
+
     void gotoSuccessDialog(String message) throws IOException {
         Stage dialogStage = new Stage();
         dialogStage.setResizable(false);
@@ -208,31 +224,27 @@ gotoSuccessDialog("Appointment added successfully");
         Scene scene = new Scene(root);
         dialogStage.setScene(scene);
         dialogStage.show();
-
     }
-
 
     public void setAppointmentTableData() {
         try {
             conn = database.dbconnect();
             //get all appointments from database
-            rs = conn.createStatement().executeQuery("select * from appointment where Email = '" + user.getEmail() + "'");
+            rs = conn.createStatement().executeQuery("select * from appointment where UserName = '" + user.getUserName() + "'");
             while (rs.next()) {
-                pAppointmentList.add(new AppointmentTable(rs.getInt("id"), rs.getString("Name"), rs.getString("Email"), rs.getString("Gender"), rs.getString("Age"), rs.getString("Date"), rs.getString("Time"), rs.getString("Phone"), rs.getString("Doctor"), rs.getString("Injury_or_Condition")));
+                pAppointmentList.add(new AppointmentTable(rs.getInt("id"), rs.getString("Name"), rs.getString("UserName"), rs.getString("Date"), rs.getString("Time"), rs.getString("Phone"), rs.getString("Doctor"), rs.getString("Injury_or_Condition")));
+
+                //add to table
+                TC_UserName.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+                TC_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
+                TC_date.setCellValueFactory(new PropertyValueFactory<>("Date"));
+                TC_time.setCellValueFactory(new PropertyValueFactory<>("Time"));
+                TC_mobile.setCellValueFactory(new PropertyValueFactory<>("Phone"));
+                TC_doctor.setCellValueFactory(new PropertyValueFactory<>("Doctor"));
+                TC_injury_or_condition.setCellValueFactory(new PropertyValueFactory<>("injuryOrCondition"));
+
+                pAppointmentTable.setItems(pAppointmentList);
             }
-            //add to table
-            TC_name.setCellValueFactory(new PropertyValueFactory<>("name"));
-            TC_email.setCellValueFactory(new PropertyValueFactory<>("email"));
-            TC_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-            TC_age.setCellValueFactory(new PropertyValueFactory<>("age"));
-            TC_date.setCellValueFactory(new PropertyValueFactory<>("date"));
-            TC_time.setCellValueFactory(new PropertyValueFactory<>("time"));
-            TC_mobile.setCellValueFactory(new PropertyValueFactory<>("phone"));
-            TC_doctor.setCellValueFactory(new PropertyValueFactory<>("doctor"));
-            TC_injury_or_condition.setCellValueFactory(new PropertyValueFactory<>("injuryOrCondition"));
-
-            pAppointmentTable.setItems(pAppointmentList);
-
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
@@ -251,6 +263,7 @@ gotoSuccessDialog("Appointment added successfully");
             public String toString(String s) {
                 return (s == null) ? "Nothing selected" : s;
             }
+
             @Override
             public String fromString(String s) {
                 return null;
@@ -263,12 +276,49 @@ gotoSuccessDialog("Appointment added successfully");
             public String toString(String s) {
                 return (s == null) ? "Nothing selected" : s;
             }
+
             @Override
             public String fromString(String s) {
                 return null;
             }
         });
+
+
+        TF_UserName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #008000;");
+            } else {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
+            }
+        });
+        TF_Name.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_Name.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_Name.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #008000;");
+            } else {
+                TF_Name.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_Name.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
+            }
+        });
+        TF_phone.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_phone.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_phone.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #008000;");
+            } else {
+                TF_phone.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_phone.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
+            }
+        });
+        TF_injury_or_condition.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_injury_or_condition.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_injury_or_condition.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #008000;");
+            } else {
+                TF_injury_or_condition.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_injury_or_condition.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
+            }
+        });
     }
-
-
 }

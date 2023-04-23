@@ -18,11 +18,12 @@ import java.util.ResourceBundle;
 public class dHomeController implements Initializable {
 
 
-
     @FXML
     Label userEmail;
     @FXML
     private Button Appointment_btn;
+    @FXML
+    private Button BTN_Prescription;
 
     @FXML
     private Button BTN_Logout;
@@ -44,13 +45,18 @@ public class dHomeController implements Initializable {
 
     @FXML
     private AnchorPane anchorpaneHome;
-@FXML
+    @FXML
     private AnchorPane dHomeAnchor;
 
 
-
     //public String userLabel = "";
-     //code for login
+    //code for login
+
+    @FXML
+    void onClickedBTN_Prescription(ActionEvent event) throws IOException {
+        Pane prescription = FXMLLoader.load(getClass().getResource("aPrescription.fxml"));
+        anchorpaneHome.getChildren().setAll(prescription);
+    }
 
     public void onDashboard_btnClick(ActionEvent event) throws IOException {
         Pane DashboardPane = FXMLLoader.load(getClass().getResource("dDashboard.fxml"));
@@ -61,6 +67,19 @@ public class dHomeController implements Initializable {
         AnchorPane nextPage = FXMLLoader.load(getClass().getResource("aAppointments.fxml"));
         anchorpaneHome.getChildren().setAll(nextPage);
     }
+
+    @FXML
+    void onCLickMedicalRecords(ActionEvent event) throws IOException {
+//        AnchorPane nextPage = FXMLLoader.load(getClass().getResource("mRecords.fxml"));
+//        anchorpaneHome.getChildren().setAll(nextPage);
+    }
+
+    @FXML
+    void onClickBTN_Others(ActionEvent event) throws IOException {
+        AnchorPane nextPage = FXMLLoader.load(getClass().getResource("others.fxml"));
+        anchorpaneHome.getChildren().setAll(nextPage);
+    }
+
     public void onClickSettings(ActionEvent event) throws IOException {
         Pane SettingPane = FXMLLoader.load(getClass().getResource("Settings.fxml"));
         anchorpaneHome.getChildren().setAll(SettingPane);
@@ -112,13 +131,14 @@ public class dHomeController implements Initializable {
     void onMouseExited_Tasks(MouseEvent event) {
 
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resource) {
         Pane DashboardPane = null;
         try {
             DashboardPane = FXMLLoader.load(getClass().getResource("dDashboard.fxml"));
             // set label text
-          //  userEmail.setText(LoginController.userLabel);
+            //  userEmail.setText(LoginController.userLabel);
             dDashboardController pDashboardController = new dDashboardController();
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -126,7 +146,7 @@ public class dHomeController implements Initializable {
         anchorpaneHome.getChildren().setAll(DashboardPane);
 
 
-      //  setImage CIrcle();
+        //  setImage CIrcle();
 
 
     }

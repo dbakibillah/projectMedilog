@@ -18,8 +18,8 @@ public class userLogin extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("userLogin.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
-        stage.setScene(scene);
         stage.setTitle("Login");
+        stage.setScene(scene);
         stage.show();
     }
 

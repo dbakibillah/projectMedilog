@@ -41,7 +41,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Prescriptions">
+                  <Button fx:id="BTN_Prescription" mnemonicParsing="false" onAction="#onClickedBTN_Prescription" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Prescriptions">
                      <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                      </VBox.margin>
@@ -52,6 +52,18 @@
                            </image>
                         </ImageView>
                      </graphic>
+                  </Button>
+                  <Button fx:id="BTN_MedicalRecords" mnemonicParsing="false" onAction="#onCLickMedicalRecords" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Medical Records">
+                     <graphic>
+                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/medical-report.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
                   </Button>
                   <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Chat">
                      <VBox.margin>
@@ -65,41 +77,17 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Forum">
+                  <Button fx:id="BTN_Others" mnemonicParsing="false" onAction="#onClickBTN_Others" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="Others">
                      <graphic>
                         <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../../images/discussion.png" />
+                              <Image url="@../../../images/others.png" />
                            </image>
                         </ImageView>
                      </graphic>
                      <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                      </VBox.margin>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Blogs">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                     <graphic>
-                        <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/blogging.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Blood Request">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                     <graphic>
-                        <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../images/blood-donation.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
                   </Button>
                   <Button fx:id="BTN_Settings" mnemonicParsing="false" onAction="#onClickSettings" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Settings">
                      <graphic>

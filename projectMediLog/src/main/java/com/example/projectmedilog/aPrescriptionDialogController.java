@@ -22,7 +22,7 @@ public class aPrescriptionDialogController {
     @FXML
     private Button BTN_Clear;
     @FXML
-    TextField TF_Email;
+    TextField TF_UserName;
 
     @FXML
     TextField TF_Name;
@@ -51,7 +51,7 @@ public class aPrescriptionDialogController {
     void showDialog(Stage dialogStage, String Name,String Email, String Createdby, String Date, String Disease, String Test, String Medicine) throws IOException {
         this.stage = dialogStage;
         TF_Name.setText(Name);
-        TF_Email.setText(Email);
+        TF_UserName.setText(Email);
         TF_Createdby.setText(Createdby);
         TF_Date.setText(Date);
         TF_Disease.setText(Disease);
@@ -68,7 +68,7 @@ public class aPrescriptionDialogController {
     void onClickBTN_Add() throws IOException, SQLException, ClassNotFoundException {
         // Get value from text fields
         String Name = TF_Name.getText();
-        String Email = TF_Email.getText();
+        String UserName = TF_UserName.getText();
         String CreatedBy = TF_Createdby.getText();
         String Date = TF_Date.getText();
         String Disease = TF_Disease.getText();
@@ -78,10 +78,10 @@ public class aPrescriptionDialogController {
         Connection connection = database.dbconnect();
 
 
-        PreparedStatement pst = connection.prepareStatement("insert into pprescription(Name, Email,CreatedBy,Date,Disease,Test,Medicine)values(?, ?, ?, ?, ?, ?, ?)");
+        PreparedStatement pst = connection.prepareStatement("insert into pprescription(Name, UserName,CreatedBy,Date,Disease,Test,Medicine)values(?, ?, ?, ?, ?, ?, ?)");
         {
             pst.setString(1,Name);
-            pst.setString(2,Email);
+            pst.setString(2, UserName);
             pst.setString(3,CreatedBy);
             pst.setString(4,Date);
             pst.setString(5,Disease);
@@ -99,7 +99,7 @@ public class aPrescriptionDialogController {
     void onClickBTN_Clear(ActionEvent event) {
 
         TF_Name.setText("");
-        TF_Email.setText("");
+        TF_UserName.setText("");
         TF_Medicine.setText("");
         TF_Date.setText("");
         TF_Createdby.setText("");
@@ -109,7 +109,7 @@ public class aPrescriptionDialogController {
 
     @FXML
     void onClickBTN_Delete(ActionEvent event) throws SQLException, ClassNotFoundException {
-    String sql = "DELETE from pprescription WHERE `email` = '" + TF_Email.getText() + "'";
+    String sql = "DELETE from pprescription WHERE `email` = '" + TF_UserName.getText() + "'";
         Connection connection = database.dbconnect();
         try {
             Statement statement = connection.createStatement();

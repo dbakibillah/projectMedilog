@@ -3,26 +3,23 @@ package com.example.projectmedilog;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.ImagePattern;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
-import javafx.fxml.Initializable;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
-import javafx.scene.image.ImageView;
 
 import java.io.*;
-
-
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class SettingsController implements  Initializable {
+public class SettingsController implements Initializable {
 
     @FXML
     private Button BTN_ChooseFile;
@@ -56,10 +53,10 @@ public class SettingsController implements  Initializable {
     private TextField TF_email;
 
     @FXML
-    private TextField TF_firstname;
+    private TextField TF_FullName;
 
     @FXML
-    private TextField TF_lastname;
+    private TextField TF_UserName;
 
     @FXML
     private TextField TF_mobile;
@@ -69,6 +66,7 @@ public class SettingsController implements  Initializable {
     @FXML
     private ImageView imageView;
     ImageUpload imageUpload = new ImageUpload();
+
     @FXML
     void onCLickBTN_ChooseFile(ActionEvent event) throws SQLException {
 
@@ -119,10 +117,9 @@ public class SettingsController implements  Initializable {
     }
 
     @FXML
-    void onClickBTN_Save(ActionEvent event)throws SQLException, ClassNotFoundException, IOException, InterruptedException {
-
-
-        if (TF_currentpass.getText().isEmpty() || TF_newpass.getText().isEmpty()){
+    void onClickBTN_Save(ActionEvent event) throws SQLException, ClassNotFoundException, IOException, InterruptedException {
+        //Showing Alert if any field is empty
+        if (TF_currentpass.getText().isEmpty() || TF_newpass.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error");
             alert.setHeaderText("Error");
@@ -130,15 +127,6 @@ public class SettingsController implements  Initializable {
             alert.showAndWait();
             return;
         }
-
-
-
-
-
-
-
-
-
 
         String Email = TF_email.getText();
         String CurrentPass = TF_currentpass.getText();
@@ -169,21 +157,11 @@ public class SettingsController implements  Initializable {
 
     @FXML
     void onClickBTN_SaveChange(ActionEvent event) throws SQLException, ClassNotFoundException, IOException, InterruptedException {
-        // if any field is empty
-        if (TF_firstname.getText().isEmpty() || TF_lastname.getText().isEmpty() || TF_age.getText().isEmpty() || TF_mobile.getText().isEmpty() || TF_address.getText().isEmpty() || CB_bloodgrp.getValue().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-           alert.setHeaderText("Error");
-            alert.setContentText("Please fill all the fields");
-            alert.showAndWait();
-            return;
-        }
-        String FirstName = TF_firstname.getText();
-        String LastName = TF_lastname.getText();
+        String FullName = TF_FullName.getText();
+        String UserName = TF_UserName.getText();
         String Email = TF_email.getText();
         String Age = TF_age.getText();
         String Phone = TF_mobile.getText();
-
         String Address = TF_address.getText();
         String BloodGroup = CB_bloodgrp.getValue().toString();
 
@@ -193,10 +171,10 @@ public class SettingsController implements  Initializable {
 
 
         try (
-                PreparedStatement pst = connection.prepareStatement("UPDATE signup SET FirstName = ?, LastName = ?, Age = ?, Phone = ?, Address = ?, Blood_Group = ? WHERE Email = ?")
+                PreparedStatement pst = connection.prepareStatement("UPDATE signup SET FullName = ?, UserName = ?, Age = ?, Phone = ?, Address = ?, Blood_Group = ? WHERE Email = ?")
         ) {
-            pst.setString(1, FirstName);
-            pst.setString(2, LastName);
+            pst.setString(1, FullName);
+            pst.setString(2, UserName);
             pst.setString(3, Age);
             pst.setString(4, Phone);
             pst.setString(5, Address);
@@ -206,8 +184,8 @@ public class SettingsController implements  Initializable {
             pst.executeUpdate();
 
             //update user
-            user.setFirstName(FirstName);
-            user.setLastName(LastName);
+            user.setFullName(FullName);
+            user.setUserName(UserName);
             user.setEmail(Email);
             user.setAge(Age);
             user.setPhone(Phone);
@@ -217,7 +195,6 @@ public class SettingsController implements  Initializable {
             //System.out.println("Data Updated");
 
 
-
         } catch (SQLException e) {
             System.out.println(e);
         }
@@ -225,9 +202,9 @@ public class SettingsController implements  Initializable {
         gotoSuccessDialog("Data Updated");
 
 
-
     }
-//success dialog screen
+
+    //success dialog screen
     void gotoSuccessDialog(String message) throws IOException {
         Stage dialogStage = new Stage();
         dialogStage.setResizable(false);
@@ -240,6 +217,7 @@ public class SettingsController implements  Initializable {
         dialogStage.show();
 
     }
+
     void gotoErrorDialog(String fxml, String message) throws IOException {
         Stage dialogStage = new Stage();
         dialogStage.setResizable(false);
@@ -253,24 +231,26 @@ public class SettingsController implements  Initializable {
 
     }
 
-    void getData(){}
+    void getData() {
+    }
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         CB_bloodgrp.getItems().addAll("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-");
         CB_bloodgrp.setConverter(new StringConverter<String>() {
-         @Override
-         public String toString(String s) {
-             return (s == null) ? "Nothing selected" : s;
-         }
-         @Override
-         public String fromString(String s) {
-             return null;
-         }
-     });
-        TF_firstname.setText(user.getFirstName());
-        TF_lastname.setText(user.getLastName());
+            @Override
+            public String toString(String s) {
+                return (s == null) ? "Nothing selected" : s;
+            }
+
+            @Override
+            public String fromString(String s) {
+                return null;
+            }
+        });
+        TF_FullName.setText(user.getFullName());
+        TF_UserName.setText(user.getUserName());
         TF_email.setText(user.getEmail());
         TF_age.setText(user.getAge());
         TF_mobile.setText(user.getPhone());

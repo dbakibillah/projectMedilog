@@ -38,7 +38,7 @@ public class aHomeController implements Initializable {
     @FXML
     private Pane homePane;
 
-   public Label userEmail;
+    public Label userEmail;
 
     @FXML
     void onClickAppointment_btn(ActionEvent event) throws IOException {
@@ -75,6 +75,29 @@ public class aHomeController implements Initializable {
         Pane SettingPane = FXMLLoader.load(getClass().getResource("Settings.fxml"));
         anchorpaneHome.getChildren().setAll(SettingPane);
     }
+
+    @FXML
+    void onCLickMedicalRecords(ActionEvent event) {
+        AnchorPane MedicalRecord = null;
+        try {
+            MedicalRecord = FXMLLoader.load(getClass().getResource("aMedicalReport.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        anchorpaneHome.getChildren().setAll(MedicalRecord);
+    }
+
+    @FXML
+    void onClickBTN_Others(ActionEvent event) {
+        AnchorPane nextPage = null;
+        try {
+            nextPage = FXMLLoader.load(getClass().getResource("others.fxml"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        anchorpaneHome.getChildren().setAll(nextPage);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resource) {
         Pane DashboardPane = null;
