@@ -84,11 +84,6 @@ public class pPrescriptionController implements Initializable {
         if (index <= -1) {
             return;
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> 898cb234a6adece586d9ee69942e132f2d6d7b35
-
         //getting table data
         String Name = nameTablecolumn.getCellData(index).toString();
         String Email = emailTablecolumn.getCellData(index).toString();
