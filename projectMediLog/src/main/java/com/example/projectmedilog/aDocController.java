@@ -41,7 +41,7 @@ public class aDocController implements Initializable {
     private TableColumn<?, ?> TC_department;
 
     @FXML
-    private TableColumn<?, ?> TC_email;
+    private TableColumn<?, ?> TC_UserName;
 
     @FXML
     private TableColumn<?, ?> TC_gender;
@@ -83,8 +83,8 @@ public class aDocController implements Initializable {
                 DoctorList.add(new DoctorTable(rs.getInt("id"),rs.getString("UserName"), rs.getString("FullName"), rs.getString("Gender"), rs.getString("Age"), rs.getString("Phone"), rs.getString("Degree"), rs.getString("Department")));
             }
             //add to table
-            TC_name.setCellValueFactory(new PropertyValueFactory<>("name"));
-            TC_email.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+            TC_name.setCellValueFactory(new PropertyValueFactory<>("FullName"));
+            TC_UserName.setCellValueFactory(new PropertyValueFactory<>("UserName"));
             //TC_password.setCellValueFactory(new PropertyValueFactory<>("pass"));
             TC_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
             TC_age.setCellValueFactory(new PropertyValueFactory<>("age"));
