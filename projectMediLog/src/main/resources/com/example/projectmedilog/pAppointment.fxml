@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -12,132 +14,94 @@
 
 <AnchorPane fx:id="AppointmentPane" prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.pAppointmentController">
    <children>
-      <Pane prefHeight="354.0" prefWidth="1032.0">
+      <Pane layoutY="-1.0" prefHeight="328.0" prefWidth="1050.0" style="-fx-background-color: #ffffff;">
          <children>
             <Label layoutX="35.0" layoutY="14.0" text="New Appointment">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="35.0" layoutY="63.0" prefHeight="35.0" prefWidth="281.0" promptText="Enter Name" style="-fx-background-color: Transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+            <TextField fx:id="TF_UserName" layoutX="393.0" layoutY="73.0" prefHeight="35.0" prefWidth="281.0" promptText="Enter User Name*" style="-fx-background-color: Transparent; -fx-border-color: #0080FF; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField layoutX="35.0" layoutY="125.0" prefHeight="35.0" prefWidth="281.0" promptText="Enter email" style="-fx-background-color: Transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+            <TextField fx:id="TF_phone" layoutX="35.0" layoutY="133.0" prefHeight="35.0" prefWidth="281.0" promptText="Mobile" style="-fx-background-color: Transparent; -fx-border-color: #0080ff; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 50;">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField layoutX="393.0" layoutY="61.0" prefHeight="35.0" prefWidth="281.0" promptText="Enter Age" style="-fx-background-color: Transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
+            <TextField fx:id="TF_injury_or_condition" layoutX="393.0" layoutY="133.0" prefHeight="35.0" prefWidth="281.0" promptText="Injury/Condition" style="-fx-background-color: Transparent; -fx-border-color: #0080FF; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 50;">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField layoutX="393.0" layoutY="123.0" prefHeight="35.0" prefWidth="281.0" promptText="Contact No." style="-fx-background-color: Transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextField>
-            <RadioButton layoutX="798.0" layoutY="104.0" mnemonicParsing="false" text="Male">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </RadioButton>
-            <Label layoutX="802.0" layoutY="62.0" text="Gender">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <RadioButton layoutX="798.0" layoutY="133.0" mnemonicParsing="false" text="Female">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </RadioButton>
-            <RadioButton layoutX="798.0" layoutY="162.0" mnemonicParsing="false" text="Others">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </RadioButton>
-            <TextField layoutX="35.0" layoutY="186.0" prefHeight="35.0" prefWidth="281.0" promptText="Date of Appointment" style="-fx-background-color: Transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextField>
-            <TextField layoutX="393.0" layoutY="186.0" prefHeight="35.0" prefWidth="281.0" promptText="Appointment Details" style="-fx-background-color: Transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextField>
-            <Label layoutX="35.0" layoutY="254.0" text="Preffered Time:">
+            <Label layoutX="35.0" layoutY="239.0" text="Preffered Time:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <RadioButton layoutX="166.0" layoutY="254.0" mnemonicParsing="false" text="09:00 - 11:00">
+            <ChoiceBox fx:id="CB_doctor" layoutX="476.0" layoutY="239.0" prefHeight="27.0" prefWidth="168.0" style="-fx-background-color: Transparent; -fx-border-color: #0598ff;" />
+            <ChoiceBox fx:id="CB_time" layoutX="166.0" layoutY="239.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: Transparent; -fx-border-color: #0598ff;" />
+            <Button fx:id="BTN_cancel" layoutX="901.0" layoutY="239.0" mnemonicParsing="false" onAction="#onClickBTN_cancel" onMouseEntered="#onMouseEnteredBTN_cancel" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: #0080FF; -fx-background-radius: 50;" text="Cancel" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
-            </RadioButton>
-            <RadioButton layoutX="317.0" layoutY="254.0" mnemonicParsing="false" text="11:00 - 13:00">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </RadioButton>
-            <RadioButton layoutX="465.0" layoutY="254.0" mnemonicParsing="false" text="17:00 - 19:00">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </RadioButton>
-            <RadioButton layoutX="616.0" layoutY="254.0" mnemonicParsing="false" text="19:00 - 21:00">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </RadioButton>
-            <RadioButton layoutX="768.0" layoutY="254.0" mnemonicParsing="false" text="21:00 - 23:00">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </RadioButton>
-            <Button layoutX="799.0" layoutY="315.0" mnemonicParsing="false" text="Confirm">
-               <font>
-                  <Font size="18.0" />
-               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
-            <Button layoutX="911.0" layoutY="315.0" mnemonicParsing="false" text="Cancel">
+            <Button fx:id="BTN_confirm" layoutX="790.0" layoutY="239.0" mnemonicParsing="false" onAction="#onClickBTN_confirm" onMouseEntered="#onMouseEnteredBTN_confirm" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #0080FF; -fx-background-radius: 50;" text="Confirm" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label layoutX="356.0" layoutY="239.0" prefHeight="27.0" prefWidth="120.0" text="Select Doctor :">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="DT_date" layoutX="800.0" layoutY="164.0" prefHeight="35.0" prefWidth="168.0" style="-fx-border-color: #0080FF;" stylesheets="@../../../Style/date.css" />
+            <TextField fx:id="TF_Name" layoutX="35.0" layoutY="73.0" prefHeight="35.0" prefWidth="281.0" promptText="Enter Name*" style="-fx-background-color: Transparent; -fx-border-color: #0080ff; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 50;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </TextField>
+            <Label layoutX="750.0" layoutY="168.0" text="Date:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="BTN_Search" layoutX="706.0" layoutY="74.0" mnemonicParsing="false" onAction="#onClickBTN_Search" onMouseEntered="#onMouseENteredBTN_Search" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #0080FF; -fx-background-radius: 50;" text="Search" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </Pane>
-      <Pane layoutY="354.0" prefHeight="445.0" prefWidth="516.0">
+      <Pane layoutY="287.0" prefHeight="512.0" prefWidth="1050.0" style="-fx-background-color: #ffffff;">
          <children>
             <Label layoutX="33.0" layoutY="14.0" text="Upcoming Appoinments">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <TableView layoutX="22.0" layoutY="64.0" prefHeight="372.0" prefWidth="499.0">
+            <TableView fx:id="pAppointmentTable" layoutX="6.0" layoutY="56.0" prefHeight="451.0" prefWidth="1042.0" style="-fx-background-color: #ffffff;" stylesheets="@../../../Style/table.css">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="TC_UserName" prefWidth="105.0" text="UserName" />
+                  <TableColumn fx:id="TC_Name" prefWidth="116.0" text="Name" />
+                  <TableColumn fx:id="TC_date" minWidth="0.0" prefWidth="121.0" text="Date" />
+                  <TableColumn fx:id="TC_time" prefWidth="116.0" text="Time" />
+                  <TableColumn fx:id="TC_mobile" prefWidth="171.0" text="Mobile" />
+                  <TableColumn fx:id="TC_doctor" prefWidth="143.0" text="Doctor" />
+                  <TableColumn fx:id="TC_injury_or_condition" prefWidth="233.0" text="Injury/Condition" />
               </columns>
-            </TableView>
-         </children>
-      </Pane>
-      <Pane layoutX="510.0" layoutY="354.0" prefHeight="445.0" prefWidth="516.0">
-         <children>
-            <Label layoutX="46.0" layoutY="14.0" text="Past Appoinments">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <TableView layoutX="46.0" layoutY="65.0" prefHeight="372.0" prefWidth="478.0">
-               <columns>
-                  <TableColumn prefWidth="75.0" text="C1" />
-                  <TableColumn prefWidth="75.0" text="C2" />
-               </columns>
             </TableView>
          </children>
       </Pane>

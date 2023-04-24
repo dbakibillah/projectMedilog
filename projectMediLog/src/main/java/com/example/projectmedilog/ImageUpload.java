@@ -27,12 +27,12 @@ public class ImageUpload {
                 imageBytes = fileInputStream.readAllBytes();
                 Image image = new Image(new ByteArrayInputStream(imageBytes));
                 //imageView.setImage(image);
-                SettingsController settingsController = new SettingsController();
-                if (settingsController.ImageCIrcle != null) {
-                    settingsController.ImageCIrcle.setFill(new ImagePattern(image));
-                }
+//                SettingsController settingsController = new SettingsController();
+//                if (settingsController.ImageCIrcle != null) {
+//                    settingsController.ImageCIrcle.setFill(new ImagePattern(image));
+//                }
 
-                uploadImage();
+                //uploadImage();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (Exception e) {
@@ -70,5 +70,13 @@ public class ImageUpload {
             //imageView.setImage(image);
             //userProfilePic.setFill(new ImagePattern(image));
         }
+    }
+
+    public Image getImage() {
+        return new Image(new ByteArrayInputStream(imageBytes));
+    }
+
+    public File getSelectedFile() {
+        return selectedFile;
     }
 }

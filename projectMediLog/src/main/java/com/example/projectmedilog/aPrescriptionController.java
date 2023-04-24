@@ -68,13 +68,13 @@ public class aPrescriptionController implements Initializable {
 
         }
         String Name = nameTablecolumn.getCellData(index).toString();
-        String Email = emailTablecolumn.getCellData(index).toString();
+        String UserName = emailTablecolumn.getCellData(index).toString();
         String CreatedBy = createdTablecolumn.getCellData(index).toString();
         String Date = dateTablecolumn.getCellData(index).toString();
         String Disease = diseaseTablecolumn.getCellData(index).toString();
         String Test = testTablecolumn.getCellData(index).toString();
         String Medicine = medicineTablecolumn.getCellData(index).toString();
-        goto_aPrescriptionDialog(Name,Email, CreatedBy, Date, Disease, Test, Medicine);
+        goto_aPrescriptionDialog(Name, UserName, CreatedBy, Date, Disease, Test, Medicine);
    }
 
 
@@ -117,10 +117,10 @@ public class aPrescriptionController implements Initializable {
             rs = conn.createStatement().executeQuery("select * from pprescription");
 
             while (rs.next()) {
-                listI.add(new users(rs.getString("name"),rs.getString("email"),rs.getString("createdby"),rs.getString("date"),rs.getString("date"),rs.getString("disease"),rs.getString("test"),rs.getString("medicine")));
+                listI.add(new users(rs.getString("name"),rs.getString("UserName"),rs.getString("createdby"),rs.getString("date"),rs.getString("disease"),rs.getString("test"),rs.getString("medicine")));
             }
             nameTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("name"));
-            emailTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("email"));
+            emailTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("UserName"));
             createdTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("createdby"));
 
             dateTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("date"));
@@ -130,6 +130,7 @@ public class aPrescriptionController implements Initializable {
             medicineTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("medicine"));
 
             Table_user.setItems(listI);
+
 
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);

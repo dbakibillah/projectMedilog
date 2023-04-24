@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
@@ -14,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="HomePane2" prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="HomePane2" prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.pDashboardController">
    <children>
       <Label layoutY="8.0" text="Dashboard">
          <padding>
@@ -71,7 +66,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Label alignment="TOP_RIGHT" layoutX="154.0" layoutY="58.0" prefHeight="27.0" prefWidth="170.0" text="120/80">
+                  <Label fx:id="LB_BP" alignment="TOP_RIGHT" layoutX="100.0" layoutY="58.0" prefHeight="27.0" prefWidth="224.0" text="120/80">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -93,7 +88,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Label alignment="TOP_RIGHT" layoutX="189.0" layoutY="58.0" prefWidth="127.0" text="75">
+                  <Label fx:id="LB_HB" alignment="TOP_RIGHT" layoutX="92.0" layoutY="58.0" prefHeight="27.0" prefWidth="224.0" text="75">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -118,7 +113,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Label alignment="TOP_RIGHT" layoutX="185.0" layoutY="58.0" prefWidth="127.0" text="85-110">
+                  <Label fx:id="LB_GL" alignment="TOP_RIGHT" layoutX="88.0" layoutY="58.0" prefHeight="27.0" prefWidth="224.0" text="85-110">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -127,42 +122,7 @@
             </Pane>
          </children>
       </HBox>
-      <HBox layoutX="14.0" layoutY="404.0" prefHeight="395.0" prefWidth="1016.0">
-         <children>
-            <Pane prefHeight="313.0" prefWidth="537.0">
-               <children>
-                  <LineChart layoutX="-25.0" layoutY="32.0" prefHeight="363.0" prefWidth="566.0">
-                     <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                     </xAxis>
-                     <yAxis>
-                        <NumberAxis side="LEFT" />
-                     </yAxis>
-                  </LineChart>
-                  <Label alignment="CENTER" layoutX="3.0" layoutY="-1.0" prefHeight="40.0" prefWidth="537.0" text="Label">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane prefHeight="367.0" prefWidth="479.0">
-               <children>
-                  <Label alignment="CENTER" layoutX="7.0" layoutY="7.0" prefHeight="35.0" prefWidth="465.0" text="Label">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <TableView layoutX="14.0" layoutY="42.0" prefHeight="331.0" prefWidth="479.0">
-                     <columns>
-                        <TableColumn prefWidth="75.0" text="C1" />
-                        <TableColumn prefWidth="75.0" text="C2" />
-                     </columns>
-                  </TableView>
-               </children>
-            </Pane>
-         </children>
-      </HBox>
+      <Pane fx:id="barPane" layoutX="7.0" layoutY="405.0" prefHeight="394.0" prefWidth="1030.0" style="-fx-background-color: #FFFFFF;" />
    </children>
    <opaqueInsets>
       <Insets top="50.0" />

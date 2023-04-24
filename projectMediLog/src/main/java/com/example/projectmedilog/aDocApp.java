@@ -11,7 +11,7 @@ public class aDocApp extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(signUpApp.class.getResource("aDoc.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Docotrs");
+        stage.setTitle("Doctors");
         stage.setScene(scene);
         stage.show();
     }

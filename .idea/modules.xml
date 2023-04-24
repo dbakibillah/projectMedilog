@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/projectMediLog/projectMediLog.iml" filepath="$PROJECT_DIR$/projectMediLog/projectMediLog.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/projectMedilog.iml" filepath="$PROJECT_DIR$/.idea/projectMedilog.iml" />
+    </modules>
+  </component>
+</project>
