@@ -110,13 +110,34 @@ public class aDocController implements Initializable {
         BTN_AddDoc.setBackground(Background.fill(Color.WHITE));
     }
     @FXML
-    void getItem(MouseEvent event) {
+    void getItem(MouseEvent event) throws IOException {
         index = DoctorTable.getSelectionModel().getSelectedIndex();
         if (index <= -1) {
             return;
         }
+        String Name = TC_name.getCellData(index).toString();
+        String UserName = TC_email.getCellData(index).toString();
+        String Gender = TC_gender.getCellData(index).toString();
+        String Age = TC_age.getCellData(index).toString();
+        String Mobile = TC_phone.getCellData(index).toString();
+        String Degree = TC_degree.getCellData(index).toString();
+        String Department = TC_department.getCellData(index).toString();
+        String Date = TC_date.getCellData(index).toString();
+        gotoDoctorDialog(Name, UserName,Gender,Age, Mobile,  Degree,Department,Date);
 
 
+    }
+    void gotoDoctorDialog(String Name,  String UserName, String Gender,String Age, String Mobile,   String Degree, String Department, String Date) throws IOException {
+        //passing to dialog box
+        Stage adialogStage = new Stage();
+        adialogStage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("aDocDialog.fxml"));
+        Parent root = loader.load();
+        aDocDialogController controller = loader.getController();
+        controller.showDialog(adialogStage, Name,UserName,Gender, Age, Mobile,Degree,Department,Date);
+        Scene scene = new Scene(root);
+        adialogStage.setScene(scene);
+        adialogStage.show();
     }
 
     @Override
