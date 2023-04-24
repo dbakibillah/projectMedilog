@@ -23,7 +23,6 @@ import java.util.ResourceBundle;
 public class pHomeController implements Initializable {
     @FXML
     private Button BTN_prescription;
-
     @FXML
     Label UserName;
     @FXML
@@ -36,8 +35,7 @@ public class pHomeController implements Initializable {
 
     @FXML
     private AnchorPane pHomeAnchor;
-
-    public String userLabel = "";
+    public static String pUserName = "";
 
     public void onClickAppointment_btn(ActionEvent event) throws IOException {
         Pane AppointtmentPane = FXMLLoader.load(getClass().getResource("pAppointment.fxml"));
@@ -103,6 +101,7 @@ public class pHomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resource) {
+        pUserName = user.getUserName();
         Pane DashboardPane = null;
         try {
             DashboardPane = FXMLLoader.load(getClass().getResource("pDashboard.fxml"));

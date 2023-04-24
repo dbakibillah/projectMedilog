@@ -22,6 +22,8 @@ public class dHomeController implements Initializable {
     Label userEmail;
     @FXML
     private Button Appointment_btn;
+    @FXML
+    private Button BTN_Prescription;
 
     @FXML
     private Button BTN_Logout;
@@ -49,6 +51,12 @@ public class dHomeController implements Initializable {
 
     //public String userLabel = "";
     //code for login
+
+    @FXML
+    void onClickedBTN_Prescription(ActionEvent event) throws IOException {
+        Pane prescription = FXMLLoader.load(getClass().getResource("aPrescription.fxml"));
+        anchorpaneHome.getChildren().setAll(prescription);
+    }
 
     public void onDashboard_btnClick(ActionEvent event) throws IOException {
         Pane DashboardPane = FXMLLoader.load(getClass().getResource("dDashboard.fxml"));

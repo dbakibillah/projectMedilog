@@ -41,7 +41,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Prescriptions">
+                  <Button fx:id="BTN_Prescription" mnemonicParsing="false" onAction="#onClickedBTN_Prescription" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text=" Prescriptions">
                      <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                      </VBox.margin>
