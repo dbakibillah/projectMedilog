@@ -31,8 +31,8 @@ public class aDocController implements Initializable {
     @FXML
     private TableColumn<?, ?> TC_age;
 
-    @FXML
-    private TableColumn<?, ?> TC_date;
+
+
 
     @FXML
     private TableColumn<?, ?> TC_degree;
@@ -80,7 +80,7 @@ public class aDocController implements Initializable {
             //get all appointments from database
             rs = conn.createStatement().executeQuery("select * from doctors");
             while (rs.next()) {
-                DoctorList.add(new DoctorTable(rs.getInt("id"),rs.getString("UserName"), rs.getString("FullName"), rs.getString("Gender"), rs.getString("Age"), rs.getString("Phone"), rs.getString("Degree"), rs.getString("Department")));
+                DoctorList.add(new DoctorTable(rs.getString("UserName"), rs.getString("FullName"), rs.getString("Gender"), rs.getString("Age"), rs.getString("Phone"), rs.getString("Degree"), rs.getString("Department")));
             }
             //add to table
             TC_name.setCellValueFactory(new PropertyValueFactory<>("FullName"));
@@ -116,25 +116,25 @@ public class aDocController implements Initializable {
             return;
         }
         String Name = TC_name.getCellData(index).toString();
-        String UserName = TC_email.getCellData(index).toString();
+        String UserName = TC_UserName.getCellData(index).toString();
         String Gender = TC_gender.getCellData(index).toString();
         String Age = TC_age.getCellData(index).toString();
         String Mobile = TC_phone.getCellData(index).toString();
         String Degree = TC_degree.getCellData(index).toString();
         String Department = TC_department.getCellData(index).toString();
-        String Date = TC_date.getCellData(index).toString();
-        gotoDoctorDialog(Name, UserName,Gender,Age, Mobile,  Degree,Department,Date);
+
+        gotoDoctorDialog(Name, UserName,Gender,Age, Mobile,  Degree,Department);
 
 
     }
-    void gotoDoctorDialog(String Name,  String UserName, String Gender,String Age, String Mobile,   String Degree, String Department, String Date) throws IOException {
+    void gotoDoctorDialog(String Name,  String UserName, String Gender,String Age, String Mobile,   String Degree, String Department) throws IOException {
         //passing to dialog box
         Stage adialogStage = new Stage();
         adialogStage.setResizable(false);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("aDocDialog.fxml"));
         Parent root = loader.load();
         aDocDialogController controller = loader.getController();
-        controller.showDialog(adialogStage, Name,UserName,Gender, Age, Mobile,Degree,Department,Date);
+        controller.showDialog(adialogStage, Name,UserName,Gender, Age, Mobile,Degree,Department);
         Scene scene = new Scene(root);
         adialogStage.setScene(scene);
         adialogStage.show();

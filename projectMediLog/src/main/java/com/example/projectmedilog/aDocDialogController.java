@@ -24,8 +24,7 @@ public class aDocDialogController {
 
     @FXML
     private Label Label_Name;
-    @FXML
-    private Label Label_Date;
+
 
     @FXML
     private Label Label_Degree;
@@ -34,22 +33,22 @@ public class aDocDialogController {
     private Label Label_Department;
 
     @FXML
-    private Label Label_Email;
+    private Label Label_UserName;
 
     @FXML
     private Label Label_Gender;
 
     Stage stage;
-    void showDialog(Stage dialogStage, String Name, String Email, String Gender, String Age, String Mobile, String Degree,  String Department, String Date) throws IOException {
+    void showDialog(Stage dialogStage, String Name, String UserName, String Gender, String Age, String Mobile, String Degree,  String Department) throws IOException {
         this.stage = dialogStage;
         Label_Name.setText(Name);
-        Label_Email.setText(Email);
+        Label_UserName.setText(UserName);
         Label_Gender.setText(Gender);
         Label_Age.setText(Age);
         Label_Mobile.setText(Mobile);
         Label_Degree.setText(Degree);
         Label_Department.setText(Department);
-        Label_Date.setText(Date);
+
 
 
 

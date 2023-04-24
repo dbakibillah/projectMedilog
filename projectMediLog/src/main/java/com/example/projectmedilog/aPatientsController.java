@@ -50,7 +50,7 @@ public class aPatientsController implements Initializable {
             rs = conn.createStatement().executeQuery("select * from signup");
 
             while (rs.next()) {
-                listI.add(new aPatientsTable(rs.getString("FullName"), rs.getString("Email"), rs.getString("Phone"), rs.getString("Gender"), rs.getString("Age"), rs.getString("bloodGroup")));
+                listI.add(new aPatientsTable(rs.getString("FullName"), rs.getString("Email"), rs.getString("Phone"), rs.getString("Gender"), rs.getString("Age"), rs.getString("blood_group")));
             }
             TableColumn_Name.setCellValueFactory(new PropertyValueFactory<>("name"));
             TableColumn_Email.setCellValueFactory(new PropertyValueFactory<>("email"));

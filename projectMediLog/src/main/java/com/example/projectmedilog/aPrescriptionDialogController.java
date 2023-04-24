@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
@@ -24,13 +25,13 @@ public class aPrescriptionDialogController {
     @FXML
     private Button BTN_Clear;
     @FXML
-<<<<<<< HEAD
+
     private TextField TF_Test;
+
+
     @FXML
-    private TextField TF_Email;
-=======
     TextField TF_UserName;
->>>>>>> ffc46458fefcbba610ad78ee8c643358ea334f1c
+
 
     @FXML
     private TextField TF_Name;
@@ -72,7 +73,7 @@ public class aPrescriptionDialogController {
     @FXML
     void onClickBTN_Add() throws IOException, SQLException, ClassNotFoundException {
 
-        if (TF_Name.getText().isEmpty() || TF_Email.getText().isEmpty() || TF_Createdby.getText().isEmpty() || TF_Date.getText().isEmpty() || TF_Disease.getText().isEmpty() || TF_Test.getText().isEmpty() || TF_Medicine.getText().isEmpty()) {
+        if (TF_Name.getText().isEmpty() || TF_UserName.getText().isEmpty() || TF_Createdby.getText().isEmpty() || TF_Date.getText().isEmpty() || TF_Disease.getText().isEmpty() || TF_Test.getText().isEmpty() || TF_Medicine.getText().isEmpty()) {
             emptyFieldsCheck();
         } else {
         // Get value from text fields
@@ -120,7 +121,7 @@ public class aPrescriptionDialogController {
 
     @FXML
     void onClickBTN_Delete(ActionEvent event) throws SQLException, ClassNotFoundException {
-    String sql = "DELETE from pprescription WHERE `email` = '" + TF_UserName.getText() + "'";
+    String sql = "DELETE from pprescription WHERE `UserName` = '" + TF_UserName.getText() + "'";
         Connection connection = database.dbconnect();
         try {
             Statement statement = connection.createStatement();
@@ -129,6 +130,7 @@ public class aPrescriptionDialogController {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        this.stage.close();
 
     }
 
@@ -152,13 +154,13 @@ public class aPrescriptionDialogController {
 
                     }
                 });
-                    TF_Email.textProperty().addListener((observable, oldValue, newValue) -> {
+                    TF_UserName.textProperty().addListener((observable, oldValue, newValue) -> {
                     if (!newValue.isEmpty()) {
-                    TF_Email.setBackground(Background.fill(Color.TRANSPARENT));
-                    TF_Email.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+                    TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                    TF_UserName.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
                     } else {
-                    TF_Email.setBackground(Background.fill(Color.TRANSPARENT));
-                    TF_Email.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+                    TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                    TF_UserName.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
 
                 }
             });
@@ -266,13 +268,13 @@ public class aPrescriptionDialogController {
             TF_Medicine.setBackground(Background.fill(Color.TRANSPARENT));
             TF_Medicine.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
         }
-        if (TF_Email.getText().isEmpty()) {
-            TF_Email.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Email.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
-            TF_Email.setPromptText("Email is Empty*");
+        if (TF_UserName.getText().isEmpty()) {
+            TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+            TF_UserName.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
+            TF_UserName.setPromptText("UserName is Empty*");
         } else {
-            TF_Email.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Email.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+            TF_UserName.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
         }
 }
 }

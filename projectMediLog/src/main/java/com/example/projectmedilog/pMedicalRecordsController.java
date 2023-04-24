@@ -1,9 +1,12 @@
 package com.example.projectmedilog;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Cursor;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
@@ -12,6 +15,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class pMedicalRecordsController {
 
@@ -33,8 +37,6 @@ public class pMedicalRecordsController {
     @FXML
     private Label LB_UserName;
 
-    @FXML
-    private TableView<String> List_Date;
 
     @FXML
     private TextArea TA_Comment;
@@ -49,19 +51,34 @@ public class pMedicalRecordsController {
     @FXML
     private TableColumn<MedicalRecordsTable, String> TC_Date;
     Integer index;
-
-
     @FXML
-    void getItem(MouseEvent event) {
-        index = List_Date.getSelectionModel().getSelectedIndex();
+    private ListView<String> List_Date;
 
-        if (index <= -1) {
-            return;
-        }
-        Integer Id = Integer.valueOf(TC_Id.getCellData(index));
-        String Date = TC_Date.getCellData(index);
+    //checking demo with arraylist
+    ArrayList<String> dateList = new ArrayList<>();
+    String dateFromList;
 
-    }
+    //Local Variables
+    Integer Id;
+    String pDate;
+    String Reference;
+    String TestName;
+    String TestResult;
+    String Comment;
+    String Conclusion;
+    ResultSet resultSet;
+
+//    @FXML
+//    void getItem(MouseEvent event) {
+//        index = List_Date.getSelectionModel().getSelectedIndex();
+//
+//        if (index <= -1) {
+//            return;
+//        }
+////        Integer Id = Integer.valueOf(TC_Id.getCellData(index));
+////        String Date = TC_Date.getCellData(index);
+//
+//    }
 
     @FXML
     void onClickedBTN_Search(MouseEvent event) throws SQLException, ClassNotFoundException {
@@ -76,25 +93,55 @@ public class pMedicalRecordsController {
             Connection connection = database.dbconnect();
             Statement statement = connection.createStatement();
             String sql = "SELECT * FROM `medical_records` WHERE `UserName` = '" + UserName + "'";
-            ResultSet resultSet = statement.executeQuery(sql);
+            resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
                 //import into listview
-                Integer Id = resultSet.getInt("Id");
-                String Date = resultSet.getString("Date");
-                String Reference = resultSet.getString("Reference");
-                String TestName = resultSet.getString("TestName");
-                String TestResult = resultSet.getString("TestResult");
-                String Comment = resultSet.getString("Comment");
-                String Conclusion = resultSet.getString("Conclusion");
+                this.Id = resultSet.getInt("Id");
+                pDate = resultSet.getString("Date");
+                Reference = resultSet.getString("Reference");
+                TestName = resultSet.getString("TestName");
+                TestResult = resultSet.getString("TestResult");
+                Comment = resultSet.getString("Comment");
+                Conclusion = resultSet.getString("Conclusion");
 
-                List_Date.getItems().add(String.valueOf((new MedicalRecordsTable(Id, Date, Reference, TestName, TestResult, Comment, Conclusion))));
-                TC_Id.setCellValueFactory(new PropertyValueFactory<>("Id"));
-                TC_Date.setCellValueFactory(new PropertyValueFactory<>("Date"));
-
-
+                dateList.add(this.pDate);
             }
+            List_Date.getItems().addAll(dateList);
+            List_Date.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+                @Override
+                public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
+                    dateFromList = List_Date.getSelectionModel().getSelectedItem();
+                    LB_Date.setText(dateFromList);
+
+                    try {
+                        showdata(UserName,dateFromList);
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    } catch (ClassNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            });
+            connection.close();
         }
+    }
+
+    void showdata(String UserName, String dateFromList) throws SQLException, ClassNotFoundException {
+        Connection connection = database.dbconnect();
+        Statement statement = connection.createStatement();
+        String sql = "SELECT * FROM `medical_records` WHERE `UserName` = '" + UserName + "' AND `Date` = '" + dateFromList + "'";
+        ResultSet rs = statement.executeQuery(sql);
+
+        while (rs.next()) {
+            LB_UserName.setText(rs.getString("UserName"));
+            LB_TestName.setText(rs.getString("TestName"));
+            LB_TestResult.setText(rs.getString("TestResult"));
+            LB_Reference.setText(rs.getString("Reference"));
+            TA_Comment.setText(rs.getString("Comment"));
+            TA_Conclusion.setText(rs.getString("Conclusion"));
+        }
+        connection.close();
     }
 
     @FXML
@@ -103,6 +150,27 @@ public class pMedicalRecordsController {
     }
 
     public void initialize() {
+//        try {
+//            //bringin data from database
+//            conn = database.dbconnect();
+//            rs = conn.createStatement().executeQuery("select * from medical_records");
+//
+//            while (rs.next()) {
+//                listI.add(new MedicalRecordsTable(rs.getInt("Id"), rs.getString("Date"), rs.getString("")));
+//            }
+//            TC_Id.setCellValueFactory(new PropertyValueFactory<>("id"));
+//            TC_Date.setCellValueFactory(new PropertyValueFactory<>("date"));
+//
+//
+//
+//            List_Date.setItems(listI);
+//
+//        } catch (SQLException | ClassNotFoundException e) {
+//
+//
+//        }
+
+
         TF_UserName.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {
                 TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
@@ -114,3 +182,4 @@ public class pMedicalRecordsController {
         });
     }
 }
+

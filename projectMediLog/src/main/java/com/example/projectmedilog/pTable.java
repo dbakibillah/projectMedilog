@@ -1,12 +1,12 @@
 package com.example.projectmedilog;
 
 public class pTable {
-    String name,email, createdby, date, disease, test, medicine;
+    String name, UserName, createdby, date, disease, test, medicine;
 
 
-    public pTable(String name, String email, String createdby, String date, String disease, String test,String medicine) {
+    public pTable(String name, String UserName, String createdby, String date, String disease, String test,String medicine) {
         this.name = name;
-        this.email = email;
+        this.UserName = UserName;
         this.createdby = createdby;
         this.date = date;
         this.disease = disease;
@@ -22,12 +22,12 @@ public class pTable {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUserName() {
+        return UserName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserName(String userName) {
+        this.UserName = userName;
     }
 
     public String getCreatedby() {

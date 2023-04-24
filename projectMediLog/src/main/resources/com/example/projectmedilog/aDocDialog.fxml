@@ -18,15 +18,13 @@
       <Label fx:id="Label_Age" layoutX="144.0" layoutY="218.0" text="Label" />
       <Label fx:id="Label_Mobile" layoutX="144.0" layoutY="269.0" text="Label" />
       <Button fx:id="BTN_Close" layoutX="552.0" layoutY="409.0" mnemonicParsing="false" onMouseClicked="#onMouseCLickedBTN_Close" onMouseEntered="#onMouseEnteredBTN_Close" prefHeight="38.0" prefWidth="77.0" style="-fx-background-color: #0080FF;" text="Close" textFill="WHITE" />
-      <Text layoutX="69.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email :" />
-      <Label fx:id="Label_Email" layoutX="144.0" layoutY="115.0" text="Label" />
+      <Text layoutX="69.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name :" />
+      <Label fx:id="Label_UserName" layoutX="144.0" layoutY="115.0" text="Label" />
       <Text layoutX="69.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender :" />
       <Label fx:id="Label_Gender" layoutX="144.0" layoutY="162.0" text="Label" />
       <Text layoutX="69.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Degree :" />
       <Label fx:id="Label_Degree" layoutX="144.0" layoutY="322.0" text="Label" />
       <Text layoutX="69.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department :" />
       <Label fx:id="Label_Department" layoutX="144.0" layoutY="370.0" text="Label" />
-      <Text layoutX="69.0" layoutY="430.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Joining Date :" />
-      <Label fx:id="Label_Date" layoutX="144.0" layoutY="419.0" text="Label" />
    </children>
 </AnchorPane>
