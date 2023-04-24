@@ -13,16 +13,17 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <AnchorPane layoutX="17.0" layoutY="100.0" prefHeight="666.0" prefWidth="1027.0" style="-fx-border-width: 2; -fx-border-color: #334db3;">
+      <AnchorPane layoutX="12.0" layoutY="102.0" prefHeight="666.0" prefWidth="1027.0" style="-fx-border-width: 2; -fx-border-color: #334db3;">
          <children>
-            <TableView fx:id="pTable" layoutX="108.0" layoutY="52.0" onMouseClicked="#getitem" prefHeight="524.0" prefWidth="780.0">
+            <TableView fx:id="pTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#getitem" prefHeight="645.0" prefWidth="996.0" stylesheets="@../../../Style/table.css">
               <columns>
-                <TableColumn fx:id="nameTablecolumn" prefWidth="128.79998779296875" text="Name" />
-                  <TableColumn fx:id="createdTablecolumn" prefWidth="134.4000244140625" text="Created By" />
-                  <TableColumn fx:id="dateTablecolumn" prefWidth="117.60003662109375" text="Date" />
-                  <TableColumn fx:id="diseaseTablecolumn" prefWidth="129.5999755859375" text="Diseases" />
-                  <TableColumn fx:id="testTablecolumn" prefWidth="107.20001220703125" text="Test" />
-                  <TableColumn fx:id="medicineTablecolumn" prefWidth="156.800048828125" text="Medicine" />
+                <TableColumn fx:id="nameTablecolumn" prefWidth="131.99999618530273" text="Name" />
+                  <TableColumn fx:id="TC_UserName" prefWidth="155.99998474121094" text="UserName" />
+                  <TableColumn fx:id="createdTablecolumn" prefWidth="136.0" text="Created By" />
+                  <TableColumn fx:id="dateTablecolumn" prefWidth="104.79998779296875" text="Date" />
+                  <TableColumn fx:id="diseaseTablecolumn" prefWidth="136.800048828125" text="Diseases" />
+                  <TableColumn fx:id="testTablecolumn" prefWidth="151.0" text="Test" />
+                  <TableColumn fx:id="medicineTablecolumn" prefWidth="173.0" text="Medicine" />
               </columns>
             </TableView>
          </children>

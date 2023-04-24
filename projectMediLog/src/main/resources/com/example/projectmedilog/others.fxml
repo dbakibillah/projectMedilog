@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="AnchorPane_Others" prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.othersController">
+   <children>
+      <Text layoutX="14.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Importants">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Pane layoutY="89.0" prefHeight="140.0" prefWidth="786.0" style="-fx-background-color: #0080ff;">
+         <children>
+            <Pane fx:id="Pane_Ambulance" layoutX="263.0" onMouseClicked="#onClickedPane_Ambulance" onMouseEntered="#onMouseEnteredPane_Ambulance" onMouseExited="#onMouseExitedPane_Ambulance" prefHeight="140.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <ImageView fitHeight="66.0" fitWidth="61.0" layoutX="10.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/ambulance.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="83.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find Ambulance">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="Pane_SOS" onMouseClicked="#onClickedPane_SOS" onMouseEntered="#onMouseEnteredPane_SOS" onMouseExited="#onMouseExitedPane_SOS" prefHeight="140.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <ImageView fitHeight="66.0" fitWidth="61.0" layoutX="13.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/sos.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="84.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emergency Call">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="Pane_Blood" layoutX="526.0" onMouseClicked="#onClickedPane_Blood" onMouseEntered="#onMouseEnteredPane_Blood" onMouseExited="#onMouseExitedPane_Blood" prefHeight="140.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <ImageView fitHeight="66.0" fitWidth="61.0" layoutX="14.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/blood-donation.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="92.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blood Request">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Text layoutX="14.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blogs &amp; Podcasts">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Pane layoutX="5.0" layoutY="340.0" prefHeight="140.0" prefWidth="519.0" style="-fx-background-color: #0080ff;">
+         <children>
+            <Pane fx:id="Pane_Blogs" onMouseClicked="#onClickedPane_Blogs" onMouseEntered="#onMouseEnteredPane_Blogs" onMouseExited="#onMouseExitedPane_Blogs" prefHeight="140.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <ImageView fitHeight="66.0" fitWidth="58.0" layoutX="14.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/blogging.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="188.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Blogs">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="Pane_Podcasts" layoutX="263.0" onMouseClicked="#onClickedPane_Podcasts" onMouseEntered="#onMouseEnteredPane_Podcasts" onMouseExited="#onMouseExitedPane_Podcasts" prefHeight="140.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <ImageView fitHeight="66.0" fitWidth="61.0" layoutX="10.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/microphone.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="152.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Podcasts">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Text layoutX="11.0" layoutY="583.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Test Online">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Pane layoutX="3.0" layoutY="600.0" prefHeight="140.0" prefWidth="1049.0" style="-fx-background-color: #0080ff;">
+         <children>
+            <Pane fx:id="Pane_IQ" layoutX="263.0" onMouseClicked="#onClickedPane_IQ" onMouseEntered="#onMouseEnteredPane_IQ" onMouseExited="#onMouseExitedPane_IQ" prefHeight="140.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <ImageView fitHeight="66.0" fitWidth="61.0" layoutX="10.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/iq.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="171.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IQ Test">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="Pane_BMI" layoutX="526.0" onMouseClicked="#onClickedPane_BMI" onMouseEntered="#onMouseEnteredPane_BMI" onMouseExited="#onMouseExitedPane_BMI" prefHeight="140.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <ImageView fitHeight="66.0" fitWidth="61.0" layoutX="10.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/body-mass-index.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="101.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Calculate BMI">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="Pane_Diet" layoutX="789.0" onMouseClicked="#OnCliekedPane_Diet" onMouseEntered="#onMouseEnteredPane_Diet" onMouseExited="#onMouseExitedPane_Diet" prefHeight="140.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <ImageView fitHeight="66.0" fitWidth="61.0" layoutX="10.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/diet.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="151.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diet Plan">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="Pane_ADHD" onMouseClicked="#onClickedPane_ADHD" onMouseEntered="#onMouseEnteredPane_ADHD" onMouseExited="#onMouseExitedPane_ADHD" prefHeight="140.0" prefWidth="260.0" style="-fx-background-color: #FFFFFF;">
+               <children>
+                  <ImageView fitHeight="66.0" fitWidth="61.0" layoutX="14.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../images/adhd.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="130.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADHD Test">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

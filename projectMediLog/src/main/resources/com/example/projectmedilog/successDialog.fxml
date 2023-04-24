@@ -4,20 +4,24 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.DialogController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.DialogController">
    <children>
-      <ImageView fitHeight="317.0" fitWidth="421.0" layoutX="140.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="316.0" fitWidth="434.0" layoutX="89.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../images/preview.gif" />
+            <Image url="@../../../images/tick.gif" />
          </image>
       </ImageView>
-      <Label fx:id="successLabel" alignment="CENTER" layoutX="2.0" layoutY="348.0" prefHeight="17.0" prefWidth="696.0" text="Label" textFill="#0080ff">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
+      <Pane layoutY="218.0" prefHeight="175.0" prefWidth="600.0" style="-fx-background-color: #FFFFFF;">
+         <children>
+            <Label fx:id="successLabel" alignment="CENTER" layoutY="49.0" prefHeight="17.0" prefWidth="600.0" text="Label" textFill="#0080ff">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

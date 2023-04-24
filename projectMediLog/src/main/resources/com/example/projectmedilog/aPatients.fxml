@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,19 +8,14 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1050.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.aPatientsController">
    <children>
-      <Button fx:id="BTN_AddPatient" layoutX="14.0" layoutY="685.0" mnemonicParsing="false" onAction="#onCLickedBTN_AddDoc" onMouseEntered="#onMouseEnteredBTN_AddPatient" onMouseExited="#onMouseExitedBTN_AddPatient" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #0080ff;" text="Add Patient" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <TableView layoutX="13.0" layoutY="154.0" prefHeight="492.0" prefWidth="1025.0">
+      <TableView fx:id="PatientTable" layoutX="13.0" layoutY="154.0" prefHeight="492.0" prefWidth="1025.0" stylesheets="@../../../Style/table.css">
          <columns>
-            <TableColumn prefWidth="75.0" text="Name" />
-            <TableColumn prefWidth="75.0" text="Email" />
-            <TableColumn prefWidth="75.0" text="Phone" />
-            <TableColumn prefWidth="75.0" text="Gender" />
-            <TableColumn prefWidth="75.0" text="Age" />
-            <TableColumn prefWidth="98.0" text="Blood Group" />
+            <TableColumn fx:id="TableColumn_Name" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="TableColumn_Email" prefWidth="75.0" text="Email" />
+            <TableColumn fx:id="TableColumn_Phone" prefWidth="75.0" text="Phone" />
+            <TableColumn fx:id="TableColumn_Gender" prefWidth="75.0" text="Gender" />
+            <TableColumn fx:id="TableColumn_Age" prefWidth="75.0" text="Age" />
+            <TableColumn fx:id="TableColumn_BloodGroup" prefWidth="98.0" text="Blood Group" />
          </columns>
       </TableView>
       <Text fill="#0080ff" layoutX="438.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Patients">
@@ -29,10 +23,5 @@
             <Font size="36.0" />
          </font>
       </Text>
-      <Button fx:id="BTN_DeletePatient" layoutX="193.0" layoutY="685.0" mnemonicParsing="false" onAction="#onCLickedBTN_DeletePatient" onMouseEntered="#onMouseEnteredBTN_DeletePatient" onMouseExited="#onMouseExitedBTN_DeletePatient" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #0080ff;" text="Delete Patient" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>

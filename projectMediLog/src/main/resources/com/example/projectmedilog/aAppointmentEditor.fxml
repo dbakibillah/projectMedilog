@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="DialogPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="700.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.aAppointmentsEditorController">
+   <children>
+      <Text layoutX="111.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Name:" wrappingWidth="70.13678741455078" AnchorPane.leftAnchor="111.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="110.0" layoutY="206.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Date:" wrappingWidth="56.8125" AnchorPane.leftAnchor="110.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="110.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Time:" AnchorPane.leftAnchor="110.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="108.0" layoutY="326.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Mobile:" AnchorPane.leftAnchor="108.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="111.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Doctor:" wrappingWidth="82.82812500000011" AnchorPane.leftAnchor="111.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="108.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Injury/Condition:" AnchorPane.leftAnchor="108.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TF_name" layoutX="254.0" layoutY="59.0" prefHeight="32.0" prefWidth="339.0" promptText="Name*" style="-fx-background-color: transparent; -fx-border-color: #0080FF; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 50; -fx-background-radius: 50;" AnchorPane.leftAnchor="254.0">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="TF_phone" layoutX="251.0" layoutY="300.0" prefHeight="32.0" prefWidth="339.0" promptText="Mobile*" style="-fx-background-color: transparent; -fx-border-color: #0080FF; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 50;" AnchorPane.leftAnchor="251.0">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <TextField fx:id="TF_injury_or_condition" layoutX="254.0" layoutY="423.0" prefHeight="32.0" prefWidth="339.0" promptText="Injury/Condition" style="-fx-background-color: transparent; -fx-border-color: #0080FF; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 50;" AnchorPane.leftAnchor="254.0">
+         <font>
+            <Font size="16.0" />
+         </font></TextField>
+      <Button fx:id="BTN_cancel" layoutX="577.0" layoutY="485.0" mnemonicParsing="false" onAction="#onClickBTN_cancel" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: #0080FF; -fx-background-radius: 50;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="BTN_save" layoutX="375.0" layoutY="485.0" mnemonicParsing="false" onAction="#onClickBTN_save" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: #0080FF; -fx-border-radius: 50; -fx-background-radius: 50;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="CB_time" layoutX="254.0" layoutY="241.0" prefHeight="33.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: #0080FF; -fx-border-radius: 50;" />
+      <Button fx:id="BTN_delete" layoutX="476.0" layoutY="485.0" mnemonicParsing="false" onAction="#onClickBTN_delete" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: #df1717; -fx-background-radius: 50;" text="Delete" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="CB_doctor" layoutX="257.0" layoutY="364.0" prefHeight="33.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: #0080FF; -fx-border-radius: 50;" />
+      <DatePicker fx:id="DT_Date" layoutX="258.0" layoutY="183.0" prefHeight="33.0" prefWidth="174.0" style="-fx-background-color: #0080FF; -fx-border-radius: 50;" stylesheets="@../../../Style/date.css" />
+      <Text layoutX="111.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="User Name:" wrappingWidth="92.13678741455078">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TF_UserName" layoutX="254.0" layoutY="123.0" prefHeight="32.0" prefWidth="339.0" promptText="User Name*" style="-fx-background-color: transparent; -fx-border-color: #0080FF; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 50; -fx-background-radius: 50;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+   </children>
+</AnchorPane>

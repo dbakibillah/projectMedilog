@@ -14,7 +14,7 @@ public class pAppointmentApp extends Application {
 
 
         Scene scene = new Scene(loader.load());
-        stage.setTitle("Signup");
+        stage.setTitle("Patient Appointment");
         stage.setScene(scene);
         stage.show();
     }

@@ -33,11 +33,14 @@ public class pPrescriptionDialogController {
 
     @FXML
     private Label Label_Test;
+    @FXML
+    private Label Label_UserName;
     Stage stage;
 
-    void showDialog(Stage dialogStage, String Name, String Createdby, String Date, String Disease, String Test, String Medicine) throws IOException {
+    void showDialog(Stage dialogStage, String Name, String UserName, String Createdby, String Date, String Disease, String Test, String Medicine) throws IOException {
         this.stage = dialogStage;
         Label_Name.setText(Name);
+        Label_UserName.setText(UserName);
         Label_Createdby.setText(Createdby);
         Label_Date.setText(Date);
         Label_Disease.setText(Disease);
