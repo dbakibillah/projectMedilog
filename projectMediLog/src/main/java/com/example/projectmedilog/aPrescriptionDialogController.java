@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
@@ -16,6 +16,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 
 public class aPrescriptionDialogController {
 
@@ -39,7 +40,7 @@ public class aPrescriptionDialogController {
     private TextField TF_Createdby;
 
     @FXML
-    private TextField TF_Date;
+    private DatePicker TF_Date;
 
     @FXML
     private TextField TF_Disease;
@@ -54,12 +55,12 @@ public class aPrescriptionDialogController {
     @FXML
     private Button BTN_Delete;
     Stage stage;
-    void showDialog(Stage dialogStage, String Name,String Email, String Createdby, String Date, String Disease, String Test, String Medicine) throws IOException {
+    void showDialog(Stage dialogStage, String Name, String UserName, String Createdby, String Date, String Disease, String Test, String Medicine) throws IOException {
         this.stage = dialogStage;
         TF_Name.setText(Name);
-        TF_UserName.setText(Email);
+        TF_UserName.setText(UserName);
         TF_Createdby.setText(Createdby);
-        TF_Date.setText(Date);
+        TF_Date.setValue(LocalDate.parse(Date));
         TF_Disease.setText(Disease);
         TF_Test.setText(Test);
         TF_Medicine.setText(Medicine);
@@ -73,14 +74,15 @@ public class aPrescriptionDialogController {
     @FXML
     void onClickBTN_Add() throws IOException, SQLException, ClassNotFoundException {
 
-        if (TF_Name.getText().isEmpty() || TF_UserName.getText().isEmpty() || TF_Createdby.getText().isEmpty() || TF_Date.getText().isEmpty() || TF_Disease.getText().isEmpty() || TF_Test.getText().isEmpty() || TF_Medicine.getText().isEmpty()) {
+        if (TF_Name.getText().isEmpty() || TF_UserName.getText().isEmpty() || TF_Createdby.getText().isEmpty() ||  TF_Disease.getText().isEmpty() || TF_Test.getText().isEmpty() || TF_Medicine.getText().isEmpty()) {
             emptyFieldsCheck();
         } else {
         // Get value from text fields
         String Name = TF_Name.getText();
         String UserName = TF_UserName.getText();
         String CreatedBy = TF_Createdby.getText();
-        String Date = TF_Date.getText();
+        LocalDate getDate = TF_Date.getValue();
+        String Date = getDate.toString();
         String Disease = TF_Disease.getText();
         String Test = TF_Test.getText();
         String Medicine = TF_Medicine.getText();
@@ -113,7 +115,7 @@ public class aPrescriptionDialogController {
         TF_Name.setText("");
         TF_UserName.setText("");
         TF_Medicine.setText("");
-        TF_Date.setText("");
+        TF_Date.getEditor().setText("");
         TF_Createdby.setText("");
         TF_Test.setText("");
         TF_Disease.setText("");
@@ -184,16 +186,16 @@ public class aPrescriptionDialogController {
 
             }
         });
-        TF_Date.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.isEmpty()) {
-                TF_Date.setBackground(Background.fill(Color.TRANSPARENT));
-                TF_Date.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
-            } else {
-                TF_Date.setBackground(Background.fill(Color.TRANSPARENT));
-                TF_Date.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
-
-            }
-        });
+//        TF_Date.idProperty().addListener((observable, oldValue, newValue) -> {
+//            if (!newValue.isEmpty()) {
+//                TF_Date.setBackground(Background.fill(Color.TRANSPARENT));
+//                TF_Date.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+//            } else {
+//                TF_Date.setBackground(Background.fill(Color.TRANSPARENT));
+//                TF_Date.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+//
+//            }
+//        });
         TF_Test.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {
                 TF_Test.setBackground(Background.fill(Color.TRANSPARENT));
@@ -243,14 +245,14 @@ public class aPrescriptionDialogController {
             TF_Createdby.setBackground(Background.fill(Color.TRANSPARENT));
             TF_Createdby.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
         }
-        if (TF_Date.getText().isEmpty()) {
-            TF_Date.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Date.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
-            TF_Date.setPromptText("Date is Empty*");
-        } else {
-            TF_Date.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Date.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
-        }
+//        if (TF_Date.getText().isEmpty()) {
+//            TF_Date.setBackground(Background.fill(Color.TRANSPARENT));
+//            TF_Date.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
+//            TF_Date.setPromptText("Date is Empty*");
+//        } else {
+//            TF_Date.setBackground(Background.fill(Color.TRANSPARENT));
+//            TF_Date.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+//        }
         if (TF_Disease.getText().isEmpty()) {
             TF_Disease.setBackground(Background.fill(Color.TRANSPARENT));
             TF_Disease.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");

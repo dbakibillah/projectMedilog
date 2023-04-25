@@ -243,6 +243,15 @@ public class pAppointmentController implements Initializable {
                 TC_doctor.setCellValueFactory(new PropertyValueFactory<>("Doctor"));
                 TC_injury_or_condition.setCellValueFactory(new PropertyValueFactory<>("injuryOrCondition"));
 
+                TC_UserName.setStyle("-fx-alignment: CENTER;");
+                TC_Name.setStyle("-fx-alignment: CENTER;");
+                TC_date.setStyle("-fx-alignment: CENTER;");
+                TC_time.setStyle("-fx-alignment: CENTER;");
+                TC_mobile.setStyle("-fx-alignment: CENTER;");
+                TC_doctor.setStyle("-fx-alignment: CENTER;");
+                TC_injury_or_condition.setStyle("-fx-alignment: CENTER;");
+
+
                 pAppointmentTable.setItems(pAppointmentList);
             }
         } catch (ClassNotFoundException e) {

@@ -86,14 +86,24 @@ public class aPrescriptionController implements Initializable {
           goto_aPrescriptionDialog();
 
     }
+    @FXML
+    void onCLickedBTN_Refresh(ActionEvent event) {
+        //refresh table
+       Table_user.refresh();
+        //clear table
+        listI.clear();
+        // remove all data from AppointmentTable
+        Table_user.setItems(null);
+        setPrescriptionTableData();
+    }
 
-    void goto_aPrescriptionDialog(String Name,String Email, String Createdby, String Date, String Disease, String Test, String Medicine) throws IOException {
+    void goto_aPrescriptionDialog(String Name, String Username, String Createdby, String Date, String Disease, String Test, String Medicine) throws IOException {
         Stage adialogStage = new Stage();
         adialogStage.setResizable(false);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("aPrescriptionDialog.fxml"));
         Parent root = loader.load();
         aPrescriptionDialogController controller = loader.getController();
-        controller.showDialog(adialogStage,Name,Email, Createdby, Date, Disease, Test, Medicine);
+        controller.showDialog(adialogStage,Name, Username, Createdby, Date, Disease, Test, Medicine);
         Scene scene = new Scene(root);
         adialogStage.setScene(scene);
         adialogStage.show();
@@ -110,33 +120,47 @@ public class aPrescriptionController implements Initializable {
         adialogStage.show();
     }
 
+
+    public void setPrescriptionTableData() {
+    try {
+        conn = database.dbconnect();
+        rs = conn.createStatement().executeQuery("select * from pprescription");
+
+        while (rs.next()) {
+            listI.add(new users(rs.getString("name"),rs.getString("UserName"),rs.getString("createdby"),rs.getString("date"),rs.getString("disease"),rs.getString("test"),rs.getString("medicine")));
+        }
+        nameTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("name"));
+        emailTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("UserName"));
+        createdTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("createdby"));
+
+        dateTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("date"));
+        diseaseTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("disease"));
+
+        testTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("test"));
+        medicineTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("medicine"));
+        nameTablecolumn.setStyle("-fx-alignment: CENTER;");
+        emailTablecolumn.setStyle("-fx-alignment: CENTER;");
+        createdTablecolumn.setStyle("-fx-alignment: CENTER;");
+        dateTablecolumn.setStyle("-fx-alignment: CENTER;");
+        diseaseTablecolumn.setStyle("-fx-alignment: CENTER;");
+        testTablecolumn.setStyle("-fx-alignment: CENTER;");
+        medicineTablecolumn.setStyle("-fx-alignment: CENTER;");
+
+
+        Table_user.setItems(listI);
+
+
+
+
+    } catch (ClassNotFoundException e) {
+        throw new RuntimeException(e);
+    } catch (SQLException e) {
+        throw new RuntimeException(e);
+    }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            conn = database.dbconnect();
-            rs = conn.createStatement().executeQuery("select * from pprescription");
-
-            while (rs.next()) {
-                listI.add(new users(rs.getString("name"),rs.getString("UserName"),rs.getString("createdby"),rs.getString("date"),rs.getString("disease"),rs.getString("test"),rs.getString("medicine")));
-            }
-            nameTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("name"));
-            emailTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("UserName"));
-            createdTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("createdby"));
-
-            dateTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("date"));
-            diseaseTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("disease"));
-
-            testTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("test"));
-            medicineTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("medicine"));
-
-            Table_user.setItems(listI);
-
-
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        setPrescriptionTableData();
     }
 
 

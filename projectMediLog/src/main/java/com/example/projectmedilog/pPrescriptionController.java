@@ -94,9 +94,8 @@ public class pPrescriptionController implements Initializable {
         pdialogStage.show();
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
 
+    public  void setPrescriptionTableData(){
         try {
             //bringin data from database
             conn = database.dbconnect();
@@ -112,6 +111,15 @@ public class pPrescriptionController implements Initializable {
             diseaseTablecolumn.setCellValueFactory(new PropertyValueFactory<>("disease"));
             testTablecolumn.setCellValueFactory(new PropertyValueFactory<>("test"));
             medicineTablecolumn.setCellValueFactory(new PropertyValueFactory<>("medicine"));
+
+
+            nameTablecolumn.setStyle("-fx-alignment: CENTER;");
+            TC_UserName.setStyle("-fx-alignment: CENTER;");
+            createdTablecolumn.setStyle("-fx-alignment: CENTER;");
+            dateTablecolumn.setStyle("-fx-alignment: CENTER;");
+            diseaseTablecolumn.setStyle("-fx-alignment: CENTER;");
+            testTablecolumn.setStyle("-fx-alignment: CENTER;");
+            medicineTablecolumn.setStyle("-fx-alignment: CENTER;");
             pTable.setItems(listI);
 
         } catch (SQLException e) {
@@ -119,6 +127,11 @@ public class pPrescriptionController implements Initializable {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        setPrescriptionTableData();
+
     }
 
 

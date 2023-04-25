@@ -92,6 +92,13 @@ public class aDocController implements Initializable {
             TC_degree.setCellValueFactory(new PropertyValueFactory<>("degree"));
             TC_department.setCellValueFactory(new PropertyValueFactory<>("department"));
 
+            TC_UserName.setStyle("-fx-alignment: CENTER;");
+            TC_department.setStyle("-fx-alignment: CENTER;");
+            TC_degree.setStyle("-fx-alignment: CENTER;");
+            TC_gender.setStyle("-fx-alignment: CENTER;");
+            TC_phone.setStyle("-fx-alignment: CENTER;");
+            TC_age.setStyle("-fx-alignment: CENTER;");
+            TC_name.setStyle("-fx-alignment: CENTER;");
             //refresh table
             DoctorTable.refresh();
             //new use in pAppointmenttable

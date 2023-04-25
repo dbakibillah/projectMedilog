@@ -18,11 +18,11 @@
             <columns>
                 <TableColumn fx:id="TC_name" prefWidth="160.0" text="Name" />
                 <TableColumn fx:id="TC_UserName" prefWidth="156.0" text="User Name" />
-                <TableColumn fx:id="TC_gender" minWidth="6.0" prefWidth="87.0" text="Gender" />
-                <TableColumn fx:id="TC_age" prefWidth="71.0" text="Age" />
-                <TableColumn fx:id="TC_phone" prefWidth="142.0" text="Mobile" />
-                <TableColumn fx:id="TC_degree" prefWidth="158.40008544921875" text="Degree" />
-                <TableColumn fx:id="TC_department" prefWidth="235.99993896484375" text="Department" />
+                <TableColumn fx:id="TC_gender" minWidth="6.0" prefWidth="111.20001220703125" text="Gender" />
+                <TableColumn fx:id="TC_age" prefWidth="109.5999755859375" text="Age" />
+                <TableColumn fx:id="TC_phone" prefWidth="167.199951171875" text="Mobile" />
+                <TableColumn fx:id="TC_degree" prefWidth="146.40008544921875" text="Degree" />
+                <TableColumn fx:id="TC_department" prefWidth="167.19989013671875" text="Department" />
             </columns>
         </TableView>
         <Text fill="#0080ff" layoutX="438.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Doctors">

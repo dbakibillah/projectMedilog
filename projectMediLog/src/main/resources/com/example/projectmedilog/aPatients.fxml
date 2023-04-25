@@ -10,12 +10,12 @@
    <children>
       <TableView fx:id="PatientTable" layoutX="13.0" layoutY="154.0" prefHeight="492.0" prefWidth="1025.0" stylesheets="@../../../Style/table.css">
          <columns>
-            <TableColumn fx:id="TableColumn_Name" prefWidth="75.0" text="Name" />
-            <TableColumn fx:id="TableColumn_Email" prefWidth="75.0" text="Email" />
-            <TableColumn fx:id="TableColumn_Phone" prefWidth="75.0" text="Phone" />
-            <TableColumn fx:id="TableColumn_Gender" prefWidth="75.0" text="Gender" />
-            <TableColumn fx:id="TableColumn_Age" prefWidth="75.0" text="Age" />
-            <TableColumn fx:id="TableColumn_BloodGroup" prefWidth="98.0" text="Blood Group" />
+            <TableColumn fx:id="TableColumn_Name" prefWidth="228.00003051757812" text="Name" />
+            <TableColumn fx:id="TableColumn_Email" prefWidth="120.00006103515625" text="Email" />
+            <TableColumn fx:id="TableColumn_Phone" prefWidth="216.79998779296875" text="Phone" />
+            <TableColumn fx:id="TableColumn_Gender" prefWidth="97.60003662109375" text="Gender" />
+            <TableColumn fx:id="TableColumn_Age" prefWidth="159.20001220703125" text="Age" />
+            <TableColumn fx:id="TableColumn_BloodGroup" prefWidth="180.79998779296875" text="Blood Group" />
          </columns>
       </TableView>
       <Text fill="#0080ff" layoutX="438.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Patients">
