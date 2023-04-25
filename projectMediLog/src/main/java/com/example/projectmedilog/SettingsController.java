@@ -84,7 +84,7 @@ public class SettingsController implements Initializable {
         FileInputStream fileInputStream = new FileInputStream(imageUpload.getSelectedFile());
         try (
                 Connection connection = database.dbconnect();
-                PreparedStatement pst = connection.prepareStatement("UPDATE signup SET Image = ? WHERE Email = ?")
+                PreparedStatement pst = connection.prepareStatement("UPDATE users SET Image = ? WHERE Email = ?")
         ) {
             pst.setBinaryStream(1, fileInputStream, fileInputStream.available());
             pst.setString(2, TF_email.getText());
@@ -95,7 +95,7 @@ public class SettingsController implements Initializable {
 
             // get image from database
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM signup WHERE Email = '" + TF_email.getText() + "'");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM users WHERE Email = '" + TF_email.getText() + "'");
             if (resultSet.next()) {
                 Blob blob = resultSet.getBlob("Image");
                 user.setImage(blob);
@@ -135,11 +135,11 @@ public class SettingsController implements Initializable {
         //check if current password is correct
         Connection connection = database.dbconnect();
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM signup WHERE Email = '" + Email + "' AND Pass = '" + CurrentPass + "'");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM users WHERE Email = '" + Email + "' AND Pass = '" + CurrentPass + "'");
         if (resultSet.next()) {
             //update password
             try (
-                    PreparedStatement pst = connection.prepareStatement("UPDATE signup SET Pass = ? WHERE Email = ?")
+                    PreparedStatement pst = connection.prepareStatement("UPDATE users SET Pass = ? WHERE Email = ?")
             ) {
                 pst.setString(1, NewPass);
                 pst.setString(2, Email);
@@ -171,7 +171,7 @@ public class SettingsController implements Initializable {
 
 
         try (
-                PreparedStatement pst = connection.prepareStatement("UPDATE signup SET FullName = ?, UserName = ?, Age = ?, Phone = ?, Address = ?, Blood_Group = ? WHERE Email = ?")
+                PreparedStatement pst = connection.prepareStatement("UPDATE users SET FullName = ?, UserName = ?, Age = ?, Phone = ?, Address = ?, Blood_Group = ? WHERE Email = ?")
         ) {
             pst.setString(1, FullName);
             pst.setString(2, UserName);

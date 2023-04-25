@@ -97,10 +97,11 @@ public class userLoginController {
             //login code for user
             if (userType.equals("User")) {
                 if (!TF_UserName.getText().isEmpty() && !TF_password.getText().isEmpty()) {
-                    ResultSet resultSet = statement.executeQuery("select * from signup");
+                    ResultSet resultSet = statement.executeQuery("select * from users");
                     while (resultSet.next()) {
                         if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
                             new user(resultSet.getString("FullName"), resultSet.getString("UserName"), resultSet.getString("Gender"), resultSet.getString("Age"), resultSet.getString("Phone"), resultSet.getString("Email"), resultSet.getString("Address"), resultSet.getString("Blood_Group"), resultSet.getBlob("Image"));
+                           new usertype(resultSet.getString("UserName"), userType);
                             String FullName = resultSet.getString("FullName");
                             changeScene(event, "pHome.fxml", FullName, UserName);
                             gotoSuccessDialog("Login Successfull");
@@ -119,6 +120,7 @@ public class userLoginController {
                     ResultSet resultSet = statement.executeQuery("select * from doctors");
                     while (resultSet.next()) {
                         if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
+                            new usertype(resultSet.getString("UserName"), userType);
                             //String FullName = resultSet.getString("FullName");
                             changeScenedHome(event, "dHome.fxml", UserName);
                             gotoSuccessDialog("Login Successfull");
@@ -137,6 +139,7 @@ public class userLoginController {
                     ResultSet resultSet = statement.executeQuery("select * from admins");
                     while (resultSet.next()) {
                         if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
+                          new usertype(resultSet.getString("UserName"), userType);
                             changeSceneaHome(event, "aHome.fxml", UserName);
                             gotoSuccessDialog("Login Successfull");
                             count++;

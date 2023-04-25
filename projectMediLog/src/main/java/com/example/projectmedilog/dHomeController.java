@@ -48,6 +48,8 @@ public class dHomeController implements Initializable {
     @FXML
     private AnchorPane dHomeAnchor;
 
+    @FXML
+    private Button BTN_Chat;
 
     //public String userLabel = "";
     //code for login
@@ -83,6 +85,11 @@ public class dHomeController implements Initializable {
     public void onClickSettings(ActionEvent event) throws IOException {
         Pane SettingPane = FXMLLoader.load(getClass().getResource("Settings.fxml"));
         anchorpaneHome.getChildren().setAll(SettingPane);
+    }
+    @FXML
+    void onCLickChat(ActionEvent event)throws IOException {
+        AnchorPane ChatPane = FXMLLoader.load(getClass().getResource("chat.fxml"));
+        anchorpaneHome.getChildren().setAll(ChatPane);
     }
 
     @FXML

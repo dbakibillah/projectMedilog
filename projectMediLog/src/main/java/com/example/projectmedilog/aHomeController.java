@@ -38,8 +38,15 @@ public class aHomeController implements Initializable {
     @FXML
     private Pane homePane;
 
+
+
     public Label userEmail;
 
+    @FXML
+    void onClickChat(ActionEvent event) throws IOException {
+        AnchorPane ChatPane = FXMLLoader.load(getClass().getResource("chat.fxml"));
+        anchorpaneHome.getChildren().setAll(ChatPane);
+    }
     @FXML
     void onClickAppointment_btn(ActionEvent event) throws IOException {
         AnchorPane nextPage = FXMLLoader.load(getClass().getResource("aAppointments.fxml"));
