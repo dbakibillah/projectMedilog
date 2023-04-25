@@ -1,10 +1,10 @@
 package com.example.projectmedilog;
 
 public class DoctorTable {
-    String name, email, password,gender, age, phone, degree, department, date;
-    public DoctorTable(int id, String name, String email, String gender, String age, String phone , String degree, String department){
-        this.name = name;
-        this.email = email;
+    String FullName, UserName, password,gender, age, phone, degree, department;
+    public DoctorTable(String fullName, String UserName, String gender, String age, String phone , String degree, String department){
+        this.FullName = fullName;
+        this.UserName = UserName;
         //this.password = password;
         this.gender = gender;
         this.age = age;
@@ -13,17 +13,17 @@ public class DoctorTable {
         this.department = department;
 
     }
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return FullName;
     }
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.FullName = fullName;
     }
-    public String getEmail() {
-        return email;
+    public String getUserName() {
+        return UserName;
     }
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUserName(String userName) {
+        this.UserName = userName;
     }
 //    public String getPassword() {
 //        return password;

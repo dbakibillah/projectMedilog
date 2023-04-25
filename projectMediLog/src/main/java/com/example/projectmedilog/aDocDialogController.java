@@ -11,48 +11,53 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class pPrescriptionDialogController {
 
+public class aDocDialogController {
     @FXML
     private Button BTN_Close;
 
     @FXML
-    private Label Label_Createdby;
+    private Label Label_Age;
 
     @FXML
-    private Label Label_Date;
-
-    @FXML
-    private Label Label_Disease;
-
-    @FXML
-    private Label Label_Medicine;
+    private Label Label_Mobile;
 
     @FXML
     private Label Label_Name;
 
+
     @FXML
-    private Label Label_Test;
+    private Label Label_Degree;
+
+    @FXML
+    private Label Label_Department;
+
     @FXML
     private Label Label_UserName;
-    Stage stage;
 
-    void showDialog(Stage dialogStage, String Name, String UserName, String Createdby, String Date, String Disease, String Test, String Medicine) throws IOException {
+    @FXML
+    private Label Label_Gender;
+
+    Stage stage;
+    void showDialog(Stage dialogStage, String Name, String UserName, String Gender, String Age, String Mobile, String Degree,  String Department) throws IOException {
         this.stage = dialogStage;
         Label_Name.setText(Name);
         Label_UserName.setText(UserName);
-        Label_Createdby.setText(Createdby);
-        Label_Date.setText(Date);
-        Label_Disease.setText(Disease);
-        Label_Test.setText(Test);
-        Label_Medicine.setText(Medicine);
-        FXMLLoader fxmlLoader = new FXMLLoader(DialogController.class.getResource("pPrescriptionDialog.fxml"));
+        Label_Gender.setText(Gender);
+        Label_Age.setText(Age);
+        Label_Mobile.setText(Mobile);
+        Label_Degree.setText(Degree);
+        Label_Department.setText(Department);
+
+
+
+
+        FXMLLoader fxmlLoader = new FXMLLoader(DialogController.class.getResource("aDocDialog.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        dialogStage.setTitle("Prescription");
+        dialogStage.setTitle("Doctors");
         dialogStage.setScene(scene);
         dialogStage.show();
     }
-
     @FXML
     void onMouseCLickedBTN_Close(MouseEvent event) {
         this.stage.close();
@@ -62,5 +67,4 @@ public class pPrescriptionDialogController {
     void onMouseEnteredBTN_Close(MouseEvent event) {
         BTN_Close.setCursor(Cursor.HAND);
     }
-
 }

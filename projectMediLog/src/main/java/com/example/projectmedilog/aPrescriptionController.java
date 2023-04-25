@@ -117,7 +117,7 @@ public class aPrescriptionController implements Initializable {
             rs = conn.createStatement().executeQuery("select * from pprescription");
 
             while (rs.next()) {
-                listI.add(new users(rs.getString("name"),rs.getString("UserName"),rs.getString("createdby"),rs.getString("date"),rs.getString("date"),rs.getString("disease"),rs.getString("test"),rs.getString("medicine")));
+                listI.add(new users(rs.getString("name"),rs.getString("UserName"),rs.getString("createdby"),rs.getString("date"),rs.getString("disease"),rs.getString("test"),rs.getString("medicine")));
             }
             nameTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("name"));
             emailTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("UserName"));
@@ -130,6 +130,7 @@ public class aPrescriptionController implements Initializable {
             medicineTablecolumn.setCellValueFactory(new PropertyValueFactory<users, String>("medicine"));
 
             Table_user.setItems(listI);
+
 
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
