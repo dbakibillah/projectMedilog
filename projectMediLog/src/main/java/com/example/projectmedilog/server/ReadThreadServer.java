@@ -38,7 +38,7 @@ public class ReadThreadServer implements Runnable {
                     inboxMessage.setText(inboxMessages.toString());
                     senderNetworkInformation.getNetworkUtil().write(inboxMessage);
                 } else {
-                    receiverNetworkInformation.getInbox().add("From: " + message.getFrom() + " Message:" + message.getText());
+                    receiverNetworkInformation.getInbox().add("2From: " + message.getFrom() + " Message:" + message.getText());
                     receiverNetworkInformation.getNetworkUtil().write(message);
                 }
             } catch (IOException | ClassNotFoundException e) {

@@ -11,25 +11,31 @@ import java.util.Scanner;
 public class WriteThreadClient implements Runnable {
     private NetworkInformation networkInformation;
     private String clientName;
+    private String to;
+    private String text;
 
-    public WriteThreadClient(NetworkInformation networkInformation, String clientName) {
+
+    public WriteThreadClient(NetworkInformation networkInformation, String clientName, String to, String text) {
+        System.out.println(networkInformation + "-1-" + clientName + "-4-" + to + "-3-" + text);
         this.networkInformation = networkInformation;
         this.clientName = clientName;
+        this.to = to;
+        this.text = text;
     }
 
     public void run() {
         try {
-            Scanner input = new Scanner(System.in);
+            //Scanner input = new Scanner(System.in);
 
-            while (true) {
-                String[] s = input.nextLine().split(",");
+//            while (true) {
+                //String[] s = input.nextLine().split(",");
 
-                if (s.length != 2) {
-                    System.out.println("Invalid input format.");
-                    continue;
-                }
-                String recipient = s[0].trim();
-                String messageBody = s[1].trim();
+//                if (s.length != 2) {
+//                    System.out.println("Invalid input format.");
+//                    continue;
+//                }
+                String recipient = to;
+                String messageBody = text;
                 Message message = new Message();
                 message.setFrom(clientName);
                 message.setTo(recipient);
@@ -39,7 +45,7 @@ public class WriteThreadClient implements Runnable {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-            }
+//            }
         } catch (Exception e) {
             System.out.println(e);
         }

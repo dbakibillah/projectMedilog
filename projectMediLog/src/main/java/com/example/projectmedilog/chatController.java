@@ -1,5 +1,10 @@
 package com.example.projectmedilog;
 
+import com.example.projectmedilog.client.Client;
+import com.example.projectmedilog.client.ReadThreadClient;
+import com.example.projectmedilog.client.WriteThreadClient;
+import com.example.projectmedilog.util.NetworkInformation;
+import com.example.projectmedilog.util.NetworkUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -98,6 +103,15 @@ public class chatController implements Initializable {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+
+
+            try{
+//
+                Thread writeThread = new Thread(new WriteThreadClient(networkInformation, clientName, receiver, messageContent));
+                writeThread.start();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
     }
   // search from database
@@ -195,9 +209,61 @@ public class chatController implements Initializable {
         LV_chat.setItems(data);
 
     }
-
+    NetworkInformation networkInformation;
+    String clientName = usertype.getUserName();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            String serverAddress = "127.0.0.1";
+            int serverPort = 33333;
+
+            NetworkUtil networkUtil = new NetworkUtil(serverAddress, serverPort);
+            networkUtil.write(clientName);
+            networkInformation = new NetworkInformation(networkUtil);
+            Thread readThread = new Thread(new ReadThreadClient(networkInformation));
+
+
+            readThread.start();
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+//
+
+
+        TF_Search.textProperty().addListener((observable, oldValue, newValue) -> {
+            ObservableList<String> data;
+
+            try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectmedilog", "root", "")) {
+                String sql = "";
+                //check user type
+                System.out.println(usertype.getType());
+                if(usertype.getType() == "Doctor"){
+                    sql = "SELECT * FROM users WHERE username LIKE ?";
+                } else if (usertype.getType() == "User"){
+                    sql = "SELECT * FROM doctors WHERE username LIKE ?";
+                } else  {
+                    sql = "SELECT * FROM users WHERE username LIKE ?";
+                }
+
+                try (PreparedStatement statement = connection.prepareStatement(sql)) {
+                    statement.setString(1, "%" + newValue + "%");
+                    ResultSet resultSet = statement.executeQuery();
+                    data = FXCollections.observableArrayList();
+                    while (resultSet.next()) {
+                        String username = resultSet.getString("username");
+                        data.add(username);
+                    }
+                    LV_users.setItems(data);
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
+
+
     //load all patient in listview
         ObservableList<String> data;
         String username = null;
@@ -227,39 +293,19 @@ public class chatController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+     //   call Client class
+//    public void callClient() throws IOException {
+//        Client client = new Client();
+//        client.startClient();
+//    }
     }
 
-//
-//    @FXML
-//    void onClickedTF_Search(ActionEvent event) {
-//        //search username from database
-//        String searchTerm = TF_Search.getText();
-//        //search from database
-//        if (searchTerm != null && !searchTerm.isEmpty()) {
-//
-//            String username = null;
-//
-//                try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectmedilog","root","")) {
-//
-//                    String sql = "SELECT username FROM users WHERE username LIKE ?";
-//                    try (PreparedStatement statement = connection.prepareStatement(sql)) {
-//                        statement.setString(1, "%" + searchTerm + "%");
-//                        ResultSet resultSet = statement.executeQuery();
-//                        data = FXCollections.observableArrayList();
-//                        while (resultSet.next()) {
-//                            username = resultSet.getString("username");
-//                            data.add(username);
-//                        }
-//                        LV_users.setItems(data);
-//                    } catch (SQLException e) {
-//                        throw new RuntimeException(e);
-//                    }
-//                } catch (SQLException e) {
-//                    e.printStackTrace();
-//                }
 
-//            }
 
-//    }
+
+    @FXML
+    void onClickedTF_Search(ActionEvent event) {
+
+
+    }
 }

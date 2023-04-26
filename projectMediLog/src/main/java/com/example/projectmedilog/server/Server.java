@@ -34,8 +34,8 @@ public class Server {
         NetworkInformation networkInformation = new NetworkInformation(networkUtil);
         clientMap.put(clientName, networkInformation);
         System.out.println(clientName + " Joined");
-//        Thread readThreadServer = new Thread(new ReadThreadServer(clientMap, networkInformation));
-//        readThreadServer.start();
+        Thread readThreadServer = new Thread(new ReadThreadServer(clientMap, networkInformation));
+        readThreadServer.start();
     }
 
     public static void main(String args[]) {

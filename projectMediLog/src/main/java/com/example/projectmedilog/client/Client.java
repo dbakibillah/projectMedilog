@@ -17,10 +17,10 @@ public class Client {
             networkUtil.write(clientName);
             NetworkInformation networkInformation = new NetworkInformation(networkUtil);
             Thread readThread = new Thread(new ReadThreadClient(networkInformation));
-            Thread writeThread = new Thread(new WriteThreadClient(networkInformation, clientName));
+//            Thread writeThread = new Thread(new WriteThreadClient(networkInformation, clientName));
 
             readThread.start();
-            writeThread.start();
+//            writeThread.start();
 
         } catch (Exception e) {
             System.out.println(e);

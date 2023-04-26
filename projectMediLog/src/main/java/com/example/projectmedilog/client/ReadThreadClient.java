@@ -27,7 +27,7 @@ public class ReadThreadClient implements Runnable {
                         String[] messages = message.getText().split("~");
                         Arrays.stream(messages).forEach(System.out::println);
                     } else {
-                        System.out.println("From: " + message.getFrom() + " Message: " + message.getText());
+                        System.out.println("1From: " + message.getFrom() + " Message: " + message.getText());
                     }
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
