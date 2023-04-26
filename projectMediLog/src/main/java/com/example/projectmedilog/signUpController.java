@@ -80,7 +80,7 @@ public class signUpController {
             Connection connection = database.dbconnect();
             Statement statement = connection.createStatement();
 
-            ResultSet resultSet = statement.executeQuery("select * from signup");
+            ResultSet resultSet = statement.executeQuery("select * from users");
 
             while (resultSet.next()) {
                 //UserName check
@@ -105,10 +105,10 @@ public class signUpController {
     void createAccount(String FullName, String UserName, String Gender, String Age, String Phone, String Email, String Pass) throws SQLException, ClassNotFoundException {
         Connection connection = database.dbconnect();
         Statement statement = connection.createStatement();
-        //Writing data to mysql: "projectmedilog -> signup"
+        //Writing data to mysql: "projectmedilog -> users"
         if (count == 0) {
             try (
-                    PreparedStatement pst = connection.prepareStatement("insert into signup(FullName, UserName, Gender, Age, Phone, Email, Pass) values(?, ?, ?, ?, ?, ?, ?)")
+                    PreparedStatement pst = connection.prepareStatement("insert into users(FullName, UserName, Gender, Age, Phone, Email, Pass) values(?, ?, ?, ?, ?, ?, ?)")
             ) {
                 pst.setString(1, FullName);
                 pst.setString(2, UserName);
