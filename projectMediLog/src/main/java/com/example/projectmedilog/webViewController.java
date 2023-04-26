@@ -12,9 +12,15 @@ import java.util.ResourceBundle;
 public class webViewController implements Initializable {
     @FXML
     private AnchorPane AnchorPane_webView;
+<<<<<<< HEAD
     @FXML
     private WebView web_webView;
     private WebEngine webEngine;
+=======
+//    @FXML
+//    private WebView web_webView;
+//    private WebEngine webEngine;
+>>>>>>> dfe2d1bf56b3030ba647490a0c052af41f7351e7
 
     private String wpage;
 

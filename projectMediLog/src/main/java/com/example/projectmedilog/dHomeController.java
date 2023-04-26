@@ -70,8 +70,8 @@ public class dHomeController implements Initializable {
 
     @FXML
     void onCLickMedicalRecords(ActionEvent event) throws IOException {
-//        AnchorPane nextPage = FXMLLoader.load(getClass().getResource("mRecords.fxml"));
-//        anchorpaneHome.getChildren().setAll(nextPage);
+        AnchorPane nextPage = FXMLLoader.load(getClass().getResource("pMedicalRecords.fxml"));
+        anchorpaneHome.getChildren().setAll(nextPage);
     }
 
     @FXML

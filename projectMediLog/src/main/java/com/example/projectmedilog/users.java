@@ -5,7 +5,7 @@ public class users {
 
     String name, UserName, createdby, date, disease, test, medicine;
 
-    public users(String name, String UserName, String createdby, String date, String disease, String test, String medicine, String string) {
+    public users(String name, String UserName, String createdby, String date, String disease, String test, String medicine) {
         this.name = name;
         this.UserName = UserName;
         this.createdby = createdby;

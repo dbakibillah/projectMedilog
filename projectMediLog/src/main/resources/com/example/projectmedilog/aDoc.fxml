@@ -21,9 +21,8 @@
             <TableColumn fx:id="TC_gender" minWidth="6.0" prefWidth="87.0" text="Gender" />
             <TableColumn fx:id="TC_age" prefWidth="71.0" text="Age" />
             <TableColumn fx:id="TC_phone" prefWidth="142.0" text="Mobile" />
-            <TableColumn fx:id="TC_degree" prefWidth="121.0" text="Degree" />
-            <TableColumn fx:id="TC_department" prefWidth="115.0" text="Department" />
-            <TableColumn fx:id="TC_date" prefWidth="180.0" text="Joining Date" />
+            <TableColumn fx:id="TC_degree" prefWidth="158.40008544921875" text="Degree" />
+            <TableColumn fx:id="TC_department" prefWidth="235.99993896484375" text="Department" />
         </columns>
       </TableView>
       <Text fill="#0080ff" layoutX="438.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All Doctors">

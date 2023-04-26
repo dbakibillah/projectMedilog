@@ -18,7 +18,7 @@
             <TableView fx:id="pTable" layoutX="14.0" layoutY="14.0" onMouseClicked="#getitem" prefHeight="645.0" prefWidth="996.0" stylesheets="@../../../Style/table.css">
               <columns>
                 <TableColumn fx:id="nameTablecolumn" prefWidth="131.99999618530273" text="Name" />
-                  <TableColumn fx:id="emailTablecolumn" prefWidth="155.99998474121094" text="Email" />
+                  <TableColumn fx:id="TC_UserName" prefWidth="155.99998474121094" text="UserName" />
                   <TableColumn fx:id="createdTablecolumn" prefWidth="136.0" text="Created By" />
                   <TableColumn fx:id="dateTablecolumn" prefWidth="104.79998779296875" text="Date" />
                   <TableColumn fx:id="diseaseTablecolumn" prefWidth="136.800048828125" text="Diseases" />
