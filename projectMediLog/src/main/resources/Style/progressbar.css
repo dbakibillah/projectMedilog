@@ -1,0 +1,27 @@
+.progress-bar {
+    -fx-accent: #007AFF; /* Set progress bar color */
+    -fx-background-color: transparent; /* Remove background color */
+}
+
+.progress-bar .bar {
+    -fx-background-color: #007AFF; /* Set progress bar track color */
+    -fx-background-insets: 0, 1, 2; /* Add shadow effect to the progress bar */
+    -fx-background-radius: 5em; /* Make progress bar rounded */
+}
+
+.progress-bar .track {
+    -fx-background-color: #EFEFF4; /* Set progress bar track color */
+    -fx-background-insets: 0, 1, 2; /* Add shadow effect to the progress bar */
+    -fx-background-radius: 5em; /* Make progress bar rounded */
+}
+
+.progress-bar .bar > .bar {
+    -fx-background-color: #007AFF; /* Set progress color for the progress bar */
+    -fx-background-insets: 0, 1, 2; /* Add shadow effect to the progress bar */
+    -fx-background-radius: 5em; /* Make progress bar rounded */
+}
+
+.progress-bar .label {
+    -fx-text-fill: #007AFF; /* Set progress bar label color */
+    -fx-font-size: 16px; /* Set progress bar label font size */
+}

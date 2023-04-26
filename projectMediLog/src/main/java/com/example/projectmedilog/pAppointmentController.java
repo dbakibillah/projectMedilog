@@ -114,7 +114,7 @@ public class pAppointmentController implements Initializable {
 
             while (resultSet.next()) {
                 if (resultSet.getString("UserName").equals(TF_UserName.getText())) {
-                    TF_Name.setText(resultSet.getString("Name"));
+                    TF_Name.setText(resultSet.getString("FullName"));
                     TF_phone.setText(resultSet.getString("Phone"));
                 }
             }
