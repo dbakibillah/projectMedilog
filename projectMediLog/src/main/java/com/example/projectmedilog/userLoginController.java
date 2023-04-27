@@ -191,23 +191,23 @@ public class userLoginController {
     }
 
     //login to dHome
-    void changeScenedHome(ActionEvent event, String fxml, String Email) throws IOException {
+    void changeScenedHome(ActionEvent event, String fxml, String UserName) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         Parent root = loader.load();
 
         dHomeController dhomecontroller = loader.getController();
-        dhomecontroller.userEmail.setText(Email);
+        dhomecontroller.UserName.setText(UserName);
         Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
         secondStage.setScene(new Scene(root));
     }
 
     // change scene to aHome
-    void changeSceneaHome(ActionEvent event, String fxml, String Email) throws IOException {
+    void changeSceneaHome(ActionEvent event, String fxml, String UserName) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         Parent root = loader.load();
 
         aHomeController ahomecontroller = loader.getController();
-        ahomecontroller.userEmail.setText(Email);
+        ahomecontroller. UserName.setText( UserName);
         Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
         secondStage.setScene(new Scene(root));
     }

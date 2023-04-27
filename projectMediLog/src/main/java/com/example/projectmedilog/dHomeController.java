@@ -6,20 +6,26 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class dHomeController implements Initializable {
 
 
     @FXML
-    Label userEmail;
+    Label UserName;
     @FXML
     private Button Appointment_btn;
     @FXML
@@ -46,7 +52,10 @@ public class dHomeController implements Initializable {
     @FXML
     private AnchorPane anchorpaneHome;
     @FXML
+    Circle ImageCIrcle = new Circle();
+    @FXML
     private AnchorPane dHomeAnchor;
+    public static String dUserName = "";
 
 
     //public String userLabel = "";
@@ -81,7 +90,7 @@ public class dHomeController implements Initializable {
     }
 
     public void onClickSettings(ActionEvent event) throws IOException {
-        Pane SettingPane = FXMLLoader.load(getClass().getResource("Settings.fxml"));
+        Pane SettingPane = FXMLLoader.load(getClass().getResource("dSettings.fxml"));
         anchorpaneHome.getChildren().setAll(SettingPane);
     }
 
@@ -90,6 +99,20 @@ public class dHomeController implements Initializable {
         AnchorPane loginPage = FXMLLoader.load(getClass().getResource("userLogin.fxml"));
 
         dHomeAnchor.getChildren().setAll(loginPage);
+    }
+    public void setImageCIrcle() {
+        try {
+            //check if image is not null then not display default image
+            if (DoctorTable.getImage() != null) {
+                InputStream inputStream = DoctorTable.getImage().getBinaryStream();
+                Image image = new Image(new ByteArrayInputStream(inputStream.readAllBytes()));
+                ImageCIrcle.setFill(new ImagePattern(image));
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void onMouseClicked_App(MouseEvent event) {
@@ -134,6 +157,7 @@ public class dHomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resource) {
+        dUserName = DoctorTable.getUserName();
         Pane DashboardPane = null;
         try {
             DashboardPane = FXMLLoader.load(getClass().getResource("dDashboard.fxml"));
@@ -144,9 +168,7 @@ public class dHomeController implements Initializable {
             throw new RuntimeException(e);
         }
         anchorpaneHome.getChildren().setAll(DashboardPane);
-
-
-        //  setImage CIrcle();
+        setImageCIrcle();
 
 
     }

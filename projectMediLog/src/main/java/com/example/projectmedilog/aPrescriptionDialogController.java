@@ -149,40 +149,40 @@ public class aPrescriptionDialogController {
         TF_Name.textProperty().addListener((observable, oldValue, newValue) -> {
                     if (!newValue.isEmpty()) {
                         TF_Name.setBackground(Background.fill(Color.TRANSPARENT));
-                        TF_Name.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+                        TF_Name.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
                     } else {
                         TF_Name.setBackground(Background.fill(Color.TRANSPARENT));
-                        TF_Name.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+                        TF_Name.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
 
                     }
                 });
                     TF_UserName.textProperty().addListener((observable, oldValue, newValue) -> {
                     if (!newValue.isEmpty()) {
                     TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
-                    TF_UserName.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+                    TF_UserName.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
                     } else {
                     TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
-                    TF_UserName.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+                    TF_UserName.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
 
                 }
             });
             TF_Createdby.textProperty().addListener((observable, oldValue, newValue) -> {
                 if (!newValue.isEmpty()) {
                     TF_Createdby.setBackground(Background.fill(Color.TRANSPARENT));
-                    TF_Createdby.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+                    TF_Createdby.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
                 } else {
                     TF_Createdby.setBackground(Background.fill(Color.TRANSPARENT));
-                    TF_Createdby.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+                    TF_Createdby.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
 
                 }
             });
         TF_Disease.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {
                 TF_Disease.setBackground(Background.fill(Color.TRANSPARENT));
-                TF_Disease.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+                TF_Disease.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
             } else {
                 TF_Disease.setBackground(Background.fill(Color.TRANSPARENT));
-                TF_Disease.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+                TF_Disease.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
 
             }
         });
@@ -199,20 +199,20 @@ public class aPrescriptionDialogController {
         TF_Test.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {
                 TF_Test.setBackground(Background.fill(Color.TRANSPARENT));
-                TF_Test.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+                TF_Test.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
             } else {
                 TF_Test.setBackground(Background.fill(Color.TRANSPARENT));
-                TF_Test.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+                TF_Test.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
 
             }
         });
         TF_Medicine.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {
                 TF_Medicine.setBackground(Background.fill(Color.TRANSPARENT));
-                TF_Medicine.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+                TF_Medicine.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
             } else {
                 TF_Medicine.setBackground(Background.fill(Color.TRANSPARENT));
-                TF_Medicine.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
+                TF_Medicine.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
 
             }
 
@@ -223,27 +223,27 @@ public class aPrescriptionDialogController {
     void emptyFieldsCheck() {
         if (TF_Name.getText().isEmpty()) {
             TF_Name.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Name.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
+            TF_Name.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: red;");
             TF_Name.setPromptText("Name is Empty*");
         } else {
             TF_Name.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Name.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            TF_Name.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
         }
         if (TF_Test.getText().isEmpty()) {
             TF_Test.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Test.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
+            TF_Test.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: red;");
             TF_Test.setPromptText("Email is Empty*");
         } else {
             TF_Test.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Test.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            TF_Test.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
         }
         if (TF_Createdby.getText().isEmpty()) {
             TF_Createdby.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Createdby.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
+            TF_Createdby.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: red;");
             TF_Createdby.setPromptText("Created by is Empty*");
         } else {
             TF_Createdby.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Createdby.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            TF_Createdby.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
         }
 //        if (TF_Date.getText().isEmpty()) {
 //            TF_Date.setBackground(Background.fill(Color.TRANSPARENT));
@@ -255,28 +255,28 @@ public class aPrescriptionDialogController {
 //        }
         if (TF_Disease.getText().isEmpty()) {
             TF_Disease.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Disease.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
+            TF_Disease.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: red;");
             TF_Disease.setPromptText("Disease is Empty*");
         } else {
             TF_Disease.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Disease.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            TF_Disease.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
         }
 
         if (TF_Medicine.getText().isEmpty()) {
             TF_Medicine.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Medicine.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
+            TF_Medicine.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: red;");
             TF_Medicine.setPromptText("Email is Empty*");
         } else {
             TF_Medicine.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_Medicine.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            TF_Medicine.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
         }
         if (TF_UserName.getText().isEmpty()) {
             TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_UserName.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
+            TF_UserName.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: red;");
             TF_UserName.setPromptText("UserName is Empty*");
         } else {
             TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
-            TF_UserName.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
+            TF_UserName.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
         }
 }
 }

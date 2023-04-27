@@ -114,7 +114,7 @@ public class pAppointmentController implements Initializable {
 
             while (resultSet.next()) {
                 if (resultSet.getString("UserName").equals(TF_UserName.getText())) {
-                    TF_Name.setText(resultSet.getString("Name"));
+                    TF_Name.setText(resultSet.getString("FullName"));
                     TF_phone.setText(resultSet.getString("Phone"));
                 }
             }
@@ -180,7 +180,7 @@ public class pAppointmentController implements Initializable {
                     PreparedStatement pst = connection.prepareStatement("insert into appointment(Name, UserName, Date, Time, Phone, Injury_or_Condition, Doctor) values(?, ?, ?, ?, ?, ?, ?)")
             ) {
                 pst.setString(1, Name);
-                pst.setString(2, user.getEmail());
+                pst.setString(2, user.getUserName());
                 pst.setString(3, Date);
                 pst.setString(4, Time);
                 pst.setString(5, Phone);
