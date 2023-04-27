@@ -32,6 +32,8 @@ public class pHomeController implements Initializable {
 
     @FXML
     Circle ImageCIrcle = new Circle();
+    @FXML
+    private Button BTN_chat;
 
     @FXML
     private AnchorPane pHomeAnchor;
@@ -58,7 +60,12 @@ public class pHomeController implements Initializable {
         AnchorPane pMedicalRecordsAnchorPane = FXMLLoader.load(getClass().getResource("pMedicalRecords.fxml"));
         anchorpaneHome.getChildren().setAll(pMedicalRecordsAnchorPane);
     }
+    @FXML
+    void onCLickChat(ActionEvent event)throws IOException {
+        AnchorPane ChatPane = FXMLLoader.load(getClass().getResource("chat.fxml"));
+        anchorpaneHome.getChildren().setAll(ChatPane);
 
+    }
     @FXML
     void onClickSettings(ActionEvent event) throws IOException {
         Pane SettingPane = FXMLLoader.load(getClass().getResource("Settings.fxml"));

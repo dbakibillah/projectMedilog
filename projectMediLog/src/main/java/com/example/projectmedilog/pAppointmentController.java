@@ -109,7 +109,7 @@ public class pAppointmentController implements Initializable {
         } else {
             Connection connection = database.dbconnect();
             Statement statement = connection.createStatement();
-            String query = "SELECT * FROM signup WHERE UserName = '" + TF_UserName.getText() + "'";
+            String query = "SELECT * FROM users WHERE UserName = '" + TF_UserName.getText() + "'";
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {

@@ -25,7 +25,7 @@ public class dHomeController implements Initializable {
 
 
     @FXML
-    Label UserName;
+    Label LB_UserName;
     @FXML
     private Button Appointment_btn;
     @FXML
@@ -57,6 +57,8 @@ public class dHomeController implements Initializable {
     private AnchorPane dHomeAnchor;
     public static String dUserName = "";
 
+    @FXML
+    private Button BTN_Chat;
 
     //public String userLabel = "";
     //code for login
@@ -93,11 +95,15 @@ public class dHomeController implements Initializable {
         Pane SettingPane = FXMLLoader.load(getClass().getResource("dSettings.fxml"));
         anchorpaneHome.getChildren().setAll(SettingPane);
     }
+    @FXML
+    void onCLickChat(ActionEvent event)throws IOException {
+        AnchorPane ChatPane = FXMLLoader.load(getClass().getResource("chat.fxml"));
+        anchorpaneHome.getChildren().setAll(ChatPane);
+    }
 
     @FXML
     void onClickLogout(ActionEvent event) throws IOException {
         AnchorPane loginPage = FXMLLoader.load(getClass().getResource("userLogin.fxml"));
-
         dHomeAnchor.getChildren().setAll(loginPage);
     }
     public void setImageCIrcle() {
@@ -158,17 +164,19 @@ public class dHomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resource) {
         dUserName = DoctorTable.getUserName();
+        LB_UserName.setText(dUserName);
+        setImageCIrcle();
         Pane DashboardPane = null;
         try {
             DashboardPane = FXMLLoader.load(getClass().getResource("dDashboard.fxml"));
             // set label text
             //  userEmail.setText(LoginController.userLabel);
-            dDashboardController pDashboardController = new dDashboardController();
+            dDashboardController dDashboardController = new dDashboardController();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         anchorpaneHome.getChildren().setAll(DashboardPane);
-        setImageCIrcle();
+
 
 
     }

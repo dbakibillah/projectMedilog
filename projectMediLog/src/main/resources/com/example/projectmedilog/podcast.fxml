@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="podcast_AnchorPane" prefHeight="500.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.podcastController">
+   <children>
+      <ImageView fitHeight="206.0" fitWidth="207.0" layoutX="176.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/play.png" />
+         </image>
+      </ImageView>
+      <ProgressBar fx:id="songProgressBar" layoutX="29.0" layoutY="338.0" prefHeight="18.0" prefWidth="499.0" progress="0.0" style="-fx-background-color: transparent;" stylesheets="@../../../Style/progressbar.css" />
+      <ImageView fx:id="previousButton" fitHeight="58.0" fitWidth="58.0" layoutX="80.0" layoutY="394.0" onMouseClicked="#previousMedia" onMouseEntered="#onMouseEntered_previousMedia" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/back.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="songLabel" alignment="CENTER" layoutX="19.0" layoutY="270.0" prefHeight="35.0" prefWidth="519.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="pauseButton" fitHeight="60.0" fitWidth="60.0" layoutX="317.0" layoutY="394.0" onMouseClicked="#pauseMedia" onMouseEntered="#onMouseEntered_pauseMedia" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/pause.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="resetButton" fitHeight="58.0" fitWidth="58.0" layoutX="160.0" layoutY="394.0" onMouseClicked="#resetMedia" onMouseEntered="#onMouseEntered_resetMedia" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/stop.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="playButton" fitHeight="53.0" fitWidth="53.0" layoutX="242.0" layoutY="397.0" onMouseClicked="#playMedia" onMouseEntered="#onMouseEntered_playMedia" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/player.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="nextButton" fitHeight="60.0" fitWidth="60.0" layoutX="405.0" layoutY="393.0" onMouseClicked="#nextMedia" onMouseEntered="#onMouseEntered_nextMedia" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/next.png" />
+         </image>
+      </ImageView>
+      <Slider fx:id="volumeSlider" layoutX="474.0" layoutY="51.0" onMouseEntered="#onMouseEntered_volumeSlider" orientation="VERTICAL" prefHeight="187.0" prefWidth="18.0" stylesheets="@../../../Style/slider.css" value="50.0" />
+   </children>
+</AnchorPane>

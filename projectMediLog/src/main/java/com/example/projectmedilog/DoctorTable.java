@@ -3,11 +3,11 @@ package com.example.projectmedilog;
 import java.sql.Blob;
 
 public class DoctorTable {
-   static String  FullName, UserName, password,gender, age, phone, degree, department;
+    static String FullName, UserName, password, gender, age, phone, degree, department;
     static Blob image;
 
 
-    public DoctorTable(String fullName, String UserName, String gender, String age, String phone , String degree, String department){
+    public DoctorTable(String fullName, String UserName, String gender, String age, String phone, String degree, String department, Blob image) {
         this.FullName = fullName;
         this.UserName = UserName;
         //this.password = password;
@@ -16,7 +16,7 @@ public class DoctorTable {
         this.phone = phone;
         this.degree = degree;
         this.department = department;
-
+        this.image = image;
 
     }
 

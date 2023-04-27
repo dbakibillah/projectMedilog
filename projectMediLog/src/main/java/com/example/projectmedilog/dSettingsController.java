@@ -91,10 +91,12 @@ public class dSettingsController implements Initializable {
 
             // get image from database
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM doctors WHERE UserName = '" + TF_UserName.getText() + "'");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM doctors WHERE UserName = '" + dHomeController.dUserName + "'");
+            System.out.println(dHomeController.dUserName);
             if (resultSet.next()) {
                 Blob blob = resultSet.getBlob("image");
                 DoctorTable.setImage(blob);
+
                 InputStream inputStream = DoctorTable.getImage().getBinaryStream();
                 Image image = new Image(new ByteArrayInputStream(inputStream.readAllBytes()));
 
@@ -103,7 +105,8 @@ public class dSettingsController implements Initializable {
                 Parent root = FXMLLoader.load(getClass().getResource("dHome.fxml"));
                 stage.setScene(new Scene(root));
                 stage.show();
-                gotoSuccessDialog("Image Updated");
+                gotoSuccessDialog("Image Updated!");
+
             }
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
