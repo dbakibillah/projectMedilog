@@ -120,6 +120,7 @@ public class userLoginController {
                     ResultSet resultSet = statement.executeQuery("select * from doctors");
                     while (resultSet.next()) {
                         if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
+
                             new usertype(resultSet.getString("UserName"), userType);
                             //String FullName = resultSet.getString("FullName");
                             changeScenedHome(event, "dHome.fxml", UserName);

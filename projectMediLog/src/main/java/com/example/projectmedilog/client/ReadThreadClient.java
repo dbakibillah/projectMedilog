@@ -1,4 +1,6 @@
 package com.example.projectmedilog.client;
+import com.example.projectmedilog.chatController;
+import com.example.projectmedilog.usertype;
 import com.example.projectmedilog.util.NetworkInformation;
 import com.example.projectmedilog.util.NetworkUtil;
 
@@ -9,7 +11,6 @@ public class ReadThreadClient implements Runnable {
     private Thread thr;
     private NetworkUtil networkUtil;
     private NetworkInformation networkInformation;
-
     public ReadThreadClient(NetworkInformation networkInformation) {
         this.networkInformation = networkInformation;
     }
@@ -28,6 +29,12 @@ public class ReadThreadClient implements Runnable {
                         Arrays.stream(messages).forEach(System.out::println);
                     } else {
                         System.out.println("1From: " + message.getFrom() + " Message: " + message.getText());
+                        //make chatController instance
+                        //call showMessage method
+                        chatController chatController = new chatController();
+
+//                        chatController.ChatMessage msg = new chatController.ChatMessage(message.getFrom(), usertype.getUserName(), message.getText(), false);
+                        chatController.showMessage(message.getFrom(), message.getText());
                     }
                 } catch (IOException | ClassNotFoundException e) {
                     e.printStackTrace();
@@ -35,12 +42,13 @@ public class ReadThreadClient implements Runnable {
             }
         } catch (Exception e) {
             System.out.println(e);
-        } finally {
-            try {
-                networkUtil.closeConnection();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
+//        finally {
+//            try {
+//                networkUtil.closeConnection();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        }
     }
 }

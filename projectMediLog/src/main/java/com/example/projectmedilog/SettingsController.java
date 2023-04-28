@@ -38,6 +38,8 @@ public class SettingsController implements Initializable {
 
 
     @FXML
+    private Label UserName;
+    @FXML
     public Circle ImageCIrcle;
 
     @FXML
@@ -84,18 +86,19 @@ public class SettingsController implements Initializable {
         FileInputStream fileInputStream = new FileInputStream(imageUpload.getSelectedFile());
         try (
                 Connection connection = database.dbconnect();
-                PreparedStatement pst = connection.prepareStatement("UPDATE users SET Image = ? WHERE Email = ?")
+                PreparedStatement pst = connection.prepareStatement("UPDATE users SET Image = ? WHERE UserName = ?")
         ) {
             pst.setBinaryStream(1, fileInputStream, fileInputStream.available());
-            pst.setString(2, TF_email.getText());
+            pst.setString(2, TF_UserName.getText());
 
             pst.execute();
 
-            System.out.println("Image Updated");
+            System.out.println("Image Updated 1");
 
             // get image from database
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT * FROM users WHERE Email = '" + TF_email.getText() + "'");
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM users WHERE UserName = '" + TF_UserName.getText() + "'");
+            System.out.println("Image Updated 2");
             if (resultSet.next()) {
                 Blob blob = resultSet.getBlob("Image");
                 user.setImage(blob);

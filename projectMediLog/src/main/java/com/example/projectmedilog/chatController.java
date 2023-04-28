@@ -1,10 +1,11 @@
 package com.example.projectmedilog;
 
-import com.example.projectmedilog.client.Client;
+
 import com.example.projectmedilog.client.ReadThreadClient;
 import com.example.projectmedilog.client.WriteThreadClient;
 import com.example.projectmedilog.util.NetworkInformation;
 import com.example.projectmedilog.util.NetworkUtil;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,6 +20,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
+
 
 import java.net.URL;
 import java.sql.*;
@@ -36,7 +38,7 @@ public class chatController implements Initializable {
     private ImageView BTN_Send;
 
     @FXML
-    private ListView<ChatMessage> LV_chat;
+    public ListView<ChatMessage> LV_chat;
 
     @FXML
     private ListView<String> LV_users;
@@ -52,7 +54,7 @@ public class chatController implements Initializable {
 
     @FXML
     private AnchorPane inboxArea;
-    private ObservableList<ChatMessage> data;
+    public ObservableList<ChatMessage> data;
 
     @FXML
     void onClickedBTN_Search(ActionEvent event) {
@@ -116,7 +118,7 @@ public class chatController implements Initializable {
     }
   // search from database
 
-    class ChatMessage {
+    static class ChatMessage {
         private String sender;
         private String receiver;
         private String content;
@@ -178,6 +180,7 @@ public class chatController implements Initializable {
         }
 
 // Set the cell factory for the ListView
+
         LV_chat.setCellFactory(param -> new ListCell<ChatMessage>() {
             @Override
             protected void updateItem(ChatMessage chatMessage, boolean empty) {
@@ -300,7 +303,29 @@ public class chatController implements Initializable {
 //    }
     }
 
+    public void showMessage(String from, String message) {
+        data = FXCollections.observableArrayList();
+        data.add(new ChatMessage(from, usertype.getUserName(), message, false));
 
+        try{
+
+
+            Platform.runLater(() -> {
+                //alert message
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Message");
+                alert.setHeaderText(null);
+                alert.setContentText("You have a new message from " + from);
+                alert.showAndWait();
+
+
+                //LV_chat.setItems(data) ;
+            });
+        } catch (NullPointerException e){
+            System.out.println("NullPointerException"+ e);
+        }
+
+    }
 
 
     @FXML

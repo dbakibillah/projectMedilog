@@ -109,6 +109,7 @@ public class pHomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resource) {
         pUserName = user.getUserName();
+        UserName.setText(pUserName);
         Pane DashboardPane = null;
         try {
             DashboardPane = FXMLLoader.load(getClass().getResource("pDashboard.fxml"));

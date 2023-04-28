@@ -22,6 +22,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class pAppointmentController implements Initializable {
@@ -161,56 +163,58 @@ public class pAppointmentController implements Initializable {
             alert.setContentText("Please fill all the fields");
             alert.showAndWait();
 
-        } else {
+        }
 
-            String Name = TF_Name.getText();
-            String UserName = TF_UserName.getText();
-            String Time = CB_time.getValue().toString();
-            String Phone = TF_phone.getText();
-            String Doctor = CB_doctor.getValue().toString();
-            String InjuryOrCondition = TF_injury_or_condition.getText();
-            LocalDate date = DT_date.getValue();
-            String Date = date.toString();
+        String Name = TF_Name.getText();
+        String UserName = TF_UserName.getText();
+        String Time = CB_time.getValue().toString();
+        String Phone = TF_phone.getText();
+        String Doctor = CB_doctor.getValue().toString();
+        String InjuryOrCondition = TF_injury_or_condition.getText();
+        LocalDate date = DT_date.getValue();
+        String Date = date.toString();
 
-            //add to database
-            Connection connection = database.dbconnect();
-            Statement statement = connection.createStatement();
+        //add to database
+        Connection connection = database.dbconnect();
+        Statement statement = connection.createStatement();
 
-            try (
-                    PreparedStatement pst = connection.prepareStatement("insert into appointment(Name, UserName, Date, Time, Phone, Injury_or_Condition, Doctor) values(?, ?, ?, ?, ?, ?, ?)")
-            ) {
-                pst.setString(1, Name);
-                pst.setString(2, user.getEmail());
-                pst.setString(3, Date);
-                pst.setString(4, Time);
-                pst.setString(5, Phone);
-                pst.setString(6, InjuryOrCondition);
-                pst.setString(7, Doctor);
+        try (
+                PreparedStatement pst = connection.prepareStatement("insert into appointment(Name, UserName, Date, Time, Phone, Injury_or_Condition, Doctor) values(?, ?, ?, ?, ?, ?, ?)")
+        ) {
+            pst.setString(1, Name);
+            pst.setString(2, user.getEmail());
+            pst.setString(3, Date);
+            pst.setString(4, Time);
+            pst.setString(5, Phone);
+            pst.setString(6, InjuryOrCondition);
+            pst.setString(7, Doctor);
 
-                pst.executeUpdate();
+            pst.executeUpdate();
 
-//                System.out.println("Appointment added");
+            System.out.println("Appointment added in confirm button1");
 
-                //clear fields
-                TF_Name.clear();
-                TF_UserName.clear();
-                TF_phone.clear();
-                TF_injury_or_condition.clear();
-                DT_date.setValue(null);
-                CB_doctor.setValue(null);
-                CB_time.setValue(null);
+            //clear fields
+            TF_Name.clear();
+            TF_UserName.clear();
+            TF_phone.clear();
+            TF_injury_or_condition.clear();
+            DT_date.setValue(null);
+            CB_doctor.setValue(null);
+            CB_time.setValue(null);
 
-                gotoSuccessDialog("Appointment added successfully");
-                //clear table
-                pAppointmentList.clear();
-                //refresh table
-                setAppointmentTableData();
+            gotoSuccessDialog("Appointment added successfully");
+            //clear table
+            pAppointmentList.clear();
+            //refresh table
+            setAppointmentTableData();
+            System.out.println("Appointment added in confirm button2");
+//refresh table
+            //    pAppointmentTable.refresh();
 
 
-            } catch (SQLException e) {
+        } catch (SQLException e) {
 
-                System.out.println(e);
-            }
+            System.out.println(e);
         }
     }
 
@@ -233,30 +237,33 @@ public class pAppointmentController implements Initializable {
             rs = conn.createStatement().executeQuery("select * from appointment where UserName = '" + user.getUserName() + "'");
             while (rs.next()) {
                 pAppointmentList.add(new AppointmentTable(rs.getInt("id"), rs.getString("Name"), rs.getString("UserName"), rs.getString("Date"), rs.getString("Time"), rs.getString("Phone"), rs.getString("Doctor"), rs.getString("Injury_or_Condition")));
-
-                //add to table
-                TC_UserName.setCellValueFactory(new PropertyValueFactory<>("UserName"));
-                TC_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
-                TC_date.setCellValueFactory(new PropertyValueFactory<>("Date"));
-                TC_time.setCellValueFactory(new PropertyValueFactory<>("Time"));
-                TC_mobile.setCellValueFactory(new PropertyValueFactory<>("Phone"));
-                TC_doctor.setCellValueFactory(new PropertyValueFactory<>("Doctor"));
-                TC_injury_or_condition.setCellValueFactory(new PropertyValueFactory<>("injuryOrCondition"));
-
-                pAppointmentTable.setItems(pAppointmentList);
             }
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+            //add to table
+            TC_UserName.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+            TC_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
+            TC_date.setCellValueFactory(new PropertyValueFactory<>("Date"));
+            TC_time.setCellValueFactory(new PropertyValueFactory<>("Time"));
+            TC_mobile.setCellValueFactory(new PropertyValueFactory<>("Phone"));
+            TC_doctor.setCellValueFactory(new PropertyValueFactory<>("Doctor"));
+            TC_injury_or_condition.setCellValueFactory(new PropertyValueFactory<>("injuryOrCondition"));
+//refresh table
+            pAppointmentTable.setItems(pAppointmentList);
+            System.out.println("Appointment added in setAppointmentTableData");
+
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //refresh table
+        pAppointmentTable.refresh();
         //Set Table Data
         setAppointmentTableData();
-
+        System.out.println("Appointment added in initialize");
         CB_time.getItems().addAll("09:00 - 11:00", "11:00 - 13:00", "17:00 - 19:00", "19:00 - 21:00", "21:00 - 23:00");
         CB_time.setConverter(new StringConverter<String>() {
             @Override
@@ -270,7 +277,33 @@ public class pAppointmentController implements Initializable {
             }
         });
 
-        CB_doctor.getItems().addAll("Dr. A", "Dr. B", "Dr. C", "Dr. D", "Dr. E");
+        //CB_doctor value add from database
+
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectmedilog","root","");
+            // Execute the query and retrieve the results
+            Statement stmt = conn.createStatement();
+            rs = conn.createStatement().executeQuery("select * from doctors");
+            List<String> values = new ArrayList<>();
+
+            while (rs.next()) {
+                values.add(rs.getString("UserName"));
+            }
+            // Populate the ChoiceBox with the results
+            CB_doctor.getItems().addAll(values);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
         CB_doctor.setConverter(new StringConverter<String>() {
             @Override
             public String toString(String s) {
