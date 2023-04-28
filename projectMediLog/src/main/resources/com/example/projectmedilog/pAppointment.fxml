@@ -41,8 +41,8 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <ChoiceBox fx:id="CB_doctor" layoutX="476.0" layoutY="239.0" prefHeight="27.0" prefWidth="168.0" style="-fx-background-color: Transparent; -fx-border-color: #0598ff;" />
-            <ChoiceBox fx:id="CB_time" layoutX="166.0" layoutY="239.0" prefHeight="27.0" prefWidth="150.0" style="-fx-background-color: Transparent; -fx-border-color: #0598ff;" />
+            <ChoiceBox fx:id="CB_doctor" layoutX="476.0" layoutY="231.0" prefHeight="27.0" prefWidth="168.0" stylesheets="@../../../Style/choicebox.css" />
+            <ChoiceBox fx:id="CB_time" layoutX="166.0" layoutY="231.0" prefHeight="35.0" prefWidth="150.0" stylesheets="@../../../Style/choicebox.css" />
             <Button fx:id="BTN_cancel" layoutX="901.0" layoutY="239.0" mnemonicParsing="false" onAction="#onClickBTN_cancel" onMouseEntered="#onMouseEnteredBTN_cancel" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: #0080FF; -fx-background-radius: 50;" text="Cancel" textFill="WHITE">
                <font>
                   <Font size="18.0" />

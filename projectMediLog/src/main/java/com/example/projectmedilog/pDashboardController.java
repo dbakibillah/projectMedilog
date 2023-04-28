@@ -3,21 +3,22 @@ package com.example.projectmedilog;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Cursor;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class pDashboardController implements Initializable {
@@ -26,6 +27,9 @@ public class pDashboardController implements Initializable {
     private Pane HomePane2;
     @FXML
     private Label LB_BP;
+
+    @FXML
+    AnchorPane barPane;
 
     @FXML
     private Label LB_GL;
@@ -48,13 +52,15 @@ public class pDashboardController implements Initializable {
     @FXML
     private CategoryAxis xAxis;
     @FXML
-    private Pane barPane;
-    @FXML
     private NumberAxis yAxis;
     Integer BP_systolic;
     Integer BP_diastolic;
     Integer Glucose;
     Integer Heart_rate;
+    ArrayList<Integer> BP_systolicList = new ArrayList<>();
+    ArrayList<Integer> BP_diastolicList = new ArrayList<>();
+    ArrayList<Integer> GlucoseList = new ArrayList<>();
+    ArrayList<Integer> HeartBeatList = new ArrayList<>();
 
     @FXML
     void onClickedBP(MouseEvent event) {
@@ -62,71 +68,159 @@ public class pDashboardController implements Initializable {
     }
 
     void showBPChart() {
-        Integer Normal_systolic = 120;
-        Integer Normal_diastolic = 80;
-        xAxis = new CategoryAxis();
-        yAxis = new NumberAxis();
+        NumberAxis xAxis = new NumberAxis();
+        NumberAxis yAxis = new NumberAxis();
+//        xAxis.setLabel("X Axis");
+        yAxis.setLabel("Pressure");
+        xAxis.setTickUnit(1);
 
-        barchart = new BarChart<>(xAxis, yAxis);
-        barchart.setTitle("Blood Pressure");
-        barchart.setAnimated(true);
+        LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
+        lineChart.setTitle("Blood Pressure");
 
-        XYChart.Series data = new XYChart.Series();
-        data.setName("Systolic");
-        data.getData().add(new XYChart.Data("Normal Systolic", Normal_systolic));
-        data.getData().add(new XYChart.Data("Systolic", this.BP_systolic));
-        barchart.getData().add(data);
-        XYChart.Series data2 = new XYChart.Series();
-        data2.setName("Diastolic");
-        data2.getData().add(new XYChart.Data("Normal Diastolic", Normal_diastolic));
-        data2.getData().add(new XYChart.Data("Diastolic", this.BP_diastolic));
-        barchart.getData().add(data2);
+        // Add some styling to the chart
+        lineChart.setStyle("-fx-background-color: white; -fx-border-color: white; -fx-border-width: 1px;");
 
-//        //set first bar color
-//        for(Node n:barchart.lookupAll(".default-color0.chart-bar")) {
-//            n.setStyle("-fx-bar-fill: red;");
-//        }
-//        //second bar color
-//        for(Node n:barchart.lookupAll(".default-color1.chart-bar")) {
-//            n.setStyle("-fx-bar-fill: green;");
-//        }
+        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+        series.setName("Your Systolic Pressure");
 
-        barPane.getChildren().add(barchart);
+        XYChart.Series<Number, Number> series3 = new XYChart.Series<>();
+        series3.setName("Normal Systolic Pressure");
+
+        XYChart.Series<Number, Number> series2 = new XYChart.Series<>();
+        series2.setName("Your Diastolic Pressure");
+
+        XYChart.Series<Number, Number> series4 = new XYChart.Series<>();
+        series4.setName("Normal Diastolic Pressure");
+
+        for (int i = 0; i < BP_systolicList.size(); i++) {
+            series.getData().add(new XYChart.Data<>(i + 1, BP_systolicList.get(i)));
+            series3.getData().add(new XYChart.Data<>(i + 1, 120));
+        }
+        for (int i = 0; i < BP_diastolicList.size(); i++) {
+            series2.getData().add(new XYChart.Data<>(i + 1, BP_diastolicList.get(i)));
+            series4.getData().add(new XYChart.Data<>(i + 1, 80));
+        }
+        // Add the series to the chart
+        lineChart.getData().add(series);
+        lineChart.getData().add(series2);
+        lineChart.getData().add(series3);
+        lineChart.getData().add(series4);
+
+        // Set the line chart to fill the AnchorPane
+        AnchorPane.setTopAnchor(lineChart, 0.0);
+        AnchorPane.setBottomAnchor(lineChart, 0.0);
+        AnchorPane.setLeftAnchor(lineChart, 0.0);
+        AnchorPane.setRightAnchor(lineChart, 0.0);
+
+        //Customize the colors and width of the lines:
+        series.getNode().setStyle("-fx-stroke: #0080FF; -fx-stroke-width: 3px;");
+        series2.getNode().setStyle("-fx-stroke: red; -fx-stroke-width: 3px;");
+        series3.getNode().setStyle("-fx-stroke: green; -fx-stroke-width: 2px; -fx-stroke-dash-array: 5 5;");
+        series4.getNode().setStyle("-fx-stroke: green; -fx-stroke-width: 2px; -fx-stroke-dash-array: 5 5;");
+
+        //Customize the label font and size:
+        xAxis.setTickLabelFont(Font.font("Arial", FontWeight.BOLD, 14));
+        yAxis.setTickLabelFont(Font.font("Arial", FontWeight.BOLD, 14));
+
+        barPane.getChildren().clear();
+        barPane.getChildren().add(lineChart);
     }
+
 
     @FXML
     void onMouseClicked_GL(MouseEvent event) {
-        Integer Normal_Glucose = 100;
-        xAxis = new CategoryAxis();
-        yAxis = new NumberAxis();
-        barchart = new BarChart<>(xAxis, yAxis);
-        barchart.setTitle("Glucose");
-        barchart.setAnimated(true);
-        XYChart.Series data = new XYChart.Series();
-        data.setName("Glucose");
-        data.getData().add(new XYChart.Data("Normal Glucose", Normal_Glucose));
-        data.getData().add(new XYChart.Data("Glucose", this.Glucose));
-        barchart.getData().add(data);
+        NumberAxis xAxis = new NumberAxis();
+        NumberAxis yAxis = new NumberAxis();
+//        xAxis.setLabel("X Axis");
+        yAxis.setLabel("Glucose Level");
+        xAxis.setTickUnit(1);
 
-        barPane.getChildren().add(barchart);
+        LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
+        lineChart.setTitle("Glucose");
+
+        // Add some styling to the chart
+        lineChart.setStyle("-fx-background-color: white; -fx-border-color: white; -fx-border-width: 1px;");
+
+        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+        series.setName("Your Glucose Level");
+
+        XYChart.Series<Number, Number> series2 = new XYChart.Series<>();
+        series2.setName("Normal Glucose Level");
+
+        for (int i = 0; i < GlucoseList.size(); i++) {
+            series.getData().add(new XYChart.Data<>(i + 1, GlucoseList.get(i)));
+            series2.getData().add(new XYChart.Data<>(i + 1, 100));
+        }
+        //add series
+        lineChart.getData().add(series);
+        lineChart.getData().add(series2);
+
+        // Set the line chart to fill the AnchorPane
+        AnchorPane.setTopAnchor(lineChart, 0.0);
+        AnchorPane.setBottomAnchor(lineChart, 0.0);
+        AnchorPane.setLeftAnchor(lineChart, 0.0);
+        AnchorPane.setRightAnchor(lineChart, 0.0);
+
+        //Customize the colors and width of the lines:
+        series.getNode().setStyle("-fx-stroke: #0080FF; -fx-stroke-width: 3px;");
+        series2.getNode().setStyle("-fx-stroke: green; -fx-stroke-width: 2px;-fx-stroke-dash-array: 5 5;");
+
+        //Customize the label font and size:
+        xAxis.setTickLabelFont(Font.font("Arial", FontWeight.BOLD, 14));
+        yAxis.setTickLabelFont(Font.font("Arial", FontWeight.BOLD, 14));
+
+        // clear barPane before adding new chart
+        barPane.getChildren().clear();
+        barPane.getChildren().add(lineChart);
     }
 
     @FXML
     void onMouseClicked_HB(MouseEvent event) {
-        Integer Normal_Heart_rate = 72;
-        xAxis = new CategoryAxis();
-        yAxis = new NumberAxis();
-        barchart = new BarChart<>(xAxis, yAxis);
-        barchart.setTitle("Heart Rate");
-        barchart.setAnimated(true);
-        XYChart.Series data = new XYChart.Series();
-        data.setName("Heart Rate");
-        data.getData().add(new XYChart.Data("Normal Heart Rate", Normal_Heart_rate));
-        data.getData().add(new XYChart.Data("Heart Rate", this.Heart_rate));
-        barchart.getData().add(data);
+        NumberAxis xAxis = new NumberAxis();
+        NumberAxis yAxis = new NumberAxis();
+//        xAxis.setLabel("X Axis");
+        yAxis.setLabel("Heart Beat");
+        xAxis.setTickUnit(1);
 
-        barPane.getChildren().add(barchart);
+        LineChart<Number, Number> lineChart = new LineChart<>(xAxis, yAxis);
+        lineChart.setTitle("Heart Beat");
+
+        // Add some styling to the chart
+        lineChart.setStyle("-fx-background-color: white; -fx-border-color: white; -fx-border-width: 1px;");
+
+        XYChart.Series<Number, Number> series = new XYChart.Series<>();
+        series.setName("Your Heart Beat");
+
+        XYChart.Series<Number, Number> series2 = new XYChart.Series<>();
+        series2.setName("Normal Heart Beat");
+
+        for (int i = 0; i < GlucoseList.size(); i++) {
+            series.getData().add(new XYChart.Data<>(i + 1, HeartBeatList.get(i)));
+            series2.getData().add(new XYChart.Data<>(i + 1, 72));
+        }
+        //add series
+        lineChart.getData().add(series);
+        lineChart.getData().add(series2);
+
+        // Set the line chart to fill the AnchorPane
+        AnchorPane.setTopAnchor(lineChart, 0.0);
+        AnchorPane.setBottomAnchor(lineChart, 0.0);
+        AnchorPane.setLeftAnchor(lineChart, 0.0);
+        AnchorPane.setRightAnchor(lineChart, 0.0);
+
+        //Customize the colors and width of the lines:
+        series.getNode().setStyle("-fx-stroke: #0080FF; -fx-stroke-width: 3px;");
+        series2.getNode().setStyle("-fx-stroke: green; -fx-stroke-width: 2px;-fx-stroke-dash-array: 5 5;");
+
+        //Customize the label font and size:
+        xAxis.setTickLabelFont(Font.font("Arial", FontWeight.BOLD, 14));
+        yAxis.setTickLabelFont(Font.font("Arial", FontWeight.BOLD, 14));
+
+        // clear barPane before adding new chart
+        barPane.getChildren().clear();
+        barPane.getChildren().add(lineChart);
     }
+
 
     @FXML
     void onMouseEntered_BP(MouseEvent event) {
@@ -168,17 +262,22 @@ public class pDashboardController implements Initializable {
         this.Heart_rate = HeartBeat;
     }
 
+
     void getBasicInfo() throws SQLException, ClassNotFoundException {
         Connection connection = database.dbconnect();
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select * from medical_records");
+        ResultSet resultSet = statement.executeQuery("select * from user_m_records");
 
         while (resultSet.next()) {
             if (resultSet.getString("UserName").equals(user.getUserName())) {
                 Integer BP_systolic = Integer.parseInt(resultSet.getString("BP_systolic"));
+                BP_systolicList.add(BP_systolic);
                 Integer BP_diastolic = Integer.parseInt(resultSet.getString("BP_diastolic"));
+                BP_diastolicList.add(BP_diastolic);
                 Integer Glucose = Integer.parseInt(resultSet.getString("Glucose"));
+                GlucoseList.add(Glucose);
                 Integer HeartBeat = Integer.parseInt(resultSet.getString("HeartBeat"));
+                HeartBeatList.add(HeartBeat);
                 showChart(BP_systolic, BP_diastolic, Glucose, HeartBeat);
 
                 LB_BP.setText(resultSet.getString("BP_systolic") + "/" + resultSet.getString("BP_diastolic"));

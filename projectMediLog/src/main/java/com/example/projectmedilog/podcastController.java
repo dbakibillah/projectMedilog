@@ -184,6 +184,7 @@ public class podcastController implements Initializable {
 
 
         songProgressBar.setStyle("-fx-accent: #00FF00;");
+
     }
 
     public void beginTimer() {
@@ -210,10 +211,10 @@ public class podcastController implements Initializable {
     }
 
     public void cancelTimer() {
-
         running = false;
         timer.cancel();
     }
+
     @FXML
     void onMouseEntered_nextMedia(MouseEvent event) {
         nextButton.setCursor(Cursor.HAND);
@@ -238,8 +239,15 @@ public class podcastController implements Initializable {
     void onMouseEntered_resetMedia(MouseEvent event) {
         resetButton.setCursor(Cursor.HAND);
     }
+
     @FXML
     void onMouseEntered_volumeSlider(MouseEvent event) {
         volumeSlider.setCursor(Cursor.HAND);
     }
+
+    void stopMedia() {
+        mediaPlayer.stop();
+        cancelTimer();
+    }
+
 }

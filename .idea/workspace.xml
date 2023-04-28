@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="34e95027-395c-4d14-b1f1-4058c8eddee5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/projectMedilog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/projectMedilog.iml" afterDir="false" />
     </list>
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,8 +74,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="pPrescriptionApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.pPrescriptionApp" />
+    <configuration name="pDashboard" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.pDashboard" />
       <module name="projectMediLog" />
       <extension name="coverage">
         <pattern>
@@ -112,8 +114,7 @@
       </method>
     </configuration>
     <configuration name="webViewApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="liberica-20" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-18" />
       <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.webViewApp" />
       <module name="projectMediLog" />
       <extension name="coverage">
@@ -128,18 +129,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.podcastApp" />
+      <item itemvalue="Application.othersApp" />
+      <item itemvalue="Application.pDashboard" />
       <item itemvalue="Application.userLogin" />
       <item itemvalue="Application.webViewApp" />
-      <item itemvalue="Application.pMedicalRecordsApp" />
-      <item itemvalue="Application.pPrescriptionApp" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.userLogin" />
         <item itemvalue="Application.webViewApp" />
         <item itemvalue="Application.podcastApp" />
-        <item itemvalue="Application.pMedicalRecordsApp" />
-        <item itemvalue="Application.pPrescriptionApp" />
+        <item itemvalue="Application.othersApp" />
+        <item itemvalue="Application.webViewApp" />
+        <item itemvalue="Application.pDashboard" />
       </list>
     </recent_temporary>
   </component>

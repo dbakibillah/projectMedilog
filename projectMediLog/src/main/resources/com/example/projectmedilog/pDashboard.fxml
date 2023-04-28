@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -122,7 +123,7 @@
             </Pane>
          </children>
       </HBox>
-      <Pane fx:id="barPane" layoutX="7.0" layoutY="405.0" prefHeight="394.0" prefWidth="1030.0" style="-fx-background-color: #FFFFFF;" />
+      <AnchorPane fx:id="barPane" layoutX="7.0" layoutY="405.0" prefHeight="393.0" prefWidth="1037.0" />
    </children>
    <opaqueInsets>
       <Insets top="50.0" />
