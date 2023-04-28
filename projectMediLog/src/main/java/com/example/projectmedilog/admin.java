@@ -6,8 +6,9 @@ public class admin {
     static Blob image;
     static String UserName;
 
-    public admin(String UserName) {
+    public admin(String UserName, Blob image) {
         this.UserName = UserName;
+        this.image = image;
     }
 
     public static Blob getImage() {

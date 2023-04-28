@@ -132,6 +132,7 @@ public class aHomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resource) {
 
         aUserName = admin.getUserName();
+        UserName.setText(aUserName);
         System.out.println(aUserName);
         Pane DashboardPane = null;
         try {

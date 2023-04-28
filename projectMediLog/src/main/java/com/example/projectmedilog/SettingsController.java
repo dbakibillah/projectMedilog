@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -231,12 +233,87 @@ public class SettingsController implements Initializable {
 
     }
 
-    void getData() {
-    }
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        TF_UserName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
+            } else {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
+
+            }
+        });
+        TF_FullName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_FullName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_FullName.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
+            } else {
+                TF_FullName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_FullName.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
+
+            }
+        });
+        TF_age.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_age.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_age.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
+            } else {
+                TF_age.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_age.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
+
+            }
+        });
+        TF_mobile.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_mobile.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_mobile.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
+            } else {
+                TF_mobile.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_mobile.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
+
+            }
+        });
+        TF_age.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_age.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_age.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
+            } else {
+                TF_age.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_age.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
+
+            }
+        });
+        TF_email.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_email.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_email.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
+            } else {
+                TF_email.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_email.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
+
+            }
+        });
+        TF_address.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_address.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_address.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
+            } else {
+                TF_address.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_address.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
+
+            }
+        });
+
+
+
+
+
+
         CB_bloodgrp.getItems().addAll("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-");
         CB_bloodgrp.setConverter(new StringConverter<String>() {
             @Override

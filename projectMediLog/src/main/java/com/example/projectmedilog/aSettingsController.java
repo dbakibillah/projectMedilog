@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Background;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -97,6 +99,7 @@ public class aSettingsController implements Initializable {
 
     @FXML
     void onClickBTN_Save(ActionEvent event) throws SQLException, ClassNotFoundException, IOException, InterruptedException {
+
         //Showing Alert if any field is empty
         if (TF_currentpass.getText().isEmpty() || TF_newpass.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -136,6 +139,7 @@ public class aSettingsController implements Initializable {
 
     @FXML
     void onClickBTN_SaveChange(ActionEvent event) throws SQLException, ClassNotFoundException, IOException ,InterruptedException {
+
         String UserName = TF_UserName.getText();
 
 
@@ -198,6 +202,16 @@ public class aSettingsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        TF_UserName.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.isEmpty()) {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color: #008000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
+            } else {
+                TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
+                TF_UserName.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: #808080;");
+
+            }
+        });
 //
 
         TF_UserName.setText(aName);
@@ -219,4 +233,6 @@ public class aSettingsController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
+
 }

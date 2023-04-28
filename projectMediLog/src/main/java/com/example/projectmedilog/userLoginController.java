@@ -141,6 +141,7 @@ public class userLoginController {
                     while (resultSet.next()) {
                         if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
                           new usertype(resultSet.getString("UserName"), userType);
+                          new admin(resultSet.getString("UserName"),resultSet.getBlob("Image"));
                             changeSceneaHome(event, "aHome.fxml", UserName);
                             gotoSuccessDialog("Login Successfull");
                             count++;
