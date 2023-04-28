@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="34e95027-395c-4d14-b1f1-4058c8eddee5" name="Changes" comment="" />
-=======
+
     <list default="true" id="34e95027-395c-4d14-b1f1-4058c8eddee5" name="Changes" comment="">
       <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/client/Client.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/client/Message.java" afterDir="false" />
@@ -24,7 +22,7 @@
       <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/webViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/webViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/webView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/webView.fxml" afterDir="false" />
     </list>
->>>>>>> 2ccb2987851008e8d60db12cc4bfeb0fea5dff6f
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
