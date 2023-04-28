@@ -186,16 +186,7 @@ public class aPrescriptionDialogController {
 
             }
         });
-//        TF_Date.idProperty().addListener((observable, oldValue, newValue) -> {
-//            if (!newValue.isEmpty()) {
-//                TF_Date.setBackground(Background.fill(Color.TRANSPARENT));
-//                TF_Date.setStyle("-fx-border-color: #008000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
-//            } else {
-//                TF_Date.setBackground(Background.fill(Color.TRANSPARENT));
-//                TF_Date.setStyle("-fx-border-color: #0080ff ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: #808080;");
-//
-//            }
-//        });
+
 
         TF_Test.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {
@@ -246,14 +237,7 @@ public class aPrescriptionDialogController {
             TF_Createdby.setBackground(Background.fill(Color.TRANSPARENT));
             TF_Createdby.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;");
         }
-//        if (TF_Date.getText().isEmpty()) {
-//            TF_Date.setBackground(Background.fill(Color.TRANSPARENT));
-//            TF_Date.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
-//            TF_Date.setPromptText("Date is Empty*");
-//        } else {
-//            TF_Date.setBackground(Background.fill(Color.TRANSPARENT));
-//            TF_Date.setStyle("-fx-border-color: #0080FF ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00;");
-//        }
+
         if (TF_Disease.getText().isEmpty()) {
             TF_Disease.setBackground(Background.fill(Color.TRANSPARENT));
             TF_Disease.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: red;");

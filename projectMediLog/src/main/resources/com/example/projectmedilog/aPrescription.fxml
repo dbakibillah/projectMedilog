@@ -29,10 +29,13 @@
                 </TableView>
             </children>
         </AnchorPane>
-      <Button fx:id="BTN_Add" layoutX="824.0" layoutY="98.0" mnemonicParsing="false" onAction="#onClickedBTN_Add" prefHeight="26.0" prefWidth="63.0" style="-fx-background-color: #0080ff;" text="Add" textFill="WHITE" />
-      <Text layoutX="679.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For  Inserting Data Click">
+      <Button fx:id="BTN_Add" layoutX="824.0" layoutY="86.0" mnemonicParsing="false" onAction="#onClickedBTN_Add" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #0080ff;" text="Add" textFill="WHITE">
          <font>
-            <Font size="13.0" />
+            <Font size="18.0" />
+         </font></Button>
+      <Text layoutX="606.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For  Inserting Data Click" wrappingWidth="210.14825439453125">
+         <font>
+            <Font size="18.0" />
          </font>
       </Text>
       <Button fx:id="BTN_Refresh" layoutX="927.0" layoutY="98.0" mnemonicParsing="false" onAction="#onCLickedBTN_Refresh" style="-fx-background-color: #0080ff;" text="Refresh" textFill="WHITE" />
