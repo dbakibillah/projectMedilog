@@ -41,13 +41,13 @@ public class aPatientsController implements Initializable {
     Connection conn;
     ResultSet rs;
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
 
+
+    public  void setPatientTableData(){
         try {
             //bringin data from database
             conn = database.dbconnect();
-            rs = conn.createStatement().executeQuery("select * from signup");
+            rs = conn.createStatement().executeQuery("select * from users");
 
             while (rs.next()) {
                 listI.add(new aPatientsTable(rs.getString("FullName"), rs.getString("Email"), rs.getString("Phone"), rs.getString("Gender"), rs.getString("Age"), rs.getString("blood_group")));
@@ -58,6 +58,14 @@ public class aPatientsController implements Initializable {
             TableColumn_Gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
             TableColumn_Age.setCellValueFactory(new PropertyValueFactory<>("age"));
             TableColumn_BloodGroup.setCellValueFactory(new PropertyValueFactory<>("bloodGroup"));
+
+
+            TableColumn_Name.setStyle("-fx-alignment: CENTER;");
+            TableColumn_Email.setStyle("-fx-alignment: CENTER;");
+            TableColumn_Phone.setStyle("-fx-alignment: CENTER;");
+            TableColumn_Gender.setStyle("-fx-alignment: CENTER;");
+            TableColumn_Age.setStyle("-fx-alignment: CENTER;");
+            TableColumn_BloodGroup.setStyle("-fx-alignment: CENTER;");
             PatientTable.refresh();
 
             PatientTable.setItems(listI);
@@ -66,5 +74,10 @@ public class aPatientsController implements Initializable {
 
 
         }
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+        setPatientTableData();
     }
 }

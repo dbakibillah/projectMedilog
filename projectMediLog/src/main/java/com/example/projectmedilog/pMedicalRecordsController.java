@@ -68,20 +68,10 @@ public class pMedicalRecordsController {
     String Conclusion;
     ResultSet resultSet;
 
-//    @FXML
-//    void getItem(MouseEvent event) {
-//        index = List_Date.getSelectionModel().getSelectedIndex();
-//
-//        if (index <= -1) {
-//            return;
-//        }
-////        Integer Id = Integer.valueOf(TC_Id.getCellData(index));
-////        String Date = TC_Date.getCellData(index);
-//
-//    }
 
     @FXML
     void onClickedBTN_Search(MouseEvent event) throws SQLException, ClassNotFoundException {
+
         if (TF_UserName.getText().isEmpty()) {
             TF_UserName.setBackground(Background.fill(Color.TRANSPARENT));
             TF_UserName.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100; -fx-prompt-text-fill: red;");
@@ -150,26 +140,8 @@ public class pMedicalRecordsController {
     }
 
     public void initialize() {
-//        try {
-//            //bringin data from database
-//            conn = database.dbconnect();
-//            rs = conn.createStatement().executeQuery("select * from medical_records");
-//
-//            while (rs.next()) {
-//                listI.add(new MedicalRecordsTable(rs.getInt("Id"), rs.getString("Date"), rs.getString("")));
-//            }
-//            TC_Id.setCellValueFactory(new PropertyValueFactory<>("id"));
-//            TC_Date.setCellValueFactory(new PropertyValueFactory<>("date"));
-//
-//
-//
-//            List_Date.setItems(listI);
-//
-//        } catch (SQLException | ClassNotFoundException e) {
-//
-//
-//        }
 
+        TF_UserName.setText( user.getUserName());
 
         TF_UserName.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {

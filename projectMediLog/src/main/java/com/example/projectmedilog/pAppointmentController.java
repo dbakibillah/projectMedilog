@@ -178,16 +178,16 @@ public class pAppointmentController implements Initializable {
         Connection connection = database.dbconnect();
         Statement statement = connection.createStatement();
 
-        try (
-                PreparedStatement pst = connection.prepareStatement("insert into appointment(Name, UserName, Date, Time, Phone, Injury_or_Condition, Doctor) values(?, ?, ?, ?, ?, ?, ?)")
-        ) {
-            pst.setString(1, Name);
-            pst.setString(2, user.getEmail());
-            pst.setString(3, Date);
-            pst.setString(4, Time);
-            pst.setString(5, Phone);
-            pst.setString(6, InjuryOrCondition);
-            pst.setString(7, Doctor);
+            try (
+                    PreparedStatement pst = connection.prepareStatement("insert into appointment(Name, UserName, Date, Time, Phone, Injury_or_Condition, Doctor) values(?, ?, ?, ?, ?, ?, ?)")
+            ) {
+                pst.setString(1, Name);
+                pst.setString(2, user.getUserName());
+                pst.setString(3, Date);
+                pst.setString(4, Time);
+                pst.setString(5, Phone);
+                pst.setString(6, InjuryOrCondition);
+                pst.setString(7, Doctor);
 
             pst.executeUpdate();
 
@@ -237,18 +237,27 @@ public class pAppointmentController implements Initializable {
             rs = conn.createStatement().executeQuery("select * from appointment where UserName = '" + user.getUserName() + "'");
             while (rs.next()) {
                 pAppointmentList.add(new AppointmentTable(rs.getInt("id"), rs.getString("Name"), rs.getString("UserName"), rs.getString("Date"), rs.getString("Time"), rs.getString("Phone"), rs.getString("Doctor"), rs.getString("Injury_or_Condition")));
+
+                //add to table
+                TC_UserName.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+                TC_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
+                TC_date.setCellValueFactory(new PropertyValueFactory<>("Date"));
+                TC_time.setCellValueFactory(new PropertyValueFactory<>("Time"));
+                TC_mobile.setCellValueFactory(new PropertyValueFactory<>("Phone"));
+                TC_doctor.setCellValueFactory(new PropertyValueFactory<>("Doctor"));
+                TC_injury_or_condition.setCellValueFactory(new PropertyValueFactory<>("injuryOrCondition"));
+
+                TC_UserName.setStyle("-fx-alignment: CENTER;");
+                TC_Name.setStyle("-fx-alignment: CENTER;");
+                TC_date.setStyle("-fx-alignment: CENTER;");
+                TC_time.setStyle("-fx-alignment: CENTER;");
+                TC_mobile.setStyle("-fx-alignment: CENTER;");
+                TC_doctor.setStyle("-fx-alignment: CENTER;");
+                TC_injury_or_condition.setStyle("-fx-alignment: CENTER;");
+
+
+                pAppointmentTable.setItems(pAppointmentList);
             }
-            //add to table
-            TC_UserName.setCellValueFactory(new PropertyValueFactory<>("UserName"));
-            TC_Name.setCellValueFactory(new PropertyValueFactory<>("Name"));
-            TC_date.setCellValueFactory(new PropertyValueFactory<>("Date"));
-            TC_time.setCellValueFactory(new PropertyValueFactory<>("Time"));
-            TC_mobile.setCellValueFactory(new PropertyValueFactory<>("Phone"));
-            TC_doctor.setCellValueFactory(new PropertyValueFactory<>("Doctor"));
-            TC_injury_or_condition.setCellValueFactory(new PropertyValueFactory<>("injuryOrCondition"));
-//refresh table
-            pAppointmentTable.setItems(pAppointmentList);
-            System.out.println("Appointment added in setAppointmentTableData");
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

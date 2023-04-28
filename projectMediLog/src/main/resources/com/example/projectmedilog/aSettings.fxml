@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1050.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.aSettingsController">
+    <children>
+        <Text layoutX="59.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Account Settings" wrappingWidth="196.0">
+            <font>
+                <Font size="26.0" />
+            </font>
+        </Text>
+        <TextField fx:id="TF_UserName" layoutX="61.0" layoutY="369.0" prefHeight="45.0" prefWidth="350.0" promptText="User Name" style="-fx-background-color: transparent; -fx-border-radius: 20; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px;">
+            <font>
+                <Font size="17.0" />
+            </font>
+        </TextField>
+        <Button fx:id="BTN_SaveChange" layoutX="440.0" layoutY="690.0" mnemonicParsing="false" onAction="#onClickBTN_SaveChange" prefHeight="35.0" prefWidth="103.0" style="-fx-background-color: #0080FF;" text="Save Change" textFill="WHITE" />
+        <Circle fx:id="ImageCIrcle" accessibleRole="IMAGE_VIEW" fill="DODGERBLUE" layoutX="157.0" layoutY="163.0" radius="79.0" stroke="BLACK" strokeType="INSIDE" />
+        <Button fx:id="BTN_ChooseFile" layoutX="65.0" layoutY="286.0" mnemonicParsing="false" onAction="#onCLickBTN_ChooseFile" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #0080FF;" text="Choose File" textFill="WHITE" />
+        <Text fill="#908a8a" layoutX="88.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change/Upload photo">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Text>
+        <Button fx:id="BTN_Upload" layoutX="157.0" layoutY="286.0" mnemonicParsing="false" onAction="#onCLickBTN_Upload" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #0080FF;" text="Upload" textFill="WHITE" />
+        <Button fx:id="BTN_Save" layoutX="823.0" layoutY="277.0" mnemonicParsing="false" onAction="#onClickBTN_Save" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #0080FF;" text="Save" textFill="WHITE" />
+        <PasswordField fx:id="TF_currentpass" layoutX="551.0" layoutY="136.0" prefHeight="41.0" prefWidth="350.0" promptText="Current Password" style="-fx-background-color: transparent; -fx-border-color: #0080FF; -fx-border-width: 2px 2px 2px 2px;-fx-border-radius: 20;">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </PasswordField>
+        <PasswordField fx:id="TF_newpass" layoutX="551.0" layoutY="193.0" prefHeight="41.0" prefWidth="350.0" promptText="New Password" style="-fx-background-color: transparent; -fx-border-color: #0080FF; -fx-border-width: 2px 2px 2px 2px;-fx-border-radius: 20;">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </PasswordField>
+        <Text layoutX="553.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Password" wrappingWidth="196.0">
+            <font>
+                <Font size="22.0" />
+            </font>
+        </Text>
+    </children>
+</AnchorPane>
