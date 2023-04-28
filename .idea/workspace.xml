@@ -4,41 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="34e95027-395c-4d14-b1f1-4058c8eddee5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/LibericaJDK_201.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/LibericaJDK_202.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx_sdk_20_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx_sdk_20_01.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jfxcore_javafx_web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/sosController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/Style/choicebox.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/Style/listview.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/Style/radio.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/sos.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/projectMedilog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/projectMedilog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music/AFTERMATH l MOHO (OFFICIAL MUSIC VIDEO).mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aMedicalReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aMedicalReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/dDashboardApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/dDashboardApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/dDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/dDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/othersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/othersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/podcastApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/podcastApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/podcastController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/podcastController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/webViewApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/webViewApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/webViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/webViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/Style/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/Style/table.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/dDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/dDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/others.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/others.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pAppointment.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pAppointment.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pDashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pDashboard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pMedicalRecords.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pMedicalRecords.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/userLogin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/userLogin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/webView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/webView.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="34e95027-395c-4d14-b1f1-4058c8eddee5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
