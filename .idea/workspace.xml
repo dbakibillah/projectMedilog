@@ -6,21 +6,7 @@
   <component name="ChangeListManager">
 
     <list default="true" id="34e95027-395c-4d14-b1f1-4058c8eddee5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/client/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/client/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/client/ReadThreadClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/client/WriteThreadClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/server/ReadThreadServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/server/Server.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/util/NetworkInformation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/util/NetworkUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/chatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/chatController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/pHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/chat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/chat.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pHome.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pHome.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/webViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/webViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/webView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/webView.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/projectMedilog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/projectMedilog.iml" afterDir="false" />
     </list>
 
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +26,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -53,29 +39,30 @@
     </option>
   </component>
   <component name="ProjectId" id="2OTgj0wc04QnO0n36w9KA2Ji9I2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Program Files/BellSoft/LibericaJDK-20",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.35632184",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Program Files/BellSoft/LibericaJDK-20&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.35632184&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.userLogin">
-    <configuration name="othersApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.othersApp" />
+    <configuration name="pMedicalRecordsApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.pMedicalRecordsApp" />
       <module name="projectMediLog" />
       <extension name="coverage">
         <pattern>
@@ -150,6 +137,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.userLogin" />
+        <item itemvalue="Application.webViewApp" />
         <item itemvalue="Application.podcastApp" />
         <item itemvalue="Application.othersApp" />
         <item itemvalue="Application.webViewApp" />

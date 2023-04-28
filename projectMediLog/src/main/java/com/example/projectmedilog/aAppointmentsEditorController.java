@@ -18,11 +18,10 @@ import javafx.util.StringConverter;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class aAppointmentsEditorController implements Initializable {
@@ -59,7 +58,8 @@ public class aAppointmentsEditorController implements Initializable {
     @FXML
     private TextField TF_phone;
     Integer id;
-
+    Connection conn;
+    ResultSet rs;
     @FXML
     void onClickBTN_cancel(ActionEvent event) {
         //close the window
@@ -185,8 +185,33 @@ public class aAppointmentsEditorController implements Initializable {
                 return null;
             }
         });
+//CB_doctor value add from database
 
-        CB_doctor.getItems().addAll("Dr. A", "Dr. B", "Dr. C", "Dr. D", "Dr. E");
+        Connection conn = null;
+        try {
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectmedilog","root","");
+            // Execute the query and retrieve the results
+            Statement stmt = conn.createStatement();
+            rs = conn.createStatement().executeQuery("select * from doctors");
+            List<String> values = new ArrayList<>();
+
+            while (rs.next()) {
+                values.add(rs.getString("UserName"));
+            }
+            // Populate the ChoiceBox with the results
+            CB_doctor.getItems().addAll(values);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
         CB_doctor.setConverter(new StringConverter<String>() {
             @Override
             public String toString(String s) {
