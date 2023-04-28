@@ -196,6 +196,7 @@ public class aPrescriptionDialogController {
 //
 //            }
 //        });
+
         TF_Test.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.isEmpty()) {
                 TF_Test.setBackground(Background.fill(Color.TRANSPARENT));

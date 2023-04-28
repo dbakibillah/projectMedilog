@@ -5,8 +5,8 @@ import java.sql.Blob;
 public class admin {
     static Blob image;
     static String UserName;
+    public admin(String UserName, Blob image) {
 
-    public admin(String UserName,Blob image) {
         this.UserName = UserName;
         this.image = image;
     }
