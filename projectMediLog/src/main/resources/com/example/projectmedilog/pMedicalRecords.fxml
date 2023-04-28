@@ -29,7 +29,7 @@
       </Button>
       <Pane layoutX="14.0" layoutY="106.0" prefHeight="685.0" prefWidth="239.0" style="-fx-border-color: #0080ff;">
          <children>
-            <ListView fx:id="List_Date" layoutX="20.0" layoutY="14.0" prefHeight="654.0" prefWidth="200.0" />
+            <ListView fx:id="List_Date" layoutX="13.0" layoutY="16.0" prefHeight="654.0" prefWidth="214.0" stylesheets="@../../../Style/listview.css" />
          </children>
       </Pane>
       <Pane layoutX="264.0" layoutY="106.0" prefHeight="685.0" prefWidth="778.0" style="-fx-border-color: #0080ff;">
@@ -64,34 +64,40 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <TextArea fx:id="TA_Comment" editable="false" layoutX="121.0" layoutY="252.0" prefHeight="196.0" prefWidth="621.0" style="-fx-background-color: red;" wrapText="true" />
-            <TextArea fx:id="TA_Conclusion" editable="false" layoutX="121.0" layoutY="475.0" prefHeight="196.0" prefWidth="621.0" style="-fx-background-color: red;" wrapText="true" />
+            <TextArea fx:id="TA_Comment" editable="false" layoutX="121.0" layoutY="252.0" prefHeight="196.0" prefWidth="621.0" style="-fx-background-color: red;" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font></TextArea>
+            <TextArea fx:id="TA_Conclusion" editable="false" layoutX="121.0" layoutY="475.0" prefHeight="196.0" prefWidth="621.0" style="-fx-background-color: red;" wrapText="true">
+               <font>
+                  <Font size="18.0" />
+               </font></TextArea>
             <Text layoutX="13.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name:">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
-            <Label fx:id="LB_Date" layoutX="121.0" layoutY="36.0" prefHeight="27.0" prefWidth="621.0" text="DateLabel">
+            <Label fx:id="LB_Date" layoutX="121.0" layoutY="36.0" prefHeight="27.0" prefWidth="621.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="LB_UserName" layoutX="121.0" layoutY="71.0" prefHeight="27.0" prefWidth="621.0" text="DateLabel">
+            <Label fx:id="LB_UserName" layoutX="121.0" layoutY="71.0" prefHeight="27.0" prefWidth="621.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="LB_TestName" layoutX="121.0" layoutY="105.0" prefHeight="27.0" prefWidth="621.0" text="DateLabel">
+            <Label fx:id="LB_TestName" layoutX="121.0" layoutY="105.0" prefHeight="27.0" prefWidth="621.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="LB_TestResult" layoutX="121.0" layoutY="144.0" prefHeight="27.0" prefWidth="621.0" text="DateLabel">
+            <Label fx:id="LB_TestResult" layoutX="121.0" layoutY="144.0" prefHeight="27.0" prefWidth="621.0">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="LB_Reference" layoutX="121.0" layoutY="186.0" prefHeight="27.0" prefWidth="621.0" text="DateLabel">
+            <Label fx:id="LB_Reference" layoutX="121.0" layoutY="186.0" prefHeight="27.0" prefWidth="621.0">
                <font>
                   <Font size="18.0" />
                </font>

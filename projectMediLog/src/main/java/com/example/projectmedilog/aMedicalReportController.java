@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
@@ -80,7 +81,7 @@ public class aMedicalReportController {
         //read database
         Connection connection = database.dbconnect();
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select * from medical_records");
+        ResultSet resultSet = statement.executeQuery("select * from user_m_records");
 
         while (resultSet.next()) {
             if (resultSet.getString("UserName").equals(TF_UserName.getText())) {
@@ -138,7 +139,7 @@ public class aMedicalReportController {
             Connection connection = database.dbconnect();
             Statement statement = connection.createStatement();
 
-            try (PreparedStatement preparedStatement = connection.prepareStatement("insert into medical_records(UserName, TestName, TestResult, Reference, Comment, Conclusion, Date, DateTime) values(?, ?, ?, ?, ?, ?, ?, ?)")) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement("insert into medical_records(UserName, TestName, TestResult, Reference, Comment, Conclusion, Date) values(?, ?, ?, ?, ?, ?, ?)")) {
                 preparedStatement.setString(1, UserName);
                 preparedStatement.setString(2, TestName);
                 preparedStatement.setString(3, TestResult);
@@ -185,13 +186,15 @@ public class aMedicalReportController {
             //update database
             Connection connection = database.dbconnect();
             Statement statement = connection.createStatement();
+            String sql = "insert into user_m_records(UserName, BP_systolic, BP_diastolic, Glucose, HeartBeat) values(?, ?, ?, ?, ?)";
 
-            try (PreparedStatement preparedStatement = connection.prepareStatement("UPDATE medical_records SET BP_systolic = ?, BP_diastolic = ?, Glucose = ?, HeartBeat = ? WHERE UserName = ?")) {
-                preparedStatement.setInt(1, Integer.parseInt(BP_systolic));
-                preparedStatement.setInt(2, Integer.parseInt(BP_diastolic));
-                preparedStatement.setInt(3, Integer.parseInt(Glucose));
-                preparedStatement.setInt(4, Integer.parseInt(HeartBeat));
-                preparedStatement.setString(5, UserName);
+            try (PreparedStatement preparedStatement = connection.prepareStatement("insert into user_m_records(UserName, BP_systolic, BP_diastolic, Glucose, HeartBeat) values(?, ?, ?, ?, ?)")) {
+                preparedStatement.setString(1, UserName);
+                preparedStatement.setInt(2, Integer.parseInt(BP_systolic));
+                preparedStatement.setInt(3, Integer.parseInt(BP_diastolic));
+                preparedStatement.setInt(4, Integer.parseInt(Glucose));
+                preparedStatement.setInt(5, Integer.parseInt(HeartBeat));
+
                 preparedStatement.executeUpdate();
 
                 gotoSuccessDialog("medicalReport.fxml", "Update Successfully");

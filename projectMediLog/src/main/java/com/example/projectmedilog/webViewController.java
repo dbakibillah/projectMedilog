@@ -1,40 +1,37 @@
 package com.example.projectmedilog;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+public class webViewController {
 
-public class webViewController implements Initializable {
     @FXML
-    private AnchorPane AnchorPane_webView;
-<<<<<<< HEAD
-    @FXML
-    private WebView web_webView;
-    private WebEngine webEngine;
-=======
-//    @FXML
-//    private WebView web_webView;
-//    private WebEngine webEngine;
->>>>>>> dfe2d1bf56b3030ba647490a0c052af41f7351e7
+    public WebView web_view;
+    public WebEngine webEngine;
+    private String url;
 
-    private String wpage;
+    public String getUrl() {
+        return url;
+    }
 
-//    public webViewController(String page) {
-//        this.wpage = page;
-//        System.out.println(page);
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void initialize(String url) {
+        webEngine = web_view.getEngine();
+
+        web_view.getEngine().load(url);
+        System.out.println(url);
+
+    }
+
+//    public void loadPage() {
+//        webEngine.load(getUrl());
+//
 //    }
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        webEngine = web_webView.getEngine();
-//        loadPage(wpage);
-    }
 
-    void loadPage(String page){
-//        webEngine.load(page);
-    }
+
 }

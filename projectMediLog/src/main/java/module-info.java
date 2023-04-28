@@ -4,6 +4,7 @@ module com.example.projectmedilog {
     requires java.sql;
     requires javafx.web;
     requires javafx.media;
+    requires java.desktop;
 
 
     opens com.example.projectmedilog to javafx.fxml;

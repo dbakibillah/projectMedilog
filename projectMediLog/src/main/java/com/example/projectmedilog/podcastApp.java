@@ -12,6 +12,11 @@ public class podcastApp extends Application {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Podcast");
         stage.setScene(scene);
+        stage.setOnCloseRequest(e -> {
+            podcastController pc = fxmlLoader.getController();
+            pc.stopMedia();
+            stage.close();
+        });
         stage.show();
     }
 

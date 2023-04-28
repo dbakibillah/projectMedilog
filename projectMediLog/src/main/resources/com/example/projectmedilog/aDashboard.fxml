@@ -2,8 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -23,7 +21,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Label alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
+                  <Label fx:id="LB_App" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -45,7 +43,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Label alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
+                  <Label fx:id="LB_Doc" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -67,7 +65,7 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Label alignment="CENTER_RIGHT" layoutX="121.0" layoutY="80.0" prefHeight="35.0" prefWidth="208.0" text="Label">
+                  <Label fx:id="LB_Pat" alignment="CENTER_RIGHT" layoutX="121.0" layoutY="80.0" prefHeight="35.0" prefWidth="208.0" text="Label">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -84,16 +82,11 @@
             <Insets />
          </opaqueInsets>
       </HBox>
-      <TableView layoutX="14.0" layoutY="364.0" prefHeight="434.0" prefWidth="688.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
       <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dashboard">
          <font>
             <Font size="24.0" />
          </font>
       </Text>
+      <AnchorPane fx:id="chartPane" layoutX="11.0" layoutY="326.0" prefHeight="470.0" prefWidth="1042.0" style="-fx-background-color: #FFFFFF;" />
    </children>
 </AnchorPane>

@@ -2,8 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -16,14 +14,14 @@
    <children>
       <HBox alignment="TOP_CENTER" layoutY="86.0" prefHeight="200.0" prefWidth="1050.0" spacing="5.0" style="-fx-background-color: #1260cc;">
          <children>
-            <Pane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
+            <Pane fx:id="Pane_App" onMouseClicked="#onCLickedPane_App" onMouseEntered="#onMouseEnteredPane_App" onMouseExited="#onMouseExitedPane_App" prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
                <children>
                   <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Label alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
+                  <Label fx:id="LB_App" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -38,14 +36,14 @@
                   <Insets right="10.0" />
                </padding>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
+            <Pane fx:id="Pane_Pat" onMouseClicked="#onCLickedPane_Pat" onMouseEntered="#onMouseEnteredPane_Pat" onMouseExited="#onMouseExitedPane_Pat" prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
                <children>
-                  <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Today's Operation">
+                  <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patients">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Label alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
+                  <Label fx:id="LB_Pat" alignment="CENTER_RIGHT" layoutX="118.0" layoutY="83.0" prefHeight="35.0" prefWidth="208.0" text="Label">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -60,14 +58,14 @@
                   <Insets right="10.0" />
                </padding>
             </Pane>
-            <Pane prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
+            <Pane fx:id="Pane_Task" onMouseClicked="#onClickedPane_Task" onMouseEntered="#onMouseEnteredPane_Task" onMouseExited="#onMouseExitedPane_Task" prefHeight="200.0" prefWidth="347.0" style="-fx-background-color: white;">
                <children>
                   <Text layoutX="14.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tasks">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Text>
-                  <Label alignment="CENTER_RIGHT" layoutX="121.0" layoutY="80.0" prefHeight="35.0" prefWidth="208.0" text="Label">
+                  <Label fx:id="LB_Task" alignment="CENTER_RIGHT" layoutX="121.0" layoutY="80.0" prefHeight="35.0" prefWidth="208.0" text="Label">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -84,16 +82,6 @@
             <Insets />
          </opaqueInsets>
       </HBox>
-      <TableView layoutX="14.0" layoutY="337.0" prefHeight="461.0" prefWidth="679.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-        </columns>
-      </TableView>
-      <Text layoutX="277.0" layoutY="321.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments" wrappingWidth="152.37890625">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
+      <AnchorPane fx:id="chartPane" layoutX="9.0" layoutY="293.0" prefHeight="493.0" prefWidth="1032.0" />
    </children>
 </AnchorPane>

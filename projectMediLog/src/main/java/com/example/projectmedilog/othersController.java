@@ -3,11 +3,14 @@ package com.example.projectmedilog;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
@@ -27,8 +30,8 @@ public class othersController {
     @FXML
     private Pane Pane_Blogs;
 
-    @FXML
-    private Pane Pane_Blood;
+//    @FXML
+//    private Pane Pane_Blood;
 
     @FXML
     private Pane Pane_Diet;
@@ -43,50 +46,94 @@ public class othersController {
     private Pane Pane_SOS;
 
     @FXML
-    void OnCliekedPane_Diet(MouseEvent event) {
+    void OnCliekedPane_Diet(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("webView.fxml"));
+        AnchorPane webPage = loader.load();
+        AnchorPane_Others.getChildren().setAll(webPage);
+        webViewController wpage = loader.getController();
 
+        wpage.initialize("https://www.eatthismuch.com/");
     }
 
     @FXML
     void onClickedPane_ADHD(MouseEvent event) throws IOException {
-        AnchorPane webPage = FXMLLoader.load(getClass().getResource("webView.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("webView.fxml"));
+        AnchorPane webPage = loader.load();
         AnchorPane_Others.getChildren().setAll(webPage);
-//        webViewController wpage = new webViewController("https://www.clinical-partners.co.uk/for-adults/adult-adhd-add/test-for-adhd");
+        webViewController wpage = loader.getController();
+
+        wpage.initialize("https://www.clinical-partners.co.uk/for-adults/adult-adhd-add/test-for-adhd?fbclid=IwAR1lTvC_YPcg832feQhvMNyMqVfyeEV4RDGtNIBcOLYO-9-2t2_Dw-ylajU");
+    }
+
+
+    @FXML
+    void onClickedPane_Ambulance(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("webView.fxml"));
+        AnchorPane webPage = loader.load();
+        AnchorPane_Others.getChildren().setAll(webPage);
+        webViewController wpage = loader.getController();
+
+        wpage.initialize("https://ambulanceservicebangladesh.com/");
     }
 
     @FXML
-    void onClickedPane_Ambulance(MouseEvent event) {
+    void onClickedPane_BMI(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("webView.fxml"));
+        AnchorPane webPage = loader.load();
+        AnchorPane_Others.getChildren().setAll(webPage);
+        webViewController wpage = loader.getController();
 
+        wpage.initialize("https://www.calculator.net/bmi-calculator.html");
     }
 
     @FXML
-    void onClickedPane_BMI(MouseEvent event) {
+    void onClickedPane_Blogs(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("webView.fxml"));
+        AnchorPane webPage = loader.load();
+        AnchorPane_Others.getChildren().setAll(webPage);
+        webViewController wpage = loader.getController();
 
+        wpage.initialize("https://www.health.harvard.edu/blog");
+    }
+
+//    @FXML
+//    void onClickedPane_Blood(MouseEvent event) {
+//
+//    }
+
+    @FXML
+    void onClickedPane_IQ(MouseEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("webView.fxml"));
+        AnchorPane webPage = loader.load();
+        AnchorPane_Others.getChildren().setAll(webPage);
+        webViewController wpage = loader.getController();
+
+        wpage.initialize("https://www.arealme.com/iq/en/?fbclid=IwAR1nXq8YjPDWIMEnObpPHzpYA4BxcGQdgW1LngPlGoWyMbMbvp3d5_Iwls4");
     }
 
     @FXML
-    void onClickedPane_Blogs(MouseEvent event) {
-
+    void onClickedPane_Podcasts(MouseEvent event) throws IOException {
+        Stage podcast_stage = new Stage();
+        podcast_stage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("podcast.fxml"));
+        Parent root = loader.load();
+        podcast_stage.setScene(new Scene(root));
+        podcast_stage.setOnCloseRequest(e -> {
+            podcast_stage.close();
+            podcastController pc = loader.getController();
+            pc.stopMedia();
+        });
+        podcast_stage.show();
     }
 
     @FXML
-    void onClickedPane_Blood(MouseEvent event) {
-
-    }
-
-    @FXML
-    void onClickedPane_IQ(MouseEvent event) {
-
-    }
-
-    @FXML
-    void onClickedPane_Podcasts(MouseEvent event) {
-
-    }
-
-    @FXML
-    void onClickedPane_SOS(MouseEvent event) {
-
+    void onClickedPane_SOS(MouseEvent event) throws IOException {
+        Stage sos_stage = new Stage();
+        sos_stage.setResizable(false);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("sos.fxml"));
+        Parent root = loader.load();
+        sos_stage.setScene(new Scene(root));
+        sos_stage.show();
     }
 
     @FXML
@@ -113,11 +160,11 @@ public class othersController {
         Pane_Blogs.setBackground(Background.fill(Color.web("95BDFF")));
     }
 
-    @FXML
-    void onMouseEnteredPane_Blood(MouseEvent event) {
-        Pane_Blood.setCursor(Cursor.HAND);
-        Pane_Blood.setBackground(Background.fill(Color.web("95BDFF")));
-    }
+//    @FXML
+//    void onMouseEnteredPane_Blood(MouseEvent event) {
+//        Pane_Blood.setCursor(Cursor.HAND);
+//        Pane_Blood.setBackground(Background.fill(Color.web("95BDFF")));
+//    }
 
     @FXML
     void onMouseEnteredPane_Diet(MouseEvent event) {
@@ -167,11 +214,11 @@ public class othersController {
         Pane_Blogs.setBackground(Background.fill(Color.web("#FFFFFF")));
     }
 
-    @FXML
-    void onMouseExitedPane_Blood(MouseEvent event) {
-        Pane_Blood.setCursor(Cursor.DEFAULT);
-        Pane_Blood.setBackground(Background.fill(Color.web("#FFFFFF")));
-    }
+//    @FXML
+//    void onMouseExitedPane_Blood(MouseEvent event) {
+//        Pane_Blood.setCursor(Cursor.DEFAULT);
+//        Pane_Blood.setBackground(Background.fill(Color.web("#FFFFFF")));
+//    }
 
     @FXML
     void onMouseExitedPane_Diet(MouseEvent event) {

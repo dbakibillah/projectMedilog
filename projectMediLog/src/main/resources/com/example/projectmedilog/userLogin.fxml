@@ -51,7 +51,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <RadioButton fx:id="RB_Admin" layoutX="180.0" layoutY="297.0" mnemonicParsing="false" onAction="#userType" onMouseEntered="#onMouseEnteredRB_Admin" text="Admin">
+            <RadioButton fx:id="RB_Admin" layoutX="180.0" layoutY="297.0" mnemonicParsing="false" onAction="#userType" onMouseEntered="#onMouseEnteredRB_Admin" stylesheets="@../../../Style/radio.css" text="Admin">
                <font>
                   <Font size="18.0" />
                </font>
@@ -59,12 +59,12 @@
                   <ToggleGroup fx:id="usertype" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="RB_Doctor" layoutX="299.0" layoutY="297.0" mnemonicParsing="false" onAction="#userType" onMouseEntered="#onMouseEnteredRB_Doctor" text="Doctor" toggleGroup="$usertype">
+            <RadioButton fx:id="RB_Doctor" layoutX="299.0" layoutY="297.0" mnemonicParsing="false" onAction="#userType" onMouseEntered="#onMouseEnteredRB_Doctor" stylesheets="@../../../Style/radio.css" text="Doctor" toggleGroup="$usertype">
                <font>
                   <Font size="18.0" />
                </font>
             </RadioButton>
-            <RadioButton fx:id="RB_User" layoutX="412.0" layoutY="297.0" mnemonicParsing="false" onAction="#userType" onMouseEntered="#onMouseEnteredRB_User" prefHeight="21.0" prefWidth="85.0" text="User" toggleGroup="$usertype">
+            <RadioButton fx:id="RB_User" layoutX="412.0" layoutY="297.0" mnemonicParsing="false" onAction="#userType" onMouseEntered="#onMouseEnteredRB_User" prefHeight="21.0" prefWidth="85.0" stylesheets="@../../../Style/radio.css" text="User" toggleGroup="$usertype">
                <font>
                   <Font size="18.0" />
                </font>
