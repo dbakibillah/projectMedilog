@@ -3,20 +3,22 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="Appointment_AnchorPane" prefHeight="800.0" prefWidth="1050.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.aAppointmentsController">
    <children>
-      <Button fx:id="BTN_NewAppointment" layoutX="829.0" layoutY="120.0" mnemonicParsing="false" onAction="#onCLickedBTN_NewAppointment" onMouseEntered="#onMouseEnteredBTN_NewAppointment" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #0080ff;" text="New Appoinment" textFill="WHITE">
+      <Button fx:id="BTN_NewAppointment" layoutX="745.0" layoutY="117.0" mnemonicParsing="false" onAction="#onCLickedBTN_NewAppointment" onMouseEntered="#onMouseEnteredBTN_NewAppointment" prefHeight="45.0" prefWidth="170.0" style="-fx-background-color: #0080ff;" text="New Appoinment" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Text fill="#0080ff" layoutX="438.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
+      <Text fill="#0080ff" layoutX="400.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
          <font>
-            <Font size="36.0" />
+            <Font size="40.0" />
          </font>
       </Text>
       <TableView fx:id="aAppointmentTable" layoutX="15.0" layoutY="188.0" onMouseClicked="#getitem" prefHeight="600.0" prefWidth="1020.0" stylesheets="@../../../Style/table.css">
@@ -31,10 +33,10 @@
             <TableColumn fx:id="TC_injury_or_condition" minWidth="0.0" prefWidth="200.0" text="Injury/Condition" />
          </columns>
       </TableView>
-      <Button fx:id="BTN_Refresh" layoutX="28.0" layoutY="126.0" mnemonicParsing="false" onAction="#onCLickedBTN_Refresh" onMouseEntered="#onMouseEnteredBTN_NewAppointment" onMouseExited="#onMouseExitedBTN_NewAppointment" prefHeight="34.0" prefWidth="101.0" style="-fx-background-color: #0080ff;" text="Refresh" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
+      <ImageView fx:id="BTN_Refresh" fitHeight="50.0" fitWidth="50.0" layoutX="951.0" layoutY="114.0" onMouseClicked="#onCLickedBTN_Refresh" onMouseEntered="#onMouseEnteredBTN_Refresh" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/refresh.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -4,11 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
     <list default="true" id="34e95027-395c-4d14-b1f1-4058c8eddee5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/projectMedilog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/projectMedilog.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/Style/scrollbar.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/four.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../demo/three.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../one.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aAppointmentsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aAppointmentsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aDashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aPrescriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/aPrescriptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/chatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/java/com/example/projectmedilog/chatController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/Style/table.css" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/Style/table.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aAppointments.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aAppointments.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aPrescription.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/aPrescription.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/chat.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/chat.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pMedicalRecords.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/projectMediLog/src/main/resources/com/example/projectmedilog/pMedicalRecords.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../two.txt" beforeDir="false" />
     </list>
-
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,7 +39,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -61,12 +74,12 @@
   }
 }</component>
   <component name="RunManager" selected="Application.userLogin">
-    <configuration name="pMedicalRecordsApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.pMedicalRecordsApp" />
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.server.Server" />
       <module name="projectMediLog" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.projectmedilog.*" />
+          <option name="PATTERN" value="com.example.projectmedilog.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,7 +113,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="userLogin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="userLogin" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.projectmedilog.userLogin" />
       <module name="projectMediLog" />
       <extension name="coverage">
@@ -128,8 +141,8 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Server" />
       <item itemvalue="Application.podcastApp" />
-      <item itemvalue="Application.othersApp" />
       <item itemvalue="Application.pDashboard" />
       <item itemvalue="Application.userLogin" />
       <item itemvalue="Application.webViewApp" />
@@ -137,11 +150,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.userLogin" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.webViewApp" />
         <item itemvalue="Application.podcastApp" />
-        <item itemvalue="Application.othersApp" />
         <item itemvalue="Application.webViewApp" />
-        <item itemvalue="Application.pDashboard" />
       </list>
     </recent_temporary>
   </component>

@@ -64,11 +64,11 @@
                   <Font size="18.0" />
                </font>
             </Text>
-            <TextArea fx:id="TA_Comment" editable="false" layoutX="121.0" layoutY="252.0" prefHeight="196.0" prefWidth="621.0" style="-fx-background-color: red;" wrapText="true">
+            <TextArea fx:id="TA_Comment" editable="false" layoutX="121.0" layoutY="252.0" prefHeight="196.0" prefWidth="621.0" style="-fx-background-color: transparent;" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font></TextArea>
-            <TextArea fx:id="TA_Conclusion" editable="false" layoutX="121.0" layoutY="475.0" prefHeight="196.0" prefWidth="621.0" style="-fx-background-color: red;" wrapText="true">
+            <TextArea fx:id="TA_Conclusion" editable="false" layoutX="121.0" layoutY="475.0" prefHeight="196.0" prefWidth="621.0" style="-fx-background-color: Transparent;" wrapText="true">
                <font>
                   <Font size="18.0" />
                </font></TextArea>
