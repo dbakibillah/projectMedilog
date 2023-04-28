@@ -150,13 +150,14 @@ public class aSettingsController implements Initializable {
         ) {
 
             pst.setString(1, UserName);
+            pst.setString(2, admin.getUserName());
             pst.executeUpdate();
 
             //update user
 
             admin.setUserName(UserName);
 
-            //System.out.println("Data Updated");
+            System.out.println("Data Updated"+UserName);
 
 
         } catch (SQLException e) {

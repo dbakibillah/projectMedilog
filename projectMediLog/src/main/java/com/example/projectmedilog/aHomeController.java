@@ -41,7 +41,7 @@ public class aHomeController implements Initializable {
     @FXML
     private AnchorPane mainAnchorPane;
     @FXML
-    Label UserName;
+    Label LB_UserName;
 
     @FXML
     private Pane homePane;
@@ -132,6 +132,7 @@ public class aHomeController implements Initializable {
     public void initialize(URL url, ResourceBundle resource) {
 
         aUserName = admin.getUserName();
+        LB_UserName.setText(aUserName);
         System.out.println(aUserName);
         Pane DashboardPane = null;
         try {

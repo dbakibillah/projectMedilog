@@ -120,12 +120,12 @@
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="237.0" prefWidth="250.0" style="-fx-background-color: #FFFFFF;">
                <children>
-                  <Circle fill="DODGERBLUE" radius="79.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="ImageCIrcle" fill="DODGERBLUE" radius="79.0" stroke="BLACK" strokeType="INSIDE">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>
                   </Circle>
-                  <Label fx:id="UserName" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="250.0" text="UserName">
+                  <Label fx:id="LB_UserName" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="250.0" text="User Name">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
