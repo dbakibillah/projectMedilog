@@ -109,7 +109,7 @@ public class pAppointmentController implements Initializable {
         } else {
             Connection connection = database.dbconnect();
             Statement statement = connection.createStatement();
-            String query = "SELECT * FROM signup WHERE UserName = '" + TF_UserName.getText() + "'";
+            String query = "SELECT * FROM users WHERE UserName = '" + TF_UserName.getText() + "'";
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
@@ -180,7 +180,7 @@ public class pAppointmentController implements Initializable {
                     PreparedStatement pst = connection.prepareStatement("insert into appointment(Name, UserName, Date, Time, Phone, Injury_or_Condition, Doctor) values(?, ?, ?, ?, ?, ?, ?)")
             ) {
                 pst.setString(1, Name);
-                pst.setString(2, user.getEmail());
+                pst.setString(2, user.getUserName());
                 pst.setString(3, Date);
                 pst.setString(4, Time);
                 pst.setString(5, Phone);
@@ -242,6 +242,15 @@ public class pAppointmentController implements Initializable {
                 TC_mobile.setCellValueFactory(new PropertyValueFactory<>("Phone"));
                 TC_doctor.setCellValueFactory(new PropertyValueFactory<>("Doctor"));
                 TC_injury_or_condition.setCellValueFactory(new PropertyValueFactory<>("injuryOrCondition"));
+
+                TC_UserName.setStyle("-fx-alignment: CENTER;");
+                TC_Name.setStyle("-fx-alignment: CENTER;");
+                TC_date.setStyle("-fx-alignment: CENTER;");
+                TC_time.setStyle("-fx-alignment: CENTER;");
+                TC_mobile.setStyle("-fx-alignment: CENTER;");
+                TC_doctor.setStyle("-fx-alignment: CENTER;");
+                TC_injury_or_condition.setStyle("-fx-alignment: CENTER;");
+
 
                 pAppointmentTable.setItems(pAppointmentList);
             }

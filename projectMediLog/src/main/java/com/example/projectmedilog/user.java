@@ -9,11 +9,11 @@ public class user {
     static String age;
     static String phone;
     static String email;
-
     static  String address;
-
     static  String bloodGroup;
     static Blob image;
+
+
 
     public user(String FUllName, String UserName, String gender, String age, String phone, String email, String address, String bloodGroup, Blob image) {
         this.FullName = FUllName;
@@ -26,6 +26,7 @@ public class user {
         this.address = address;
         this.bloodGroup = bloodGroup;
     }
+
 
     public static String getFullName() {
         return FullName;

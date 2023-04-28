@@ -90,6 +90,15 @@ public class aAppointmentsController implements Initializable {
             TC_mobile.setCellValueFactory(new PropertyValueFactory<>("phone"));
             TC_doctor.setCellValueFactory(new PropertyValueFactory<>("doctor"));
             TC_injury_or_condition.setCellValueFactory(new PropertyValueFactory<>("injuryOrCondition"));
+
+            TC_date.setStyle("-fx-alignment: CENTER;");
+            TC_id.setStyle("-fx-alignment: CENTER;");
+            TC_name.setStyle("-fx-alignment: CENTER;");
+            TC_UserName.setStyle("-fx-alignment: CENTER;");
+            TC_time.setStyle("-fx-alignment: CENTER;");
+            TC_mobile.setStyle("-fx-alignment: CENTER;");
+            TC_doctor.setStyle("-fx-alignment: CENTER;");
+            TC_injury_or_condition.setStyle("-fx-alignment: CENTER;");
             //refresh table
             aAppointmentTable.refresh();
             //new use in pAppointmenttable

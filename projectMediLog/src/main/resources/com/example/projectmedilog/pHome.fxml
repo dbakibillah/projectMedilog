@@ -11,9 +11,9 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pHomeAnchor" prefHeight="800.0" prefWidth="1300.0" stylesheets="@../../../Style/Home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.pHomeController">
+<AnchorPane fx:id="pHomeAnchor" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: #ffffff;" stylesheets="@../../../Style/Home.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.pHomeController">
    <children>
-      <Pane fx:id="homePane" prefHeight="800.0" prefWidth="250.0">
+      <Pane fx:id="homePane" prefHeight="800.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
          <children>
             <VBox layoutX="1.0" layoutY="267.0" prefHeight="468.0" prefWidth="249.0">
                <children>
@@ -65,7 +65,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Chat">
+                  <Button fx:id="BTN_chat" mnemonicParsing="false" onAction="#onCLickChat" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Chat">
                      <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                      </VBox.margin>

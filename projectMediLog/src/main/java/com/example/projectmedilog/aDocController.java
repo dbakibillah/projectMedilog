@@ -29,35 +29,33 @@ public class aDocController implements Initializable {
 
 
     @FXML
-    private TableColumn<?, ?> TC_age;
-
-
+    private TableColumn<adoctors, String> TC_age;
 
 
     @FXML
-    private TableColumn<?, ?> TC_degree;
+    private TableColumn<adoctors, String> TC_degree;
 
     @FXML
-    private TableColumn<?, ?> TC_department;
+    private TableColumn<adoctors, String> TC_department;
 
     @FXML
-    private TableColumn<?, ?> TC_UserName;
+    private TableColumn<adoctors, String> TC_UserName;
 
     @FXML
-    private TableColumn<?, ?> TC_gender;
+    private TableColumn<adoctors, String> TC_gender;
     @FXML
     private TableColumn<?, ?> TC_password;
 
     @FXML
-    private TableColumn<?, ?> TC_name;
+    private TableColumn<adoctors, String> TC_name;
 
     @FXML
-    private TableColumn<?, ?> TC_phone;
+    private TableColumn<adoctors, String> TC_phone;
     @FXML
     private Button BTN_AddDoc;
     @FXML
-    private TableView<DoctorTable> DoctorTable;
-    ObservableList<DoctorTable> DoctorList = FXCollections.observableArrayList();
+    private TableView<adoctors> TB_DoctorTable;
+    ObservableList<adoctors> DoctorList = FXCollections.observableArrayList();
     Connection conn;
     ResultSet rs;
     Integer index;
@@ -80,22 +78,29 @@ public class aDocController implements Initializable {
             //get all appointments from database
             rs = conn.createStatement().executeQuery("select * from doctors");
             while (rs.next()) {
-                DoctorList.add(new DoctorTable(rs.getString("UserName"), rs.getString("FullName"), rs.getString("Gender"), rs.getString("Age"), rs.getString("Phone"), rs.getString("Degree"), rs.getString("Department")));
+                DoctorList.add(new adoctors(rs.getString("UserName"), rs.getString("FullName"), rs.getString("Gender"), rs.getString("Age"), rs.getString("Phone"), rs.getString("Degree"), rs.getString("Department"),rs.getBlob("image")));
             }
-            //add to table
-            TC_name.setCellValueFactory(new PropertyValueFactory<>("FullName"));
-            TC_UserName.setCellValueFactory(new PropertyValueFactory<>("UserName"));
-            //TC_password.setCellValueFactory(new PropertyValueFactory<>("pass"));
-            TC_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-            TC_age.setCellValueFactory(new PropertyValueFactory<>("age"));
-            TC_phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
-            TC_degree.setCellValueFactory(new PropertyValueFactory<>("degree"));
-            TC_department.setCellValueFactory(new PropertyValueFactory<>("department"));
+                //add to table
+                TC_name.setCellValueFactory(new PropertyValueFactory<>("FullName"));
+                TC_UserName.setCellValueFactory(new PropertyValueFactory<>("UserName"));
+                TC_gender.setCellValueFactory(new PropertyValueFactory<>("gender"));
+                TC_age.setCellValueFactory(new PropertyValueFactory<>("age"));
+                TC_phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+                TC_degree.setCellValueFactory(new PropertyValueFactory<>("degree"));
+                TC_department.setCellValueFactory(new PropertyValueFactory<>("department"));
 
+
+            TC_UserName.setStyle("-fx-alignment: CENTER;");
+            TC_department.setStyle("-fx-alignment: CENTER;");
+            TC_degree.setStyle("-fx-alignment: CENTER;");
+            TC_gender.setStyle("-fx-alignment: CENTER;");
+            TC_phone.setStyle("-fx-alignment: CENTER;");
+            TC_age.setStyle("-fx-alignment: CENTER;");
+            TC_name.setStyle("-fx-alignment: CENTER;");
             //refresh table
-            DoctorTable.refresh();
+
             //new use in pAppointmenttable
-            DoctorTable.setItems(DoctorList);
+            TB_DoctorTable.setItems(DoctorList);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
@@ -109,9 +114,10 @@ public class aDocController implements Initializable {
         BTN_AddDoc.setCursor(Cursor.HAND);
         BTN_AddDoc.setBackground(Background.fill(Color.WHITE));
     }
+
     @FXML
     void getItem(MouseEvent event) throws IOException {
-        index = DoctorTable.getSelectionModel().getSelectedIndex();
+        index = TB_DoctorTable.getSelectionModel().getSelectedIndex();
         if (index <= -1) {
             return;
         }
@@ -123,18 +129,19 @@ public class aDocController implements Initializable {
         String Degree = TC_degree.getCellData(index).toString();
         String Department = TC_department.getCellData(index).toString();
 
-        gotoDoctorDialog(Name, UserName,Gender,Age, Mobile,  Degree,Department);
+        gotoDoctorDialog(Name, UserName, Gender, Age, Mobile, Degree, Department);
 
 
     }
-    void gotoDoctorDialog(String Name,  String UserName, String Gender,String Age, String Mobile,   String Degree, String Department) throws IOException {
+
+    void gotoDoctorDialog(String Name, String UserName, String Gender, String Age, String Mobile, String Degree, String Department) throws IOException {
         //passing to dialog box
         Stage adialogStage = new Stage();
         adialogStage.setResizable(false);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("aDocDialog.fxml"));
         Parent root = loader.load();
         aDocDialogController controller = loader.getController();
-        controller.showDialog(adialogStage, Name,UserName,Gender, Age, Mobile,Degree,Department);
+        controller.showDialog(adialogStage, Name, UserName, Gender, Age, Mobile, Degree, Department);
         Scene scene = new Scene(root);
         adialogStage.setScene(scene);
         adialogStage.show();

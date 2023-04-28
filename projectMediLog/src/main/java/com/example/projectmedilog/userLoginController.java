@@ -97,10 +97,11 @@ public class userLoginController {
             //login code for user
             if (userType.equals("User")) {
                 if (!TF_UserName.getText().isEmpty() && !TF_password.getText().isEmpty()) {
-                    ResultSet resultSet = statement.executeQuery("select * from signup");
+                    ResultSet resultSet = statement.executeQuery("select * from users");
                     while (resultSet.next()) {
                         if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
                             new user(resultSet.getString("FullName"), resultSet.getString("UserName"), resultSet.getString("Gender"), resultSet.getString("Age"), resultSet.getString("Phone"), resultSet.getString("Email"), resultSet.getString("Address"), resultSet.getString("Blood_Group"), resultSet.getBlob("Image"));
+                           new usertype(resultSet.getString("UserName"), userType);
                             String FullName = resultSet.getString("FullName");
                             changeScene(event, "pHome.fxml", FullName, UserName);
                             gotoSuccessDialog("Login Successfull");
@@ -119,6 +120,8 @@ public class userLoginController {
                     ResultSet resultSet = statement.executeQuery("select * from doctors");
                     while (resultSet.next()) {
                         if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
+                            new DoctorTable(resultSet.getString("FullName"), resultSet.getString("UserName"),resultSet.getString("Gender"),resultSet.getString("Age"),resultSet.getString("Phone"),resultSet.getString("Degree"),resultSet.getString("Department"),resultSet.getBlob("Image"));
+                            new usertype(resultSet.getString("UserName"), userType);
                             //String FullName = resultSet.getString("FullName");
                             changeScenedHome(event, "dHome.fxml", UserName);
                             gotoSuccessDialog("Login Successfull");
@@ -137,6 +140,9 @@ public class userLoginController {
                     ResultSet resultSet = statement.executeQuery("select * from admins");
                     while (resultSet.next()) {
                         if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
+                          new usertype(resultSet.getString("UserName"), userType);
+                            new admin (resultSet.getString("UserName"),resultSet.getBlob("Image"));
+
                             changeSceneaHome(event, "aHome.fxml", UserName);
                             gotoSuccessDialog("Login Successfull");
                             count++;
@@ -191,23 +197,23 @@ public class userLoginController {
     }
 
     //login to dHome
-    void changeScenedHome(ActionEvent event, String fxml, String Email) throws IOException {
+    void changeScenedHome(ActionEvent event, String fxml, String UserName) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         Parent root = loader.load();
 
         dHomeController dhomecontroller = loader.getController();
-        dhomecontroller.userEmail.setText(Email);
+        dhomecontroller.LB_UserName.setText(UserName);
         Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
         secondStage.setScene(new Scene(root));
     }
 
     // change scene to aHome
-    void changeSceneaHome(ActionEvent event, String fxml, String Email) throws IOException {
+    void changeSceneaHome(ActionEvent event, String fxml, String UserName) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
         Parent root = loader.load();
 
         aHomeController ahomecontroller = loader.getController();
-        ahomecontroller.userEmail.setText(Email);
+        ahomecontroller.LB_UserName.setText( UserName);
         Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
         secondStage.setScene(new Scene(root));
     }

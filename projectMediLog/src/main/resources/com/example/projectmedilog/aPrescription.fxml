@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.aPrescriptionController">
     <children>
-        <Text fill="#0598ff" layoutX="17.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescriptions">
+        <Text fill="#0598ff" layoutX="428.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescriptions">
             <font>
                 <Font size="26.0" />
             </font>
@@ -19,7 +19,7 @@
                 <TableView fx:id="Table_user" layoutX="32.0" layoutY="49.0" onMouseClicked="#getItem" prefHeight="524.0" prefWidth="917.0" stylesheets="@../../../Style/table.css">
                     <columns>
                         <TableColumn fx:id="nameTablecolumn" prefWidth="112.80001449584961" text="Name" />
-                  <TableColumn fx:id="emailTablecolumn" prefWidth="177.59999084472656" text="Email" />
+                  <TableColumn fx:id="emailTablecolumn" prefWidth="177.59999084472656" text="User Name" />
                         <TableColumn fx:id="createdTablecolumn" prefWidth="121.5999755859375" text="Created By" />
                         <TableColumn fx:id="dateTablecolumn" prefWidth="104.79998779296875" text="Date" />
                         <TableColumn fx:id="diseaseTablecolumn" prefWidth="155.20001220703125" text="Diseases" />
@@ -29,11 +29,15 @@
                 </TableView>
             </children>
         </AnchorPane>
-      <Button fx:id="BTN_Add" layoutX="857.0" layoutY="98.0" mnemonicParsing="false" onAction="#onClickedBTN_Add" text="Add" />
-      <Text layoutX="711.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For  Inserting Data Click">
+      <Button fx:id="BTN_Add" layoutX="824.0" layoutY="86.0" mnemonicParsing="false" onAction="#onClickedBTN_Add" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #0080ff;" text="Add" textFill="WHITE">
          <font>
-            <Font size="13.0" />
+            <Font size="18.0" />
+         </font></Button>
+      <Text layoutX="606.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For  Inserting Data Click" wrappingWidth="210.14825439453125">
+         <font>
+            <Font size="18.0" />
          </font>
       </Text>
+      <Button fx:id="BTN_Refresh" layoutX="927.0" layoutY="98.0" mnemonicParsing="false" onAction="#onCLickedBTN_Refresh" style="-fx-background-color: #0080ff;" text="Refresh" textFill="WHITE" />
     </children>
 </AnchorPane>

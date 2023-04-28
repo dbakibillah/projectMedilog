@@ -8,23 +8,65 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.aDocDialogController">
    <children>
-      <Text layoutX="69.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :">
+      <Text layoutX="69.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name :">
          <font>
-            <Font size="13.0" />
+            <Font size="24.0" />
          </font></Text>
-      <Text layoutX="69.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age :" />
-      <Text layoutX="69.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mobile :" />
-      <Label fx:id="Label_Name" layoutX="144.0" layoutY="58.0" text="Label" />
-      <Label fx:id="Label_Age" layoutX="144.0" layoutY="218.0" text="Label" />
-      <Label fx:id="Label_Mobile" layoutX="144.0" layoutY="269.0" text="Label" />
-      <Button fx:id="BTN_Close" layoutX="552.0" layoutY="409.0" mnemonicParsing="false" onMouseClicked="#onMouseCLickedBTN_Close" onMouseEntered="#onMouseEnteredBTN_Close" prefHeight="38.0" prefWidth="77.0" style="-fx-background-color: #0080FF;" text="Close" textFill="WHITE" />
-      <Text layoutX="69.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name :" />
-      <Label fx:id="Label_UserName" layoutX="144.0" layoutY="115.0" text="Label" />
-      <Text layoutX="69.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender :" />
-      <Label fx:id="Label_Gender" layoutX="144.0" layoutY="162.0" text="Label" />
-      <Text layoutX="69.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Degree :" />
-      <Label fx:id="Label_Degree" layoutX="144.0" layoutY="322.0" text="Label" />
-      <Text layoutX="69.0" layoutY="381.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department :" />
-      <Label fx:id="Label_Department" layoutX="144.0" layoutY="370.0" text="Label" />
+      <Text layoutX="69.0" layoutY="238.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age :">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <Text layoutX="69.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mobile :">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <Label fx:id="Label_Name" layoutX="250.0" layoutY="52.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label fx:id="Label_Age" layoutX="250.0" layoutY="213.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label fx:id="Label_Mobile" layoutX="250.0" layoutY="271.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Button fx:id="BTN_Close" layoutX="511.0" layoutY="410.0" mnemonicParsing="false" onMouseClicked="#onMouseCLickedBTN_Close" onMouseEntered="#onMouseEnteredBTN_Close" prefHeight="51.0" prefWidth="121.0" style="-fx-background-color: #0080FF;" text="Close" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font></Button>
+      <Text layoutX="69.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name :">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <Label fx:id="Label_UserName" layoutX="250.0" layoutY="105.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Text layoutX="69.0" layoutY="183.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender :">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <Label fx:id="Label_Gender" layoutX="250.0" layoutY="157.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Text layoutX="69.0" layoutY="354.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Degree :">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <Label fx:id="Label_Degree" layoutX="250.0" layoutY="329.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Text layoutX="69.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Department :">
+         <font>
+            <Font size="24.0" />
+         </font></Text>
+      <Label fx:id="Label_Department" layoutX="249.0" layoutY="391.0" text="Label">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
    </children>
 </AnchorPane>

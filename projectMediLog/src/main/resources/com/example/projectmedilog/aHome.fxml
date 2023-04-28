@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="mainAnchorPane" prefHeight="800.0" prefWidth="1300.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.aHomeController">
    <children>
-      <Pane fx:id="homePane" prefHeight="800.0" prefWidth="250.0">
+      <Pane fx:id="homePane" prefHeight="800.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
          <children>
             <VBox layoutX="1.0" layoutY="267.0" prefHeight="534.0" prefWidth="249.0" stylesheets="@../../../Style/Home.css">
                <children>
@@ -77,7 +77,7 @@
                         <Insets bottom="5.0" top="5.0" />
                      </VBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Chat">
+                  <Button fx:id="BTN_chat" mnemonicParsing="false" onAction="#onClickChat" prefHeight="40.0" prefWidth="250.0" styleClass="menu-btn" text="  Chat">
                      <VBox.margin>
                         <Insets bottom="5.0" top="5.0" />
                      </VBox.margin>
@@ -120,12 +120,12 @@
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="237.0" prefWidth="250.0" style="-fx-background-color: #FFFFFF;">
                <children>
-                  <Circle fill="DODGERBLUE" radius="79.0" stroke="BLACK" strokeType="INSIDE">
+                  <Circle fx:id="ImageCIrcle" fill="DODGERBLUE" radius="79.0" stroke="BLACK" strokeType="INSIDE">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>
                   </Circle>
-                  <Label fx:id="userEmail" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="250.0" text="UserEmail">
+                  <Label fx:id="LB_UserName" alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="250.0" text="User Name">
                      <VBox.margin>
                         <Insets top="20.0" />
                      </VBox.margin>
