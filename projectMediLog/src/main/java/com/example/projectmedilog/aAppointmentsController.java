@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -52,6 +53,8 @@ public class aAppointmentsController implements Initializable {
 
     @FXML
     private TableView<AppointmentTable> aAppointmentTable;
+    @FXML
+    private ImageView BTN_Refresh;
 
     @FXML
     static AnchorPane Appointment_AnchorPane;
@@ -111,7 +114,7 @@ public class aAppointmentsController implements Initializable {
     }
 
     @FXML
-    void onCLickedBTN_Refresh(ActionEvent event) {
+    void onCLickedBTN_Refresh(MouseEvent event) {
         //refresh table
         aAppointmentTable.refresh();
         //clear table
@@ -160,13 +163,18 @@ public class aAppointmentsController implements Initializable {
 
     @FXML
     void onMouseExitedBTN_NewAppointment(MouseEvent event) {
-
+        BTN_NewAppointment.setCursor(Cursor.DEFAULT);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resource) {
         setAppointmentTableData();
 //        aAppointmentTable.setItems(aAppointmentList);
+    }
+
+    @FXML
+    void onMouseEnteredBTN_Refresh(MouseEvent event) {
+        BTN_Refresh.setCursor(Cursor.HAND);
     }
 
 

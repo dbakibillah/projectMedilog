@@ -6,12 +6,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -25,6 +27,12 @@ import java.util.ResourceBundle;
 
 
 public class aPrescriptionController implements Initializable {
+    @FXML
+    private Button BTN_Add;
+
+    @FXML
+    private ImageView BTN_Refresh;
+
 
     @FXML
     private TableView<users> Table_user;
@@ -87,7 +95,7 @@ public class aPrescriptionController implements Initializable {
 
     }
     @FXML
-    void onCLickedBTN_Refresh(ActionEvent event) {
+    void onCLickedBTN_Refresh(MouseEvent event) {
         //refresh table
        Table_user.refresh();
         //clear table
@@ -161,6 +169,15 @@ public class aPrescriptionController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         setPrescriptionTableData();
+    }
+    @FXML
+    void onMouseEnteredBTN_Add(MouseEvent event) {
+        BTN_Add.setCursor(Cursor.HAND);
+    }
+
+    @FXML
+    void onMouseEnteredBTN_Refresh(MouseEvent event) {
+        BTN_Refresh.setCursor(Cursor.HAND);
     }
 
 

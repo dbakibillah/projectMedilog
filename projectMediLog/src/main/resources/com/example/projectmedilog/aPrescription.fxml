@@ -3,20 +3,22 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.aPrescriptionController">
     <children>
-        <Text fill="#0598ff" layoutX="428.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescriptions">
+        <Text fill="#0598ff" layoutX="412.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescriptions">
             <font>
-                <Font size="26.0" />
+                <Font size="40.0" />
             </font>
         </Text>
-        <AnchorPane layoutX="21.0" layoutY="136.0" prefHeight="607.0" prefWidth="985.0" style="-fx-border-width: 2; -fx-border-color: #334db3;">
+        <AnchorPane layoutX="33.0" layoutY="171.0" prefHeight="607.0" prefWidth="985.0" style="-fx-border-width: 2; -fx-border-color: #334db3;">
             <children>
-                <TableView fx:id="Table_user" layoutX="32.0" layoutY="49.0" onMouseClicked="#getItem" prefHeight="524.0" prefWidth="917.0" stylesheets="@../../../Style/table.css">
+                <TableView fx:id="Table_user" layoutX="9.0" layoutY="13.0" onMouseClicked="#getItem" prefHeight="588.0" prefWidth="965.0" stylesheets="@../../../Style/table.css">
                     <columns>
                         <TableColumn fx:id="nameTablecolumn" prefWidth="112.80001449584961" text="Name" />
                   <TableColumn fx:id="emailTablecolumn" prefWidth="177.59999084472656" text="User Name" />
@@ -29,15 +31,19 @@
                 </TableView>
             </children>
         </AnchorPane>
-      <Button fx:id="BTN_Add" layoutX="824.0" layoutY="86.0" mnemonicParsing="false" onAction="#onClickedBTN_Add" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #0080ff;" text="Add" textFill="WHITE">
+      <Button fx:id="BTN_Add" layoutX="816.0" layoutY="99.0" mnemonicParsing="false" onAction="#onClickedBTN_Add" onMouseEntered="#onMouseEnteredBTN_Add" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #0080ff; -fx-background-radius: 50;" text="Add" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Text layoutX="606.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For  Inserting Data Click" wrappingWidth="210.14825439453125">
+      <Text layoutX="606.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="For  Inserting Data Click" wrappingWidth="210.14825439453125">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Button fx:id="BTN_Refresh" layoutX="927.0" layoutY="98.0" mnemonicParsing="false" onAction="#onCLickedBTN_Refresh" style="-fx-background-color: #0080ff;" text="Refresh" textFill="WHITE" />
+      <ImageView fx:id="BTN_Refresh" fitHeight="50.0" fitWidth="50.0" layoutX="924.0" layoutY="94.0" onMouseClicked="#onCLickedBTN_Refresh" onMouseEntered="#onMouseEnteredBTN_Refresh" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/refresh.png" />
+         </image>
+      </ImageView>
     </children>
 </AnchorPane>

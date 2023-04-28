@@ -59,7 +59,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <RadioButton fx:id="RB_male" layoutX="248.0" layoutY="463.0" mnemonicParsing="false" onAction="#selectGender" text="Male">
+      <RadioButton fx:id="RB_male" layoutX="248.0" layoutY="463.0" mnemonicParsing="false" onAction="#selectGender" stylesheets="@../../../Style/radio.css" text="Male">
          <font>
             <Font size="18.0" />
          </font>
@@ -67,12 +67,12 @@
             <ToggleGroup fx:id="gender" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="RB_female" layoutX="358.0" layoutY="463.0" mnemonicParsing="false" onAction="#selectGender" text="Female" toggleGroup="$gender">
+      <RadioButton fx:id="RB_female" layoutX="358.0" layoutY="463.0" mnemonicParsing="false" onAction="#selectGender" stylesheets="@../../../Style/radio.css" text="Female" toggleGroup="$gender">
          <font>
             <Font size="18.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="RB_others" layoutX="479.0" layoutY="463.0" mnemonicParsing="false" onAction="#selectGender" text="Others" toggleGroup="$gender">
+      <RadioButton fx:id="RB_others" layoutX="479.0" layoutY="463.0" mnemonicParsing="false" onAction="#selectGender" stylesheets="@../../../Style/radio.css" text="Others" toggleGroup="$gender">
          <font>
             <Font size="18.0" />
          </font>

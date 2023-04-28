@@ -36,11 +36,6 @@
                   <Font size="18.0" />
                </font>
             </PasswordField>
-            <Hyperlink layoutX="252.0" layoutY="701.0" text="Forgot Your Password?">
-               <font>
-                  <Font name="Arial" size="15.0" />
-               </font>
-            </Hyperlink>
             <Text fill="#0598ff" layoutX="170.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" wrappingWidth="93.0">
                <font>
                   <Font size="36.0" />

@@ -17,10 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.paint.Color;
-import javafx.scene.text.TextAlignment;
-
 
 import java.net.URL;
 import java.sql.*;
@@ -308,8 +305,6 @@ public class chatController implements Initializable {
         data.add(new ChatMessage(from, usertype.getUserName(), message, false));
 
         try{
-
-
             Platform.runLater(() -> {
                 //alert message
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
