@@ -110,7 +110,7 @@ public class dDashboardController {
     void showdPat() throws SQLException, ClassNotFoundException {
         Connection connection = database.dbconnect();
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("select * from signup");
+        ResultSet resultSet = statement.executeQuery("select * from users");
         int PatCount = 0;
 
         while (resultSet.next()) {
