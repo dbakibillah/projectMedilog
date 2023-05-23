@@ -32,9 +32,9 @@
          <font>
             <Font size="24.0" />
          </font></Label>
-      <Button fx:id="BTN_Close" layoutX="511.0" layoutY="410.0" mnemonicParsing="false" onMouseClicked="#onMouseCLickedBTN_Close" onMouseEntered="#onMouseEnteredBTN_Close" prefHeight="51.0" prefWidth="121.0" style="-fx-background-color: #0080FF;" text="Close" textFill="WHITE">
+      <Button fx:id="BTN_Close" layoutX="541.0" layoutY="414.0" mnemonicParsing="false" onMouseClicked="#onMouseCLickedBTN_Close" onMouseEntered="#onMouseEnteredBTN_Close" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #0080FF; -fx-background-radius: 50;" text="Close" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font></Button>
       <Text layoutX="69.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Name :">
          <font>

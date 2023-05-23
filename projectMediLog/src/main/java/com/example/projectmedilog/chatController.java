@@ -104,7 +104,7 @@ public class chatController implements Initializable {
             }
 
 
-            try{
+            try {
 //
                 Thread writeThread = new Thread(new WriteThreadClient(networkInformation, clientName, receiver, messageContent));
                 writeThread.start();
@@ -113,7 +113,7 @@ public class chatController implements Initializable {
             }
         }
     }
-  // search from database
+    // search from database
 
     static class ChatMessage {
         private String sender;
@@ -147,6 +147,7 @@ public class chatController implements Initializable {
 
 
     }
+
     @FXML
     void onClickedLV_users(MouseEvent event) {
         String username = LV_users.getSelectionModel().getSelectedItem();
@@ -209,8 +210,10 @@ public class chatController implements Initializable {
         LV_chat.setItems(data);
 
     }
+
     NetworkInformation networkInformation;
     String clientName = usertype.getUserName();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
@@ -238,11 +241,11 @@ public class chatController implements Initializable {
                 String sql = "";
                 //check user type
                 System.out.println(usertype.getType());
-                if(usertype.getType() == "Doctor"){
+                if (usertype.getType() == "Doctor") {
                     sql = "SELECT * FROM users WHERE username LIKE ?";
-                } else if (usertype.getType() == "User"){
+                } else if (usertype.getType() == "User") {
                     sql = "SELECT * FROM doctors WHERE username LIKE ?";
-                } else  {
+                } else {
                     sql = "SELECT * FROM users WHERE username LIKE ?";
                 }
 
@@ -264,18 +267,18 @@ public class chatController implements Initializable {
         });
 
 
-    //load all patient in listview
+        //load all patient in listview
         ObservableList<String> data;
         String username = null;
         try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectmedilog", "root", "")) {
             String sql = "";
             //check user type
             System.out.println(usertype.getType());
-            if(usertype.getType() == "Doctor"){
+            if (usertype.getType() == "Doctor") {
                 sql = "SELECT * FROM users";
-            } else if (usertype.getType() == "User"){
+            } else if (usertype.getType() == "User") {
                 sql = "SELECT * FROM doctors";
-            } else  {
+            } else {
                 sql = "SELECT * FROM users";
             }
 
@@ -293,7 +296,7 @@ public class chatController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-     //   call Client class
+        //   call Client class
 //    public void callClient() throws IOException {
 //        Client client = new Client();
 //        client.startClient();
@@ -304,7 +307,7 @@ public class chatController implements Initializable {
         data = FXCollections.observableArrayList();
         data.add(new ChatMessage(from, usertype.getUserName(), message, false));
 
-        try{
+        try {
             Platform.runLater(() -> {
                 //alert message
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -313,11 +316,10 @@ public class chatController implements Initializable {
                 alert.setContentText("You have a new message from " + from);
                 alert.showAndWait();
 
-
                 //LV_chat.setItems(data) ;
             });
-        } catch (NullPointerException e){
-            System.out.println("NullPointerException"+ e);
+        } catch (NullPointerException e) {
+            System.out.println("NullPointerException" + e);
         }
 
     }

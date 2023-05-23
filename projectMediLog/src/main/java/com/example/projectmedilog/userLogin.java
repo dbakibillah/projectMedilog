@@ -8,8 +8,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-import static javafx.application.Application.launch;
-
 public class userLogin extends Application {
     static Stage mainstage;
 
@@ -18,7 +16,7 @@ public class userLogin extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("userLogin.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
-        stage.setTitle("Login");
+        stage.setTitle("MediLog");
         stage.setScene(scene);
         stage.show();
     }

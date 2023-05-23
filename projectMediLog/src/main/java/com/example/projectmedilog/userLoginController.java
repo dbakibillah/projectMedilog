@@ -101,7 +101,7 @@ public class userLoginController {
                     while (resultSet.next()) {
                         if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
                             new user(resultSet.getString("FullName"), resultSet.getString("UserName"), resultSet.getString("Gender"), resultSet.getString("Age"), resultSet.getString("Phone"), resultSet.getString("Email"), resultSet.getString("Address"), resultSet.getString("Blood_Group"), resultSet.getBlob("Image"));
-                           new usertype(resultSet.getString("UserName"), userType);
+                            new usertype(resultSet.getString("UserName"), userType);
                             String FullName = resultSet.getString("FullName");
                             changeScene(event, "pHome.fxml", FullName, UserName);
                             gotoSuccessDialog("Login Successfull");
@@ -120,7 +120,7 @@ public class userLoginController {
                     ResultSet resultSet = statement.executeQuery("select * from doctors");
                     while (resultSet.next()) {
                         if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
-                            new DoctorTable(resultSet.getString("FullName"), resultSet.getString("UserName"),resultSet.getString("Gender"),resultSet.getString("Age"),resultSet.getString("Phone"),resultSet.getString("Degree"),resultSet.getString("Department"),resultSet.getBlob("Image"));
+                            new DoctorTable(resultSet.getString("FullName"), resultSet.getString("UserName"), resultSet.getString("Gender"), resultSet.getString("Age"), resultSet.getString("Phone"), resultSet.getString("Degree"), resultSet.getString("Department"), resultSet.getBlob("Image"));
                             new usertype(resultSet.getString("UserName"), userType);
                             //String FullName = resultSet.getString("FullName");
                             changeScenedHome(event, "dHome.fxml", UserName);
@@ -140,8 +140,8 @@ public class userLoginController {
                     ResultSet resultSet = statement.executeQuery("select * from admins");
                     while (resultSet.next()) {
                         if (UserName.equals(resultSet.getString("UserName")) && Password.equals(resultSet.getString("Pass"))) {
-                          new usertype(resultSet.getString("UserName"), userType);
-                            new admin (resultSet.getString("UserName"),resultSet.getBlob("Image"));
+                            new usertype(resultSet.getString("UserName"), userType);
+                            new admin(resultSet.getString("UserName"), resultSet.getBlob("Image"));
 
                             changeSceneaHome(event, "aHome.fxml", UserName);
                             gotoSuccessDialog("Login Successfull");
@@ -213,7 +213,7 @@ public class userLoginController {
         Parent root = loader.load();
 
         aHomeController ahomecontroller = loader.getController();
-        ahomecontroller.LB_UserName.setText( UserName);
+        ahomecontroller.LB_UserName.setText(UserName);
         Stage secondStage = (Stage) (((Node) (event.getSource())).getScene().getWindow());
         secondStage.setScene(new Scene(root));
     }

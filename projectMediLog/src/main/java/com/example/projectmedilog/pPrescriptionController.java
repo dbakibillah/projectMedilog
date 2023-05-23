@@ -47,13 +47,6 @@ public class pPrescriptionController implements Initializable {
     @FXML
     private TableColumn<pTable, String> testTablecolumn;
 
-
-
-
-
-
-
-
     ObservableList<pTable> listI = FXCollections.observableArrayList();
     Connection conn;
     ResultSet rs;
@@ -99,7 +92,7 @@ public class pPrescriptionController implements Initializable {
         try {
             //bringin data from database
             conn = database.dbconnect();
-            rs = conn.createStatement().executeQuery("select * from pprescription");
+            rs = conn.createStatement().executeQuery("select * from pprescription Where UserName = '" + user.getUserName() + "'");
 
             while (rs.next()) {
                 listI.add(new pTable(rs.getString("name"), rs.getString("UserName"), rs.getString("createdby"), rs.getString("date"), rs.getString("disease"), rs.getString("test"), rs.getNString("medicine")));

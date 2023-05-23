@@ -89,16 +89,19 @@ public class signUpController {
                     TF_UserName.clear();
                     TF_UserName.setStyle("-fx-border-color: #ff0000 ; -fx-border-width: 0px 0px 2px 0px; -fx-border-radius: 00; -fx-prompt-text-fill: red;");
                     TF_UserName.setPromptText("UserName Already Taken!");
+                    count++;
                     break;
                 }
                 if (resultSet.getString("Email").equals(Email)) {
                     count++;
                     gotoErrorDialog("Signup.fxml", "Already Signed Up!");
                     break;
-                } else {
-                    createAccount(FullName, UserName, Gender, Age, Phone, Email, Pass);
                 }
             }
+            if (count == 0) {
+                createAccount(FullName, UserName, Gender, Age, Phone, Email, Pass);
+            }
+
         }
     }
 

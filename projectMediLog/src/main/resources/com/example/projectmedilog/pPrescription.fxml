@@ -8,9 +8,9 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projectmedilog.pPrescriptionController">
    <children>
-      <Text fill="#0598ff" layoutX="17.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescriptions">
+      <Text fill="#0080ff" layoutX="17.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prescriptions">
          <font>
-            <Font size="26.0" />
+            <Font size="36.0" />
          </font>
       </Text>
       <AnchorPane layoutX="12.0" layoutY="102.0" prefHeight="666.0" prefWidth="1027.0" style="-fx-border-width: 2; -fx-border-color: #334db3;">

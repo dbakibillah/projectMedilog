@@ -17,9 +17,11 @@ public class usertype {
     public static void setType(String type) {
         usertype.type = type;
     }
+
     public static String getUserName() {
         return username;
     }
+
     public static void setUsername(String username) {
         usertype.username = username;
     }

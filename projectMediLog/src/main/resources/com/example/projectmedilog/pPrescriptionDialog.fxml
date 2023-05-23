@@ -38,7 +38,7 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Button fx:id="BTN_Close" layoutX="563.0" layoutY="436.0" mnemonicParsing="false" onMouseClicked="#onMouseCLickedBTN_Close" onMouseEntered="#onMouseEnteredBTN_Close" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #0080FF;" text="Close" textFill="WHITE">
+      <Button fx:id="BTN_Close" layoutX="559.0" layoutY="430.0" mnemonicParsing="false" onMouseClicked="#onMouseCLickedBTN_Close" onMouseEntered="#onMouseEnteredBTN_Close" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #0080FF; -fx-background-radius: 50;" text="Close" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
