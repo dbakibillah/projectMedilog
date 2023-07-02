@@ -27,7 +27,7 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <TextField fx:id="TF_address" layoutX="77.0" layoutY="585.0" prefHeight="55.0" prefWidth="822.0" promptText="Address" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px;-fx-border-radius: 20;">
+      <TextField fx:id="TF_address" layoutX="77.0" layoutY="585.0" prefHeight="55.0" prefWidth="822.0" promptText="Address" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 50;">
          <font>
             <Font size="20.0" />
          </font>
@@ -37,9 +37,12 @@
             <Font size="17.0" />
          </font>
       </TextField>
-      <Button fx:id="BTN_SaveChange" layoutX="440.0" layoutY="690.0" mnemonicParsing="false" onAction="#onClickBTN_SaveChange" prefHeight="35.0" prefWidth="103.0" style="-fx-background-color: #0080FF;" text="Save Change" textFill="WHITE" />
-      <ChoiceBox fx:id="CB_bloodgrp" layoutX="696.0" layoutY="511.0" prefHeight="46.0" prefWidth="196.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
-      <Label layoutX="548.0" layoutY="511.0" prefHeight="46.0" prefWidth="126.0" style="-fx-background-color: transparent;" text="Blood group">
+      <Button fx:id="BTN_SaveChange" layoutX="418.0" layoutY="692.0" mnemonicParsing="false" onAction="#onClickBTN_SaveChange" prefHeight="35.0" prefWidth="140.0" style="-fx-background-color: #0080FF; -fx-background-radius: 50;" text="Save Change" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <ChoiceBox fx:id="CB_bloodgrp" layoutX="692.0" layoutY="511.0" prefHeight="46.0" prefWidth="196.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-width: 2px 2px 2px 2px;" />
+      <Label layoutX="560.0" layoutY="511.0" prefHeight="46.0" prefWidth="126.0" style="-fx-background-color: transparent;" text="Blood group">
          <font>
             <Font size="18.0" />
          </font>
@@ -50,14 +53,23 @@
          </font>
       </TextField>
       <Circle fx:id="ImageCIrcle" accessibleRole="IMAGE_VIEW" fill="DODGERBLUE" layoutX="157.0" layoutY="163.0" radius="79.0" stroke="BLACK" strokeType="INSIDE" />
-      <Button fx:id="BTN_ChooseFile" layoutX="72.0" layoutY="286.0" mnemonicParsing="false" onAction="#onCLickBTN_ChooseFile" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #0080FF;" text="Choose File" textFill="WHITE" />
+      <Button fx:id="BTN_ChooseFile" layoutX="65.0" layoutY="286.0" mnemonicParsing="false" onAction="#onCLickBTN_ChooseFile" prefHeight="35.0" prefWidth="90.0" style="-fx-background-color: #0080FF; -fx-background-radius: 50;" text="Choose File" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
       <Text fill="#908a8a" layoutX="88.0" layoutY="264.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change/Upload photo">
          <font>
             <Font size="14.0" />
          </font>
       </Text>
-      <Button fx:id="BTN_Upload" layoutX="164.0" layoutY="286.0" mnemonicParsing="false" onAction="#onCLickBTN_Upload" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #0080FF;" text="Upload" textFill="WHITE" />
-      <Button fx:id="BTN_Save" layoutX="817.0" layoutY="277.0" mnemonicParsing="false" onAction="#onClickBTN_Save" prefHeight="30.0" prefWidth="80.0" style="-fx-background-color: #0080FF;" text="Save" textFill="WHITE" />
+      <Button fx:id="BTN_Upload" layoutX="172.0" layoutY="286.0" mnemonicParsing="false" onAction="#onCLickBTN_Upload" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #0080FF; -fx-background-radius: 50;" text="Upload" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <Button fx:id="BTN_Save" layoutX="817.0" layoutY="260.0" mnemonicParsing="false" onAction="#onClickBTN_Save" prefHeight="35.0" prefWidth="80.0" style="-fx-background-color: #0080FF; -fx-background-radius: 50;" text="Save" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
       <PasswordField fx:id="TF_currentpass" layoutX="551.0" layoutY="136.0" prefHeight="41.0" prefWidth="350.0" promptText="Current Password" style="-fx-background-color: transparent; -fx-border-color: #0080FF; -fx-border-width: 2px 2px 2px 2px;-fx-border-radius: 20;">
          <font>
             <Font size="18.0" />

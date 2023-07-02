@@ -77,13 +77,13 @@
             <Font size="18.0" />
          </font>
       </RadioButton>
-      <ChoiceBox fx:id="CB_degree" layoutX="268.0" layoutY="356.0" prefHeight="33.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+      <ChoiceBox fx:id="CB_degree" layoutX="268.0" layoutY="356.0" prefHeight="33.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-width: 2px 2px 2px 2px;" />
       <Button fx:id="BTN_delete" layoutX="474.0" layoutY="534.0" mnemonicParsing="false" onAction="#onClickBTN_delete" onMouseEntered="#onMouseEnteredBTN_Delete" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: #df1717; -fx-background-radius: 20;" text="Delete" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <ChoiceBox fx:id="CB_department" layoutX="270.0" layoutY="404.0" prefHeight="33.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff;" />
+      <ChoiceBox fx:id="CB_department" layoutX="270.0" layoutY="404.0" prefHeight="33.0" prefWidth="160.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-background-radius: 50; -fx-border-radius: 50; -fx-border-width: 2px 2px 2px 2px;" />
       <Text layoutX="137.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-background-color: transparent; -fx-border-color: #0598ff; -fx-border-width: 0px 0px 2px 0px;" text="Age" wrappingWidth="55.423828125" AnchorPane.leftAnchor="137.0" AnchorPane.rightAnchor="507.576171875">
          <font>
             <Font size="18.0" />

@@ -44,24 +44,42 @@
                 <Font size="18.0" />
             </font>
         </Text>
-        <TextField fx:id="TF_Name" layoutX="207.0" layoutY="43.0" prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: #0080ff; -fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 20;" />
-        <TextField fx:id="TF_Createdby" layoutX="207.0" layoutY="144.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-border-color: #0080ff; -fx-border-width: 2px 2px 2px 2px;-fx-border-radius: 20;" />
-        <TextField fx:id="TF_UserName" layoutX="207.0" layoutY="94.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #0080ff;-fx-border-radius: 20;" />
-        <Button fx:id="BTN_Add" layoutX="380.0" layoutY="426.0" mnemonicParsing="false" onAction="#onClickBTN_Add" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #0080FF; -fx-background-radius: 20;" text="Add" textFill="WHITE">
+        <TextField fx:id="TF_Name" layoutX="207.0" layoutY="43.0" prefHeight="30.0" prefWidth="250.0" style="-fx-border-color: #0080ff; -fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 20;">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+        <TextField fx:id="TF_Createdby" layoutX="207.0" layoutY="144.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-border-color: #0080ff; -fx-border-width: 2px 2px 2px 2px;-fx-border-radius: 20;">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+        <TextField fx:id="TF_UserName" layoutX="207.0" layoutY="94.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-color: #0080ff;-fx-border-radius: 20;">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+        <Button fx:id="BTN_Add" layoutX="380.0" layoutY="426.0" mnemonicParsing="false" onAction="#onClickBTN_Add" prefHeight="35.0" prefWidth="90.0" style="-fx-background-color: #0080FF; -fx-background-radius: 20;" text="Add" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Button>
-        <Button fx:id="BTN_Clear" layoutX="593.0" layoutY="426.0" mnemonicParsing="false" onAction="#onClickBTN_Clear" prefHeight="40.0" prefWidth="90.0" style="-fx-background-color: #0080FF; -fx-background-radius: 20;" text="Clear" textFill="WHITE">
+        <Button fx:id="BTN_Clear" layoutX="593.0" layoutY="426.0" mnemonicParsing="false" onAction="#onClickBTN_Clear" prefHeight="35.0" prefWidth="90.0" style="-fx-background-color: #0080FF; -fx-background-radius: 20;" text="Clear" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Button>
-        <Button fx:id="BTN_Delete" layoutX="488.0" layoutY="426.0" mnemonicParsing="false" onAction="#onClickBTN_Delete" prefHeight="40.0" prefWidth="90.0" style="-fx-background-radius: 20; -fx-background-color: #df1717;" text="Delete" textFill="WHITE">
+        <Button fx:id="BTN_Delete" layoutX="488.0" layoutY="426.0" mnemonicParsing="false" onAction="#onClickBTN_Delete" prefHeight="35.0" prefWidth="90.0" style="-fx-background-radius: 20; -fx-background-color: #df1717;" text="Delete" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <TextField fx:id="TF_Disease" layoutX="207.0" layoutY="251.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-border-color: #0080ff; -fx-border-width: 2px 2px 2px 2px;-fx-border-radius: 20;" />
-      <TextField fx:id="TF_Medicine" layoutX="206.0" layoutY="363.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-border-color: #0080ff; -fx-border-width: 2px 2px 2px 2px;-fx-border-radius: 20;" />
-      <TextField fx:id="TF_Test" layoutX="207.0" layoutY="306.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-border-color: #0080ff; -fx-border-width: 2px 2px 2px 2px;-fx-border-radius: 20;" />
+      <TextField fx:id="TF_Disease" layoutX="207.0" layoutY="251.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-border-color: #0080ff; -fx-border-width: 2px 2px 2px 2px;-fx-border-radius: 20;">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <TextField fx:id="TF_Medicine" layoutX="206.0" layoutY="363.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-border-color: #0080ff; -fx-border-width: 2px 2px 2px 2px;-fx-border-radius: 20;">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <TextField fx:id="TF_Test" layoutX="207.0" layoutY="306.0" prefHeight="30.0" prefWidth="250.0" style="-fx-background-color: transparent; -fx-border-color: #0080ff; -fx-border-width: 2px 2px 2px 2px;-fx-border-radius: 20;">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
       <DatePicker fx:id="TF_Date" layoutX="207.0" layoutY="205.0" prefHeight="28.0" prefWidth="153.0" style="-fx-background-color: transparent; -fx-border-width: 2px 2px 2px 2px;" stylesheets="@../../../Style/date.css" />
     </children>
 </AnchorPane>

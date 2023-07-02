@@ -106,7 +106,7 @@
                   <Insets bottom="10.0" />
                </opaqueInsets>
             </VBox>
-            <VBox alignment="TOP_CENTER" prefHeight="237.0" prefWidth="250.0">
+            <VBox alignment="TOP_CENTER" prefHeight="237.0" prefWidth="250.0" style="-fx-background-color: #ffffff;">
                <children>
                   <Circle fx:id="ImageCIrcle" accessibleRole="IMAGE_VIEW" fill="DODGERBLUE" radius="79.0" stroke="BLACK" strokeType="INSIDE">
                      <VBox.margin>

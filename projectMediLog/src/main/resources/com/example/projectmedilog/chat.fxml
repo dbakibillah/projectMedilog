@@ -26,7 +26,7 @@
                   <Font size="14.0" />
                </font>
             </TextField>
-            <ListView fx:id="LV_users" layoutX="6.0" layoutY="124.0" onMouseClicked="#onClickedLV_users" prefHeight="676.0" prefWidth="228.0" stylesheets="@../../../Style/listview.css" />
+            <ListView fx:id="LV_users" layoutX="6.0" layoutY="124.0" onMouseClicked="#onClickedLV_users" prefHeight="676.0" prefWidth="228.0" style="-fx-background-color: #FFFFFF;" stylesheets="@../../../Style/listview.css" />
             <Button fx:id="BTN_Search" layoutX="187.0" layoutY="72.0" mnemonicParsing="false" onAction="#onClickedBTN_Search" prefWidth="65.0" style="-fx-background-color: #0080FF; -fx-background-radius: 20;" text="Search" textFill="WHITE">
                <font>
                   <Font size="14.0" />
@@ -38,7 +38,7 @@
          <children>
             <ScrollPane layoutX="14.0" layoutY="79.0" prefHeight="642.0" prefWidth="777.0" style="-fx-background-color: transparent;" stylesheets="@../../../Style/scrollbar.css" vbarPolicy="NEVER">
                <content>
-                  <ListView fx:id="LV_chat" prefHeight="645.0" prefWidth="757.0" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-background-radius: 20;" stylesheets="@../../../Style/listview.css" />
+                  <ListView fx:id="LV_chat" prefHeight="645.0" prefWidth="757.0" style="-fx-background-color: #FFFFFF; -fx-border-color: transparent; -fx-background-radius: 20;" stylesheets="@../../../Style/listview.css" />
                </content>
             </ScrollPane>
             <TextField fx:id="TF_MessageField" layoutX="36.0" layoutY="721.0" prefHeight="56.0" prefWidth="658.0" promptText="Write Message" style="-fx-background-radius: 100; -fx-border-color: #0080FF; -fx-background-color: Transparent; -fx-border-width: 2px 2px 2px 2px; -fx-border-radius: 100;">

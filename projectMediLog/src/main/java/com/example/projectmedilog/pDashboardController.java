@@ -163,7 +163,7 @@ public class pDashboardController implements Initializable {
 
         //Customize the colors and width of the lines:
         series.getNode().setStyle("-fx-stroke: #0080FF; -fx-stroke-width: 3px;");
-        series2.getNode().setStyle("-fx-stroke: green; -fx-stroke-width: 2px;-fx-stroke-dash-array: 5 5;");
+        series2.getNode().setStyle("-fx-stroke: green; -fx-stroke-width: 2px; -fx-stroke-dash-array: 5 5;");
 
         //Customize the label font and size:
         xAxis.setTickLabelFont(Font.font("Arial", FontWeight.BOLD, 14));
